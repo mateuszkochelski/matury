@@ -1,0 +1,29 @@
+name: Main build & Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Login to docker hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
+      - name: Build docker image
+        run: docker build -t unsignedgodeveloper/matury-backend ./backend
+      - name: Push image to docker hub
+        run: docker push unsignedgodeveloper/matury-backend
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull docker image
+        run: docker pull unsignedgodeveloper/matury-backend:latest
+      - name: Delete old container
+        run: docker rm -f matury-backend
+      - name: Run docker container
+        run: docker run -d -p 8080:8080 --name matury-backend unsignedgodeveloper/matury-backend
