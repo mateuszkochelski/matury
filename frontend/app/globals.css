@@ -1,13 +1,22 @@
 @import 'tailwindcss';
 
 @theme {
+  /* colors */
+  --primary: #C6E7FF
+  --secondary: #D4F6FF
+  --tertiary: #FFDDAE
+
+  --white: #FBFBFB
+  --black: #0A122A
+  --blue: #235789
+
   /* breakpoints */
   --breakpoint-*: initial;
   --breakpoint-sm: 600px;
   --breakpoint-md: 1024px;
   --breakpoint-lg: 1440px;
 
-  /* text/typography */
+  /* typography */
   --text-h1: 1.5rem;
   --text-h1--line-height: 2rem;
   --text-h2: 1.25rem;
@@ -30,31 +39,10 @@
   --font-weight-h1: 500;
   --font-weight-h2: 500;
   --font-weight-h3: 500;
-
-  /* colors */
-  --primary: #C6E7FF
-  --secondary: #D4F6FF
-  --tertiary: #FFDDAE
-
-  --white: #FBFBFB
-  --black: #0A122A
-  --blue: #235789
 }
 
 @layer base {
-  /* aliases */
-  .text-primary {
-    @apply text-base;
-  }
-
-  .text-secondary {
-    @apply text-sm;
-  }
-
-  .text-tertiary {
-    @apply text-xs;
-  }
-
+  /* typography */
   h1 {
     @apply text-h1 font-h1;
   }
