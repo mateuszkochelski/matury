@@ -1,0 +1,9 @@
+*.css
+*.scss
+*.md
+package-lock.json
+yarn.lock
+bun.lock
+*.html
+*.yml
+*.yaml

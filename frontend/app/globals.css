@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+@theme {
+  /* colors */
+  --primary: #C6E7FF
+  --secondary: #D4F6FF
+  --tertiary: #FFDDAE
+
+  --white: #FBFBFB
+  --black: #0A122A
+  --blue: #235789
+
+  /* breakpoints */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1440px;
+
+  /* typography */
+  --text-h1: 1.5rem;
+  --text-h1--line-height: 2rem;
+  --text-h2: 1.25rem;
+  --text-h2--line-height: 1.625rem;
+  --text-h3: 1rem;
+  --text-h3--line-height: 1.375rem;
+  --text-h1-md: 1.625rem;
+  --text-h1-md--line-height: 2.125rem;
+  --text-h2-md: 1.375rem;
+  --text-h2-md--line-height: 1.75rem;
+  --text-h3-md: 1.125rem;
+  --text-h3-md--line-height: 1.5rem;
+  --text-h1-lg: 1.75rem;
+  --text-h1-lg--line-height: 2.25rem;
+  --text-h2-lg: 1.5rem;
+  --text-h2-lg--line-height: 2rem;
+  --text-h3-lg: 1.25rem;
+  --text-h3-lg--line-height: 1.75rem;
+
+  --font-weight-h1: 500;
+  --font-weight-h2: 500;
+  --font-weight-h3: 500;
+}
+
+@layer base {
+  /* typography */
+  h1 {
+    @apply text-h1 font-h1;
+  }
+
+  h2 {
+    @apply text-h2 font-h2;
+  }
+
+  h3 {
+    @apply text-h3 font-h3;
+  }
+
+  @media (width >= theme(--breakpoint-md)) {
+    h1 {
+      @apply text-h1-md;
+    }
+
+    h2 {
+      @apply text-h2-md;
+    }
+
+    h3 {
+      @apply text-h3-md;
+    }
+  }
+
+  @media (width >= theme(--breakpoint-lg)) {
+    h1 {
+      @apply text-h1-lg;
+    }
+
+    h2 {
+      @apply text-h2-lg;
+    }
+
+    h3 {
+      @apply text-h3-lg;
+    }
+  }
+}
