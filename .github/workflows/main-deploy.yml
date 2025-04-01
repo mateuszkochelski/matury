@@ -75,9 +75,8 @@ jobs:
                 - "443:443"
               depends_on:
                 - backend
+
       - name: Stop and remove old containers
-        run: docker-compose -f docker-compose.yml down
-      - name: Pull docker images
-        run: docker-compose -f docker-compose.yml pull
+        run: sudo docker-compose -f docker-compose.yml down
       - name: Start containers
-        run: docker-compose -f docker-compose.yml up -d
+        run: sudo docker-compose -f docker-compose.yml up -d
