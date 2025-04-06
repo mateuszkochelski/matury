@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 
 type Props = {
   firstText: string;
-  firstVariant: ButtonVariants;
+  firstVariant?: ButtonVariants;
   secondText: string;
-  secondVariant: ButtonVariants;
+  secondVariant?: ButtonVariants;
 };
 
 function SplitButton({ firstText, firstVariant, secondText, secondVariant }: Props) {

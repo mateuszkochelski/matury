@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button/button";
 import { FloatingLabelInput } from "@/components/ui/floating-label-input";
 import { Input } from "@/components/ui/input";
+import { SplitButton } from "@/components/ui/split-button";
 
 export default function Home() {
   return (
@@ -35,6 +36,11 @@ export default function Home() {
         <Button variant="secondary">Button secondary</Button>
         <Button variant="ghost">Button ghost</Button>
         <Button variant="link">Button link</Button>
+        <SplitButton
+          firstText="First button"
+          secondText="Second button"
+          secondVariant="secondary"
+        />
         <Input />
         <FloatingLabelInput placeholder="Placeholder" />
       </main>
