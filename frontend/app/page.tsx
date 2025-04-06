@@ -7,7 +7,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button/button";
-import { FlaotingLabelInput } from "@/components/ui/floating-label-input";
+import { FloatingLabelInput } from "@/components/ui/floating-label-input";
 import { Input } from "@/components/ui/input";
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
         <Button variant="ghost">Button ghost</Button>
         <Button variant="link">Button link</Button>
         <Input />
-        <FlaotingLabelInput />
+        <FloatingLabelInput placeholder="Placeholder" />
       </main>
     </div>
   );
