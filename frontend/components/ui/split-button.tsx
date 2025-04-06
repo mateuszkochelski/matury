@@ -1,17 +1,14 @@
 import { ButtonVariants } from "./button/variants";
 import { Button } from "@/components/ui/button";
 
-function SplitButton({
-  firstText,
-  firstVariant,
-  secondText,
-  secondVariant,
-}: {
+type Props = {
   firstText: string;
   firstVariant: ButtonVariants;
   secondText: string;
   secondVariant: ButtonVariants;
-}) {
+};
+
+function SplitButton({ firstText, firstVariant, secondText, secondVariant }: Props) {
   return (
     <div className="inline-flex -space-x-px rounded-md shadow-xs rtl:space-x-reverse">
       <Button

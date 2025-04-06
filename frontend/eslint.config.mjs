@@ -64,6 +64,7 @@ export default tseslint.config(
       "react/jsx-uses-react": "off",
       "react/jsx-curly-brace-presence": "warn",
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      "no-useless-rename": "warn",
       "react/jsx-boolean-value": "error",
       "no-nested-ternary": "error",
       "@typescript-eslint/ban-ts-comment": [
