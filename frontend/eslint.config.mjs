@@ -62,7 +62,7 @@ export default tseslint.config(
       "@typescript-eslint/strict-boolean-expressions": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
-      "react/jsx-curly-brace-presence": "warn",
+      "react/jsx-curly-brace-presence": ["warn", { props: "never", children: "never" }],
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "no-useless-rename": "warn",
       "react/jsx-boolean-value": "error",

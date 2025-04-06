@@ -11,7 +11,7 @@ function FloatingLabelInput({ type, placeholder }: React.ComponentProps<"input">
       >
         <span className="bg-background inline-flex px-2">{placeholder}</span>
       </label>
-      <Input id={id} type={type} placeholder={" "} />
+      <Input id={id} type={type} placeholder=" " />
     </div>
   );
 }
