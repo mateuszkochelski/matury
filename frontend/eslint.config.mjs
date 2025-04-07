@@ -52,7 +52,7 @@ export default tseslint.config(
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
       "@typescript-eslint": tseslint.plugin,
-      "@next": eslintPluginNext,
+      "@next/next": eslintPluginNext,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -62,7 +62,9 @@ export default tseslint.config(
       "@typescript-eslint/strict-boolean-expressions": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
+      "react/jsx-curly-brace-presence": ["warn", { props: "never", children: "never" }],
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      "no-useless-rename": "warn",
       "react/jsx-boolean-value": "error",
       "no-nested-ternary": "error",
       "@typescript-eslint/ban-ts-comment": [
