@@ -1,14 +1,29 @@
 name: PR build
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - "**"
 
 jobs:
-  build:
+  build-backend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
       - name: Build docker image
         run: docker build -t unsignedgodeveloper/matury-backend ./backend
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Build docker image
+        run: docker build -t unsignedgodeveloper/matury-frontend ./frontend
+  build-reverse-proxy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Build docker image
+        run: docker build -t unsignedgodeveloper/matury-reverse-proxy ./nginx
