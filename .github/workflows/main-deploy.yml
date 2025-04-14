@@ -2,10 +2,10 @@ name: Main build & Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, FrontendCICD]
 
 jobs:
-  build:
+  build-frontend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
@@ -17,13 +17,66 @@ jobs:
       - name: Push image to docker hub
         run: docker push unsignedgodeveloper/matury-backend
 
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Login to docker hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
+      - name: Build docker image
+        run: docker build -t unsignedgodeveloper/matury-frontend ./frontend
+      - name: Push image to docker hub
+        run: docker push unsignedgodeveloper/matury-frontend
+
+  build-reverse-proxy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Login to docker hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
+      - name: Build docker image
+        run: docker build -t unsignedgodeveloper/matury-reverse-proxy ./nginx
+      - name: Push image to docker hub
+        run: docker push unsignedgodeveloper/matury-reverse-proxy
+
   deploy:
-    needs: build
+    needs: [build-reverse-proxy, build-backend, build-frontend]
     runs-on: self-hosted
     steps:
-      - name: Pull docker image
-        run: docker pull unsignedgodeveloper/matury-backend:latest
-      - name: Delete old container
-        run: docker rm -f matury-backend
-      - name: Run docker container
-        run: docker run -d -p 8080:8080 --name matury-backend unsignedgodeveloper/matury-backend
+      - name: Create docker-compose.yml
+        run: |
+          cat <<EOF > docker-compose.yml
+          services:
+            frontend:
+              image: unsignedgodeveloper/matury-frontend:latest
+              container_name: frontend
+              restart: always
+              ports:
+                - "3000:3000"
+              depends_on:
+                - backend
+                - nginx
+
+            backend:
+              image: unsignedgodeveloper/matury-backend:latest
+              container_name: backend
+              restart: always
+              ports:
+                - "8080:8080"
+
+            nginx:
+              image: unsignedgodeveloper/matury-reverse-proxy:latest
+              container_name: reverse-proxy
+              restart: always
+              ports:
+                - "80:80"
+                - "443:443"
+              depends_on:
+                - backend
+
+      - name: Stop and remove old containers
+        run: sudo docker-compose -f docker-compose.yml down
+      - name: Start containers
+        run: sudo docker-compose -f docker-compose.yml up -d
