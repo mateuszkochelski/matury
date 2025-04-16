@@ -2,7 +2,7 @@ name: Main build & Deploy
 
 on:
   push:
-    branches: [main, FrontendCICD]
+    branches: [main]
 
 jobs:
   build-frontend:
