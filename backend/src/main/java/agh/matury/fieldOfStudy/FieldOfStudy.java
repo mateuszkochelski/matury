@@ -1,9 +1,14 @@
 package agh.matury.fieldOfStudy;
 
 import agh.matury.department.Department;
+import agh.matury.threshold.Threshold;
 import agh.matury.university.University;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "field_of_study")
@@ -16,6 +21,10 @@ public class FieldOfStudy {
 
     private String level;
 
+    private int duration;
+
+    private String language;
+
     @ManyToOne
     @JoinColumn(name = "university_id")
     @JsonBackReference
@@ -26,9 +35,9 @@ public class FieldOfStudy {
     @JsonBackReference
     private Department department;
 
-    private int duration;
-
-    private String language;
+    @OneToMany(mappedBy = "fieldOfStudy", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Threshold> thresholds = new ArrayList<>();
 
     public FieldOfStudy() {
     }
@@ -96,5 +105,9 @@ public class FieldOfStudy {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public List<Threshold> getThresholds() {
+        return thresholds;
     }
 }

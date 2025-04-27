@@ -2,6 +2,7 @@ package agh.matury.databaseSeeder;
 
 import agh.matury.databaseSeeder.dto.DepartmentExternalDTO;
 import agh.matury.databaseSeeder.dto.FieldOfStudyExternalDTO;
+import agh.matury.databaseSeeder.dto.ThresholdExternalDTO;
 import agh.matury.databaseSeeder.dto.UniversityExternalDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -28,6 +29,12 @@ public class DatabaseSeederService {
     public List<FieldOfStudyExternalDTO> fetchAllFieldsOfStudy() {
         String url = "https://dostanesie.pl/api/core/field_of_study/";
         FieldOfStudyExternalDTO[] result = restTemplate.getForObject(url, FieldOfStudyExternalDTO[].class);
+        return List.of(result);
+    }
+
+    public List<ThresholdExternalDTO> fetchAllThresholds() {
+        String url = "https://dostanesie.pl/api/core/recruitment/";
+        ThresholdExternalDTO[] result = restTemplate.getForObject(url, ThresholdExternalDTO[].class);
         return List.of(result);
     }
 }
