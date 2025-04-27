@@ -4,6 +4,7 @@ import agh.matury.department.Department;
 import agh.matury.threshold.Threshold;
 import agh.matury.university.University;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
