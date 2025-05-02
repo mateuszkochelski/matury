@@ -1,5 +1,6 @@
 package agh.matury.threshold;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ public class ThresholdController {
         this.thresholdService = thresholdService;
     }
 
+    @GetMapping
     public List<Threshold> getAllThresholds() {
         return thresholdService.getAllThresholds();
     }
