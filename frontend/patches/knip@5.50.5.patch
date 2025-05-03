@@ -1,5 +1,5 @@
 diff --git a/dist/plugins/postcss/index.js b/dist/plugins/postcss/index.js
-index a59ad00ba09e4654c38c306a81044c38f96d4ed6..9d424b392632f3ba3f58fb9dc06be945aee9fa65 100644
+index a59ad00ba09e4654c38c306a81044c38f96d4ed6..444ea15b66cdd30f023b2805bdaf9687b91bfc07 100644
 --- a/dist/plugins/postcss/index.js
 +++ b/dist/plugins/postcss/index.js
 @@ -20,7 +20,8 @@ const resolveConfig = config => {

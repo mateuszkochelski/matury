@@ -6,7 +6,7 @@ FROM base AS install
 
 COPY package.json bun.lock . 
 
-RUN bun install --frozen-lockfile
+RUN bun i --frozen-lockfile
 
 copy . .
 
