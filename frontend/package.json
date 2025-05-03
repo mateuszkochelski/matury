@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx}'",
     "start": "next start",
     "lint": "next lint",
-    "knip": "knip-bun --tags=-lintignore,-internal"
+    "knip": "knip-bun --tags=-lintignore",
+    "typescript": "bunx typescript"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
