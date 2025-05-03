@@ -92,6 +92,7 @@ function BreadcrumbEllipsis({ className, ...props }: React.ComponentProps<"span"
 
 export {
   Breadcrumb,
+  /** @lintignore for now we do not use it but it should be worth keeping */
   BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
