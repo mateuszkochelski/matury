@@ -4,7 +4,6 @@ import agh.matury.department.Department;
 import agh.matury.threshold.Threshold;
 import agh.matury.university.University;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -22,7 +21,7 @@ public class FieldOfStudy {
 
     private String level;
 
-    private int duration;
+    private Integer duration;
 
     private String language;
 
@@ -38,7 +37,7 @@ public class FieldOfStudy {
 
     @OneToMany(mappedBy = "fieldOfStudy", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Threshold> thresholds = new ArrayList<>();
+    private final List<Threshold> thresholds = new ArrayList<>();
 
     public FieldOfStudy() {
     }
@@ -92,11 +91,11 @@ public class FieldOfStudy {
         this.department = department;
     }
 
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 

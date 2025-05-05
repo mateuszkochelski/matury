@@ -9,9 +9,9 @@ public record FieldOfStudyExternalDTO(
         @JsonProperty("university") long university,
         @JsonProperty("department") long department,
         @JsonProperty("level") String level,
-        @JsonProperty("duration") int duration,
+        @JsonProperty("duration") Integer duration,
         @JsonProperty("language") String language,
-        @JsonProperty("group") int group,
+        @JsonProperty("group") Integer group,
         @JsonProperty("slug") String slug
 ) {
 }

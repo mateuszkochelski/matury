@@ -120,9 +120,9 @@ public class DatabaseSeeder implements CommandLineRunner {
                 .map(dto -> new Threshold(
                         dto.year(),
                         dto.phase(),
-                        dto.admissionLimit() != null ? dto.admissionLimit() : -1,
-                        dto.admissions() != null ? dto.admissions() : -1,
-                        dto.threshold() != null ? dto.threshold() : -1,
+                        dto.admissionLimit(),
+                        dto.admissions(),
+                        dto.threshold(),
                         dto.specialRequirements(),
                         savedFieldsOfStudy.get(dto.fieldOfStudy())
                 ))

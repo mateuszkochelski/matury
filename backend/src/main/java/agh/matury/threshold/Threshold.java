@@ -11,15 +11,15 @@ public class Threshold {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private int year;
+    private Integer year;
 
-    private int phase;
+    private Integer phase;
 
-    private int admissionLimit;
+    private Integer admissionLimit;
 
-    private int admissions;
+    private Integer admissions;
 
-    private int threshold;
+    private Integer threshold;
 
     @Column(length = 4096)
     private String specialRequirements;
@@ -32,7 +32,7 @@ public class Threshold {
     public Threshold() {
     }
 
-    public Threshold(int year, int phase, int admissionLimit, int admissions, int threshold, String specialRequirements, FieldOfStudy fieldOfStudy) {
+    public Threshold(Integer year, Integer phase, Integer admissionLimit, Integer admissions, Integer threshold, String specialRequirements, FieldOfStudy fieldOfStudy) {
         this.year = year;
         this.phase = phase;
         this.admissionLimit = admissionLimit;
@@ -58,43 +58,43 @@ public class Threshold {
         this.specialRequirements = specialRequirements;
     }
 
-    public int getThreshold() {
+    public Integer getThreshold() {
         return threshold;
     }
 
-    public void setThreshold(int threshold) {
+    public void setThreshold(Integer threshold) {
         this.threshold = threshold;
     }
 
-    public int getAdmissions() {
+    public Integer getAdmissions() {
         return admissions;
     }
 
-    public void setAdmissions(int admissions) {
+    public void setAdmissions(Integer admissions) {
         this.admissions = admissions;
     }
 
-    public int getAdmissionLimit() {
+    public Integer getAdmissionLimit() {
         return admissionLimit;
     }
 
-    public void setAdmissionLimit(int admissionLimit) {
+    public void setAdmissionLimit(Integer admissionLimit) {
         this.admissionLimit = admissionLimit;
     }
 
-    public int getPhase() {
+    public Integer getPhase() {
         return phase;
     }
 
-    public void setPhase(int phase) {
+    public void setPhase(Integer phase) {
         this.phase = phase;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 

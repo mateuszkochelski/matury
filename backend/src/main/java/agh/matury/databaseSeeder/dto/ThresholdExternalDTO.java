@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record ThresholdExternalDTO(
         @JsonProperty("id") long id,
-        @JsonProperty("year") int year,
+        @JsonProperty("year") Integer year,
         @JsonProperty("start_date") String startDate,
         @JsonProperty("end_date") String endDate,
-        @JsonProperty("phase") int phase,
+        @JsonProperty("phase") Integer phase,
         @JsonProperty("admission_limit") Integer admissionLimit,
         @JsonProperty("admissions") Integer admissions,
         @JsonProperty("enrolled") Integer enrolled,
