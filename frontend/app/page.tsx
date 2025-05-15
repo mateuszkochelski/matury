@@ -1,3 +1,4 @@
+import Component from "@/components/comp-485";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -43,6 +44,7 @@ export default function Home() {
         />
         <Input />
         <FloatingLabelInput placeholder="Placeholder" />
+        <Component />
       </main>
     </div>
   );
