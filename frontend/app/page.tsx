@@ -1,4 +1,4 @@
-import Component from "@/components/comp-485";
+import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -44,7 +44,7 @@ export default function Home() {
         />
         <Input />
         <FloatingLabelInput placeholder="Placeholder" />
-        <Component />
+        <CourseDegreeTable />
       </main>
     </div>
   );
