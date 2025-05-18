@@ -1,6 +1,7 @@
 package agh.matury.university;
 
 import agh.matury.university.dto.UniversityDTO;
+import agh.matury.university.dto.UniversityShortDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -35,7 +36,7 @@ public class UniversityController {
             content = @Content(schema = @Schema(implementation = Page.class))
     )
     @GetMapping
-    public ResponseEntity<Page<UniversityDTO>> getAllUniversities(
+    public ResponseEntity<Page<UniversityShortDTO>> getAllUniversities(
             @Parameter(description = "Page number (zero-based)")
             @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Number of items per page")

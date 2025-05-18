@@ -1,6 +1,7 @@
 package agh.matury.university;
 
 import agh.matury.university.dto.UniversityDTO;
+import agh.matury.university.dto.UniversityShortDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,8 @@ public class UniversityService {
         this.universityRepository = universityRepository;
     }
 
-    public Page<UniversityDTO> getAllUniversities(Pageable pageable) {
-        return universityRepository.findAll(pageable).map(this::toDTO);
+    public Page<UniversityShortDTO> getAllUniversities(Pageable pageable) {
+        return universityRepository.findAll(pageable).map(this::toShortDTO);
     }
 
     public Page<UniversityDTO> searchUniversities(String searchTerm, String city, Pageable pageable) {
@@ -43,6 +44,15 @@ public class UniversityService {
                 university.getAddress(),
                 university.getLongitude(),
                 university.getLatitude()
+        );
+    }
+
+    private UniversityShortDTO toShortDTO(University university) {
+        return new UniversityShortDTO(
+                university.getId(),
+                university.getName(),
+                university.getAcronym(),
+                university.getCity()
         );
     }
 }

@@ -45,7 +45,8 @@ public class DepartmentService {
                 new UniversityShortDTO(
                         department.getUniversity().getId(),
                         department.getUniversity().getName(),
-                        department.getUniversity().getAcronym()
+                        department.getUniversity().getAcronym(),
+                        department.getUniversity().getCity()
                 )
         );
     }

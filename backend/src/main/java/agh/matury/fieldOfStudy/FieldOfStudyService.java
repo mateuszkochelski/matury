@@ -47,7 +47,8 @@ public class FieldOfStudyService {
                 new UniversityShortDTO(
                         fieldOfStudy.getUniversity().getId(),
                         fieldOfStudy.getUniversity().getName(),
-                        fieldOfStudy.getUniversity().getAcronym()
+                        fieldOfStudy.getUniversity().getAcronym(),
+                        fieldOfStudy.getUniversity().getCity()
                 ),
                 new DepartmentShortDTO(
                         fieldOfStudy.getDepartment().getId(),
