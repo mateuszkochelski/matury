@@ -14,7 +14,7 @@ public class DepartmentService {
 
     private final DepartmentRepository departmentRepository;
 
-    public DepartmentService(DepartmentRepository departmentService, DepartmentRepository departmentRepository){
+    public DepartmentService(DepartmentRepository departmentRepository){
         this.departmentRepository = departmentRepository;
     }
 
