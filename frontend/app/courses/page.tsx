@@ -1,4 +1,4 @@
-import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
+import { BACKEND_URL } from "../constants";
 
 type FieldOfStudy = {
   id: number,
@@ -28,7 +28,8 @@ type FieldOfStudyData = {
   }
 }
 
-export default function Home() {
+export default async function Home() {
+  // an example on how to fetch on server
   const response = await fetch(`${BACKEND_URL}/api/field_of_study`);
   const data: FieldOfStudyData = await response.json();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -37,10 +38,8 @@ export default function Home() {
   const {number: pageNumber} = pageData;
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <CourseDegreeTable />
-      </main>
+    <div>
+      <span>Check the console for data</span>
     </div>
   );
 }
