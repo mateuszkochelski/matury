@@ -10,7 +10,6 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import tanstackQuery from "@tanstack/eslint-plugin-query";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -54,7 +53,6 @@ export default tseslint.config(
       "react-refresh": reactRefresh,
       "@typescript-eslint": tseslint.plugin,
       "@next/next": eslintPluginNext,
-      "@tanstack-query": tanstackQuery
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
