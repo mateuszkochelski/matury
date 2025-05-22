@@ -1,0 +1,3806 @@
+[
+  {
+    "id": 1,
+    "name": "Wydział Biotechnologii i Hodowli Zwierząt",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 2,
+    "name": "Wydział Ekonomiczny",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 3,
+    "name": "Wydział Elektryczny",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 4,
+    "name": "Wydział Informatyki",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 5,
+    "name": "Wydział Inżynierii Mechanicznej i Mechatroniki",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 6,
+    "name": "Wydział Kształtowania Środowiska i Rolnictwa",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 7,
+    "name": "Wydział Nauk O Żywności i Rybactwa",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 8,
+    "name": "Wydział Techniki Morskiej i Transportu",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 9,
+    "name": "Wydział Technologii i Inżynierii Chemicznej",
+    "url": null,
+    "university_id": 1
+  },
+  {
+    "id": 10,
+    "name": "Instytut Optoelektroniki",
+    "url": "http://www.ioe.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 11,
+    "name": "Wydział Bezpieczeństwa, Logistyki i Zarządzania",
+    "url": "https://wlo.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 12,
+    "name": "Wydział Cybernetyki",
+    "url": "https://wcy.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 13,
+    "name": "Wydział Elektroniki",
+    "url": "https://wel.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 14,
+    "name": "Wydział Inżynierii Lądowej i Geodezji",
+    "url": "https://www.wig.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 15,
+    "name": "Wydział Inżynierii Mechanicznej",
+    "url": "https://www.wim.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 16,
+    "name": "Wydział Mechatroniki, Uzbrojenia i Lotnictwa",
+    "url": "https://wml.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 17,
+    "name": "Wydział Nowych Technologii i Chemii",
+    "url": "http://www.wtc.wat.edu.pl",
+    "university_id": 79
+  },
+  {
+    "id": 18,
+    "name": "Wydział Farmaceutyczny",
+    "url": "https://wf.wum.edu.pl/",
+    "university_id": 78
+  },
+  {
+    "id": 19,
+    "name": "Wydział Lekarski",
+    "url": "http://lekarski.wum.edu.pl/",
+    "university_id": 78
+  },
+  {
+    "id": 20,
+    "name": "Wydział Lekarsko-Stomatologiczny",
+    "url": "https://wld.wum.edu.pl/",
+    "university_id": 78
+  },
+  {
+    "id": 21,
+    "name": "Wydział Medyczny",
+    "url": "https://wydzialmedyczny.wum.edu.pl/",
+    "university_id": 78
+  },
+  {
+    "id": 22,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": "https://wnoz.wum.edu.pl/",
+    "university_id": 78
+  },
+  {
+    "id": 23,
+    "name": "Wydział Artystyczny",
+    "url": "http://www.wa.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 24,
+    "name": "Wydział Budownictwa, Architektury i Inżynierii Środowiska",
+    "url": "http://www.wbais.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 25,
+    "name": "Wydział Ekonomii i Zarządzania",
+    "url": "http://www.wez.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 26,
+    "name": "Wydział Fizyki i Astronomii",
+    "url": "http://wfa.uz.zgora.pl/index.php/pl/",
+    "university_id": 77
+  },
+  {
+    "id": 27,
+    "name": "Wydział Humanistyczny",
+    "url": "http://www.wh.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 28,
+    "name": "Wydział Informatyki, Elektrotechniki i Automatyki",
+    "url": "https://www.wiea.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 29,
+    "name": "Wydział Matematyki, Informatyki i Ekonometrii",
+    "url": "https://www.wmie.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 30,
+    "name": "Wydział Mechaniczny",
+    "url": "https://www.wm.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 31,
+    "name": "Wydział Nauk Biologicznych",
+    "url": "http://wnb.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 32,
+    "name": "Wydział Nauk Społecznych",
+    "url": "https://www.wns.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 33,
+    "name": "Wydział Prawa i Administracji",
+    "url": "http://www.wpa.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 34,
+    "name": "Wydział Biologii",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 35,
+    "name": "Wydział Fizyki",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 36,
+    "name": "Wydział Geologii",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 37,
+    "name": "Wydział Nauk Ekonomicznych",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 38,
+    "name": "Wydział Nauk Politycznych i Studiów Międzynarodowych",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 39,
+    "name": "Wydział Polonistyki",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 40,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 41,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 42,
+    "name": "Wydział Dziennikarstwa, Informacji i Bibliologii",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 43,
+    "name": "Wydział Matematyki, Informatyki i Mechaniki",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 44,
+    "name": "Wydział Neofilologii",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 45,
+    "name": "Wydział Orientalistyczny",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 46,
+    "name": "Wydział Stosowanych Nauk Społecznych i Resocjalizacji",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 47,
+    "name": "Wydział „Artes Liberales”",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 48,
+    "name": "Wydział Filozofii i Socjologii",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 49,
+    "name": "Wydział Geografii i Studiów Regionalnych",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 50,
+    "name": "Wydział Historyczny",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 51,
+    "name": "Wydział Lingwistyki Stosowanej",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 52,
+    "name": "Wydział Pedagogiczny",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 53,
+    "name": "Wydział Psychologii",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 54,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 55,
+    "name": "Filia",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 56,
+    "name": "Wydział Bioinżynierii Zwierząt",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 57,
+    "name": "Wydział Biologii i Biotechnologii",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 58,
+    "name": "Wydział Geoinżynierii",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 59,
+    "name": "Wydział Humanistyczny",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 60,
+    "name": "Wydział Kształtowania Środowiska i Rolnictwa",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 61,
+    "name": "Wydział Matematyki i Informatyki",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 62,
+    "name": "Wydział Medycyny Weterynaryjnej",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 63,
+    "name": "Wydział Nauk Ekonomicznych",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 64,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 65,
+    "name": "Wydział Nauk Technicznych",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 66,
+    "name": "Wydział Nauki O Żywności",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 67,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 68,
+    "name": "Wydział Sztuki",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 69,
+    "name": "Wydział Teologii",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 70,
+    "name": "Wydział Lekarski",
+    "url": null,
+    "university_id": 74
+  },
+  {
+    "id": 71,
+    "name": "Wydział Biologii",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 72,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 73,
+    "name": "Wydział Ekonomiczno-Informatyczny",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 74,
+    "name": "Wydział Ekonomii i Finansów",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 75,
+    "name": "Wydział Filologiczny",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 76,
+    "name": "Wydział Fizyki",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 77,
+    "name": "Wydział Historii i Stosunków Międzynarodowych",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 78,
+    "name": "Wydział Matematyki",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 79,
+    "name": "Wydział Nauk O Edukacji",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 80,
+    "name": "Wydział Prawa",
+    "url": null,
+    "university_id": 73
+  },
+  {
+    "id": 81,
+    "name": "Wydział Budownictwa, Architektury i Inżynierii Środowiska",
+    "url": null,
+    "university_id": 72
+  },
+  {
+    "id": 82,
+    "name": "Wydział Hodowli i Biologii Zwierząt",
+    "url": null,
+    "university_id": 72
+  },
+  {
+    "id": 83,
+    "name": "Wydział Inżynierii Mechanicznej",
+    "url": null,
+    "university_id": 72
+  },
+  {
+    "id": 84,
+    "name": "Wydział Rolnictwa i Biotechnologii",
+    "url": null,
+    "university_id": 72
+  },
+  {
+    "id": 85,
+    "name": "Wydział Technologii i Inżynierii Chemicznej",
+    "url": null,
+    "university_id": 72
+  },
+  {
+    "id": 86,
+    "name": "Wydział Telekomunikacji, Informatyki i Elektrotechniki",
+    "url": null,
+    "university_id": 72
+  },
+  {
+    "id": 87,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 72
+  },
+  {
+    "id": 88,
+    "name": "Wydział Ekonomii i Finansów",
+    "url": "http://weif.uniwersytetradom.pl/",
+    "university_id": 71
+  },
+  {
+    "id": 89,
+    "name": "Wydział Filologiczno-Pedagogiczny",
+    "url": "http://www.wfp.uniwersytetradom.pl",
+    "university_id": 71
+  },
+  {
+    "id": 90,
+    "name": "Wydział Inżynierii Chemicznej i Towaroznawstwa",
+    "url": "http://www.wicit.uniwersytetradom.pl",
+    "university_id": 71
+  },
+  {
+    "id": 91,
+    "name": "Wydział Mechaniczny",
+    "url": "http://mechaniczny.uniwersytetradom.pl/",
+    "university_id": 71
+  },
+  {
+    "id": 92,
+    "name": "Wydział Nauk Medycznych i Nauk O Zdrowiu",
+    "url": "http://www.wnminoz.uniwersytetradom.pl",
+    "university_id": 71
+  },
+  {
+    "id": 93,
+    "name": "Wydział Prawa i Administracji",
+    "url": "http://wpia.uniwersytetradom.pl/",
+    "university_id": 71
+  },
+  {
+    "id": 94,
+    "name": "Wydział Sztuki",
+    "url": "https://ws.uniwersytetradom.pl/",
+    "university_id": 71
+  },
+  {
+    "id": 95,
+    "name": "Wydział Transportu, Elektrotechniki i Informatyki",
+    "url": "http://wteii.uniwersytetradom.pl/",
+    "university_id": 71
+  },
+  {
+    "id": 96,
+    "name": "Wydział Humanistyczny",
+    "url": "https://us.edu.pl/wydzial/wh/",
+    "university_id": 70
+  },
+  {
+    "id": 97,
+    "name": "Wydział Nauk Przyrodniczych",
+    "url": "https://us.edu.pl/wydzial/wnp",
+    "university_id": 70
+  },
+  {
+    "id": 98,
+    "name": "Wydział Nauk Ścisłych i Technicznych",
+    "url": "https://us.edu.pl/wydzial/wnst",
+    "university_id": 70
+  },
+  {
+    "id": 99,
+    "name": "Wydział Nauk Społecznych",
+    "url": "https://us.edu.pl/wydzial/wns",
+    "university_id": 70
+  },
+  {
+    "id": 100,
+    "name": "Wydział Prawa i Administracji",
+    "url": "https://us.edu.pl/wydzial/wpia",
+    "university_id": 70
+  },
+  {
+    "id": 101,
+    "name": "Wydział Sztuki i Nauk O Edukacji",
+    "url": "https://us.edu.pl/wydzial/wsne",
+    "university_id": 70
+  },
+  {
+    "id": 102,
+    "name": "Wydział Teologiczny",
+    "url": "https://us.edu.pl/wydzial/wtl/",
+    "university_id": 70
+  },
+  {
+    "id": 103,
+    "name": "Wydział Ekonomii, Finansów i Zarządzania",
+    "url": null,
+    "university_id": 69
+  },
+  {
+    "id": 104,
+    "name": "Wydział Nauk Ścisłych i Przyrodniczych",
+    "url": null,
+    "university_id": 69
+  },
+  {
+    "id": 105,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 69
+  },
+  {
+    "id": 106,
+    "name": "Wydział Humanistyczny",
+    "url": null,
+    "university_id": 69
+  },
+  {
+    "id": 107,
+    "name": "Wydział Kultury Fizycznej i Zdrowia",
+    "url": null,
+    "university_id": 69
+  },
+  {
+    "id": 108,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 69
+  },
+  {
+    "id": 109,
+    "name": "Wydział Teologiczny",
+    "url": null,
+    "university_id": 69
+  },
+  {
+    "id": 110,
+    "name": "Wydział Inżynierii Produkcji i Energetyki",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 111,
+    "name": "Wydział Inżynierii Środowiska i Geodezji",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 112,
+    "name": "Wydział Rolniczo-Ekonomiczny",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 113,
+    "name": "Wydział Technologii Żywności",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 114,
+    "name": "Wydział Biotechnologii i Ogrodnictwa",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 115,
+    "name": "Wydział Hodowli i Biologii Zwierząt",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 116,
+    "name": "Wydział Leśny",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 117,
+    "name": "Wydział Biologii i Hodowli Zwierząt",
+    "url": null,
+    "university_id": 66
+  },
+  {
+    "id": 118,
+    "name": "Wydział Biotechnologii i Nauk O Żywności",
+    "url": null,
+    "university_id": 66
+  },
+  {
+    "id": 119,
+    "name": "Wydział Inżynierii Kształtowania Środowiska i Geodezji",
+    "url": null,
+    "university_id": 66
+  },
+  {
+    "id": 120,
+    "name": "Wydział Medycyny Weterynaryjnej",
+    "url": null,
+    "university_id": 66
+  },
+  {
+    "id": 121,
+    "name": "Wydział Przyrodniczo-Technologiczny",
+    "url": null,
+    "university_id": 66
+  },
+  {
+    "id": 122,
+    "name": "Wydział Ekonomiczny",
+    "url": "https://wes.up.poznan.pl/pl",
+    "university_id": 65
+  },
+  {
+    "id": 123,
+    "name": "Wydział Leśny i Technologii Drewna",
+    "url": "https://wltd.up.poznan.pl/pl",
+    "university_id": 65
+  },
+  {
+    "id": 124,
+    "name": "Wydział Medycyny Weterynaryjnej i Nauk O Zwierzętach",
+    "url": "http://www1.up.poznan.pl/animal/",
+    "university_id": 65
+  },
+  {
+    "id": 125,
+    "name": "Wydział Inżynierii Środowiska i Inżynierii Mechanicznej",
+    "url": "https://wisim.up.poznan.pl/",
+    "university_id": 65
+  },
+  {
+    "id": 126,
+    "name": "Wydział Nauk O Żywności i Żywieniu",
+    "url": "https://www.wnoziz.up.poznan.pl/pl",
+    "university_id": 65
+  },
+  {
+    "id": 127,
+    "name": "Wydział Rolnictwa, Ogrodnictwa i Bioinżynierii",
+    "url": "http://www.woak.up.poznan.pl/pl/",
+    "university_id": 65
+  },
+  {
+    "id": 128,
+    "name": "Wydział Agrobioinżynierii",
+    "url": null,
+    "university_id": 64
+  },
+  {
+    "id": 129,
+    "name": "Wydział Inżynierii Produkcji",
+    "url": null,
+    "university_id": 64
+  },
+  {
+    "id": 130,
+    "name": "Wydział Medycyny Weterynaryjnej",
+    "url": null,
+    "university_id": 64
+  },
+  {
+    "id": 131,
+    "name": "Wydział Nauk O Zwierzętach i Biogospodarki",
+    "url": null,
+    "university_id": 64
+  },
+  {
+    "id": 132,
+    "name": "Wydział Nauk O Żywności i Biotechnologii",
+    "url": null,
+    "university_id": 64
+  },
+  {
+    "id": 133,
+    "name": "Wydział Ogrodnictwa i Architektury Krajobrazu",
+    "url": null,
+    "university_id": 64
+  },
+  {
+    "id": 134,
+    "name": "Wydział Biologii Środowiskowej",
+    "url": null,
+    "university_id": 64
+  },
+  {
+    "id": 135,
+    "name": "Wydział Nauk Humanistycznych",
+    "url": null,
+    "university_id": 63
+  },
+  {
+    "id": 136,
+    "name": "Wydział Nauk Ścisłych i Przyrodniczych",
+    "url": null,
+    "university_id": 63
+  },
+  {
+    "id": 137,
+    "name": "Instytut Biologii",
+    "url": "https://ib.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 138,
+    "name": "Instytut Filologii Polskiej",
+    "url": "https://ifp.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 139,
+    "name": "Instytut Filozofii i Socjologii",
+    "url": "https://ifis.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 140,
+    "name": "Instytut Fizyki",
+    "url": "https://if.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 141,
+    "name": "Instytut Geografii",
+    "url": "https://ig.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 142,
+    "name": "Instytut Grafiki i Wzornictwa",
+    "url": "https://igiw.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 143,
+    "name": "Instytut Historii i Archiwistyki",
+    "url": "https://ihia.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 144,
+    "name": "Instytut Informatyki",
+    "url": "https://ii.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 145,
+    "name": "Instytut Malarstwa i Edukacji Artystycznej",
+    "url": "https://imiea.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 146,
+    "name": "Instytut Matematyki",
+    "url": "https://matematyka.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 147,
+    "name": "Instytut Nauk O Bezpieczeństwie",
+    "url": "https://inob.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 148,
+    "name": "Instytut Nauk O Informacji",
+    "url": "https://inoi.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 149,
+    "name": "Instytut Nauk O Wychowaniu",
+    "url": "https://inow.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 150,
+    "name": "Instytut Nauk Technicznych",
+    "url": "https://int.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 151,
+    "name": "Instytut Neofilologii",
+    "url": "https://in.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 152,
+    "name": "Instytut Pedagogiki Przedszkolnej i Szkolnej",
+    "url": "https://ippis.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 153,
+    "name": "Instytut Pedagogiki Specjalnej",
+    "url": "https://ips.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 154,
+    "name": "Instytut Prawa i Ekonomii",
+    "url": "https://ipe.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 155,
+    "name": "Instytut Spraw Społecznych",
+    "url": "https://iss.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 156,
+    "name": "Instytut Sztuki Mediów",
+    "url": "https://ism.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 157,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 158,
+    "name": "Wydział Matematyki, Fizyki i Informatyki",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 159,
+    "name": "Wydział Ekonomiczny",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 160,
+    "name": "Wydział Filologiczny",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 161,
+    "name": "Wydział Lekarski",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 162,
+    "name": "Wydział Nauk O Polityce i Komunikacji Społecznej",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 163,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 164,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 165,
+    "name": "Wydział Przyrodniczo-Techniczny",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 166,
+    "name": "Wydział Sztuki",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 167,
+    "name": "Wydział Teologiczny",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 168,
+    "name": "Wydział Farmaceutyczny W Bydgoszczy",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 169,
+    "name": "Wydział Fizyki, Astronomii i Informatyki Stosowanej",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 170,
+    "name": "Wydział Humanistyczny",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 171,
+    "name": "Wydział Lekarski W Bydgoszczy",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 172,
+    "name": "Wydział Matematyki i Informatyki",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 173,
+    "name": "Wydział Nauk Ekonomicznych i Zarządzania",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 174,
+    "name": "Wydział Nauk Historycznych",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 175,
+    "name": "Wydział Nauk O Zdrowiu W Bydgoszczy",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 176,
+    "name": "Wydział Sztuk Pięknych",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 177,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 178,
+    "name": "Wydział Nauk Biologicznych i Weterynaryjnych",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 179,
+    "name": "Wydział Nauk O Polityce i Bezpieczeństwie",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 180,
+    "name": "Wydział Nauk O Ziemi i Gospodarki Przestrzennej",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 181,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 182,
+    "name": "Wydział Teologiczny",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 183,
+    "name": "Wydział Filozofii i Nauk Społecznych",
+    "url": null,
+    "university_id": 60
+  },
+  {
+    "id": 184,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": "https://wnoz.umw.edu.pl/",
+    "university_id": 59
+  },
+  {
+    "id": 185,
+    "name": "Wydział Farmaceutyczny",
+    "url": "https://farmacja.umw.edu.pl/",
+    "university_id": 59
+  },
+  {
+    "id": 186,
+    "name": "Wydział Lekarski",
+    "url": "https://lekarski.umw.edu.pl/",
+    "university_id": 59
+  },
+  {
+    "id": 187,
+    "name": "Wydział Lekarsko-Stomatologiczny",
+    "url": "https://stomatologia.umw.edu.pl/",
+    "university_id": 59
+  },
+  {
+    "id": 188,
+    "name": "Wydział Farmaceutyczny",
+    "url": "http://wf.ump.edu.pl/",
+    "university_id": 58
+  },
+  {
+    "id": 189,
+    "name": "Wydział Lekarski",
+    "url": "http://wl.ump.edu.pl/",
+    "university_id": 58
+  },
+  {
+    "id": 190,
+    "name": "Wydział Medyczny",
+    "url": "http://wm.ump.edu.pl/",
+    "university_id": 58
+  },
+  {
+    "id": 191,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": "http://wnoz.ump.edu.pl/",
+    "university_id": 58
+  },
+  {
+    "id": 192,
+    "name": "Wydział Farmaceutyczny",
+    "url": "https://www.umlub.pl/uczelnia/struktura-organizacyjna/szczegoly,169.html",
+    "university_id": 56
+  },
+  {
+    "id": 193,
+    "name": "Wydział Lekarski",
+    "url": "http://www.umlub.pl/uczelnia/struktura-organizacyjna/szczegoly,546.html",
+    "university_id": 56
+  },
+  {
+    "id": 194,
+    "name": "Wydział Lekarsko-Dentystyczny",
+    "url": "https://www.umlub.pl/uczelnia/struktura-organizacyjna/szczegoly,545.html",
+    "university_id": 56
+  },
+  {
+    "id": 195,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": "https://www.umlub.pl/uczelnia/struktura-organizacyjna/szczegoly,192,informacje.html",
+    "university_id": 56
+  },
+  {
+    "id": 196,
+    "name": "Wydział Artystyczny",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 197,
+    "name": "Wydział Biologii i Biotechnologii",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 198,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 199,
+    "name": "Wydział Ekonomiczny",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 200,
+    "name": "Wydział Filozofii i Socjologii",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 201,
+    "name": "Wydział Filologiczny",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 202,
+    "name": "Wydział Matematyki, Fizyki i Informatyki",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 203,
+    "name": "Wydział Nauk O Ziemi i Gospodarki Przestrzennej",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 204,
+    "name": "Wydział Pedagogiki i Psychologii",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 205,
+    "name": "Wydział Politologii i Dziennikarstwa",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 206,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 207,
+    "name": "Wydział Zamiejscowy",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 208,
+    "name": "Wydział Biologii i Ochrony Środowiska",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 209,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 210,
+    "name": "Wydział Ekonomiczno-Socjologiczny",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 211,
+    "name": "Wydział Filologiczny",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 212,
+    "name": "Wydział Filozoficzno-Historyczny",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 213,
+    "name": "Wydział Fizyki i Informatyki Stosowanej",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 214,
+    "name": "Wydział Matematyki i Informatyki",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 215,
+    "name": "Wydział Nauk Geograficznych",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 216,
+    "name": "Wydział Nauk O Wychowaniu",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 217,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 218,
+    "name": "Wydział Studiów Międzynarodowych i Politologicznych",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 219,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 220,
+    "name": "Filia W Tomaszowie Mazowieckim",
+    "url": null,
+    "university_id": 54
+  },
+  {
+    "id": 221,
+    "name": "Wydział Biologii i Nauk O Środowisku",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 222,
+    "name": "Wydział Filozofii Chrześcijańskiej",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 223,
+    "name": "Wydział Matematyczno-Przyrodniczy",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 224,
+    "name": "Wydział Nauk Historycznych",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 225,
+    "name": "Wydział Nauk Humanistycznych",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 226,
+    "name": "Wydział Nauk Pedagogicznych",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 227,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 228,
+    "name": "Wydział Prawa Kanonicznego",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 229,
+    "name": "Wydział Studiów Nad Rodziną",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 230,
+    "name": "Wydział Teologiczny",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 231,
+    "name": "Wydział Medyczny",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 232,
+    "name": "Wydział Społeczno-Ekonomiczny",
+    "url": null,
+    "university_id": 52
+  },
+  {
+    "id": 233,
+    "name": "Wydział Humanistyczny",
+    "url": "https://whum.ujk.edu.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 234,
+    "name": "Filia W Piotrkowie Trybunalskim",
+    "url": "https://unipt.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 235,
+    "name": "Wydział Sztuki",
+    "url": "https://ws.ujk.edu.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 236,
+    "name": "Filia W Sandomierzu",
+    "url": "https://sandomierz.ujk.edu.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 237,
+    "name": "Wydział Prawa i Nauk Społecznych",
+    "url": "https://wpaiz.ujk.edu.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 238,
+    "name": "Wydział Nauk Ścisłych i Przyrodniczych",
+    "url": "https://wmp.ujk.edu.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 239,
+    "name": "Wydział Pedagogiki i Psychologii",
+    "url": "https://wpp.ujk.edu.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 240,
+    "name": "Wydział Biochemii, Biofizyki i Biotechnologii",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 241,
+    "name": "Wydział Filologiczny",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 242,
+    "name": "Wydział Geografii i Geologii",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 243,
+    "name": "Wydział Historyczny",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 244,
+    "name": "Wydział Lekarski",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 245,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 246,
+    "name": "Wydział Polonistyki",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 247,
+    "name": "Wydział Biologii",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 248,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 249,
+    "name": "Wydział Farmaceutyczny",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 250,
+    "name": "Wydział Filozoficzny",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 251,
+    "name": "Wydział Fizyki, Astronomii i Informatyki Stosowanej",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 252,
+    "name": "Wydział Matematyki i Informatyki",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 253,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 254,
+    "name": "Wydział Studiów Międzynarodowych i Politycznych",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 255,
+    "name": "Wydział Zarządzania i Komunikacji Społecznej",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 256,
+    "name": "Wydział Anglistyki",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 257,
+    "name": "Wydział Biologii",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 258,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 259,
+    "name": "Wydział Filologii Polskiej i Klasycznej",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 260,
+    "name": "Wydział Nauk Geograficznych i Geologicznych",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 261,
+    "name": "Wydział Neofilologii",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 262,
+    "name": "Wydział Antropologii i Kulturoznawstwa",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 263,
+    "name": "Wydział Archeologii",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 264,
+    "name": "Wydział Filozoficzny",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 265,
+    "name": "Wydział Fizyki",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 266,
+    "name": "Wydział Geografii Społeczno-Ekonomicznej i Gospodarki Przestrzennej",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 267,
+    "name": "Wydział Matematyki i Informatyki",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 268,
+    "name": "Wydział Nauk Politycznych i Dziennikarstwa",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 269,
+    "name": "Wydział Pedagogiczno-Artystyczny W Kaliszu",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 270,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 271,
+    "name": "Wydział Psychologii i Kognitywistyki",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 272,
+    "name": "Wydział Socjologii",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 273,
+    "name": "Wydział Teologiczny",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 274,
+    "name": "Wydział Historii",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 275,
+    "name": "Wydział Studiów Edukacyjnych",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 276,
+    "name": "Wydział Humanistyczny",
+    "url": null,
+    "university_id": 48
+  },
+  {
+    "id": 277,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": null,
+    "university_id": 48
+  },
+  {
+    "id": 278,
+    "name": "Wydział Nauk Ścisłych, Przyrodniczych i Technicznych",
+    "url": null,
+    "university_id": 48
+  },
+  {
+    "id": 279,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 48
+  },
+  {
+    "id": 280,
+    "name": "Wydział Prawa i Ekonomii",
+    "url": null,
+    "university_id": 48
+  },
+  {
+    "id": 281,
+    "name": "Wydział Sztuki",
+    "url": null,
+    "university_id": 48
+  },
+  {
+    "id": 282,
+    "name": "Wydział Oceanografii i Geografii",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 283,
+    "name": "Międzyuczelniany Wydział Biotechnologii",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 284,
+    "name": "Wydział Biologii",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 285,
+    "name": "Wydział Ekonomiczny",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 286,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 287,
+    "name": "Wydział Prawa i Administracji",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 288,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 289,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 290,
+    "name": "Wydział Matematyki, Fizyki i Informatyki",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 291,
+    "name": "Wydział Filologiczny",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 292,
+    "name": "Wydział Historyczny",
+    "url": null,
+    "university_id": 47
+  },
+  {
+    "id": 293,
+    "name": "Studia Międzywydziałowe",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 294,
+    "name": "Wydział Ekonomii",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 295,
+    "name": "Wydział Gospodarki Międzynarodowej",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 296,
+    "name": "Wydział Informatyki i Gospodarki Elektronicznej",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 297,
+    "name": "Wydział Towaroznawstwa",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 298,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 299,
+    "name": "Filia",
+    "url": null,
+    "university_id": 45
+  },
+  {
+    "id": 300,
+    "name": "Wydział Inżynieryjno-Ekonomiczny",
+    "url": null,
+    "university_id": 45
+  },
+  {
+    "id": 301,
+    "name": "Wydział Nauk Ekonomicznych",
+    "url": null,
+    "university_id": 45
+  },
+  {
+    "id": 302,
+    "name": "Wydział Zarządzania, Informatyki i Finansów",
+    "url": null,
+    "university_id": 45
+  },
+  {
+    "id": 303,
+    "name": "Filia",
+    "url": null,
+    "university_id": 44
+  },
+  {
+    "id": 304,
+    "name": "Wydział Nauk Farmaceutycznych w Sosnowcu",
+    "url": "https://student.sum.edu.pl/dziekanat-wydzialu-farmaceutycznego-z-oddzialem-medycyny-laboratoryjnej-w-sosnowcu/",
+    "university_id": 43
+  },
+  {
+    "id": 305,
+    "name": "Wydział Nauk Medycznych w Katowicach",
+    "url": "https://student.sum.edu.pl/dziekanat-wydzialu-lekarskiego-w-katowicach/",
+    "university_id": 43
+  },
+  {
+    "id": 306,
+    "name": "Wydział Nauk Medycznych w Zabrzu",
+    "url": "https://sum.edu.pl/kandydat/informacje-kontaktowe/informacje-kontaktowe-3",
+    "university_id": 43
+  },
+  {
+    "id": 307,
+    "name": "Wydział Zdrowia Publicznego w Bytomiu",
+    "url": "https://sum.edu.pl/pl/wydzial-nauk-o-zdrowiu-w-bytomiu-kierunki-i-formy-ksztalcenia",
+    "university_id": 43
+  },
+  {
+    "id": 308,
+    "name": "Wydział Nauk O Zdrowiu w Katowicach",
+    "url": "https://student.sum.edu.pl/dziekanat-wydzialu-nauk-o-zdrowiu-w-katowicach/",
+    "university_id": 43
+  },
+  {
+    "id": 309,
+    "name": "Wydział Inżynierii Bezpieczeństwa Cywilnego",
+    "url": null,
+    "university_id": 42
+  },
+  {
+    "id": 310,
+    "name": "Wydział Inżynierii Bezpieczeństwa Pożarowego",
+    "url": null,
+    "university_id": 42
+  },
+  {
+    "id": 311,
+    "name": "Wydział Inżynierii Produkcji",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 312,
+    "name": "Wydział Budownictwa i Inżynierii Środowiska",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 313,
+    "name": "Wydział Ekonomiczny",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 314,
+    "name": "Wydział Hodowli, Bioinżynierii i Inżynierii Środowiska",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 315,
+    "name": "Wydział Leśny",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 316,
+    "name": "Wydział Medycyny Weterynaryjnej",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 317,
+    "name": "Wydział Ogrodniczy",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 318,
+    "name": "Wydział Rolnictwa i Biologii",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 319,
+    "name": "Wydział Socjologii i Pedagogiki",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 320,
+    "name": "Wydział Technologii Drewna",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 321,
+    "name": "Wydział Technologii Żywności",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 322,
+    "name": "Wydział Zastosowań Informatyki i Matematyki",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 323,
+    "name": "Wydział Żywienia Człowieka",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 324,
+    "name": "Wydział Farmacji, Biotechnologii Medycznej i Medycyny Laboratoryjnej",
+    "url": "https://www.pum.edu.pl/wydzialy/wydzial-lekarsko-biotechnologiczny",
+    "university_id": 39
+  },
+  {
+    "id": 325,
+    "name": "Wydział Medycyny i Stomatologii",
+    "url": "https://www.pum.edu.pl/wydzialy/wydzial-medycyny-i-stomatologii",
+    "university_id": 39
+  },
+  {
+    "id": 326,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": "https://www.pum.edu.pl/wydzialy/wydzial-nauk-o-zdrowiu",
+    "university_id": 39
+  },
+  {
+    "id": 327,
+    "name": "Wydział Architektury",
+    "url": "https://wa.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 328,
+    "name": "Wydział Elektroniki Mikrosystemów i Fotoniki",
+    "url": "http://www.wemif.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 329,
+    "name": "Wydział Inżynierii Środowiska",
+    "url": "https://wis.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 330,
+    "name": "Wydział Budownictwa Lądowego i Wodnego",
+    "url": "http://www.wbliw.pwr.edu.pl",
+    "university_id": 38
+  },
+  {
+    "id": 331,
+    "name": "Wydział Chemiczny",
+    "url": "https://wch.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 332,
+    "name": "Wydział Geoinżynierii, Górnictwa i Geologii",
+    "url": "http://www.wggg.pwr.edu.pl",
+    "university_id": 38
+  },
+  {
+    "id": 333,
+    "name": "Wydział Matematyki",
+    "url": "http://wmat.pwr.edu.pl",
+    "university_id": 38
+  },
+  {
+    "id": 334,
+    "name": "Wydział Podstawowych Problemów Techniki",
+    "url": "http://www.wppt.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 335,
+    "name": "Wydział Informatyki i Telekomunikacji",
+    "url": "http://www.eka.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 336,
+    "name": "Wydział Mechaniczny",
+    "url": "http://www.wm.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 337,
+    "name": "Wydział Elektryczny",
+    "url": "http://www.eny.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 338,
+    "name": "Wydział Informatyki i Zarządzania",
+    "url": "http://www.wiz.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 339,
+    "name": "Wydział Mechaniczno-Energetyczny",
+    "url": "http://www.wme.pwr.edu.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 340,
+    "name": "Wydział Inżynierii Produkcji",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 341,
+    "name": "Wydział Administracji i Nauk Społecznych",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 342,
+    "name": "Wydział Instalacji Budowlanych, Hydrotechniki i Inżynierii Środowiska",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 343,
+    "name": "Wydział Inżynierii Chemicznej i Procesowej",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 344,
+    "name": "Wydział Inżynierii Lądowej",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 345,
+    "name": "Wydział Inżynierii Materiałowej",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 346,
+    "name": "Wydział Matematyki i Nauk Informacyjnych",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 347,
+    "name": "Wydział Mechaniczny Energetyki i Lotnictwa",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 348,
+    "name": "Wydział Budownictwa, Mechaniki i Petrochemii - Oddział W Płocku",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 349,
+    "name": "Wydział Mechatroniki",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 350,
+    "name": "Wydział Architektury",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 351,
+    "name": "Wydział Chemiczny",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 352,
+    "name": "Wydział Elektroniki i Technik Informacyjnych",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 353,
+    "name": "Wydział Elektryczny",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 354,
+    "name": "Wydział Fizyki",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 355,
+    "name": "Wydział Geodezji i Kartografii",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 356,
+    "name": "Wydział Samochodów i Maszyn Roboczych",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 357,
+    "name": "Wydział Transportu",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 358,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 37
+  },
+  {
+    "id": 359,
+    "name": "Wydział Budownictwa i Architektury",
+    "url": "https://wbia.tu.kielce.pl/",
+    "university_id": 36
+  },
+  {
+    "id": 360,
+    "name": "Wydział Elektrotechniki, Automatyki i Informatyki",
+    "url": "https://weaii.tu.kielce.pl/",
+    "university_id": 36
+  },
+  {
+    "id": 361,
+    "name": "Wydział Inżynierii Środowiska, Geomatyki i Energetyki",
+    "url": "https://wisgie.tu.kielce.pl/",
+    "university_id": 36
+  },
+  {
+    "id": 362,
+    "name": "Wydział Mechatroniki i Budowy Maszyn",
+    "url": "https://wmibm.tu.kielce.pl/",
+    "university_id": 36
+  },
+  {
+    "id": 363,
+    "name": "Wydział Zarządzania i Modelowania Komputerowego",
+    "url": "https://wzimk.tu.kielce.pl/",
+    "university_id": 36
+  },
+  {
+    "id": 364,
+    "name": "Wydział Transportu i Inżynierii Lotniczej",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 365,
+    "name": "Wydział Organizacji i Zarządzania",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 366,
+    "name": "Wydział Inżynierii Środowiska i Energetyki",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 367,
+    "name": "Wydział Automatyki, Elektroniki i Informatyki",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 368,
+    "name": "Wydział Elektryczny",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 369,
+    "name": "Wydział Mechaniczny Technologiczny",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 370,
+    "name": "Wydział Budownictwa",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 371,
+    "name": "Wydział Górnictwa, Inżynierii Bezpieczeństwa i Automatyki Przemysłowej",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 372,
+    "name": "Wydział Inżynierii Biomedycznej",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 373,
+    "name": "Wydział Inżynierii Materiałowej",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 374,
+    "name": "Wydział Matematyki Stosowanej",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 375,
+    "name": "Wydział Architektury",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 376,
+    "name": "Wydział Chemiczny",
+    "url": null,
+    "university_id": 35
+  },
+  {
+    "id": 377,
+    "name": "Wydział Budownictwa, Inżynierii Środowiska i Architektury",
+    "url": null,
+    "university_id": 34
+  },
+  {
+    "id": 378,
+    "name": "Wydział Budowy Maszyn i Lotnictwa",
+    "url": null,
+    "university_id": 34
+  },
+  {
+    "id": 379,
+    "name": "Wydział Chemiczny",
+    "url": null,
+    "university_id": 34
+  },
+  {
+    "id": 380,
+    "name": "Wydział Elektrotechniki i Informatyki",
+    "url": null,
+    "university_id": 34
+  },
+  {
+    "id": 381,
+    "name": "Wydział Matematyki i Fizyki Stosowanej",
+    "url": null,
+    "university_id": 34
+  },
+  {
+    "id": 382,
+    "name": "Wydział Mechaniczno-Technologiczny W Stalowej Woli",
+    "url": null,
+    "university_id": 34
+  },
+  {
+    "id": 383,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 34
+  },
+  {
+    "id": 384,
+    "name": "Wydział Budownictwa i Architektury",
+    "url": null,
+    "university_id": 32
+  },
+  {
+    "id": 385,
+    "name": "Wydział Ekonomii i Zarządzania",
+    "url": null,
+    "university_id": 32
+  },
+  {
+    "id": 386,
+    "name": "Wydział Elektrotechniki, Automatyki i Informatyki",
+    "url": null,
+    "university_id": 32
+  },
+  {
+    "id": 387,
+    "name": "Wydział Inżynierii Produkcji i Logistyki",
+    "url": null,
+    "university_id": 32
+  },
+  {
+    "id": 388,
+    "name": "Wydział Inżynierii Systemów Technicznych",
+    "url": null,
+    "university_id": 32
+  },
+  {
+    "id": 389,
+    "name": "Wydział Mechaniczny",
+    "url": null,
+    "university_id": 32
+  },
+  {
+    "id": 390,
+    "name": "Wydział Wychowania Fizycznego i Fizjoterapii",
+    "url": null,
+    "university_id": 32
+  },
+  {
+    "id": 391,
+    "name": "Wydział Chemiczny",
+    "url": "https://chemia.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 392,
+    "name": "Wydział Biotechnologii i Nauk O Żywności",
+    "url": "https://www.binoz.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 393,
+    "name": "Wydział Budownictwa, Architektury i Inżynierii Środowiska",
+    "url": "http://bais.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 394,
+    "name": "Wydział Elektrotechniki, Elektroniki, Informatyki i Automatyki",
+    "url": "http://www.weeia.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 395,
+    "name": "Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej",
+    "url": "http://ftims.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 396,
+    "name": "Wydział Inżynierii Procesowej i Ochrony Środowiska",
+    "url": "http://www.wipos.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 397,
+    "name": "Wydział Mechaniczny",
+    "url": "http://www.mechaniczny.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 398,
+    "name": "Wydział Technologii Materiałowych i Wzornictwa Tekstyliów",
+    "url": "http://www.style.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 399,
+    "name": "Wydział Zarządzania i Inżynierii Produkcji",
+    "url": "https://wzip.p.lodz.pl/",
+    "university_id": 31
+  },
+  {
+    "id": 400,
+    "name": "Wydział Budownictwa i Architektury",
+    "url": "http://wbia.pollub.pl/",
+    "university_id": 30
+  },
+  {
+    "id": 401,
+    "name": "Wydział Elektrotechniki i Informatyki",
+    "url": "http://weii.pollub.pl/",
+    "university_id": 30
+  },
+  {
+    "id": 402,
+    "name": "Wydział Inżynierii Środowiska",
+    "url": "http://www.wis.pollub.pl/",
+    "university_id": 30
+  },
+  {
+    "id": 403,
+    "name": "Wydział Mechaniczny",
+    "url": "http://wm.pollub.pl/",
+    "university_id": 30
+  },
+  {
+    "id": 404,
+    "name": "Wydział Podstaw Techniki",
+    "url": "http://wpt.pollub.pl/",
+    "university_id": 30
+  },
+  {
+    "id": 405,
+    "name": "Wydział Zarządzania",
+    "url": "http://www.wz.pollub.pl/",
+    "university_id": 30
+  },
+  {
+    "id": 406,
+    "name": "Wydział Inżynierii Elektrycznej i Komputerowej",
+    "url": "http://www.wieik.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 407,
+    "name": "Wydział Inżynierii Lądowej",
+    "url": "http://www.wil.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 408,
+    "name": "Wydział Inżynierii Materiałowej i Fizyki",
+    "url": "https://imf.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 409,
+    "name": "Wydział Inżynierii Środowiska i Energetyki",
+    "url": "https://www.wisie.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 410,
+    "name": "Wydział Mechaniczny",
+    "url": "https://mech.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 411,
+    "name": "Wydział Architektury",
+    "url": "http://arch.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 412,
+    "name": "Wydział Informatyki i Telekomunikacji",
+    "url": "https://it.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 413,
+    "name": "Wydział Inżynierii i Technologii Chemicznej",
+    "url": "https://www.chemia.pk.edu.pl/",
+    "university_id": 29
+  },
+  {
+    "id": 414,
+    "name": "Wydział Architektury i Wzornictwa",
+    "url": null,
+    "university_id": 28
+  },
+  {
+    "id": 415,
+    "name": "Wydział Elektroniki i Informatyki",
+    "url": null,
+    "university_id": 28
+  },
+  {
+    "id": 416,
+    "name": "Wydział Humanistyczny",
+    "url": null,
+    "university_id": 28
+  },
+  {
+    "id": 417,
+    "name": "Wydział Inżynierii Lądowej, Środowiska i Geodezji",
+    "url": null,
+    "university_id": 28
+  },
+  {
+    "id": 418,
+    "name": "Wydział Mechaniczny",
+    "url": null,
+    "university_id": 28
+  },
+  {
+    "id": 419,
+    "name": "Wydział Nauk Ekonomicznych",
+    "url": null,
+    "university_id": 28
+  },
+  {
+    "id": 420,
+    "name": "Wydział Technologii i Edukacji",
+    "url": null,
+    "university_id": 28
+  },
+  {
+    "id": 421,
+    "name": "Wydział Chemiczny",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 422,
+    "name": "Wydział Architektury",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 423,
+    "name": "Wydział Elektroniki, Telekomunikacji i Informatyki",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 424,
+    "name": "Wydział Elektrotechniki i Automatyki",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 425,
+    "name": "Wydział Fizyki Technicznej i Matematyki Stosowanej",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 426,
+    "name": "Wydział Mechaniczny (zlikwidowany)",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 427,
+    "name": "Wydziały Oceanotechniki i Okrętownictwa (zlikwidowany)",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 428,
+    "name": "Wydział Inżynierii Lądowej i Środowiska",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 429,
+    "name": "Wydział Zarządzania i Ekonomii",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 430,
+    "name": "Wydział Budownictwa",
+    "url": null,
+    "university_id": 26
+  },
+  {
+    "id": 431,
+    "name": "Wydział Elektryczny",
+    "url": null,
+    "university_id": 26
+  },
+  {
+    "id": 432,
+    "name": "Wydział Infrastruktury i Środowiska",
+    "url": null,
+    "university_id": 26
+  },
+  {
+    "id": 433,
+    "name": "Wydział Inżynierii Mechanicznej i Informatyki",
+    "url": null,
+    "university_id": 26
+  },
+  {
+    "id": 434,
+    "name": "Wydział Inżynierii Produkcji i Technologii Materiałów",
+    "url": null,
+    "university_id": 26
+  },
+  {
+    "id": 435,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 26
+  },
+  {
+    "id": 436,
+    "name": "Wydział Architektury",
+    "url": null,
+    "university_id": 25
+  },
+  {
+    "id": 437,
+    "name": "Wydział Budownictwa i Nauk O Środowisku",
+    "url": null,
+    "university_id": 25
+  },
+  {
+    "id": 438,
+    "name": "Wydział Elektryczny",
+    "url": null,
+    "university_id": 25
+  },
+  {
+    "id": 439,
+    "name": "Wydział Informatyki",
+    "url": null,
+    "university_id": 25
+  },
+  {
+    "id": 440,
+    "name": "Wydział Inżynierii Zarządzania",
+    "url": null,
+    "university_id": 25
+  },
+  {
+    "id": 441,
+    "name": "Wydział Mechaniczny",
+    "url": null,
+    "university_id": 25
+  },
+  {
+    "id": 442,
+    "name": "Zamiejscowy Wydział Leśny W Hajnówce",
+    "url": null,
+    "university_id": 25
+  },
+  {
+    "id": 443,
+    "name": "Wydział Filozofii",
+    "url": null,
+    "university_id": 23
+  },
+  {
+    "id": 444,
+    "name": "Wydział Nauk Humanistycznych",
+    "url": null,
+    "university_id": 23
+  },
+  {
+    "id": 445,
+    "name": "Wydział Nauk Inżynieryjno-Technicznych W Stalowej Woli",
+    "url": null,
+    "university_id": 23
+  },
+  {
+    "id": 446,
+    "name": "Wydział Nauk Ścisłych i Nauk O Zdrowiu",
+    "url": null,
+    "university_id": 23
+  },
+  {
+    "id": 447,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 23
+  },
+  {
+    "id": 448,
+    "name": "Wydział Prawa, Prawa Kanonicznego i Administracji",
+    "url": null,
+    "university_id": 23
+  },
+  {
+    "id": 449,
+    "name": "Wydział Teologii",
+    "url": null,
+    "university_id": 23
+  },
+  {
+    "id": 450,
+    "name": "Międzyuczelniany Wydział Biotechnologii GUMed i UG",
+    "url": "https://gumed.edu.pl/381.html",
+    "university_id": 22
+  },
+  {
+    "id": 451,
+    "name": "Wydział Farmaceutyczny",
+    "url": "https://gumed.edu.pl/379.html",
+    "university_id": 22
+  },
+  {
+    "id": 452,
+    "name": "Wydział Lekarski",
+    "url": "https://gumed.edu.pl/378.html",
+    "university_id": 22
+  },
+  {
+    "id": 453,
+    "name": "Wydział Nauk O Zdrowiu Z Instytutem Medycyny Morskiej i Tropikalnej",
+    "url": "https://gumed.edu.pl/380.html",
+    "university_id": 22
+  },
+  {
+    "id": 454,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 21
+  },
+  {
+    "id": 455,
+    "name": "Wydział Teologiczny",
+    "url": null,
+    "university_id": 21
+  },
+  {
+    "id": 456,
+    "name": "Wydział Fizjoterapii",
+    "url": "https://awf.wroc.pl/dydaktyka/wydzial-fizjoterapii",
+    "university_id": 20
+  },
+  {
+    "id": 457,
+    "name": "Wydział Wychowania Fizycznego i Sportu",
+    "url": "https://awf.wroc.pl/dydaktyka/wydzial-wychowania-fizycznego-i-sportu",
+    "university_id": 20
+  },
+  {
+    "id": 458,
+    "name": "Wydział Nauk o Kulturze Fizycznej",
+    "url": "https://www.awf.poznan.pl/pl/nkf-o-wydziale",
+    "university_id": 18
+  },
+  {
+    "id": 459,
+    "name": "Wydział Nauk o Zdrowiu",
+    "url": "https://www.awf.poznan.pl/pl/noz-o-wydziale",
+    "university_id": 18
+  },
+  {
+    "id": 460,
+    "name": "Wydział Rehabilitacji Ruchowej",
+    "url": "https://wrr.awf.krakow.pl/",
+    "university_id": 17
+  },
+  {
+    "id": 461,
+    "name": "Wydział Turystyki i Rekreacji",
+    "url": "https://wtir.awf.krakow.pl/",
+    "university_id": 17
+  },
+  {
+    "id": 462,
+    "name": "Wydział Wychowania Fizycznego i Sportu",
+    "url": "https://wfs.awf.krakow.pl/",
+    "university_id": 17
+  },
+  {
+    "id": 463,
+    "name": "Wydział Fizjoterapii",
+    "url": null,
+    "university_id": 16
+  },
+  {
+    "id": 464,
+    "name": "Wydział Wychowania Fizycznego",
+    "url": null,
+    "university_id": 16
+  },
+  {
+    "id": 465,
+    "name": "Wydział Zarządzania Sportem i Turystyką",
+    "url": null,
+    "university_id": 16
+  },
+  {
+    "id": 466,
+    "name": "Wydział Budowy Maszyn i Informatyki",
+    "url": null,
+    "university_id": 13
+  },
+  {
+    "id": 467,
+    "name": "Wydział Humanistyczno-Społeczny",
+    "url": null,
+    "university_id": 13
+  },
+  {
+    "id": 468,
+    "name": "Wydział Inżynerii Materiałów, Budownictwa i Środowiska",
+    "url": null,
+    "university_id": 13
+  },
+  {
+    "id": 469,
+    "name": "Wydział Nauk O Zdrowiu",
+    "url": null,
+    "university_id": 13
+  },
+  {
+    "id": 470,
+    "name": "Wydział Zarządzania i Transportu",
+    "url": null,
+    "university_id": 13
+  },
+  {
+    "id": 471,
+    "name": "Wydział Bezpieczeństwa Narodowego",
+    "url": "https://www.wojsko-polskie.pl/aszwoj/oferta-ksztalcenia-wbn/",
+    "university_id": 12
+  },
+  {
+    "id": 472,
+    "name": "Wydział Zarządzania i Dowodzenia",
+    "url": "https://www.wojsko-polskie.pl/aszwoj/oferta-ksztalcenia-wzid/",
+    "university_id": 12
+  },
+  {
+    "id": 473,
+    "name": "Wydział Wojskowy",
+    "url": "https://www.wojsko-polskie.pl/aszwoj/wwoj/",
+    "university_id": 12
+  },
+  {
+    "id": 474,
+    "name": "Wydział Informatyki i Telekomunikacji",
+    "url": "https://wit.am.szczecin.pl/",
+    "university_id": 9
+  },
+  {
+    "id": 475,
+    "name": "Wydział Inżynieryjno-Ekonomiczny  Transportu",
+    "url": "https://wiet.am.szczecin.pl/",
+    "university_id": 9
+  },
+  {
+    "id": 476,
+    "name": "Wydział Mechaniczny",
+    "url": "https://wm.am.szczecin.pl/",
+    "university_id": 9
+  },
+  {
+    "id": 477,
+    "name": "Wydział Mechatroniki i Elektrotechniki",
+    "url": "https://wmie.am.szczecin.pl/",
+    "university_id": 9
+  },
+  {
+    "id": 478,
+    "name": "Wydział Nawigacyjny",
+    "url": "https://wn.am.szczecin.pl",
+    "university_id": 9
+  },
+  {
+    "id": 479,
+    "name": "Wydział Elektryczny",
+    "url": "http://we.umg.edu.pl/",
+    "university_id": 8
+  },
+  {
+    "id": 480,
+    "name": "Wydział Mechaniczny",
+    "url": "http://wm.umg.edu.pl/",
+    "university_id": 8
+  },
+  {
+    "id": 481,
+    "name": "Wydział Nawigacyjny",
+    "url": "https://wn.umg.edu.pl/",
+    "university_id": 8
+  },
+  {
+    "id": 482,
+    "name": "Wydział Zarządzania i Nauk o Jakości",
+    "url": "https://wznj.umg.edu.pl/",
+    "university_id": 8
+  },
+  {
+    "id": 483,
+    "name": "Wydział Dowodzenia i Operacji Morskich",
+    "url": "https://wdiom.amw.gdynia.pl/",
+    "university_id": 7
+  },
+  {
+    "id": 484,
+    "name": "Wydział Mechaniczno-Elektryczny",
+    "url": "https://wme.amw.gdynia.pl/",
+    "university_id": 7
+  },
+  {
+    "id": 485,
+    "name": "Wydział Nauk Humanistycznych i Społecznych",
+    "url": "https://wnhis.amw.gdynia.pl/",
+    "university_id": 7
+  },
+  {
+    "id": 486,
+    "name": "Wydział Nawigacji i Uzbrojenia Okrętowego",
+    "url": "https://wniuo.amw.gdynia.pl/",
+    "university_id": 7
+  },
+  {
+    "id": 487,
+    "name": "Wydział Metali Nieżelaznych",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 488,
+    "name": "Wydział Odlewnictwa",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 489,
+    "name": "Wydział Wiertnictwa, Nafty i Gazu",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 490,
+    "name": "Wydział Elektrotechniki, Automatyki, Informatyki i Inżynierii Biomedycznej",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 491,
+    "name": "Wydział Energetyki i Paliw",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 492,
+    "name": "Wydział Fizyki i Informatyki Stosowanej",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 493,
+    "name": "Wydział Geodezji Górniczej i Inżynierii Środowiska",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 494,
+    "name": "Wydział Geologii, Geofizyki i Ochrony Środowiska",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 495,
+    "name": "Wydział Górnictwa i Geoinżynierii",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 496,
+    "name": "Wydział Humanistyczny",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 497,
+    "name": "Wydział Informatyki, Elektroniki i Telekomunikacji",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 498,
+    "name": "Wydział Inżynierii Materiałowej i Ceramiki",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 499,
+    "name": "Wydział Inżynierii Mechanicznej i Robotyki",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 500,
+    "name": "Wydział Inżynierii Metali i Informatyki Przemysłowej",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 501,
+    "name": "Wydział Matematyki Stosowanej",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 502,
+    "name": "Wydział Zarządzania",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 503,
+    "name": "Wydział Biotechnologii",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 504,
+    "name": "Wydział Chemii",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 505,
+    "name": "Wydział Filologiczny",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 506,
+    "name": "Wydział Fizyki i Astronomii",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 507,
+    "name": "Wydział Matematyki i Informatyki",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 508,
+    "name": "Wydział Nauk Biologicznych",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 509,
+    "name": "Wydział Nauk Historycznych i Pedagogicznych",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 510,
+    "name": "Wydział Nauk O Ziemi i Kształtowania Środowiska",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 511,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 512,
+    "name": "Wydział Prawa, Administracji i Ekonomii",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 513,
+    "name": "Wydział Automatyki, Roboty i Elektrotechniki",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 514,
+    "name": "Wydział Informatyki i Telekomunikacji",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 515,
+    "name": "Wydział Inżynierii Materiałowej i Fizyki Technicznej",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 516,
+    "name": "Wydział Technologii Chemicznej",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 517,
+    "name": "Wydział Architektury",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 518,
+    "name": "Wydział Inżynierii Lądowej i Transportu",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 519,
+    "name": "Wydział Inżynierii Mechanicznej",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 520,
+    "name": "Wydział Inżynierii Środowiska i Energetyki",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 521,
+    "name": "Wydział Inżynierii Zarządzania",
+    "url": null,
+    "university_id": 33
+  },
+  {
+    "id": 522,
+    "name": "Wydział finansów i rynków finansowych",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 523,
+    "name": "Wydział informatyki i analiz ekonomicznych",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 524,
+    "name": "Wydział nauk o jakości",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 525,
+    "name": "Wydział rachunkowości i finansów przedsiębiorstw",
+    "url": null,
+    "university_id": 46
+  },
+  {
+    "id": 526,
+    "name": "Kolegium Ekonomii, Finansów i Prawa",
+    "url": null,
+    "university_id": 4
+  },
+  {
+    "id": 527,
+    "name": "Kolegium Gospodarki i Administracji Publicznej",
+    "url": null,
+    "university_id": 4
+  },
+  {
+    "id": 528,
+    "name": "Kolegium Nauk o Zarządzaniu i Jakości",
+    "url": null,
+    "university_id": 4
+  },
+  {
+    "id": 529,
+    "name": "Kolegium Nauk Ekonomicznych i Społecznych - Oddział W Płocku",
+    "url": "https://www.pw.plock.pl/Filia",
+    "university_id": 37
+  },
+  {
+    "id": 530,
+    "name": "Filia w Legnicy",
+    "url": "http://www.legnica.pwr.wroc.pl",
+    "university_id": 38
+  },
+  {
+    "id": 531,
+    "name": "Filia w Jeleniej Górze",
+    "url": "http://www.jelenia-gora.pwr.wroc.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 532,
+    "name": "Filia w Wałbrzychu",
+    "url": "http://www.walbrzych.pwr.wroc.pl/",
+    "university_id": 38
+  },
+  {
+    "id": 533,
+    "name": "Wydział Wychowania Fizycznego",
+    "url": "https://www.awf.edu.pl/wwf/strona-glowna",
+    "university_id": 19
+  },
+  {
+    "id": 534,
+    "name": "Wydział Rehabilitacji",
+    "url": "https://www.awf.edu.pl/wr",
+    "university_id": 19
+  },
+  {
+    "id": 535,
+    "name": "Wydział Wychowania Fizycznego i Zdrowia w Białej Podlaskiej",
+    "url": "https://www.awf-bp.edu.pl/",
+    "university_id": 19
+  },
+  {
+    "id": 536,
+    "name": "Wydział Budownictwa, Mechaniki i Petrochemii",
+    "url": null,
+    "university_id": 3
+  },
+  {
+    "id": 537,
+    "name": "Kolegium Nauk Ekonomicznych i Społecznych",
+    "url": null,
+    "university_id": 3
+  },
+  {
+    "id": 538,
+    "name": "Wydział Lekarski",
+    "url": "https://www.umb.edu.pl/wl",
+    "university_id": 2
+  },
+  {
+    "id": 539,
+    "name": "Wydział Farmaceutyczny",
+    "url": "https://www.umb.edu.pl/wf",
+    "university_id": 2
+  },
+  {
+    "id": 540,
+    "name": "Wydział Nauk o Zdrowiu",
+    "url": "https://www.umb.edu.pl/wnoz",
+    "university_id": 2
+  },
+  {
+    "id": 541,
+    "name": "Ośrodek Studiów Amerykańskich",
+    "url": "https://www.asc.uw.edu.pl/",
+    "university_id": 75
+  },
+  {
+    "id": 542,
+    "name": "Centrum Kształcenia Nauczycieli Języków Obcych i Edukacji Europejskiej",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 543,
+    "name": "Ośrodek Międzyobszarowych Indywidualnych Studiów Humanistycznych i Społecznych",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 544,
+    "name": "Ośrodek Międzyobszarowych Studiów Matematyczno-Przyrodniczych",
+    "url": null,
+    "university_id": 50
+  },
+  {
+    "id": 545,
+    "name": "Wydział Lekarski",
+    "url": "http://lekarski.umed.lodz.pl/",
+    "university_id": 57
+  },
+  {
+    "id": 546,
+    "name": "Oddział Stomatologiczny",
+    "url": "http://stomatologia.umed.lodz.pl/",
+    "university_id": 57
+  },
+  {
+    "id": 547,
+    "name": "Oddział Nauk Biomedycznych i Kształcenia Podyplomowego",
+    "url": "http://wnbikp.umed.lodz.pl/",
+    "university_id": 57
+  },
+  {
+    "id": 548,
+    "name": "Wydział Nauk o zdrowiu",
+    "url": "http://naukiozdrowiu.umed.lodz.pl/",
+    "university_id": 57
+  },
+  {
+    "id": 549,
+    "name": "Oddział Pielęgniarstwa i Położnictwa",
+    "url": "http://pielegniarstwo.umed.lodz.pl/",
+    "university_id": 57
+  },
+  {
+    "id": 550,
+    "name": "Wydział Farmaceutyczny",
+    "url": "https://farmacja.umed.pl/",
+    "university_id": 57
+  },
+  {
+    "id": 551,
+    "name": "Szkoła studiów I stopnia",
+    "url": null,
+    "university_id": 44
+  },
+  {
+    "id": 552,
+    "name": "Kolegium Nauk Humanistycznych",
+    "url": "https://www.ur.edu.pl/kolegia/kolegium-nauk-humanistycznych",
+    "university_id": 68
+  },
+  {
+    "id": 553,
+    "name": "Kolegium Nauk Medycznych",
+    "url": "https://www.ur.edu.pl/kolegia/kolegium-nauk-medycznych",
+    "university_id": 68
+  },
+  {
+    "id": 554,
+    "name": "Kolegium Nauk Przyrodniczych",
+    "url": "https://www.ur.edu.pl/kolegia/kolegium-nauk-przyrodniczych",
+    "university_id": 68
+  },
+  {
+    "id": 555,
+    "name": "Kolegium Nauk Społecznych",
+    "url": "https://www.ur.edu.pl/kolegia/kolegium-nauk-spolecznych",
+    "university_id": 68
+  },
+  {
+    "id": 556,
+    "name": "Wydział Lekarski i Nauk o Zdrowiu w Collegium Medicum",
+    "url": "https://www.cm.uz.zgora.pl/",
+    "university_id": 77
+  },
+  {
+    "id": 557,
+    "name": "Studia międzywydziałowe",
+    "url": null,
+    "university_id": 29
+  },
+  {
+    "id": 558,
+    "name": "Wydział Kultury Fizycznej",
+    "url": "https://awf.gda.pl/",
+    "university_id": 15
+  },
+  {
+    "id": 559,
+    "name": "Zamiejscowy Wydział Kultury Fizycznej w Gorzowie",
+    "url": "https://www.gorzow.awf.poznan.pl/",
+    "university_id": 18
+  },
+  {
+    "id": 560,
+    "name": "Wydział Lotnictwa",
+    "url": "https://www.wojsko-polskie.pl/law/wydzial-lotnictwa/",
+    "university_id": 24
+  },
+  {
+    "id": 561,
+    "name": "Wydział Bezpieczeństwa Lotniczego",
+    "url": "https://www.wojsko-polskie.pl/law/wydzial-bezpieczenstwa-lotniczego/",
+    "university_id": 24
+  },
+  {
+    "id": 562,
+    "name": "Instytut Prawa",
+    "url": "https://www.wojsko-polskie.pl/aszwoj/instytut-prawa-oferta-ksztalcenia/",
+    "university_id": 12
+  },
+  {
+    "id": 563,
+    "name": "Instytut Historii Wojskowej",
+    "url": "https://www.wojsko-polskie.pl/aszwoj/instytut-historii-wojskowej-oferta-ksztalcenia/",
+    "university_id": 12
+  },
+  {
+    "id": 564,
+    "name": "Instytut Filologii Angielskiej",
+    "url": "https://anglistyka.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 565,
+    "name": "Instytut Nauk o Polityce i Administracji",
+    "url": "https://inpa.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 566,
+    "name": "Instytut Psychologii",
+    "url": "https://ipsych.up.krakow.pl/",
+    "university_id": 62
+  },
+  {
+    "id": 567,
+    "name": "Instytut Nawigacji",
+    "url": "https://www.wojsko-polskie.pl/law/instytut-nawigacji/",
+    "university_id": 24
+  },
+  {
+    "id": 568,
+    "name": "Instytut Logistyki i Organizacji Transportu",
+    "url": "https://www.wojsko-polskie.pl/law/katedra-logistyki/",
+    "university_id": 24
+  },
+  {
+    "id": 569,
+    "name": "Collegium Medicum",
+    "url": "https://cm.ujk.edu.pl/",
+    "university_id": 51
+  },
+  {
+    "id": 570,
+    "name": "Instytut Bezpieczeństwa i Zarządzania",
+    "url": "https://biz.apsl.edu.pl/instytut-bezpieczenstwa-i-zarzadzania/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 571,
+    "name": "Instytut Filologii",
+    "url": "https://if.apsl.edu.pl/instytut-filologii/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 572,
+    "name": "Instytut Historii",
+    "url": "https://ih.apsl.edu.pl/instytut-historii/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 573,
+    "name": "Instytut Biologii i Nauk o Ziemi",
+    "url": "https://binoz.apsl.edu.pl/instytut-biologii-i-nauk-o-ziemi/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 574,
+    "name": "Instytut Geografii Społeczno-Ekonomicznej i Turystyki",
+    "url": "https://gsp.apsl.edu.pl/instytut-geografii-spoleczno-ekonomicznej-i-turystyki/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 575,
+    "name": "Instytut Nauk Ścisłych i Technicznych",
+    "url": "https://sitech.apsl.edu.pl/instytut-nauk-scislych-i-technicznych/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 576,
+    "name": "Instytut Pedagogiki",
+    "url": "https://ip.apsl.edu.pl/instytut-pedagogiki/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 577,
+    "name": "Instytut Prawa i Administracji",
+    "url": "https://pia.apsl.edu.pl/instytut-prawa-i-administracji/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 578,
+    "name": "Instytut Nauk o Zdrowiu",
+    "url": "https://inoz.apsl.edu.pl/instytut-nauk-o-zdrowiu/Wydarzenia",
+    "university_id": 11
+  },
+  {
+    "id": 579,
+    "name": "Katedra Sztuki Muzycznej",
+    "url": "https://km.apsl.edu.pl/katedra-sztuki-muzycznej/aktualnosci",
+    "university_id": 11
+  },
+  {
+    "id": 580,
+    "name": "Szkoła Filmowa im. Krzysztofa Kieślowskiego",
+    "url": "http://www.writv.us.edu.pl/pl/",
+    "university_id": 70
+  },
+  {
+    "id": 581,
+    "name": "Wydział Nauk o Bezpieczeństwie",
+    "url": "https://www.wojsko-polskie.pl/awl/wnob-studia-cywilne/",
+    "university_id": 14
+  },
+  {
+    "id": 582,
+    "name": "Wydział Zarządzania",
+    "url": "https://www.wojsko-polskie.pl/awl/wz-studia-cywilne/",
+    "university_id": 14
+  },
+  {
+    "id": 583,
+    "name": "Wydział Historii i Archeologii",
+    "url": null,
+    "university_id": 55
+  },
+  {
+    "id": 584,
+    "name": "Wydział Inżynierii Lądowej i Gospodarki Zasobami",
+    "url": null,
+    "university_id": 6
+  },
+  {
+    "id": 585,
+    "name": "Wydział Biologii i Biotechnologii",
+    "url": null,
+    "university_id": 40
+  },
+  {
+    "id": 586,
+    "name": "Instytut Pedagogiki",
+    "url": null,
+    "university_id": 10
+  },
+  {
+    "id": 587,
+    "name": "Instytut Profilaktyki Społecznej i Pracy Socjalnej",
+    "url": null,
+    "university_id": 10
+  },
+  {
+    "id": 588,
+    "name": "Instytut Pedagogiki Specjalnej",
+    "url": null,
+    "university_id": 10
+  },
+  {
+    "id": 589,
+    "name": "Instytut Filozofii i Socjologii",
+    "url": null,
+    "university_id": 10
+  },
+  {
+    "id": 590,
+    "name": "Instytut Wspomagania Rozwoju Człowieka i Edukacji",
+    "url": null,
+    "university_id": 10
+  },
+  {
+    "id": 591,
+    "name": "Instytut Psychologii",
+    "url": null,
+    "university_id": 10
+  },
+  {
+    "id": 592,
+    "name": "Instytut Edukacji Artystycznej",
+    "url": null,
+    "university_id": 10
+  },
+  {
+    "id": 593,
+    "name": "Wydział Inżynierii Mechanicznej i Okrętownictwa",
+    "url": null,
+    "university_id": 27
+  },
+  {
+    "id": 594,
+    "name": "SGH",
+    "url": null,
+    "university_id": 41
+  },
+  {
+    "id": 595,
+    "name": "Uniwersyteckie Centrum Medycyny Weterynaryjnej",
+    "url": null,
+    "university_id": 67
+  },
+  {
+    "id": 596,
+    "name": "Międzywydziałowe Studium Ochrony Środowiska",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 597,
+    "name": "Kolegium Międzyobszarowych Studiów Indywidualnych",
+    "url": null,
+    "university_id": 76
+  },
+  {
+    "id": 598,
+    "name": "Instytut Kultury Europejskiej w Gnieźnie",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 599,
+    "name": "Nadnotecki Instytut Dydaktyczny w Pile",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 600,
+    "name": "Międzywydziałowe",
+    "url": null,
+    "university_id": 49
+  },
+  {
+    "id": 601,
+    "name": "Wydział Nauk o Zdrowiu",
+    "url": null,
+    "university_id": 61
+  },
+  {
+    "id": 602,
+    "name": "Wydział Administracji i Nauk Społecznych",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 603,
+    "name": "Kolegium I",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 604,
+    "name": "Kolegium II",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 605,
+    "name": "Kolegium III",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 606,
+    "name": "Kolegium IV",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 607,
+    "name": "Wydział Edukacji Muzycznej",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 608,
+    "name": "Wydział Humanistyczny",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 609,
+    "name": "Wydział Kultury Fizycznej, Zdrowia i Turystyki",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 610,
+    "name": "Wydział Matematyki, Fizyki i Techniki",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 611,
+    "name": "Wydział Nauk Przyrodniczych",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 612,
+    "name": "Wydział Pedagogiki i Psychologii",
+    "url": null,
+    "university_id": 53
+  },
+  {
+    "id": 613,
+    "name": "Wydział Medyczny i Nauk o Zdrowiu",
+    "url": null,
+    "university_id": 5
+  },
+  {
+    "id": 614,
+    "name": "Wydział Nauk Społecznych",
+    "url": null,
+    "university_id": 5
+  },
+  {
+    "id": 615,
+    "name": "Wydział Politechniczny",
+    "url": null,
+    "university_id": 5
+  },
+  {
+    "id": 616,
+    "name": "Wydział Medyczno-Społeczno-Techniczny we Wrześni",
+    "url": null,
+    "university_id": 5
+  },
+  {
+    "id": 617,
+    "name": "Kolegium Indywidualnych Studiów Międzyobszarowych",
+    "url": null,
+    "university_id": 70
+  },
+  {
+    "id": 618,
+    "name": "Uniwersyteckie Centrum Badań nad Środowiskiem Przyrodniczym i Zrównoważonym Rozwojem",
+    "url": null,
+    "university_id": 75
+  },
+  {
+    "id": 619,
+    "name": "Instytut Sztuki i Designu",
+    "url": null,
+    "university_id": 62
+  },
+  {
+    "id": 620,
+    "name": "Instytut Dziennikarstwa i Stosunków Międzynarodowych",
+    "url": null,
+    "university_id": 62
+  },
+  {
+    "id": 621,
+    "name": "Wydział Inżynierii Bezpieczeństwa i Ochrony Ludności",
+    "url": "",
+    "university_id": 42
+  },
+  {
+    "id": 622,
+    "name": "Wydział Medyczny",
+    "url": "",
+    "university_id": 75
+  },
+  {
+    "id": 623,
+    "name": "Medyczny",
+    "url": "",
+    "university_id": 38
+  },
+  {
+    "id": 624,
+    "name": "Wydział Medyczny",
+    "url": "",
+    "university_id": 23
+  },
+  {
+    "id": 625,
+    "name": "Instytut Nauk o Zarządzaniu i Jakości",
+    "url": "",
+    "university_id": 62
+  },
+  {
+    "id": 626,
+    "name": "Filia Bielsko-Biała",
+    "url": "",
+    "university_id": 43
+  },
+  {
+    "id": 627,
+    "name": "Wydział Filozofii",
+    "url": "",
+    "university_id": 53
+  },
+  {
+    "id": 628,
+    "name": "Wydział Informatyki",
+    "url": "",
+    "university_id": 53
+  },
+  {
+    "id": 629,
+    "name": "Instytut Fizyki",
+    "url": "",
+    "university_id": 35
+  },
+  {
+    "id": 630,
+    "name": "Wydział Architektury",
+    "url": "",
+    "university_id": 1
+  },
+  {
+    "id": 631,
+    "name": "Wydział Budownictwa",
+    "url": "",
+    "university_id": 1
+  },
+  {
+    "id": 632,
+    "name": "Wydział Nauk Rolniczych",
+    "url": "",
+    "university_id": 63
+  },
+  {
+    "id": 633,
+    "name": "Wydział Nauk Medycznych i Nauk o Zdrowiu",
+    "url": "",
+    "university_id": 63
+  },
+  {
+    "id": 634,
+    "name": "Wydział Nauk Społecznych",
+    "url": "",
+    "university_id": 63
+  }
+]
