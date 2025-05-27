@@ -1,108 +1,89 @@
 "use client";
 
 import { RowActions } from "./RowActions";
-import { Item } from "./types";
+import { FieldOfStudy, Item } from "./types";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 import { ColumnDef, FilterFn } from "@tanstack/react-table";
 
-// Custom filter function for multi-column searching
-const multiColumnFilterFn: FilterFn<Item> = (row, columnId, filterValue) => {
-  const searchableRowContent = `${row.original.name} ${row.original.email}`.toLowerCase();
-  const searchTerm = (filterValue ?? "").toLowerCase();
-  return searchableRowContent.includes(searchTerm);
-};
-
-const statusFilterFn: FilterFn<Item> = (row, columnId, filterValue: string[]) => {
-  if (!filterValue.length) return true;
-  const status = row.getValue(columnId) as string;
-  return filterValue.includes(status);
-};
-
-export const columns: ColumnDef<Item>[] = [
+export const columns: ColumnDef<FieldOfStudy>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    size: 28,
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    header: "Name",
-    accessorKey: "name",
-    cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
-    size: 180,
-    filterFn: multiColumnFilterFn,
-    enableHiding: false,
-  },
-  {
-    header: "Email",
-    accessorKey: "email",
-    size: 220,
-  },
-  {
-    header: "Location",
-    accessorKey: "location",
-    cell: ({ row }) => (
-      <div>
-        <span className="text-lg leading-none">{row.original.flag}</span> {row.getValue("location")}
-      </div>
-    ),
-    size: 180,
-  },
-  {
-    header: "Status",
-    accessorKey: "status",
-    cell: ({ row }) => (
-      <Badge
-        className={cn(
-          row.getValue("status") === "Inactive" && "bg-muted-foreground/60 text-primary-foreground",
-        )}
-      >
-        {row.getValue("status")}
-      </Badge>
-    ),
-    size: 100,
-    filterFn: statusFilterFn,
-  },
-  {
-    header: "Performance",
-    accessorKey: "performance",
-  },
-  {
-    header: "Balance",
-    accessorKey: "balance",
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("balance"));
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-      return formatted;
-    },
+    header: "Stopień",
+    accessorKey: "level",
     size: 120,
+    enableColumnFilter: false, // TODO
+  },
+  {
+    id: "duration",
+    header: "Ilość semestrów",
+    accessorKey: "duration",
+    size: 80,
+    meta: {
+      filterType: "number",
+    },
+    cell: ({ row }) => <div className="text-center">{row.getValue("duration")}</div>,
+  },
+  {
+    header: "Kierunek",
+    accessorKey: "name",
+    size: 180,
+    meta: {
+      filterType: "string",
+    },
+    enableHiding: false,
+    cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
+  },
+  {
+    header: "Wydział",
+    accessorKey: "department.name",
+    size: 220,
+    meta: {
+      filterType: "string",
+    },
+  },
+  {
+    header: "Uczelnia",
+    accessorKey: "university.name",
+    meta: {
+      filterType: "string",
+    },
+  },
+  {
+    header: "Miejscowość",
+    accessorKey: "university.city",
+    meta: {
+      filterType: "string",
+    },
+  },
+  {
+    id: "passRate",
+    header: "Średnia zdawalność",
+    accessorKey: "university.id",
+    size: 80,
+    meta: {
+      filterType: "number",
+    },
+    cell: ({ row }) => <div className="text-center">{`${row.getValue("passRate")}%`}</div>,
+  },
+  {
+    id: "salary",
+    header: "Średnie zarobki absolw.",
+    accessorKey: "department.id",
+    size: 100,
+    meta: {
+      filterType: "number",
+    },
+    cell: ({ row }) => (
+      <div className="text-right">{`${Number(row.getValue("salary")) * 100} PLN`}</div>
+    ),
   },
   {
     id: "actions",
-    header: () => <span className="sr-only">Actions</span>,
+    header: "Zapisz",
     cell: ({ row }) => <RowActions row={row} />,
     size: 60,
     enableHiding: false,
+    enableColumnFilter: false, // TODO
   },
 ];
