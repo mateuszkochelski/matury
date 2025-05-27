@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
-import { SplitButton } from "../ui/split-button";
-import { columns, Item } from "./columns";
+import { columns } from "./columns";
+import { FieldOfStudy } from "./types";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -58,10 +58,10 @@ import {
   CircleXIcon,
   Columns3Icon,
   FilterIcon,
-  ListFilterIcon,
+  SearchIcon,
 } from "lucide-react";
 
-export default function CourseDegreeTable() {
+export default function CourseDegreeTable({ data = [] }: { data?: FieldOfStudy[] }) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -77,27 +77,6 @@ export default function CourseDegreeTable() {
       desc: false,
     },
   ]);
-
-  const [data, setData] = useState<Item[]>([]);
-  useEffect(() => {
-    async function fetchPosts() {
-      const res = await fetch(
-        "https://res.cloudinary.com/dlzlfasou/raw/upload/users-01_fertyx.json",
-      );
-      const data = await res.json();
-      setData(data);
-    }
-    fetchPosts();
-  }, []);
-
-  const handleDeleteRows = () => {
-    const selectedRows = table.getSelectedRowModel().rows;
-    const updatedData = data.filter(
-      (item) => !selectedRows.some((row) => row.original.id === item.id),
-    );
-    setData(updatedData);
-    table.resetRowSelection();
-  };
 
   const table = useReactTable({
     data,
@@ -120,45 +99,6 @@ export default function CourseDegreeTable() {
     },
   });
 
-  // Get unique status values
-  const uniqueStatusValues = useMemo(() => {
-    const statusColumn = table.getColumn("status");
-
-    if (!statusColumn) return [];
-
-    const values = Array.from(statusColumn.getFacetedUniqueValues().keys());
-
-    return values.sort();
-  }, [table.getColumn("status")?.getFacetedUniqueValues()]);
-
-  // Get counts for each status
-  const statusCounts = useMemo(() => {
-    const statusColumn = table.getColumn("status");
-    if (!statusColumn) return new Map();
-    return statusColumn.getFacetedUniqueValues();
-  }, [table.getColumn("status")?.getFacetedUniqueValues()]);
-
-  const selectedStatuses = useMemo(() => {
-    const filterValue = table.getColumn("status")?.getFilterValue() as string[];
-    return filterValue ?? [];
-  }, [table.getColumn("status")?.getFilterValue()]);
-
-  const handleStatusChange = (checked: boolean, value: string) => {
-    const filterValue = table.getColumn("status")?.getFilterValue() as string[];
-    const newFilterValue = filterValue ? [...filterValue] : [];
-
-    if (checked) {
-      newFilterValue.push(value);
-    } else {
-      const index = newFilterValue.indexOf(value);
-      if (index > -1) {
-        newFilterValue.splice(index, 1);
-      }
-    }
-
-    table.getColumn("status")?.setFilterValue(newFilterValue.length ? newFilterValue : undefined);
-  };
-
   return (
     <div className="space-y-4">
       {/* Filters */}
@@ -175,12 +115,12 @@ export default function CourseDegreeTable() {
               )}
               value={(table.getColumn("name")?.getFilterValue() ?? "") as string}
               onChange={(e) => table.getColumn("name")?.setFilterValue(e.target.value)}
-              placeholder="Filter by name or email..."
+              placeholder="Wyszukaj kierunek po nazwie"
               type="text"
-              aria-label="Filter by name or email"
+              aria-label="Wyszukaj kierunek po nazwie"
             />
             <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50">
-              <ListFilterIcon size={16} aria-hidden="true" />
+              <SearchIcon size={16} aria-hidden="true" />
             </div>
             {Boolean(table.getColumn("name")?.getFilterValue()) && (
               <button
@@ -202,7 +142,7 @@ export default function CourseDegreeTable() {
             <DropdownMenuTrigger asChild>
               <Button variant="outline">
                 <Columns3Icon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
-                View
+                Widok
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
@@ -214,12 +154,11 @@ export default function CourseDegreeTable() {
                   return (
                     <DropdownMenuCheckboxItem
                       key={column.id}
-                      className="capitalize"
                       checked={column.getIsVisible()}
                       onCheckedChange={(value) => column.toggleVisibility(!!value)}
                       onSelect={(event) => event.preventDefault()}
                     >
-                      {column.id}
+                      {column.columnDef.header?.toString()}
                     </DropdownMenuCheckboxItem>
                   );
                 })}
@@ -230,31 +169,47 @@ export default function CourseDegreeTable() {
             <PopoverTrigger asChild>
               <Button variant="outline">
                 <FilterIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
-                Filters
-                {selectedStatuses.length > 0 && (
+                Filtry
+                {/* {selectedStatuses.length > 0 && (
                   <span className="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
                     {selectedStatuses.length}
                   </span>
-                )}
+                )} */}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-72 p-0" align="start">
               <div className="space-y-3">
                 <Accordion type="multiple" className="w-full">
-                  <AccordionItem value="item-1" className="*:p-3">
-                    <AccordionTrigger className="py-2 hover:no-underline">Course</AccordionTrigger>
-                    <AccordionContent>
-                      <FloatingLabelInput placeholder="Search courses" />
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-2" className="*:p-3">
-                    <AccordionTrigger className="py-2 hover:no-underline">
-                      Average salary
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <RangeInput />
-                    </AccordionContent>
-                  </AccordionItem>
+                  {table
+                    .getAllColumns()
+                    .filter((column) => column.getCanFilter())
+                    .map((column) => {
+                      let Input;
+                      switch (column.columnDef.meta?.filterType) {
+                        case "string":
+                          Input = (
+                            <FloatingLabelInput
+                              // TODO: "Wyszukaj uczelnia" zamiast "uczelnię"
+                              placeholder={`Wyszukaj ${column.columnDef.header?.toString()}`}
+                            />
+                          );
+                          break;
+                        case "number":
+                          Input = <RangeInput />;
+                          break;
+                        default:
+                          break;
+                      }
+
+                      return (
+                        <AccordionItem value={column.id} className="*:p-3" key={column.id}>
+                          <AccordionTrigger className="py-2 hover:no-underline">
+                            {column.columnDef.header?.toString()}
+                          </AccordionTrigger>
+                          <AccordionContent>{Input}</AccordionContent>
+                        </AccordionItem>
+                      );
+                    })}
                   <AccordionItem value="item-3" className="*:p-3 !border-b">
                     <AccordionTrigger className="py-2 hover:no-underline">Degree</AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-1.5">
@@ -380,7 +335,7 @@ export default function CourseDegreeTable() {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
+                <TableCell colSpan={columns.length} className="h-24">
                   No results.
                 </TableCell>
               </TableRow>
@@ -394,7 +349,7 @@ export default function CourseDegreeTable() {
         {/* Results per page */}
         <div className="flex items-center gap-3">
           <Label htmlFor={id} className="max-sm:sr-only">
-            Rows per page
+            Kierunki na stronę
           </Label>
           <Select
             value={table.getState().pagination.pageSize.toString()}
@@ -428,7 +383,7 @@ export default function CourseDegreeTable() {
                 table.getRowCount(),
               )}
             </span>{" "}
-            of <span className="text-foreground">{table.getRowCount().toString()}</span>
+            z <span className="text-foreground">{table.getRowCount().toString()}</span>
           </p>
         </div>
 
@@ -492,17 +447,6 @@ export default function CourseDegreeTable() {
           </Pagination>
         </div>
       </div>
-      <p className="text-muted-foreground mt-4 text-center text-sm">
-        Example of a more complex table made with{" "}
-        <a
-          className="hover:text-foreground underline"
-          href="https://tanstack.com/table"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TanStack Table
-        </a>
-      </p>
     </div>
   );
 }
