@@ -1,5 +1,6 @@
 import { BACKEND_URL } from "../constants";
 import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
+import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -50,37 +51,41 @@ type FieldOfStudyData = {
   };
 };
 
-export default async function Home() {
-  const departmentResponse = await fetch(`${BACKEND_URL}/api/department/1`);
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>
+}) {
+  const departmentId = (await searchParams).id;
+  if (!departmentId) {
+    notFound();
+  }
+
+  const departmentResponse = await fetch(`${BACKEND_URL}/api/department/${departmentId}`);
   const departmentData: Department = await departmentResponse.json();
 
   const fieldOfStudyResponse = await fetch(
     `${BACKEND_URL}/api/field_of_study/department/${departmentData.id}`,
   );
   const fieldOfStudyData: FieldOfStudyData = await fieldOfStudyResponse.json();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { content: fields, page: pageData } = fieldOfStudyData;
+
+  
 
   return (
     <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <Breadcrumb className="mb-5">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Strona główna</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href={`/university/${departmentData.university.id}`}>
-              {departmentData.university.name}
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>{departmentData.name}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-      <h1 className="mb-2">{departmentData.name}</h1>
+      <CustomBreadcrumb
+        items={[
+          { name: "Strona główna", href: "/" },
+          {
+            name: departmentData.university.name,
+            href: `/university/${departmentData.university.id}`,
+          },
+          { name: departmentData.name },
+        ]}
+        className="mb-3"
+      />
+      <h1 className="mb-5">{departmentData.name}</h1>
       <h3>Kierunki na wydziale</h3>
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center">
         <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
