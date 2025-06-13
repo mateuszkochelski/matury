@@ -21,7 +21,7 @@ type CustomBreadcrumbProps = {
 
 export const CustomBreadcrumb: React.FC<CustomBreadcrumbProps> = ({ items, className }) => {
   return (
-    <div className={`overflow-x-auto whitespace-nowrap ${className}`}>
+    <div className={`overflow-x-auto whitespace-nowrap no-scrollbar ${className}`}>
       <Breadcrumb className="inline-flex items-center space-x-1 text-sm">
         <BreadcrumbList>
           {items.map((item, index) => (
