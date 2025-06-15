@@ -11,14 +11,14 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
   {
     header: "Stopień",
     accessorKey: "level",
-    size: 120,
+    size: 100,
     enableColumnFilter: false, // TODO
   },
   {
     id: "duration",
     header: "Ilość semestrów",
     accessorKey: "duration",
-    size: 80,
+    size: 120,
     meta: {
       filterType: "number",
     },
@@ -37,7 +37,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
   {
     header: "Wydział",
     accessorKey: "department.name",
-    size: 220,
+    size: 200,
     meta: {
       filterType: "string",
     },
@@ -45,6 +45,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
   {
     header: "Uczelnia",
     accessorKey: "university.name",
+    size: 220,
     meta: {
       filterType: "string",
     },
@@ -52,6 +53,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
   {
     header: "Miejscowość",
     accessorKey: "university.city",
+    size: 140,
     meta: {
       filterType: "string",
     },
@@ -60,7 +62,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
     id: "passRate",
     header: "Średnia zdawalność",
     accessorKey: "university.id",
-    size: 80,
+    size: 120,
     meta: {
       filterType: "number",
     },
@@ -68,9 +70,9 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
   },
   {
     id: "salary",
-    header: "Średnie zarobki absolw.",
+    header: "Śr. zarobki absolw.",
     accessorKey: "department.id",
-    size: 100,
+    size: 120,
     meta: {
       filterType: "number",
     },

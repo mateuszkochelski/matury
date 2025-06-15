@@ -110,7 +110,7 @@ export default function CourseDegreeTable({ data = [] }: { data?: FieldOfStudy[]
               id={`${id}-input`}
               ref={inputRef}
               className={cn(
-                "peer min-w-60 ps-9",
+                "peer ps-9",
                 Boolean(table.getColumn("name")?.getFilterValue()) && "pe-9",
               )}
               value={(table.getColumn("name")?.getFilterValue() ?? "") as string}
@@ -345,7 +345,7 @@ export default function CourseDegreeTable({ data = [] }: { data?: FieldOfStudy[]
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between gap-8">
+      <div className="flex items-center justify-between gap-2 sm:gap-8">
         {/* Results per page */}
         <div className="flex items-center gap-3">
           <Label htmlFor={id} className="max-sm:sr-only">
@@ -382,8 +382,11 @@ export default function CourseDegreeTable({ data = [] }: { data?: FieldOfStudy[]
                 ),
                 table.getRowCount(),
               )}
-            </span>{" "}
-            z <span className="text-foreground">{table.getRowCount().toString()}</span>
+            </span>
+            <span className="hidden sm:inline">
+              {" "}
+              z <span className="text-foreground">{table.getRowCount().toString()}</span>
+            </span>
           </p>
         </div>
 
