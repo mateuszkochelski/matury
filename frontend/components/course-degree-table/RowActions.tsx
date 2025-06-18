@@ -6,6 +6,7 @@ import { Row } from "@tanstack/react-table";
 import { HeartIcon } from "lucide-react";
 
 export function RowActions({ row }: { row: Row<FieldOfStudy> }) {
+  void row;
   return (
     <div className="flex justify-center">
       <Button variant="ghost" size="icon">
