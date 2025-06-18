@@ -1,14 +1,6 @@
 import { BACKEND_URL } from "../constants";
 import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
 import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbSeparator,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbList,
-} from "@/components/ui/breadcrumb";
 import { notFound } from "next/navigation";
 
 type FieldOfStudy = {
@@ -54,7 +46,7 @@ type FieldOfStudyData = {
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | undefined }>
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
   const departmentId = (await searchParams).id;
   if (!departmentId) {
@@ -68,9 +60,7 @@ export default async function Home({
     `${BACKEND_URL}/api/field_of_study/department/${departmentData.id}`,
   );
   const fieldOfStudyData: FieldOfStudyData = await fieldOfStudyResponse.json();
-  const { content: fields, page: pageData } = fieldOfStudyData;
-
-  
+  const { content: fields } = fieldOfStudyData;
 
   return (
     <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
