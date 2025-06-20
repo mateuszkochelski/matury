@@ -90,7 +90,7 @@ jobs:
           volumes:
             postgres_data
 
-    - name: Stop and remove old containers
-      run: sudo docker-compose -f docker-compose.yml down
-    - name: Start containers
-      run: sudo docker-compose -f docker-compose.yml up -d
+      - name: Stop and remove old containers
+        run: sudo docker-compose -f docker-compose.yml down
+      - name: Start containers
+        run: sudo docker-compose -f docker-compose.yml up -d
