@@ -37,7 +37,7 @@ export default async function Home() {
   const { number: pageNumber } = pageData;
 
   return (
-    <main className="items-center min-h-screen p-2 pb-20 gap-16 sm:p-8 md:p-16 lg:p-20 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
+    <main className="items-center min-h-screen p-2 pb-20 sm:p-8 md:p-16 lg:p-20 font-[family-name:var(--font-geist-sans)]">
       <CourseDegreeTable data={fields} />
     </main>
   );
