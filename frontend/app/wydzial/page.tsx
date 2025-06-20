@@ -76,7 +76,7 @@ export default async function Home({
         className="mb-3"
       />
       <h1 className="mb-5">{departmentData.name}</h1>
-      <h3>Kierunki na wydziale</h3>
+      <h2>Kierunki na wydziale</h2>
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center">
         <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
           <CourseDegreeTable data={fields} />
