@@ -1,6 +1,6 @@
-import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
 import { DepartmentTable } from "@/components/custom-table/department";
 import { TableSearchParams } from "@/components/custom-table/fetchData";
+import { CustomBreadcrumb } from "@/components/ui/custom-breadcrumb/CustomBradcrumb";
 import { getDepartmentData } from "@/utils/getDepartmentData";
 import { notFound } from "next/navigation";
 
@@ -11,18 +11,14 @@ export default async function Home({
   params: Promise<{ id: string }>;
   searchParams?: Promise<TableSearchParams>;
 }) {
-  const departmentId = (await params).id;
-  if (!departmentId) {
+  const { id } = await params;
+  if (!id) {
     notFound();
   }
 
   const { pageSize, pageIndex, hiddenColumns } = (await searchParams) ?? {};
 
-  const { departmentData, fieldOfStudyData } = await getDepartmentData(
-    departmentId,
-    pageSize,
-    pageIndex,
-  );
+  const { departmentData, fieldOfStudyData } = await getDepartmentData(id, pageSize, pageIndex);
   const { number: pageNumber, totalElements, size } = fieldOfStudyData.page;
 
   return (
@@ -32,7 +28,7 @@ export default async function Home({
           { name: "Strona główna", href: "/" },
           {
             name: departmentData.university.name,
-            href: `/university/${departmentData.university.id}`,
+            href: `/uczelnia/${departmentData.university.id}`,
           },
           { name: departmentData.name },
         ]}
