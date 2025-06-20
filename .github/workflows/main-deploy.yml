@@ -60,7 +60,7 @@ jobs:
                 - "5432:5432"
               volumes:
                 - postgres_data:/var/lib/postgres/data
-              restart:always
+              restart: always
             frontend:
               image: unsignedgodeveloper/matury-frontend:latest
               container_name: frontend
