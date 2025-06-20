@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "../constants";
+import { BACKEND_URL } from "../../constants";
 import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
 import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
 import { notFound } from "next/navigation";
@@ -43,12 +43,8 @@ type FieldOfStudyData = {
   };
 };
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | undefined }>;
-}) {
-  const departmentId = (await searchParams).id;
+export default async function Home({ params }: { params: { id: string } }) {
+  const departmentId = params.id;
   if (!departmentId) {
     notFound();
   }
