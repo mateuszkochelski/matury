@@ -64,10 +64,12 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type UrlUpdateParam = {param: string, value?: string | number | string[]};
 
-export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize = 10, totalElements = 0 }: { data?: FieldOfStudy[], pageNumber?: number, pageSize?: number, totalElements?: number }) {
+export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize = 10, totalElements = 0, hiddenColumns = [] }: { data?: FieldOfStudy[], pageNumber?: number, pageSize?: number, totalElements?: number, hiddenColumns?: string[] }) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
+    Object.fromEntries(hiddenColumns.map(column => [column, false]))
+  );
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: pageNumber,
     pageSize: pageSize,
@@ -130,6 +132,16 @@ export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize 
     handleUrlUpdate([{param: "pageIndex", value: pagination.pageIndex},{param: "pageSize", value: pagination.pageSize}]);
   }, [pagination])
 
+  const handleColumnVisibilityUpdate = (open: boolean) => {
+    // we only want to update after the dropdown is closed
+    if (open) return;
+
+    const hiddenColumns = table.getAllColumns().filter((column) => !column.getIsVisible());
+    // we do not want to add an empty searchParam
+    const value = hiddenColumns.map((column) => column.id).join(',') || undefined;
+    handleUrlUpdate([{param: "hiddenColumns", value}])
+  }
+
   return (
     <div className="space-y-4">
       {/* Filters */}
@@ -169,7 +181,7 @@ export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize 
             )}
           </div>
           {/* Toggle columns visibility */}
-          <DropdownMenu>
+          <DropdownMenu onOpenChange={handleColumnVisibilityUpdate}>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">
                 <Columns3Icon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
