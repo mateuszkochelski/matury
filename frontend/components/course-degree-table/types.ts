@@ -9,8 +9,8 @@ export type Item = {
 };
 
 export type FieldOfStudy = {
-  id: number,
-  name: string,
+  id: number;
+  name: string;
   level: string;
   duration: number;
   language: string;
@@ -19,12 +19,12 @@ export type FieldOfStudy = {
     name: string;
     acronym: string;
     city: string;
-  }
+  };
   department: {
     id: number;
     name: string;
-  }
-}
+  };
+};
 
 export type FieldOfStudyData = {
   content: FieldOfStudy[];
@@ -32,6 +32,6 @@ export type FieldOfStudyData = {
     size: number;
     number: number;
     totalElements: number;
-    totalPages: number
-  }
-}
+    totalPages: number;
+  };
+};

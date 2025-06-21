@@ -1,11 +1,8 @@
 "use client";
 
 import { RowActions } from "./RowActions";
-import { FieldOfStudy, Item } from "./types";
-import { Badge } from "@/components/ui/badge";
-import { Checkbox } from "@/components/ui/checkbox";
-import { cn } from "@/lib/utils";
-import { ColumnDef, FilterFn } from "@tanstack/react-table";
+import { FieldOfStudy } from "./types";
+import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<FieldOfStudy>[] = [
   {
