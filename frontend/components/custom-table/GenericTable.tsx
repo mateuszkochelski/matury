@@ -5,8 +5,6 @@ import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
-import { columns } from "./columns";
-import { FieldOfStudy } from "./types";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -36,6 +34,7 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import {
+  ColumnDef,
   ColumnFiltersState,
   flexRender,
   getCoreRowModel,
@@ -65,19 +64,25 @@ import { TableSearchParams } from "@/app/page";
 
 type UrlUpdateParam = { param: keyof TableSearchParams; value?: string | number | string[] };
 
-export default function CourseDegreeTable({
-  data = [],
-  pageNumber = 1,
-  pageSize = 10,
-  totalElements = 0,
-  hiddenColumns = [],
-}: {
-  data?: FieldOfStudy[];
+type GenericTableProps<T> = {
+  data?: T[];
+  columns: ColumnDef<T, any>[];
   pageNumber?: number;
   pageSize?: number;
   totalElements?: number;
   hiddenColumns?: string[];
-}) {
+}
+
+export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
+
+export function GenericTable<T>({
+  data = [],
+  columns,
+  pageNumber = 1,
+  pageSize = 10,
+  totalElements = 0,
+  hiddenColumns = [],
+}: GenericTableProps<T>) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(

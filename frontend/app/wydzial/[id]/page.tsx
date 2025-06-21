@@ -1,7 +1,7 @@
-import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
 import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
 import { notFound } from "next/navigation";
 import { getDepartmentData } from "@/utils/getDepartmentData";
+import { DepartmentTable } from "@/components/custom-table/department";
 
 export default async function Home({ params }: { params: Promise<{ id: string }> }) {
   const departmentId = (await params).id;
@@ -25,7 +25,7 @@ export default async function Home({ params }: { params: Promise<{ id: string }>
       />
       <h1>{departmentData.name}</h1>
       <h2>Kierunki na wydziale</h2>
-      <CourseDegreeTable data={departmentFields} />
+      <DepartmentTable data={departmentFields} />
     </main>
   );
 }

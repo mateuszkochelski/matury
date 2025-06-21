@@ -1,5 +1,5 @@
 import { BACKEND_URL } from "../app/constants";
-import { FieldOfStudy, FieldOfStudyData } from "@/components/course-degree-table/types";
+import { FieldOfStudy, FieldOfStudyData } from "@/components/custom-table/types";
 
 type Department = {
   id: number;

@@ -1,6 +1,6 @@
-import { FieldOfStudyData } from "@/components/course-degree-table/types";
+import { FieldOfStudyData } from "@/components/custom-table/types";
 import { BACKEND_URL } from "./constants";
-import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
+import { MainTable } from "@/components/custom-table/main";
 
 export type TableSearchParams = {
   pageSize?: string;
@@ -29,7 +29,7 @@ export default async function Home(props: {
 
   return (
     <main className="min-h-screen p-2 pb-20 sm:p-8 md:p-16 lg:p-20 font-[family-name:var(--font-geist-sans)]">
-      <CourseDegreeTable
+      <MainTable
         data={fields}
         pageNumber={pageNumber}
         pageSize={size}

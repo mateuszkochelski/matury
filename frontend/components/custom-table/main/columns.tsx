@@ -1,7 +1,7 @@
 "use client";
 
-import { RowActions } from "./RowActions";
-import { FieldOfStudy } from "./types";
+import { RowActions } from "../RowActions";
+import { FieldOfStudy } from "../types";
 import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<FieldOfStudy>[] = [
