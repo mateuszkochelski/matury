@@ -1,5 +1,6 @@
 import { BACKEND_URL } from "../app/constants";
-import { FieldOfStudy, FieldOfStudyData } from "@/components/custom-table/types";
+import { fetchData } from "@/components/custom-table/fetchData";
+import { FieldOfStudyData } from "@/components/custom-table/types";
 
 type Department = {
   id: number;
@@ -13,17 +14,21 @@ type Department = {
   };
 };
 
-export async function getDepartmentData(departmentId: string): Promise<{
-  departmentData: Department,
-  departmentFields: FieldOfStudy[]
+export async function getDepartmentData(
+  departmentId: string,
+  pageSize?: string,
+  pageIndex?: string,
+): Promise<{
+  departmentData: Department;
+  fieldOfStudyData: FieldOfStudyData;
 }> {
   const [departmentResponse, fieldOfStudyResponse] = await Promise.all([
     fetch(`${BACKEND_URL}/api/department/${departmentId}`),
-    fetch(`${BACKEND_URL}/api/field_of_study/department/${departmentId}`),
+    fetchData(`${BACKEND_URL}/api/field_of_study/department/${departmentId}`, pageSize, pageIndex),
   ]);
   const [departmentData, fieldOfStudyData]: [Department, FieldOfStudyData] = await Promise.all([
     departmentResponse.json(),
     fieldOfStudyResponse.json(),
   ]);
-  return {departmentData, departmentFields: fieldOfStudyData.content};
+  return { departmentData, fieldOfStudyData };
 }
