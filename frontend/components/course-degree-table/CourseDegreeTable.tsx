@@ -314,7 +314,6 @@ export default function CourseDegreeTable({
                 <div className="p-3 grid grid-cols-2 gap-2">
                   <Button>Save</Button>
                   <Button variant="secondary">Cancel</Button>
-                  {/* <SplitButton firstText="Save" secondText="Cancel" secondVariant="secondary" /> */}
                 </div>
               </div>
             </PopoverContent>

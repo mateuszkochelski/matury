@@ -3,16 +3,16 @@ import { BACKEND_URL } from "./constants";
 import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
 
 export type TableSearchParams = {
-    pageSize?: string;
-    pageIndex?: string;
-    hiddenColumns?: string;
-  }
+  pageSize?: string;
+  pageIndex?: string;
+  hiddenColumns?: string;
+}
 
 export default async function Home(props: {
   searchParams?: Promise<TableSearchParams>;
 }) {
-  const searchParams = await props.searchParams;
-  const { pageSize, pageIndex, hiddenColumns } = searchParams || {};
+  const searchParams = await props.searchParams ?? {};
+  const { pageSize, pageIndex, hiddenColumns } = searchParams;
 
   const apiUrl = new URL(`${BACKEND_URL}/api/field_of_study`);
   if (pageSize) {
