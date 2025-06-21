@@ -61,14 +61,27 @@ import {
   SearchIcon,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { TableSearchParams } from "@/app/page";
 
-type UrlUpdateParam = {param: string, value?: string | number | string[]};
+type UrlUpdateParam = { param: keyof TableSearchParams; value?: string | number | string[] };
 
-export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize = 10, totalElements = 0, hiddenColumns = [] }: { data?: FieldOfStudy[], pageNumber?: number, pageSize?: number, totalElements?: number, hiddenColumns?: string[] }) {
+export default function CourseDegreeTable({
+  data = [],
+  pageNumber = 1,
+  pageSize = 10,
+  totalElements = 0,
+  hiddenColumns = [],
+}: {
+  data?: FieldOfStudy[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalElements?: number;
+  hiddenColumns?: string[];
+}) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
-    Object.fromEntries(hiddenColumns.map(column => [column, false]))
+    Object.fromEntries(hiddenColumns.map((column) => [column, false])),
   );
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: pageNumber,
@@ -113,7 +126,7 @@ export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize 
   const handleUrlUpdate = (updateParams: UrlUpdateParam[]) => {
     const params = new URLSearchParams(searchParams.toString());
 
-    for (const {value, param} of updateParams) {
+    for (const { value, param } of updateParams) {
       const stringValue = value?.toString();
 
       if (params.get(param) === stringValue) continue;
@@ -126,11 +139,14 @@ export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize 
     }
 
     replace(`${pathname}?${params.toString()}`);
-  }
+  };
 
   useEffect(() => {
-    handleUrlUpdate([{param: "pageIndex", value: pagination.pageIndex},{param: "pageSize", value: pagination.pageSize}]);
-  }, [pagination])
+    handleUrlUpdate([
+      { param: "pageIndex", value: pagination.pageIndex },
+      { param: "pageSize", value: pagination.pageSize },
+    ]);
+  }, [pagination]);
 
   const handleColumnVisibilityUpdate = (open: boolean) => {
     // we only want to update after the dropdown is closed
@@ -138,9 +154,9 @@ export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize 
 
     const hiddenColumns = table.getAllColumns().filter((column) => !column.getIsVisible());
     // we do not want to add an empty searchParam
-    const value = hiddenColumns.map((column) => column.id).join(',') || undefined;
-    handleUrlUpdate([{param: "hiddenColumns", value}])
-  }
+    const value = hiddenColumns.map((column) => column.id).join(",") || undefined;
+    handleUrlUpdate([{ param: "hiddenColumns", value }]);
+  };
 
   return (
     <div className="space-y-4">

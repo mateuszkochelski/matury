@@ -1,46 +1,18 @@
+import { FieldOfStudyData } from "@/components/course-degree-table/types";
 import { BACKEND_URL } from "./constants";
 import CourseDegreeTable from "@/components/course-degree-table/CourseDegreeTable";
 
-type FieldOfStudy = {
-  id: number;
-  name: string;
-  level: string;
-  duration: number;
-  language: string;
-  university: {
-    id: number;
-    name: string;
-    acronym: string;
-    city: string;
-  };
-  department: {
-    id: number;
-    name: string;
-  };
-};
-
-type FieldOfStudyData = {
-  content: FieldOfStudy[];
-  page: {
-    size: number;
-    number: number;
-    totalElements: number;
-    totalPages: number;
-  };
-};
-
-
-  
-
-export default async function Home(props: {
-  searchParams?: Promise<{
+export type TableSearchParams = {
     pageSize?: string;
     pageIndex?: string;
     hiddenColumns?: string;
-  }>;
+  }
+
+export default async function Home(props: {
+  searchParams?: Promise<TableSearchParams>;
 }) {
   const searchParams = await props.searchParams;
-  const {pageSize, pageIndex, hiddenColumns} = searchParams || {};
+  const { pageSize, pageIndex, hiddenColumns } = searchParams || {};
 
   const apiUrl = new URL(`${BACKEND_URL}/api/field_of_study`);
   if (pageSize) {
@@ -57,7 +29,13 @@ export default async function Home(props: {
 
   return (
     <main className="min-h-screen p-2 pb-20 sm:p-8 md:p-16 lg:p-20 font-[family-name:var(--font-geist-sans)]">
-      <CourseDegreeTable data={fields} pageNumber={pageNumber} pageSize={size} totalElements={totalElements} hiddenColumns={hiddenColumns?.split(',')} />
+      <CourseDegreeTable
+        data={fields}
+        pageNumber={pageNumber}
+        pageSize={size}
+        totalElements={totalElements}
+        hiddenColumns={hiddenColumns?.split(",")}
+      />
     </main>
   );
 }
