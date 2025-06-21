@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
+import { TableSearchParams } from "./fetchData";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -60,18 +61,17 @@ import {
   SearchIcon,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { TableSearchParams } from "@/app/page";
 
 type UrlUpdateParam = { param: keyof TableSearchParams; value?: string | number | string[] };
 
 type GenericTableProps<T> = {
   data?: T[];
-  columns: ColumnDef<T, any>[];
+  columns: ColumnDef<T, unknown>[];
   pageNumber?: number;
   pageSize?: number;
   totalElements?: number;
   hiddenColumns?: string[];
-}
+};
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
 
@@ -80,7 +80,7 @@ export function GenericTable<T>({
   columns,
   pageNumber = 1,
   pageSize = 10,
-  totalElements = 0,
+  totalElements,
   hiddenColumns = [],
 }: GenericTableProps<T>) {
   const id = useId();
@@ -128,30 +128,33 @@ export function GenericTable<T>({
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleUrlUpdate = (updateParams: UrlUpdateParam[]) => {
-    const params = new URLSearchParams(searchParams.toString());
+  const handleUrlUpdate = useCallback(
+    (updateParams: UrlUpdateParam[]) => {
+      const params = new URLSearchParams(searchParams.toString());
 
-    for (const { value, param } of updateParams) {
-      const stringValue = value?.toString();
+      for (const { value, param } of updateParams) {
+        const stringValue = value?.toString();
 
-      if (params.get(param) === stringValue) continue;
+        if (params.get(param) === stringValue) continue;
 
-      if (stringValue !== undefined) {
-        params.set(param, stringValue);
-      } else {
-        params.delete(param);
+        if (stringValue !== undefined) {
+          params.set(param, stringValue);
+        } else {
+          params.delete(param);
+        }
       }
-    }
 
-    replace(`${pathname}?${params.toString()}`);
-  };
+      replace(`${pathname}?${params.toString()}`);
+    },
+    [searchParams, pathname, replace],
+  );
 
   useEffect(() => {
     handleUrlUpdate([
       { param: "pageIndex", value: pagination.pageIndex },
       { param: "pageSize", value: pagination.pageSize },
     ]);
-  }, [pagination]);
+  }, [pagination, handleUrlUpdate]);
 
   const handleColumnVisibilityUpdate = (open: boolean) => {
     // we only want to update after the dropdown is closed

@@ -1,18 +1,28 @@
 import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
-import { notFound } from "next/navigation";
-import { getDepartmentData } from "@/utils/getDepartmentData";
 import { DepartmentTable } from "@/components/custom-table/department";
 import { TableSearchParams } from "@/components/custom-table/fetchData";
+import { getDepartmentData } from "@/utils/getDepartmentData";
+import { notFound } from "next/navigation";
 
-export default async function Home({ params, searchParams }: { params: Promise<{ id: string }>, searchParams?: Promise<TableSearchParams> }) {
+export default async function Home({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams?: Promise<TableSearchParams>;
+}) {
   const departmentId = (await params).id;
   if (!departmentId) {
     notFound();
   }
 
-  const { pageSize, pageIndex, hiddenColumns } = await searchParams ?? {};
+  const { pageSize, pageIndex, hiddenColumns } = (await searchParams) ?? {};
 
-  const {departmentData, fieldOfStudyData} = await getDepartmentData(departmentId, pageSize, pageIndex);
+  const { departmentData, fieldOfStudyData } = await getDepartmentData(
+    departmentId,
+    pageSize,
+    pageIndex,
+  );
   const { number: pageNumber, totalElements, size } = fieldOfStudyData.page;
 
   return (
@@ -29,11 +39,13 @@ export default async function Home({ params, searchParams }: { params: Promise<{
       />
       <h1>{departmentData.name}</h1>
       <h2>Kierunki na wydziale</h2>
-      <DepartmentTable data={fieldOfStudyData.content}
+      <DepartmentTable
+        data={fieldOfStudyData.content}
         pageNumber={pageNumber}
         pageSize={size}
         totalElements={totalElements}
-        hiddenColumns={hiddenColumns?.split(",")} />
+        hiddenColumns={hiddenColumns?.split(",")}
+      />
     </main>
   );
 }

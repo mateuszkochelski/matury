@@ -1,13 +1,14 @@
-import { FieldOfStudyData } from "@/components/custom-table/types";
 import { BACKEND_URL } from "./constants";
-import { MainTable } from "@/components/custom-table/main";
 import { fetchData, TableSearchParams } from "@/components/custom-table/fetchData";
+import { MainTable } from "@/components/custom-table/main";
+import { FieldOfStudyData } from "@/components/custom-table/types";
 
-export default async function Home(props: {
+export default async function Home({
+  searchParams,
+}: {
   searchParams?: Promise<TableSearchParams>;
 }) {
-  const searchParams = await props.searchParams ?? {};
-  const { pageSize, pageIndex, hiddenColumns } = searchParams;
+  const { pageSize, pageIndex, hiddenColumns } = (await searchParams) ?? {};
 
   const response = await fetchData(`${BACKEND_URL}/api/field_of_study`, pageSize, pageIndex);
   const data: FieldOfStudyData = await response.json();
