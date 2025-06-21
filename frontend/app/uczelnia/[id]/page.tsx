@@ -56,16 +56,14 @@ export default async function Home({ params }: { params: { id: string } }) {
   const { content: departments } = departmentData;
 
   return (
-    <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 md:px-40 lg:px-70 font-[family-name:var(--font-geist-sans)]">
+    <main className="min-h-screen flex flex-col p-8 pb-20 gap-4 sm:gap-4 sm:px-20 md:px-40 lg:px-70 font-[family-name:var(--font-geist-sans)]">
       <CustomBreadcrumb
         items={[{ name: "Strona główna", href: "/" }, { name: universityData.name }]}
-        className="mb-3"
       />
-      <h1 className="mb-5">{universityData.name}</h1>
-      <div className="w-full min-h-96 border border-black mb-5">Mapa</div>
-      <h2 className="mb-3">Dane podstawowe</h2>
+      <h1>{universityData.name}</h1>
+      <div className="w-full min-h-96 border border-black">Mapa</div>
+      <h2>Dane podstawowe</h2>
       <UniversityData
-        className="mb-5"
         data={[
           { name: "Akronim", value: universityData.acronym },
           { name: "Liczba wydziałów", value: departments.length.toString() },
@@ -73,21 +71,16 @@ export default async function Home({ params }: { params: { id: string } }) {
         ]}
       />
       {universityData.url && universityData.url != "" ? (
-        <Link
-          className="mb-5 block"
-          href={universityData.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button className="bg-blue-200 hover:bg-blue-300 text-black font-normal w-full p-5 border border-black">
+        <Link href={universityData.url}>
+          <Button className="bg-blue-200 hover:bg-blue-300 text-black font-normal w-full p-5 border border-black cursor-pointer">
             Strona uczelni
           </Button>
         </Link>
       ) : null}
-      <h3 className="mb-3">O uczelni</h3>
-      <p className="mb-5">{universityData.description}</p>
-      <h3 className="mb-3">Wydziały na tej uczelni</h3>
+      <h3>O uczelni</h3>
+      <p>{universityData.description}</p>
+      <h3>Wydziały na tej uczelni</h3>
       <DepartmentCards departments={departments}></DepartmentCards>
-    </div>
+    </main>
   );
 }
