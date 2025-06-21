@@ -29,16 +29,34 @@ type FieldOfStudyData = {
   };
 };
 
-export default async function Home() {
-  const response = await fetch(`${BACKEND_URL}/api/field_of_study`);
+
+  
+
+export default async function Home(props: {
+  searchParams?: Promise<{
+    pageSize?: string;
+    pageIndex?: string;
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  const {pageSize, pageIndex} = searchParams || {};
+
+  const apiUrl = new URL(`${BACKEND_URL}/api/field_of_study`);
+  if (pageSize) {
+    apiUrl.searchParams.set("size", pageSize);
+  }
+  if (pageIndex) {
+    apiUrl.searchParams.set("page", pageIndex);
+  }
+
+  const response = await fetch(apiUrl);
   const data: FieldOfStudyData = await response.json();
   const { content: fields, page: pageData } = data;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { number: pageNumber } = pageData;
+  const { number: pageNumber, totalElements, size } = pageData;
 
   return (
-    <main className="items-center min-h-screen p-2 pb-20 sm:p-8 md:p-16 lg:p-20 font-[family-name:var(--font-geist-sans)]">
-      <CourseDegreeTable data={fields} />
+    <main className="min-h-screen p-2 pb-20 sm:p-8 md:p-16 lg:p-20 font-[family-name:var(--font-geist-sans)]">
+      <CourseDegreeTable data={fields} pageNumber={pageNumber} pageSize={size} totalElements={totalElements} />
     </main>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
@@ -60,14 +60,17 @@ import {
   FilterIcon,
   SearchIcon,
 } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function CourseDegreeTable({ data = [] }: { data?: FieldOfStudy[] }) {
+type UrlUpdateParam = {param: string, value?: string | number | string[]};
+
+export default function CourseDegreeTable({ data = [], pageNumber = 1, pageSize = 10, totalElements = 0 }: { data?: FieldOfStudy[], pageNumber?: number, pageSize?: number, totalElements?: number }) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [pagination, setPagination] = useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: 10,
+    pageIndex: pageNumber,
+    pageSize: pageSize,
   });
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -87,6 +90,7 @@ export default function CourseDegreeTable({ data = [] }: { data?: FieldOfStudy[]
     enableSortingRemoval: false,
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
+    manualPagination: true,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     getFilteredRowModel: getFilteredRowModel(),
@@ -97,7 +101,34 @@ export default function CourseDegreeTable({ data = [] }: { data?: FieldOfStudy[]
       columnFilters,
       columnVisibility,
     },
+    rowCount: totalElements ?? data.length,
   });
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const handleUrlUpdate = (updateParams: UrlUpdateParam[]) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    for (const {value, param} of updateParams) {
+      const stringValue = value?.toString();
+
+      if (params.get(param) === stringValue) continue;
+
+      if (stringValue !== undefined) {
+        params.set(param, stringValue);
+      } else {
+        params.delete(param);
+      }
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  }
+
+  useEffect(() => {
+    handleUrlUpdate([{param: "pageIndex", value: pagination.pageIndex},{param: "pageSize", value: pagination.pageSize}]);
+  }, [pagination])
 
   return (
     <div className="space-y-4">
