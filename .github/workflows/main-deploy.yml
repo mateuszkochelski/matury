@@ -2,7 +2,7 @@ name: Main build & Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, test]
 
 jobs:
   build-backend:
@@ -49,6 +49,18 @@ jobs:
         run: |
           cat <<EOF > docker-compose.yml
           services:
+            postgres: 
+              image: postgres:15
+              container_name: postgres
+              environment:
+                POSTGRES_DB: postgres
+                POSTGRES_USER: myuser
+                POSTGRES_PASSWORD: mypass
+              ports:
+                - "5432:5432"
+              volumes:
+                - postgres_data:/var/lib/postgresql/data
+              restart: always
             frontend:
               image: unsignedgodeveloper/matury-frontend:latest
               container_name: frontend
@@ -65,6 +77,8 @@ jobs:
               restart: always
               ports:
                 - "8080:8080"
+              depends_on:
+                - postgres
 
             nginx:
               image: unsignedgodeveloper/matury-reverse-proxy:latest
@@ -75,6 +89,8 @@ jobs:
                 - "443:443"
               depends_on:
                 - backend
+          volumes:
+            postgres_data:
 
       - name: Stop and remove old containers
         run: sudo docker-compose -f docker-compose.yml down
