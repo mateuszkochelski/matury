@@ -2,8 +2,10 @@ DB_NAME=postgres
 DB_USER=myuser
 DB_PASSWORD=mypass
 DB_PORT=5432
+
 be-run:
-	./gradlew bootRun
+	docker build -t backend-image -f Dockerfile . && \
+	docker run --name backend --network app-network --rm -p 8080:8080 backend-image
 
 db-run:
 	docker start postgres
@@ -17,6 +19,7 @@ db-drop:
 db-create:
 	docker run -d \
 		--name postgres \
+		--network app-network \
 		-e POSTGRES_DB=$(DB_NAME) \
 		-e POSTGRES_USER=$(DB_USER) \
 		-e POSTGRES_PASSWORD=$(DB_PASSWORD) \
