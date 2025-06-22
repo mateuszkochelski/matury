@@ -1,44 +1,10 @@
-import { BACKEND_URL } from "../../constants";
 import { Button } from "@/components/ui/button";
 import { CustomBreadcrumb } from "@/components/ui/custom-breadcrumb/CustomBradcrumb";
 import DepartmentCards from "@/components/ui/department-cards/DepartmentCards";
 import UniversityData from "@/components/ui/university-data/UniversityData";
+import { getUniversityData } from "@/utils/getUniversityData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-type Department = {
-  id: number;
-  name: string;
-  url: string;
-  university: {
-    id: number;
-    name: string;
-    acronym: string;
-    city: string;
-  };
-};
-
-type University = {
-  id: number;
-  name: string;
-  city: string;
-  acronym: string;
-  url: string;
-  description: string;
-  address: string;
-  longitude: number;
-  latitude: number;
-};
-
-type DepartmentData = {
-  content: Department[];
-  page: {
-    size: number;
-    number: number;
-    totalElements: number;
-    totalPages: number;
-  };
-};
 
 export default async function Home({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -46,14 +12,8 @@ export default async function Home({ params }: { params: Promise<{ id: string }>
     notFound();
   }
 
-  const univeristyResponse = await fetch(`${BACKEND_URL}/api/university/${id}`);
-  const universityData: University = await univeristyResponse.json();
-
-  const departmentResponse = await fetch(
-    `${BACKEND_URL}/api/department/university/${universityData.id}?size=2137`,
-  );
-  const departmentData: DepartmentData = await departmentResponse.json();
-  const { content: departments } = departmentData;
+  const { universityData, departmentData } = await getUniversityData(id);
+  const departments = departmentData.content;
 
   return (
     <main className="min-h-screen flex flex-col p-8 pb-20 gap-4 sm:gap-4 sm:px-20 md:px-40 lg:px-70 font-[family-name:var(--font-geist-sans)]">
