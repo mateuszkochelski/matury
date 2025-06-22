@@ -21,6 +21,13 @@ copy . .
 
 RUN chown -R bun:bun /app
 
+RUN bun build
+
+FROM base AS prod
+WORKDIR /app
+
+COPY --from=install /app /app
+
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "dev"]
+ENTRYPOINT ["bun", "start"]

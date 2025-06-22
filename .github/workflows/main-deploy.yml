@@ -94,5 +94,7 @@ jobs:
 
       - name: Stop and remove old containers
         run: sudo docker-compose -f docker-compose.yml down
+      - name: Pulling new images
+        run: sudo docker-compose -f docker-compose.yml pull
       - name: Start containers
         run: sudo docker-compose -f docker-compose.yml up -d
