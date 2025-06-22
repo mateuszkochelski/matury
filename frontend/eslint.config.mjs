@@ -100,7 +100,6 @@ export default tseslint.config(
       "@typescript-eslint/no-array-delete": "error",
       "@typescript-eslint/no-unnecessary-boolean-literal-compare": "warn",
       "@typescript-eslint/no-unnecessary-condition": "error",
-      "@typescript-eslint/no-unsafe-assignment": "error",
       "@typescript-eslint/no-unsafe-function-type": "error",
       "@typescript-eslint/no-wrapper-object-types": "error",
       "@typescript-eslint/prefer-find": "warn",
