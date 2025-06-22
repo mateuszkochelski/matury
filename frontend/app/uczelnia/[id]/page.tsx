@@ -40,7 +40,7 @@ type DepartmentData = {
   };
 };
 
-export default async function Home({ params }: { params: { id: string } }) {
+export default async function Home({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   if (!id) {
     notFound();
