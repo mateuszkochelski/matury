@@ -1,7 +1,7 @@
+import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
+import DepartmentCards from "@/components/department-cards/DepartmentCards";
 import { Button } from "@/components/ui/button";
-import { CustomBreadcrumb } from "@/components/ui/custom-breadcrumb/CustomBradcrumb";
-import DepartmentCards from "@/components/ui/department-cards/DepartmentCards";
-import UniversityData from "@/components/ui/university-data/UniversityData";
+import UniversityData from "@/components/university-data/UniversityData";
 import { getUniversityData } from "@/utils/getUniversityData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -16,7 +16,7 @@ export default async function Home({ params }: { params: Promise<{ id: string }>
   const departments = departmentData.content;
 
   return (
-    <main className="min-h-screen flex flex-col p-8 pb-20 gap-4 sm:gap-4 sm:px-20 md:px-40 lg:px-70 font-[family-name:var(--font-geist-sans)]">
+    <main className="min-h-screen flex flex-col p-2 pb-20 gap-4 sm:gap-4 sm:p-8 mx-auto max-w-[900px] font-[family-name:var(--font-geist-sans)]">
       <CustomBreadcrumb
         items={[{ name: "Strona główna", href: "/" }, { name: universityData.name }]}
       />

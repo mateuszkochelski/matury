@@ -1,6 +1,6 @@
+import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
 import { DepartmentTable } from "@/components/custom-table/department";
 import { TableSearchParams } from "@/components/custom-table/fetchData";
-import { CustomBreadcrumb } from "@/components/ui/custom-breadcrumb/CustomBradcrumb";
 import { getDepartmentData } from "@/utils/getDepartmentData";
 import { notFound } from "next/navigation";
 

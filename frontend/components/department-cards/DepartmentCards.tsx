@@ -1,16 +1,6 @@
 "use client";
 
-type Department = {
-  id: number;
-  name: string;
-  url: string;
-  university: {
-    id: number;
-    name: string;
-    acronym: string;
-    city: string;
-  };
-};
+import { Department } from "@/utils/getDepartmentData";
 
 export default function DepartmentCards({ departments = [] }: { departments?: Department[] }) {
   return (

@@ -2,7 +2,7 @@ import { BACKEND_URL } from "../app/constants";
 import { fetchData } from "@/components/custom-table/fetchData";
 import { FieldOfStudyData } from "@/components/custom-table/types";
 
-type Department = {
+export type Department = {
   id: number;
   name: string;
   url: string;
