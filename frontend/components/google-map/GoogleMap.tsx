@@ -1,15 +1,8 @@
-"use client";
-
 import { GOOGLE_MAPS_API_KEY } from "@/app/constants";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMapsEmbed } from "@next/third-parties/google";
 
-export type Coords = {
-  lat: number;
-  lng: number;
-};
-
-export default function Map({ center }: { center?: Coords }) {
-  if (!GOOGLE_MAPS_API_KEY || !center) {
+export default function Map({ query }: { query?: string }) {
+  if (!GOOGLE_MAPS_API_KEY || !query) {
     return (
       <div className="w-full min-h-[100px] flex items-center justify-center bg-gray-100 text-gray-700 border border-gray-300 rounded">
         Unable to load the map
@@ -17,11 +10,15 @@ export default function Map({ center }: { center?: Coords }) {
     );
   } else {
     return (
-      <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
-        <GoogleMap mapContainerClassName="w-full min-h-[400px] rounded" center={center} zoom={12}>
-          <Marker position={center} />
-        </GoogleMap>
-      </LoadScript>
+      <GoogleMapsEmbed
+        apiKey={GOOGLE_MAPS_API_KEY}
+        height={400}
+        mode="place"
+        width="100%"
+        language="pl"
+        q={query}
+        zoom="13"
+      />
     );
   }
 }
