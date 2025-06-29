@@ -1,22 +1,22 @@
+import { getUniversityData } from "@/app/utils/getUniversityData";
 import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
 import DepartmentCards from "@/components/department-cards/DepartmentCards";
 import Map from "@/components/google-map/GoogleMap";
 import { Button } from "@/components/ui/button";
-import { getUniversityData } from "@/utils/getUniversityData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default async function Home({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  if (!id) {
+export default async function Page({ params }: { params: Promise<{ universityId: string }> }) {
+  const { universityId } = await params;
+  if (!universityId) {
     notFound();
   }
 
-  const { universityData, departmentData } = await getUniversityData(id);
+  const { universityData, departmentData } = await getUniversityData(universityId);
   const departments = departmentData.content;
 
   return (
-    <main className="min-h-screen flex flex-col p-2 pb-20 gap-4 sm:gap-4 sm:p-8 mx-auto max-w-[900px] font-[family-name:var(--font-geist-sans)]">
+    <>
       <CustomBreadcrumb
         items={[{ name: "Strona główna", href: "/" }, { name: universityData.name }]}
       />
@@ -33,6 +33,6 @@ export default async function Home({ params }: { params: Promise<{ id: string }>
       <p>{universityData.description}</p>
       <h2>Wydziały na tej uczelni</h2>
       <DepartmentCards departments={departments}></DepartmentCards>
-    </main>
+    </>
   );
 }
