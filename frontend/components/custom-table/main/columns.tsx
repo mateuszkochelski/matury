@@ -3,6 +3,7 @@
 import { RowActions } from "../RowActions";
 import { FieldOfStudy } from "../types";
 import { ColumnDef } from "@tanstack/react-table";
+import Link from "next/link";
 
 export const columns: ColumnDef<FieldOfStudy>[] = [
   {
@@ -29,7 +30,14 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
       filterType: "string",
     },
     enableHiding: false,
-    cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
+    cell: ({ row }) => (
+      <Link
+        href={`/${row.original.university.id}/${row.original.department.id}/${row.original.id}`}
+        className="font-semibold underline"
+      >
+        {row.getValue("name")}
+      </Link>
+    ),
   },
   {
     header: "Wydział",
@@ -38,6 +46,14 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
     meta: {
       filterType: "string",
     },
+    cell: ({ row }) => (
+      <Link
+        href={`/${row.original.university.id}/${row.original.department.id}`}
+        className="underline"
+      >
+        {row.getValue("department_name")}
+      </Link>
+    ),
   },
   {
     header: "Uczelnia",
@@ -46,6 +62,11 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
     meta: {
       filterType: "string",
     },
+    cell: ({ row }) => (
+      <Link href={`/${row.original.university.id}`} className="underline">
+        {row.getValue("university_name")}
+      </Link>
+    ),
   },
   {
     header: "Miejscowość",

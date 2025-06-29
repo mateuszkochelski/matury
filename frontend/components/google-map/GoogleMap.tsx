@@ -18,6 +18,8 @@ export default function Map({ query }: { query?: string }) {
         language="pl"
         q={query}
         zoom="13"
+        // rounded-md from tailwind
+        style="border-radius: calc(var(--radius) /* 0.25rem = 4px */ - 2px)"
       />
     );
   }
