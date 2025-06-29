@@ -1,18 +1,18 @@
+import { getUniversityData } from "@/app/utils/getUniversityData";
 import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
 import DepartmentCards from "@/components/department-cards/DepartmentCards";
 import Map from "@/components/google-map/GoogleMap";
 import { Button } from "@/components/ui/button";
-import { getUniversityData } from "@/utils/getUniversityData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default async function Home({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  if (!id) {
+export default async function Page({ params }: { params: Promise<{ universityId: string }> }) {
+  const { universityId } = await params;
+  if (!universityId) {
     notFound();
   }
 
-  const { universityData, departmentData } = await getUniversityData(id);
+  const { universityData, departmentData } = await getUniversityData(universityId);
   const departments = departmentData.content;
 
   return (
