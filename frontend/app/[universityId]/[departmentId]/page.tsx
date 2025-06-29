@@ -32,7 +32,7 @@ export default async function Page({
   }
 
   return (
-    <main className="min-h-screen flex flex-col p-2 pb-20 gap-3 sm:gap-4 sm:p-8 md:p-16 lg:p-20 font-[family-name:var(--font-geist-sans)]">
+    <>
       <CustomBreadcrumb
         items={[
           { name: "Strona główna", href: "/" },
@@ -52,6 +52,6 @@ export default async function Page({
         totalElements={totalElements}
         hiddenColumns={hiddenColumns?.split(",")}
       />
-    </main>
+    </>
   );
 }

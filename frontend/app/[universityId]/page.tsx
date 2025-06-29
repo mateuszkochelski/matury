@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: Promise<{ universityId:
   const departments = departmentData.content;
 
   return (
-    <main className="min-h-screen flex flex-col p-2 pb-20 gap-4 sm:gap-4 sm:p-8 mx-auto max-w-[900px] font-[family-name:var(--font-geist-sans)]">
+    <>
       <CustomBreadcrumb
         items={[{ name: "Strona główna", href: "/" }, { name: universityData.name }]}
       />
@@ -33,6 +33,6 @@ export default async function Page({ params }: { params: Promise<{ universityId:
       <p>{universityData.description}</p>
       <h2>Wydziały na tej uczelni</h2>
       <DepartmentCards departments={departments}></DepartmentCards>
-    </main>
+    </>
   );
 }
