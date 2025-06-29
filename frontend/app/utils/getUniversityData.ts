@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "../app/constants";
+import { BACKEND_URL } from "../constants";
 import { fetchData } from "@/components/custom-table/fetchData";
 
 type Department = {
