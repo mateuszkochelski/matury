@@ -17,10 +17,31 @@ RUN NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL \
     BACKEND_URL=$BACKEND_URL \
     bun i --frozen-lockfile
 
-copy . .
+# Skopiuj pozostałe pliki aplikacji
+COPY . .
 
+# Napraw uprawnienia
+RUN chown -R bun:bun /app
+
+# Budowanie produkcyjne jako użytkownik bun
+USER bun
+RUN bunx next build
+
+# Finalny etap uruchamiania
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Skopiuj zbudowaną aplikację z poprzedniego etapu
+COPY --from=install /app /app
+
+# Napraw uprawnienia jeszcze raz (jeśli warstwa COPY zmieniła właściciela)
 RUN chown -R bun:bun /app
 
 USER bun
-EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "dev"]
+
+EXPOSE 3000
+
+# Produkcyjne uruchomienie aplikacji Next.js
+CMD ["bunx", "next", "start"]
