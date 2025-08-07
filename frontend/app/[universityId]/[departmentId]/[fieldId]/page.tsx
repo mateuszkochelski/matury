@@ -17,5 +17,5 @@ export default async function Page({
   //     return redirect(`/${departmentData.university.id}/${fieldData.department.id}/${fieldId}`)
   //   }
 
-  return "TODO: implement me";
+  return <div>"TODO: implement me"</div>;
 }
