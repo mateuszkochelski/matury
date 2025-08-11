@@ -8,11 +8,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import agh.matury.fieldOfStudy.FieldOfStudyFilter;
+import org.springframework.data.jpa.domain.Specification;
+
+
 
 @Service
 public class FieldOfStudyService {
 
     private final FieldOfStudyRepository fieldOfStudyRepository;
+
 
     public FieldOfStudyService(FieldOfStudyRepository fieldOfStudyRepository) {
         this.fieldOfStudyRepository = fieldOfStudyRepository;
@@ -55,5 +60,13 @@ public class FieldOfStudyService {
                         fieldOfStudy.getDepartment().getName()
                 )
         );
+    }
+
+    public Page<FieldOfStudyDTO> search(FieldOfStudyFilter filter, Pageable pageable) {
+    Specification<FieldOfStudy> spec = FieldOfStudySpecifications.byFilter(filter);
+
+    return fieldOfStudyRepository
+            .findAll(spec, pageable)
+            .map(this::toDTO);
     }
 }
