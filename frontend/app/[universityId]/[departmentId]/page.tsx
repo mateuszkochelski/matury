@@ -6,10 +6,10 @@ import { notFound, redirect } from "next/navigation";
 
 export default async function Page({
   params,
-  tableParams,
+  searchParams,
 }: {
   params: Promise<{ universityId: string; departmentId: string }>;
-  tableParams?: Promise<TableSearchParams>;
+  searchParams?: Promise<TableSearchParams>;
 }) {
   const { universityId, departmentId } = await params;
 
@@ -17,7 +17,7 @@ export default async function Page({
     notFound();
   }
 
-  const { pageSize, pageIndex, hiddenColumns } = (await tableParams) ?? {};
+  const { pageSize, pageIndex, hiddenColumns } = (await searchParams) ?? {};
 
   const { departmentData, fieldOfStudyData } = await getDepartmentData(
     departmentId,
