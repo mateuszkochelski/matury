@@ -10,7 +10,8 @@ ENV NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
 ENV BACKEND_URL=${BACKEND_URL}
 
 COPY package.json bun.lock .
-COPY patches ./patches
+
+RUN if [ -d patches ]; then cp -r patches ./patches; fi
 
 RUN bun i --frozen-lockfile
 
