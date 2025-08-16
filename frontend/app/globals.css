@@ -5,9 +5,9 @@
 
 @theme {
   /* colors */
-  --primary: #C6E7FF
-  --secondary: #D4F6FF
-  --tertiary: #FFDDAE
+  --primary: #C6E7FF;
+  --secondary: #D4F6FF;
+  --tertiary: #FFDDAE;
 
   --white: #FBFBFB
   --black: #0A122A
@@ -209,4 +209,34 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* TODO: Update globalnych styli i ununąć dodatkowe style: */
+
+.bg-background {
+  --tw-bg-opacity: 1;
+  background-color: rgb(235 243 255 / var(--tw-bg-opacity, 1));
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(144 202 249 / var(--tw-bg-opacity, 1)) /* #90caf9 */;
+}
+
+.text-foreground {
+  --tw-text-opacity: 1;
+  color: rgb(46 60 72 / var(--tw-text-opacity, 1)) /* #2e3c48 */;
 }
