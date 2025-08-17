@@ -236,8 +236,27 @@ public class GraduateService {
                 ))
                 .collect(Collectors.toList());
     }
+    
+    public List<UczelniaKierunekStatsDTO> getStatsByUczelniaAndKierunek(String wojewodztwo, String poziom, Integer rokDyplomu, Long minCount) {
+        if (minCount == null || minCount < 1) {
+            minCount = 10L;
+        }
+        
+        List<Object[]> results = graduateRepository.getStatsByUczelniaAndKierunek(wojewodztwo, poziom, rokDyplomu, minCount);
+        return results.stream()
+                .map(result -> new UczelniaKierunekStatsDTO(
+                        (String) result[0],
+                        (String) result[1],
+                        toBigDecimal(result[2]),
+                        toBigDecimal(result[3]),
+                        toBigDecimal(result[4]),
+                        (Long) result[5]
+                ))
+                .collect(Collectors.toList());
+    }
 
-    // Top kierunki pod względem zarobków
+    // ==================== TOP KIERUNKI ====================
+
     public List<KierunekStatsDTO> getTopKierunkiByWwz(String wojewodztwo, String poziom, Integer rokDyplomu, Long minCount) {
         if (minCount == null) {
             minCount = 10L; // domyślnie minimum 10 absolwentów

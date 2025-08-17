@@ -146,7 +146,37 @@ public interface GraduateRepository extends JpaRepository<Graduate, Long> {
             @Param("poziom") String poziom,
             @Param("rokDyplomu") Integer rokDyplomu);
 
-    // Top kierunki pod względem zarobków w 3. roku
+    @Query("SELECT g.uczelniaId, g.nazwaUczelni, AVG(g.wwzP3), AVG(g.wwbP3), AVG(g.czyEtatP3), SUM(g.liczbaAbsolwentow) " +
+           "FROM Graduate g " +
+           "WHERE (:wojewodztwo IS NULL OR g.wojewodztwo = :wojewodztwo) " +
+           "AND (:poziom IS NULL OR g.poziom = :poziom) " +
+           "AND (:rokDyplomu IS NULL OR g.rokDyplomu = :rokDyplomu) " +
+           "GROUP BY g.uczelniaId, g.nazwaUczelni " +
+           "HAVING SUM(g.liczbaAbsolwentow) > 10 " +
+           "ORDER BY g.nazwaUczelni")
+    List<Object[]> getStatsByUczelnia(
+            @Param("wojewodztwo") String wojewodztwo,
+            @Param("poziom") String poziom,
+            @Param("rokDyplomu") Integer rokDyplomu
+    );
+
+    @Query("SELECT g.nazwaUczelni, g.nazwaKierunku, AVG(g.wwzP3), AVG(g.wwbP3), AVG(g.czyEtatP3), SUM(g.liczbaAbsolwentow) " +
+           "FROM Graduate g " +
+           "WHERE (:wojewodztwo IS NULL OR g.wojewodztwo = :wojewodztwo) " +
+           "AND (:poziom IS NULL OR g.poziom = :poziom) " +
+           "AND (:rokDyplomu IS NULL OR g.rokDyplomu = :rokDyplomu) " +
+           "GROUP BY g.nazwaUczelni, g.nazwaKierunku " +
+           "HAVING SUM(g.liczbaAbsolwentow) > :minCount " +
+           "ORDER BY g.nazwaUczelni, g.nazwaKierunku")
+    List<Object[]> getStatsByUczelniaAndKierunek(
+        @Param("wojewodztwo") String wojewodztwo,
+        @Param("poziom") String poziom,
+        @Param("rokDyplomu") Integer rokDyplomu,
+        @Param("minCount") Long minCount
+    );
+
+    // ==================== TOP KIERUNKI ====================
+
     @Query("SELECT g.nazwaKierunku, AVG(g.wwzP3), AVG(g.eZarP3), COUNT(g) " +
            "FROM Graduate g " +
            "WHERE (:wojewodztwo IS NULL OR g.wojewodztwo = :wojewodztwo) " +

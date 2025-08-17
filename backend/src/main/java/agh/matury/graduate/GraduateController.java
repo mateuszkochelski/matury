@@ -179,6 +179,19 @@ public class GraduateController {
         return ResponseEntity.ok(stats);
     }
 
+    @GetMapping("/statystyki/uczelnie-kierunki")
+    @Operation(summary = "Statystyki per uczelnia i kierunek",
+               description = "Względny Wskaźnik Zarobków, Bezrobocia i zatrudnienie w trzecim roku per uczelnia i kierunek")
+    public ResponseEntity<List<UczelniaKierunekStatsDTO>> getStatsByUczelniaAndKierunek(
+            @Parameter(description = "Filtr województwa (opcjonalny)") @RequestParam(required = false) String wojewodztwo,
+            @Parameter(description = "Filtr poziomu studiów (opcjonalny)") @RequestParam(required = false) String poziom,
+            @Parameter(description = "Filtr roku dyplomu (opcjonalny)") @RequestParam(required = false) Integer rokDyplomu,
+            @Parameter(description = "Minimalna liczba absolwentów (domyślnie 10)") @RequestParam(required = false) Long minCount) {
+
+        List<UczelniaKierunekStatsDTO> stats = graduateService.getStatsByUczelniaAndKierunek(wojewodztwo, poziom, rokDyplomu, minCount);
+        return ResponseEntity.ok(stats);
+    }
+
     // ==================== TOP KIERUNKI ====================
 
     @GetMapping("/ranking/kierunki")
