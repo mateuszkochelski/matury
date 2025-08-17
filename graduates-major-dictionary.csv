@@ -1,0 +1,695 @@
+nazwazmiennej,etykieta
+P_ROKDYP,Rok ukończenia studiów
+P_KIERUNEK_ID,Numer identyfikacyjny programu studiów
+P_POZIOM,Stopień ukończonych studiów
+P_FORMA,Forma ukończonych studiów
+P_N,Liczba absolwentów
+P_N_WZUS,"Liczba absolwentów, którzy w okresie objętym badaniem występują w rejestrach ZUS"
+P_N_POZAZUS,"Liczba absolwentów, którzy w okresie objętym badaniem nie występują w rejestrach ZUS"
+P_PROC_WZUS,"Procent absolwentów, którzy w okresie objętym badaniem występują w rejestrach ZUS"
+P_PROC_POZAZUS,"Procent absolwentów, którzy w okresie objętym badaniem nie występują w rejestrach ZUS"
+P_PROC_DOSW,"Procent absolwentów, którzy mieli doświadczenie pracy przed uzyskaniem dyplomu"
+P_N_DOSW_REKR,"Liczba absolwentów, którzy mieli doświadczenie pracy przed rozpoczęciem studiów"
+P_N_DOSW_STUDIA,"Liczba absolwentów, którzy nie mieli doświadczenia pracy przed rozpoczęciem studiów, ale uzyskali je w trakcie studiów"
+P_N_NDOSW,"Liczba absolwentów, którzy nie mieli doświadczenia pracy przed uzyskaniem dyplomu"
+P_PROC_STUDIA,"Procent absolwentów, którzy mieli doświadczenie studiowania po uzyskaniu dyplomu"
+P_PROC_MIES_STUDIA,"Procent miesięcy po uzyskaniu dyplomu, w których przeciętny absolwent studiował na innych programach studiów"
+P_PROC_UKON,"Procent absolwentów, którzy po uzyskaniu dyplomu podjęli i ukończyli studia II stopnia"
+P_PROC_DYPLOM,"Procent absolwentów, którzy po uzyskaniu dyplomu ukończyli kolejne studia"
+P_PROC_DOKTORANCKIE,"Procent absolwentów, którzy po uzyskaniu dyplomu kształcili się na studiach doktoranckich lub w szkole doktorskiej "
+P_PROC_DOKTORAT,"Procent absolwentów, którzy po uzyskaniu dyplomu uzyskali stopień doktora"
+P_CZAS_PRACA_DOSW,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_CZAS_PRACA_NDOSW,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_CZAS_PRACA,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu
+P_CZAS_PRACA_Q1,Pierwszy kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu
+P_CZAS_PRACA_Q2,Drugi kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu
+P_CZAS_PRACA_Q3,Trzeci kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu
+P_CZAS_PRACA_Q4,Czwarty kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu
+P_CZAS_PRACA_PROC_MODALNA,"Procent absolwentów, dla których czas od uzyskania dyplomu do podjęcia pierwszej pracy był równy modalnej - wartość podawana tylko w przypadku, gdy wszystkie kwintyle są równe"
+P_CZAS_ETAT_DOSW,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_CZAS_ETAT_NDOSW,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_CZAS_ETAT,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu
+P_CZAS_ETAT_Q1,Pierwszy kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu
+P_CZAS_ETAT_Q2,Drugi kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu
+P_CZAS_ETAT_Q3,Trzeci kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu
+P_CZAS_ETAT_Q4,Czwarty kwintyl czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu
+P_CZAS_ETAT_PROC_MODALNA,"Procent absolwentów, dla których czas od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę był równy modalnej - wartość podawana tylko w przypadku, gdy wszystkie kwintyle są równe"
+P_CZY_PRACA_MUNDUR,"Procent absolwentów, którzy mieli doświadczenie pracy w służbach mundurowych po uzyskaniu dyplomu - tylko dla wybranych programów studiów"
+P_CZAS_PRACA_MUNDUR,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy w służbach mundurowych po uzyskaniu dyplomu - tylko dla wybranych programów studiów
+P_CZAS_PRACA_MUNDUR_ME,Mediana czasu (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy w służbach mundurowych po uzyskaniu dyplomu - tylko dla wybranych programów studiów
+P_CZY_BEZR_DOSW,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_NDOSW,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym po uzyskaniu dyplomu"
+P_CZY_BEZR_DOSW_P1,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w pierwszym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_NDOSW_P1,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w pierwszym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_P1,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w pierwszym roku po uzyskaniu dyplomu"
+P_CZY_BEZR_DOSW_P2,"Procent absolwentówu, którzy mieli doświadczenie bycia bezrobotnym w drugim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_NDOSW_P2,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w drugim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_P2,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w drugim roku po uzyskaniu dyplomu"
+P_CZY_BEZR_DOSW_P3,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w trzecim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_NDOSW_P3,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w trzecim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_P3,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w trzecim roku po uzyskaniu dyplomu"
+P_CZY_BEZR_DOSW_P4,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w czwartym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_NDOSW_P4,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w czwartym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_P4,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w czwartym roku po uzyskaniu dyplomu"
+P_CZY_BEZR_DOSW_P5,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w piątym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_NDOSW_P5,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w piątym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_BEZR_P5,"Procent absolwentów, którzy mieli doświadczenie bycia bezrobotnym w piątym roku po uzyskaniu dyplomu"
+P_PROC_MIES_BEZR_NSTUD,"Ryzyko bezrobocia absolwentów w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_PROC_MIES_BEZR,Ryzyko bezrobocia absolwentów po uzyskaniu dyplomu
+P_PROC_MIES_BEZR_NSTUD_P1,"Ryzyko bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_PROC_MIES_BEZR_P1,Ryzyko bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu
+P_PROC_MIES_BEZR_NSTUD_P2,"Ryzyko bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_PROC_MIES_BEZR_P2,Ryzyko bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu
+P_PROC_MIES_BEZR_NSTUD_P3,"Ryzyko bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_PROC_MIES_BEZR_P3,Ryzyko bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu
+P_PROC_MIES_BEZR_NSTUD_P4,"Ryzyko bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_PROC_MIES_BEZR_P4,Ryzyko bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu
+P_PROC_MIES_BEZR_NSTUD_P5,"Ryzyko bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_PROC_MIES_BEZR_P5,Ryzyko bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu
+P_PROC_MIES_BEZR_DOSW,Ryzyko bezrobocia absolwentów po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_NDOSW,Ryzyko bezrobocia absolwentów po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_DOSW_P1,Ryzyko bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_NDOSW_P1,Ryzyko bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_DOSW_P2,Ryzyko bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_NDOSW_P2,Ryzyko bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_DOSW_P3,Ryzyko bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_NDOSW_P3,Ryzyko bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_DOSW_P4,Ryzyko bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_NDOSW_P4,Ryzyko bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_DOSW_P5,Ryzyko bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_BEZR_NDOSW_P5,Ryzyko bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_WWB_NSTUD,"Względny Wskaźnik Bezrobocia absolwentów w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWB,Względny Wskaźnik Bezrobocia absolwentów po uzyskaniu dyplomu
+P_WWB_NSTUD_P1,"Względny Wskaźnik Bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWB_P1,Względny Wskaźnik Bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu
+P_WWB_NSTUD_P2,"Względny Wskaźnik Bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWB_P2,Względny Wskaźnik Bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu
+P_WWB_NSTUD_P3,"Względny Wskaźnik Bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWB_P3,Względny Wskaźnik Bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu
+P_WWB_NSTUD_P4,"Względny Wskaźnik Bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWB_P4,Względny Wskaźnik Bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu
+P_WWB_NSTUD_P5,"Względny Wskaźnik Bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWB_P5,Względny Wskaźnik Bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu
+P_WWB_DOSW,Względny Wskaźnik Bezrobocia absolwentów po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWB_NDOSW,Względny Wskaźnik Bezrobocia absolwentów po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_WWB_DOSW_P1,Względny Wskaźnik Bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWB_NDOSW_P1,Względny Wskaźnik Bezrobocia absolwentów w pierwszym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_WWB_DOSW_P2,Względny Wskaźnik Bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWB_NDOSW_P2,Względny Wskaźnik Bezrobocia absolwentów w drugim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_WWB_DOSW_P3,Względny Wskaźnik Bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWB_NDOSW_P3,Względny Wskaźnik Bezrobocia absolwentów w trzecim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_WWB_DOSW_P4,Względny Wskaźnik Bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWB_NDOSW_P4,Względny Wskaźnik Bezrobocia absolwentów w czwartym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_WWB_DOSW_P5,Względny Wskaźnik Bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWB_NDOSW_P5,Względny Wskaźnik Bezrobocia absolwentów w piątym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_CZY_PRACA_STUD,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_NSTUD,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy po uzyskaniu dyplomu"
+P_CZY_PRACA_STUD_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_NSTUD_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy"
+P_CZY_PRACA_STUD_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_NSTUD_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy"
+P_CZY_PRACA_STUD_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_NSTUD_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy"
+P_CZY_PRACA_STUD_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_NSTUD_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy"
+P_CZY_PRACA_STUD_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_NSTUD_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_PRACA_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie jakiejkolwiek pracy"
+P_CZY_PRACA_DOSW,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_NDOSW,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_DOSW_P1,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w pierwszym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_NDOSW_P1,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w pierwszym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_DOSW_P2,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w drugim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_NDOSW_P2,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w drugim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_DOSW_P3,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w trzecim roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_NDOSW_P3,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w trzecim roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_DOSW_P4,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w czwartym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_NDOSW_P4,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w czwartym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_DOSW_P5,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w piątym roku po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_PRACA_NDOSW_P5,"Procent absolwentów, którzy mieli doświadczenie jakiejkolwiek pracy w piątym roku po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_STUD,"Procent absolwentów, którzy mieli doświadczenie pracy na umowę o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_NSTUD,"Procent absolwentów, którzy mieli doświadczenie pracy na umowę o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT,"Procent absolwentów, którzy mieli doświadczenie pracy na umowę o pracę po uzyskaniu dyplomu"
+P_CZY_ETAT_STUD_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_NSTUD_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę"
+P_CZY_ETAT_STUD_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_NSTUD_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę"
+P_CZY_ETAT_STUD_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_NSTUD_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę"
+P_CZY_ETAT_STUD_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_NSTUD_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę"
+P_CZY_ETAT_STUD_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_NSTUD_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_ETAT_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę"
+P_CZY_ETAT_DOSW,"Procent absolwentów, którzy mieli doświadczenie pracy na umowę o pracę po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_NDOSW,"Procent absolwentów, którzy mieli doświadczenie pracy na umowę o pracę po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_DOSW_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_NDOSW_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_DOSW_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_NDOSW_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_DOSW_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_NDOSW_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_DOSW_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_NDOSW_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_DOSW_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_ETAT_NDOSW_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie pracy na umowę o pracę wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_STUD,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_NSTUD,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu"
+P_CZY_SAMOZ_STUD_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_NSTUD_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia"
+P_CZY_SAMOZ_STUD_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_NSTUD_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia"
+P_CZY_SAMOZ_STUD_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_NSTUD_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia"
+P_CZY_SAMOZ_STUD_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_NSTUD_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia"
+P_CZY_SAMOZ_STUD_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_NSTUD_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_CZY_SAMOZ_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia"
+P_CZY_SAMOZ_DOSW,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_NDOSW,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_DOSW_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_NDOSW_P1,"Procent absolwentów, którzy w pierwszym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_DOSW_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_NDOSW_P2,"Procent absolwentów, którzy w drugim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_DOSW_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_NDOSW_P3,"Procent absolwentów, którzy w trzecim roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_DOSW_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_NDOSW_P4,"Procent absolwentów, którzy w czwartym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_DOSW_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu"
+P_CZY_SAMOZ_NDOSW_P5,"Procent absolwentów, którzy w piątym roku po uzyskaniu dyplomu mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu"
+P_PROC_MIES_PRACA_STUD,Procent miesięcy przepracowanych po dyplomie w jakiejkolwiek formie w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_NSTUD,Procent miesięcy przepracowanych po dyplomie w jakiejkolwiek formie w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA,Procent miesięcy przepracowanych po dyplomie w jakiejkolwiek formie
+P_PROC_MIES_PRACA_STUD_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w jakiejkolwiek formie w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_NSTUD_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w jakiejkolwiek formie w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w jakiejkolwiek formie
+P_PROC_MIES_PRACA_STUD_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w jakiejkolwiek formie w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_NSTUD_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w jakiejkolwiek formie w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w jakiejkolwiek formie
+P_PROC_MIES_PRACA_STUD_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w jakiejkolwiek formie w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_NSTUD_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w jakiejkolwiek formie w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w jakiejkolwiek formie
+P_PROC_MIES_PRACA_STUD_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w jakiejkolwiek formie w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_NSTUD_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w jakiejkolwiek formie w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w jakiejkolwiek formie
+P_PROC_MIES_PRACA_STUD_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w jakiejkolwiek formie w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_NSTUD_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w jakiejkolwiek formie w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_PRACA_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w jakiejkolwiek formie
+P_PROC_MIES_PRACA_DOSW,Procent miesięcy przepracowanych po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_NDOSW,Procent miesięcy przepracowanych po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_DOSW_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_NDOSW_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_DOSW_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_NDOSW_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_DOSW_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_NDOSW_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_DOSW_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_NDOSW_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_DOSW_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_PROC_MIES_PRACA_NDOSW_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w jakiejkolwiek formie absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_PROC_MIES_ETAT_STUD,Procent miesięcy przepracowanych po dyplomie na umowę o pracę w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_NSTUD,Procent miesięcy przepracowanych po dyplomie na umowę o pracę w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT,Procent miesięcy przepracowanych po dyplomie na umowę o pracę
+P_PROC_MIES_ETAT_PODCZAS_STUDIOW,Procent miesięcy przepracowanych na umowę o pracę w trakcie studiów
+P_PROC_MIES_ETAT_STUD_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie na umowę o pracę w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_NSTUD_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie na umowę o pracę w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie na umowę o pracę
+P_PROC_MIES_ETAT_STUD_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie na umowę o pracę w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_NSTUD_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie na umowę o pracę w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie na umowę o pracę
+P_PROC_MIES_ETAT_STUD_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie na umowę o pracę w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_NSTUD_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie na umowę o pracę w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie na umowę o pracę
+P_PROC_MIES_ETAT_STUD_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie na umowę o pracę w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_NSTUD_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie na umowę o pracę w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie na umowę o pracę
+P_PROC_MIES_ETAT_STUD_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie na umowę o pracę w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_NSTUD_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie na umowę o pracę w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_ETAT_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie na umowę o pracę
+P_PROC_MIES_ETAT_DOSW,Procent miesięcy przepracowanych po dyplomie na umowę o pracę przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_ETAT_NDOSW,Procent miesięcy przepracowanych po dyplomie na umowę o pracę przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_ETAT_DOSW_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie na umowę o pracę przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_ETAT_NDOSW_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie na umowę o pracę przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_ETAT_DOSW_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie na umowę o pracę przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_ETAT_NDOSW_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie na umowę o pracę przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_ETAT_DOSW_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie na umowę o pracę przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_ETAT_NDOSW_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie na umowę o pracę przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_ETAT_DOSW_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie na umowę o pracę przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_ETAT_NDOSW_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie na umowę o pracę przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_ETAT_DOSW_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie na umowę o pracę przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_ETAT_NDOSW_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie na umowę o pracę przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_STUD,Procent miesięcy przepracowanych po dyplomie w ramach samozatrudnienia w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_NSTUD,Procent miesięcy przepracowanych po dyplomie w ramach samozatrudnienia w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ,Procent miesięcy przepracowanych po dyplomie w ramach samozatrudnienia
+P_PROC_MIES_SAMOZ_STUD_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w ramach samozatrudnienia w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_NSTUD_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w ramach samozatrudnienia w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w ramach samozatrudnienia
+P_PROC_MIES_SAMOZ_STUD_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w ramach samozatrudnienia w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_NSTUD_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w ramach samozatrudnienia w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w ramach samozatrudnienia
+P_PROC_MIES_SAMOZ_STUD_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w ramach samozatrudnienia w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_NSTUD_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w ramach samozatrudnienia w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w ramach samozatrudnienia
+P_PROC_MIES_SAMOZ_STUD_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w ramach samozatrudnienia w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_NSTUD_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w ramach samozatrudnienia w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w ramach samozatrudnienia
+P_PROC_MIES_SAMOZ_STUD_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w ramach samozatrudnienia w okresach studiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_NSTUD_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w ramach samozatrudnienia w okresach niestudiowania po uzyskaniu dyplomu
+P_PROC_MIES_SAMOZ_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w ramach samozatrudnienia
+P_PROC_MIES_SAMOZ_DOSW,Procent miesięcy przepracowanych po dyplomie w ramach samozatrudnienia przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_NDOSW,Procent miesięcy przepracowanych po dyplomie w ramach samozatrudnienia przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_DOSW_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w ramach samozatrudnienia przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_NDOSW_P1,Procent miesięcy przepracowanych w pierwszym roku po dyplomie w ramach samozatrudnienia przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_DOSW_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w ramach samozatrudnienia przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_NDOSW_P2,Procent miesięcy przepracowanych w drugim roku po dyplomie w ramach samozatrudnienia przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_DOSW_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w ramach samozatrudnienia przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_NDOSW_P3,Procent miesięcy przepracowanych w trzecim roku po dyplomie w ramach samozatrudnienia przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_DOSW_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w ramach samozatrudnienia przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_NDOSW_P4,Procent miesięcy przepracowanych w czwartym roku po dyplomie w ramach samozatrudnienia przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_DOSW_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w ramach samozatrudnienia przez osoby mające doświadczenie pracy w trakcie studiów
+P_PROC_MIES_SAMOZ_NDOSW_P5,Procent miesięcy przepracowanych w piątym roku po dyplomie w ramach samozatrudnienia przez osoby nie mające doświadczenia pracy w trakcie studiów
+P_N_CZY_ETAT,"Liczba absolwentów, którzy mieli doświadczenie pracy na umowę o pracę po uzyskaniu dyplomu"
+P_E_MIES_N_PRACODAWCOW,Średnia miesięczna liczba pracodawców
+P_E_MIES_N_PRACODAWCOW_Q1,Pierwszy kwintyl średniej miesięcznej liczby pracodawców
+P_E_MIES_N_PRACODAWCOW_Q2,Drugi kwintyl średniej miesięcznej liczby pracodawców
+P_E_MIES_N_PRACODAWCOW_Q3,Trzeci kwintyl średniej miesięcznej liczby pracodawców
+P_E_MIES_N_PRACODAWCOW_Q4,Czwarty kwintyl średniej miesięcznej liczby pracodawców
+P_E_MIES_N_PRACODAWCOW_PROC_MODALNA,"Procent absolwentów, dla których średnia miesięczna liczba pracodawców był równy modalnej - wartość podawana tylko w przypadku, gdy wszystkie kwintyle są równe"
+P_E_ROCZNA_N_KONCOWETATOW,Średnia roczna liczba przypadków zakończenia pracy etatowej
+P_KONIECETATU_RAZ_NA_ILE_LAT,Średnio co ile lat absolwenci kończą pracę etatową (funkcja średniej rocznej liczby przypadków zakończenia pracy etatowej)
+P_E_ROCZNA_N_KONCOWETATOW_Q1,Pierwszy kwintyl średniej rocznej liczby przypadków zakończenia pracy etatowej
+P_E_ROCZNA_N_KONCOWETATOW_Q2,Drugi kwintyl średniej rocznej liczby przypadków zakończenia pracy etatowej
+P_E_ROCZNA_N_KONCOWETATOW_Q3,Trzeci kwintyl średniej rocznej liczby przypadków zakończenia pracy etatowej
+P_E_ROCZNA_N_KONCOWETATOW_Q4,Czwarty kwintyl średniej rocznej liczby przypadków zakończenia pracy etatowej
+P_E_ROCZNA_N_KONCOWETATOW_PROC_MODALNA,"Procent absolwentów, dla których średnia roczna liczba przypadków zakończenia pracy etatowej była równa modalnej - wartość podawana tylko w przypadku, gdy wszystkie kwintyle są równe"
+P_E_ZAR_STUD,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_NSTUD,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR,Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł po uzyskaniu dyplomu
+P_E_ZAR_STUD_P1,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_NSTUD_P1,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_P1,Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu
+P_E_ZAR_STUD_P2,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_NSTUD_P2,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_P2,Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu
+P_E_ZAR_STUD_P3,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_NSTUD_P3,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_P3,Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu
+P_E_ZAR_STUD_P4,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_NSTUD_P4,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_P4,Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu
+P_E_ZAR_STUD_P5,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_NSTUD_P5,"Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_P5,Średnie miesięczne wynagrodzenie absolwentów ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu
+P_E_ZAR_DOSW,Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_NDOSW,Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_DOSW_P1,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_NDOSW_P1,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_DOSW_P2,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_NDOSW_P2,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_DOSW_P3,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_NDOSW_P3,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_DOSW_P4,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_NDOSW_P4,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_DOSW_P5,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_NDOSW_P5,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_ME_ZAR_STUD,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_NSTUD,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR,Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł po uzyskaniu dyplomu
+P_ZAR_Q1,Pierwszy kwintyl średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł po uzyskaniu dyplomu
+P_ZAR_Q2,Drugi kwintyl średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł po uzyskaniu dyplomu
+P_ZAR_Q3,Trzeci kwintyl średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł po uzyskaniu dyplomu
+P_ZAR_Q4,Czwarty kwintyl średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł po uzyskaniu dyplomu
+P_ME_ZAR_STUD_P1,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_NSTUD_P1,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_P1,Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu
+P_ME_ZAR_STUD_P2,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_NSTUD_P2,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_P2,Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu
+P_ME_ZAR_STUD_P3,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_NSTUD_P3,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_P3,Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu
+P_ME_ZAR_STUD_P4,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_NSTUD_P4,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_P4,Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu
+P_ME_ZAR_STUD_P5,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_NSTUD_P5,"Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_P5,Mediana średnich miesięcznych wynagrodzeń absolwentów ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu
+P_ME_ZAR_DOSW,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_NDOSW,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_ME_ZAR_DOSW_P1,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_NDOSW_P1,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_ME_ZAR_DOSW_P2,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_NDOSW_P2,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w drugim roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_ME_ZAR_DOSW_P3,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_NDOSW_P3,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w trzecim roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_ME_ZAR_DOSW_P4,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_NDOSW_P4,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w czwartym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_ME_ZAR_DOSW_P5,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_NDOSW_P5,Mediana średnich miesięcznych wynagrodzeń ze wszystkich źródeł w piątym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_STUD,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_NSTUD,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT,Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_E_ZAR_ETAT_STUD_P1,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_NSTUD_P1,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_P1,Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu
+P_E_ZAR_ETAT_STUD_P2,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_NSTUD_P2,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_P2,Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu
+P_E_ZAR_ETAT_STUD_P3,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_NSTUD_P3,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_P3,Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu
+P_E_ZAR_ETAT_STUD_P4,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_NSTUD_P4,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_P4,Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu
+P_E_ZAR_ETAT_STUD_P5,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_NSTUD_P5,"Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_P5,Średnie miesięczne wynagrodzenie absolwentów z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu
+P_E_ZAR_ETAT_DOSW,Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_NDOSW,Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_DOSW_P1,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_NDOSW_P1,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_DOSW_P2,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_NDOSW_P2,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_DOSW_P3,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_NDOSW_P3,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_DOSW_P4,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_NDOSW_P4,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_DOSW_P5,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_ETAT_NDOSW_P5,Średnie miesięczne wynagrodzenie z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_STUD,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_NSTUD,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT,Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_ZAR_ETAT_MIN,Minimum średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_ZAR_ETAT_Q1,Pierwszy kwintyl średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_ZAR_ETAT_Q2,Drugi kwintyl średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_ZAR_ETAT_Q3,Trzeci kwintyl średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_ZAR_ETAT_Q4,Czwarty kwintyl średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_ZAR_ETAT_MAX,Maksimum średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę po uzyskaniu dyplomu
+P_ME_ZAR_ETAT_STUD_P1,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_NSTUD_P1,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_P1,Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu
+P_ME_ZAR_ETAT_STUD_P2,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_NSTUD_P2,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_P2,Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu
+P_ME_ZAR_ETAT_STUD_P3,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_NSTUD_P3,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_P3,Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu
+P_ME_ZAR_ETAT_STUD_P4,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_NSTUD_P4,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_P4,Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu
+P_ME_ZAR_ETAT_STUD_P5,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_NSTUD_P5,"Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_ME_ZAR_ETAT_P5,Mediana średnich miesięcznych wynagrodzeń absolwentów z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu
+P_ME_ZAR_ETAT_DOSW,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_NDOSW,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę po uzyskaniu dyplomu absolwentów nie wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_DOSW_P1,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_NDOSW_P1,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w pierwszym roku po uzyskaniu dyplomu absolwentów nie wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_DOSW_P2,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_NDOSW_P2,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w drugim roku po uzyskaniu dyplomu absolwentów nie wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_DOSW_P3,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_NDOSW_P3,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w trzecim roku po uzyskaniu dyplomu absolwentów nie wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_DOSW_P4,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_NDOSW_P4,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w czwartym roku po uzyskaniu dyplomu absolwentów nie wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_DOSW_P5,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_ME_ZAR_ETAT_NDOSW_P5,Mediana średnich miesięcznych wynagrodzeń z tytułu umów o pracę w piątym roku po uzyskaniu dyplomu absolwentów nie wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWZ_STUD,"Względny Wskaźnik Zarobków absolwentów w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_WWZ_NSTUD,"Względny Wskaźnik Zarobków absolwentów w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWZ,Względny Wskaźnik Zarobków absolwentów po uzyskaniu dyplomu
+P_WWZ_STUD_P1,"Względny Wskaźnik Zarobków absolwentów w pierwszym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_WWZ_NSTUD_P1,"Względny Wskaźnik Zarobków absolwentów w pierwszym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWZ_P1,Względny Wskaźnik Zarobków absolwentów w pierwszym roku po uzyskaniu dyplomu
+P_WWZ_STUD_P2,"Względny Wskaźnik Zarobków absolwentów w drugim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_WWZ_NSTUD_P2,"Względny Wskaźnik Zarobków absolwentów w drugim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWZ_P2,Względny Wskaźnik Zarobków absolwentów w drugim roku po uzyskaniu dyplomu
+P_WWZ_STUD_P3,"Względny Wskaźnik Zarobków absolwentów w trzecim roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_WWZ_NSTUD_P3,"Względny Wskaźnik Zarobków absolwentów w trzecim roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWZ_P3,Względny Wskaźnik Zarobków absolwentów w trzecim roku po uzyskaniu dyplomu
+P_WWZ_STUD_P4,"Względny Wskaźnik Zarobków absolwentów w czwartym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_WWZ_NSTUD_P4,"Względny Wskaźnik Zarobków absolwentów w czwartym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWZ_P4,Względny Wskaźnik Zarobków absolwentów w czwartym roku po uzyskaniu dyplomu
+P_WWZ_STUD_P5,"Względny Wskaźnik Zarobków absolwentów w piątym roku po uzyskaniu dyplomu w okresach, gdy studiowali po uzyskaniu dyplomu"
+P_WWZ_NSTUD_P5,"Względny Wskaźnik Zarobków absolwentów w piątym roku po uzyskaniu dyplomu w okresach, gdy nie studiowali po uzyskaniu dyplomu"
+P_WWZ_P5,Względny Wskaźnik Zarobków absolwentów w piątym roku po uzyskaniu dyplomu
+P_WWZ_DOSW,Względny Wskaźnik Zarobków absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu po uzyskaniu dyplomu
+P_WWZ_NDOSW,Względny Wskaźnik Zarobków absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu po uzyskaniu dyplomu
+P_WWZ_DOSW_P1,Względny Wskaźnik Zarobków absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu w pierwszym roku po uzyskaniu dyplomu
+P_WWZ_NDOSW_P1,Względny Wskaźnik Zarobków absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu w pierwszym roku po uzyskaniu dyplomu
+P_WWZ_DOSW_P2,Względny Wskaźnik Zarobków absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu w drugim roku po uzyskaniu dyplomu
+P_WWZ_NDOSW_P2,Względny Wskaźnik Zarobków absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu w drugim roku po uzyskaniu dyplomu
+P_WWZ_DOSW_P3,Względny Wskaźnik Zarobków absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu w trzecim roku po uzyskaniu dyplomu
+P_WWZ_NDOSW_P3,Względny Wskaźnik Zarobków absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu w trzecim roku po uzyskaniu dyplomu
+P_WWZ_DOSW_P4,Względny Wskaźnik Zarobków absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu w czwartym roku po uzyskaniu dyplomu
+P_WWZ_NDOSW_P4,Względny Wskaźnik Zarobków absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu w czwartym roku po uzyskaniu dyplomu
+P_WWZ_DOSW_P5,Względny Wskaźnik Zarobków absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu w piątym roku po uzyskaniu dyplomu
+P_WWZ_NDOSW_P5,Względny Wskaźnik Zarobków absolwentów wśród absolwentów bez doświadczenia pracy przed uzyskaniem dyplomu w piątym roku po uzyskaniu dyplomu
+P_N_KMZ1_NAJW_MIASTA,Liczba absolwentów zamieszkałych w największych miastach Polski
+P_N_KMZ2_MIASTA_POWIATOWE,Liczba absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_N_KMZ3_MNIEJSZE_MIEJSC,Liczba absolwentów zamieszkałych w pozostałych miejscowościach
+P_N_KMZNN_BD,Liczba braków danych nt. kategorii wielkości miejscowości zamieszkania
+P_N_ODLJEDN1_POWIAT,"Liczba absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_N_ODLJEDN2_WOJ,"Liczba absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_N_ODLJEDN3_NWOJ,"Liczba absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_N_ODLJEDNNN_BD,Liczba braków danych nt. kategorii odległości miejsca zamieszkania od usytuowania jednostki dydaktycznej prowadzącej ukończony kierunek studiów
+P_CZAS_PRACA_KMZ1,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy wśród absolwentów zamieszkałych w największych miastach Polski
+P_CZAS_PRACA_KMZ2,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy wśród absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_CZAS_PRACA_KMZ3,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy wśród absolwentów zamieszkałych w pozostałych miejscowościach
+P_CZAS_ETAT_KMZ1,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę wśród absolwentów zamieszkałych w największych miastach Polski
+P_CZAS_ETAT_KMZ2,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę wśród absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_CZAS_ETAT_KMZ3,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę wśród absolwentów zamieszkałych w pozostałych miejscowościach
+P_CZY_SAMOZ_KMZ1,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów zamieszkałych w największych miastach Polski"
+P_CZY_SAMOZ_KMZ2,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów zamieszkałych w pozostałych miastach na prawach powiatu"
+P_CZY_SAMOZ_KMZ3,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów zamieszkałych w pozostałych miejscowościach"
+P_PROC_MIES_BEZR_KMZ1,Ryzyko bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w największych miastach Polski
+P_PROC_MIES_BEZR_KMZ2,Ryzyko bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_PROC_MIES_BEZR_KMZ3,Ryzyko bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w pozostałych miejscowościach
+P_WWB_KMZ1,Względny Wskaźnik Bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w największych miastach Polski
+P_WWB_KMZ2,Względny Wskaźnik Bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_WWB_KMZ3,Względny Wskaźnik Bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w pozostałych miejscowościach
+P_E_ZAR_KMZ1,Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu wśród absolwentów zamieszkałych w największych miastach Polski
+P_E_ZAR_KMZ2,Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu wśród absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_E_ZAR_KMZ3,Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu wśród absolwentów zamieszkałych w pozostałych miejscowościach
+P_WWZ_KMZ1,Względny Wskaźnik Zarobków po uzyskaniu dyplomu absolwentów zamieszkałych w największych miastach Polski
+P_WWZ_KMZ2,Względny Wskaźnik Zarobków po uzyskaniu dyplomu absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_WWZ_KMZ3,Względny Wskaźnik Zarobków po uzyskaniu dyplomu absolwentów zamieszkałych w pozostałych miejscowościach
+P_E_ZAR_ETAT_KMZ1,Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu wśród absolwentów zamieszkałych w największych miastach Polski
+P_E_ZAR_ETAT_KMZ2,Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu wśród absolwentów zamieszkałych w pozostałych miastach na prawach powiatu
+P_E_ZAR_ETAT_KMZ3,Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu wśród absolwentów zamieszkałych w pozostałych miejscowościach
+P_CZAS_PRACA_ODLJEDN1,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy wśród absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_CZAS_PRACA_ODLJEDN2,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy wśród absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_CZAS_PRACA_ODLJEDN3,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy wśród absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_CZAS_ETAT_ODLJEDN1,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę wśród absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_CZAS_ETAT_ODLJEDN2,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę wśród absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_CZAS_ETAT_ODLJEDN3,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę wśród absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_CZY_SAMOZ_ODLJEDN1,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_CZY_SAMOZ_ODLJEDN2,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_CZY_SAMOZ_ODLJEDN3,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu wśród absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_PROC_MIES_BEZR_ODLJEDN1,"Ryzyko bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_PROC_MIES_BEZR_ODLJEDN2,"Ryzyko bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_PROC_MIES_BEZR_ODLJEDN3,"Ryzyko bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_WWB_ODLJEDN1,"Względny Wskaźnik Bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_WWB_ODLJEDN2,"Względny Wskaźnik Bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_WWB_ODLJEDN3,"Względny Wskaźnik Bezrobocia po uzyskaniu dyplomu absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_E_ZAR_ODLJEDN1,"Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu wśród absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_E_ZAR_ODLJEDN2,"Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu wśród absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_E_ZAR_ODLJEDN3,"Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu wśród absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_WWZ_ODLJEDN1,"Względny Wskaźnik Zarobków po uzyskaniu dyplomu absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_WWZ_ODLJEDN2,"Względny Wskaźnik Zarobków po uzyskaniu dyplomu absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_WWZ_ODLJEDN3,"Względny Wskaźnik Zarobków po uzyskaniu dyplomu absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_E_ZAR_ETAT_ODLJEDN1,"Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu wśród absolwentów zamieszkałych w powiecie, w którym studiowali"
+P_E_ZAR_ETAT_ODLJEDN2,"Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu wśród absolwentów zamieszkałych w innym powiecie, ale w tym samym województwie, w którym studiowali"
+P_E_ZAR_ETAT_ODLJEDN3,"Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu wśród absolwentów zamieszkałych w innym województwie niż to, w którym studiowali"
+P_CZAS_PRACA_DOSW_REKR,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu absolwentów mających doświadczenie pracy przed rozpoczęciem studiów
+P_CZAS_PRACA_DOSW_STUDIA,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy po uzyskaniu dyplomu absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_CZAS_ETAT_DOSW_REKR,Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu absolwentów mających doświadczenie pracy przed rozpoczęciem studiów
+P_CZAS_ETAT_DOSW_STUDIA,"Średni czas (w miesiącach) od uzyskania dyplomu do podjęcia pierwszej pracy na umowę o pracę po uzyskaniu dyplomu absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_CZY_SAMOZ_DOSW_REKR,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu mających doświadczenie pracy przed rozpoczęciem studiów"
+P_CZY_SAMOZ_DOSW_STUDIA,"Procent absolwentów, którzy mieli doświadczenie samozatrudnienia po uzyskaniu dyplomu nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_PROC_MIES_BEZR_DOSW_REKR,Ryzyko bezrobocia absolwentów po uzyskaniu dyplomu mających doświadczenie pracy przed rozpoczęciem studiów
+P_PROC_MIES_BEZR_DOSW_STUDIA,"Ryzyko bezrobocia absolwentów po uzyskaniu dyplomu nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_WWB_DOSW_REKR,Względny Wskaźnik Bezrobocia absolwentów po uzyskaniu dyplomu mających doświadczenie pracy przed rozpoczęciem studiów
+P_WWB_DOSW_STUDIA,"Względny Wskaźnik Bezrobocia absolwentów po uzyskaniu dyplomu wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_E_ZAR_DOSW_REKR,Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu absolwentów mających doświadczenie pracy przed rozpoczęciem studiów
+P_E_ZAR_DOSW_STUDIA,"Średnie miesięczne wynagrodzenie ze wszystkich źródeł po uzyskaniu dyplomu absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_WWZ_DOSW_REKR,Względny Wskaźnik Zarobków absolwentów mających doświadczenie pracy mających doświadczenie pracy przed rozpoczęciem studiów po uzyskaniu dyplomu
+P_WWZ_DOSW_STUDIA,"Względny Wskaźnik Zarobków absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów po uzyskaniu dyplomu"
+P_E_ZAR_ETAT_DOSW_REKR,Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu absolwentów mających doświadczenie pracy przed rozpoczęciem studiów
+P_E_ZAR_ETAT_DOSW_STUDIA,"Średnie miesięczne wynagrodzenie z tytułu umów o pracę po uzyskaniu dyplomu absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_E_ZAR_ROK_PRZED_REKR,"Średnie miesięczne wynagrodzenie ze wszystkich źródeł w ciągu roku przed rozpoczęciem studiów absolwentów, które miały doświadczenie pracy przed rozpoczęciem studiów"
+P_WWZ_ROK_PRZED_REKR,Względny Wskaźnik Zarobków w ciągu roku przed rozpoczęciem studiów absolwentów maiących doświadczenie pracy przed rozpoczęciem studiów
+P_PROC_MIES_ETAT_ROK_PRZED_REKR,"Procent miesięcy przepracowanych na umowę o pracę w ciągu roku przed rozpoczęciem studiów absolwentów, którzy mieli doświadczenie pracy przed rozpoczęciem studiów"
+P_E_ZAR_PODCZAS_STUDIOW_DOSW_REKR,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w trakcie studiów absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_E_ZAR_PODCZAS_STUDIOW_DOSW_STUDIA,"Średnie miesięczne wynagrodzenie ze wszystkich źródeł w trakcie studiów absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_WWZ_PODCZAS_STUDIOW_DOSW_REKR,Względny Wskaźnik Zarobków w trakcie studiów absolwentów maiących doświadczenie pracy przed rozpoczęciem studiów
+P_WWZ_PODCZAS_STUDIOW_DOSW_STUDIA,"Względny Wskaźnik Zarobków w trakcie studiów absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_PROC_MIES_ETAT_PODCZAS_STUDIOW_DOSW_REKR,Procent miesięcy przepracowanych na umowę o pracę w trakcie studiów przez absolwentów mających doświadczenie pracy przed rozpoczęciem studiów
+P_PROC_MIES_ETAT_PODCZAS_STUDIOW_DOSW_STUDIA,"Procent miesięcy przepracowanych na umowę o pracę w trakcie studiów przez absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_E_ZAR_P1_DOSW_REKR,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu absolwentów mających doświadczenie pracy przed rozpoczęciem studiów
+P_E_ZAR_P1_DOSW_STUDIA,"Średnie miesięczne wynagrodzenie ze wszystkich źródeł w pierwszym roku po uzyskaniu dyplomu absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_WWZ_P1_DOSW_REKR,Względny Wskaźnik Zarobków absolwentów mających doświadczenie pracy przed rozpoczęciem studiów w pierwszym roku po uzyskaniu dyplomu
+P_WWZ_P1_DOSW_STUDIA,"Względny Wskaźnik Zarobków absolwentów nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów w pierwszym roku po uzyskaniu dyplomu"
+P_PROC_MIES_ETAT_P1_DOSW_REKR,Procent miesięcy przepracowanych w pierwszym roku po dyplomie na umowę o pracę przez osoby mające doświadczenie pracy przed rozpoczęciem studiów
+P_PROC_MIES_ETAT_P1_DOSW_STUDIA,"Procent miesięcy przepracowanych w pierwszym roku po dyplomie na umowę o pracę przez osoby nie mających doświadczenia pracy przed rozpoczęciem studiów, ale którzy uzyskali je w trakcie studiów"
+P_E_ZAR_PODCZAS_STUDIOW_DOSW,Średnie miesięczne wynagrodzenie ze wszystkich źródeł w trakcie studiów absolwentów mających doświadczenie pracy przed rozpoczęciem studiów
+P_WWZ_PODCZAS_STUDIOW_DOSW,Względny Wskaźnik Zarobków w trakcie studiów absolwentów maiących doświadczenie pracy w trakcie studiów
+P_PROC_MIES_ETAT_PODCZAS_STUDIOW_DOSW,Procent miesięcy przepracowanych na umowę o pracę w trakcie studiów absolwentów wśród absolwentów z doświadczeniem pracy przed uzyskaniem dyplomu
+P_WWZ_MIES_1,Względny Wskaźnik Zarobków w 1. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_2,Względny Wskaźnik Zarobków w 2. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_3,Względny Wskaźnik Zarobków w 3. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_4,Względny Wskaźnik Zarobków w 4. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_5,Względny Wskaźnik Zarobków w 5. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_6,Względny Wskaźnik Zarobków w 6. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_7,Względny Wskaźnik Zarobków w 7. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_8,Względny Wskaźnik Zarobków w 8. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_9,Względny Wskaźnik Zarobków w 9. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_10,Względny Wskaźnik Zarobków w 10. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_11,Względny Wskaźnik Zarobków w 11. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_12,Względny Wskaźnik Zarobków w 12. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_13,Względny Wskaźnik Zarobków w 13. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_14,Względny Wskaźnik Zarobków w 14. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_15,Względny Wskaźnik Zarobków w 15. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_16,Względny Wskaźnik Zarobków w 16. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_17,Względny Wskaźnik Zarobków w 17. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_18,Względny Wskaźnik Zarobków w 18. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_19,Względny Wskaźnik Zarobków w 19. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_20,Względny Wskaźnik Zarobków w 20. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_21,Względny Wskaźnik Zarobków w 21. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_22,Względny Wskaźnik Zarobków w 22. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_23,Względny Wskaźnik Zarobków w 23. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_24,Względny Wskaźnik Zarobków w 24. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_25,Względny Wskaźnik Zarobków w 25. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_26,Względny Wskaźnik Zarobków w 26. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_27,Względny Wskaźnik Zarobków w 27. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_28,Względny Wskaźnik Zarobków w 28. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_29,Względny Wskaźnik Zarobków w 29. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_30,Względny Wskaźnik Zarobków w 30. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_31,Względny Wskaźnik Zarobków w 31. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_32,Względny Wskaźnik Zarobków w 32. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_33,Względny Wskaźnik Zarobków w 33. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_34,Względny Wskaźnik Zarobków w 34. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_35,Względny Wskaźnik Zarobków w 35. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_36,Względny Wskaźnik Zarobków w 36. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_37,Względny Wskaźnik Zarobków w 37. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_38,Względny Wskaźnik Zarobków w 38. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_39,Względny Wskaźnik Zarobków w 39. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_40,Względny Wskaźnik Zarobków w 40. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_41,Względny Wskaźnik Zarobków w 41. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_42,Względny Wskaźnik Zarobków w 42. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_43,Względny Wskaźnik Zarobków w 43. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_44,Względny Wskaźnik Zarobków w 44. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_45,Względny Wskaźnik Zarobków w 45. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_46,Względny Wskaźnik Zarobków w 46. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_47,Względny Wskaźnik Zarobków w 47. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_48,Względny Wskaźnik Zarobków w 48. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_49,Względny Wskaźnik Zarobków w 49. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_50,Względny Wskaźnik Zarobków w 50. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_51,Względny Wskaźnik Zarobków w 51. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_52,Względny Wskaźnik Zarobków w 52. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_53,Względny Wskaźnik Zarobków w 53. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_54,Względny Wskaźnik Zarobków w 54. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_55,Względny Wskaźnik Zarobków w 55. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_56,Względny Wskaźnik Zarobków w 56. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_57,Względny Wskaźnik Zarobków w 57. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_58,Względny Wskaźnik Zarobków w 58. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_59,Względny Wskaźnik Zarobków w 59. miesiącu po uzyskaniu dyplomu
+P_WWZ_MIES_60,Względny Wskaźnik Zarobków w 60. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_1,Względny Wskaźnik Bezrobocia w 1. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_2,Względny Wskaźnik Bezrobocia w 2. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_3,Względny Wskaźnik Bezrobocia w 3. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_4,Względny Wskaźnik Bezrobocia w 4. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_5,Względny Wskaźnik Bezrobocia w 5. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_6,Względny Wskaźnik Bezrobocia w 6. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_7,Względny Wskaźnik Bezrobocia w 7. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_8,Względny Wskaźnik Bezrobocia w 8. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_9,Względny Wskaźnik Bezrobocia w 9. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_10,Względny Wskaźnik Bezrobocia w 10. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_11,Względny Wskaźnik Bezrobocia w 11. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_12,Względny Wskaźnik Bezrobocia w 12. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_13,Względny Wskaźnik Bezrobocia w 13. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_14,Względny Wskaźnik Bezrobocia w 14. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_15,Względny Wskaźnik Bezrobocia w 15. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_16,Względny Wskaźnik Bezrobocia w 16. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_17,Względny Wskaźnik Bezrobocia w 17. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_18,Względny Wskaźnik Bezrobocia w 18. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_19,Względny Wskaźnik Bezrobocia w 19. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_20,Względny Wskaźnik Bezrobocia w 20. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_21,Względny Wskaźnik Bezrobocia w 21. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_22,Względny Wskaźnik Bezrobocia w 22. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_23,Względny Wskaźnik Bezrobocia w 23. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_24,Względny Wskaźnik Bezrobocia w 24. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_25,Względny Wskaźnik Bezrobocia w 25. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_26,Względny Wskaźnik Bezrobocia w 26. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_27,Względny Wskaźnik Bezrobocia w 27. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_28,Względny Wskaźnik Bezrobocia w 28. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_29,Względny Wskaźnik Bezrobocia w 29. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_30,Względny Wskaźnik Bezrobocia w 30. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_31,Względny Wskaźnik Bezrobocia w 31. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_32,Względny Wskaźnik Bezrobocia w 32. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_33,Względny Wskaźnik Bezrobocia w 33. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_34,Względny Wskaźnik Bezrobocia w 34. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_35,Względny Wskaźnik Bezrobocia w 35. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_36,Względny Wskaźnik Bezrobocia w 36. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_37,Względny Wskaźnik Bezrobocia w 37. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_38,Względny Wskaźnik Bezrobocia w 38. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_39,Względny Wskaźnik Bezrobocia w 39. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_40,Względny Wskaźnik Bezrobocia w 40. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_41,Względny Wskaźnik Bezrobocia w 41. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_42,Względny Wskaźnik Bezrobocia w 42. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_43,Względny Wskaźnik Bezrobocia w 43. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_44,Względny Wskaźnik Bezrobocia w 44. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_45,Względny Wskaźnik Bezrobocia w 45. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_46,Względny Wskaźnik Bezrobocia w 46. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_47,Względny Wskaźnik Bezrobocia w 47. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_48,Względny Wskaźnik Bezrobocia w 48. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_49,Względny Wskaźnik Bezrobocia w 49. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_50,Względny Wskaźnik Bezrobocia w 50. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_51,Względny Wskaźnik Bezrobocia w 51. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_52,Względny Wskaźnik Bezrobocia w 52. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_53,Względny Wskaźnik Bezrobocia w 53. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_54,Względny Wskaźnik Bezrobocia w 54. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_55,Względny Wskaźnik Bezrobocia w 55. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_56,Względny Wskaźnik Bezrobocia w 56. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_57,Względny Wskaźnik Bezrobocia w 57. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_58,Względny Wskaźnik Bezrobocia w 58. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_59,Względny Wskaźnik Bezrobocia w 59. miesiącu po uzyskaniu dyplomu
+P_WWB_MIES_60,Względny Wskaźnik Bezrobocia w 60. miesiącu po uzyskaniu dyplomu
+P_KIERUNEK_NAZWA,Nazwa programu studiów
+P_SPEC_NAZWA,Nazwa specjalności w ramach programu studiów
+P_UCZELNIA,Numer identyfikacyjny szkoły wyższej
+P_NAZWA_UCZELNI,Nazwa szkoły wyższej
+P_JEDN,Numer identyfikacyjny jednostki dydaktycznej
+P_NAZWA_JEDN,Nazwa jednostki dydaktycznej
+P_PROFIL,"Profil programu studiów (O - ogólnoakademicki, P - praktyczny, N - nieokreślony)"
+P_DZIEDZINA_ID,"Numer identyfikacyjny dziedziny, do której należy kierunek"
+P_DZIEDZINA,"Nazwa dziedziny, do której należy kierunek"
+P_N_SEMESTR,Liczba semestrów programu studiów
+P_MUNDUR,Czy dla programu studiów generowane są zmienne dotyczące zatrudnienia w służbach mundurowych
+P_UCZELNIA_SKROT,Skrót nazwy szkoły wyższej
+P_POZIOM_TEKST_PL,Poziom studiów - polskojęzyczna zmienna tekstowa
+P_POZIOM_TEKST_EN,Poziom studiów - anglojęzyczna zmienna tekstowa
+P_NAZWA_KIERUNKU_PELNA,Pełna nazwa programu studiów używana w raportach w języku polskim
+P_NAZWA_KIERUNKU_PELNA_ENG,Pełna nazwa programu studiów używana w raportach w języku angielskim
+P_WOJ,Województwo lokalizacji jednostki dydaktycznej
+P_IF_2st_P1,"Procent osób, które po ukończeniu studiów I stopnia podjęły studia II stopnia w pierwszym roku po uzyskaniu dyplomu"
+P_IF_2st_P2,"Procent osób, które po ukończeniu studiów I stopnia podjęły studia II stopnia w drugim roku po uzyskaniu dyplomu"
+P_IF_2st_P3,"Procent osób, które po ukończeniu studiów I stopnia podjęły studia II stopnia w trzecim roku po uzyskaniu dyplomu"
+P_IF_2st_P4,"Procent osób, które po ukończeniu studiów I stopnia podjęły studia II stopnia w czwartym roku po uzyskaniu dyplomu"
+P_IF_2st_P5,"Procent osób, które po ukończeniu studiów I stopnia podjęły studia II stopnia w piątym roku po uzyskaniu dyplomu"
+P_IF_2st,"Procent osób, które po ukończeniu studiów I stopnia podjęły studia II stopnia kiedykolwiek w badanym okresie"
+P_IF_2st_ucz_P1,"Procent osób kontynuujących studia I stopnia na studiach II stopnia w pierwszym roku po uzyskaniu dyplomu, które kontynuują je na tej samej uczelni"
+P_IF_2st_ucz,"Procent osób kontynuujących studia I stopnia na studiach II stopnia kiedykolwiek w badanym okresie, które kontynuują je na tej samej uczelni"
