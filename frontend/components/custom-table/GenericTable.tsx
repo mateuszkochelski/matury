@@ -71,6 +71,8 @@ type GenericTableProps<T> = {
   pageSize?: number;
   totalElements?: number;
   hiddenColumns?: string[];
+  sortBy?: string;
+  direction?: string;
 };
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
@@ -82,6 +84,9 @@ export function GenericTable<T>({
   pageSize = 10,
   totalElements,
   hiddenColumns = [],
+  sortBy = "name",
+  direction = "asc",
+
 }: GenericTableProps<T>) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -96,8 +101,8 @@ export function GenericTable<T>({
 
   const [sorting, setSorting] = useState<SortingState>([
     {
-      id: "name",
-      desc: false,
+      id: sortBy,
+      desc: direction === "desc",
     },
   ]);
 
@@ -105,9 +110,9 @@ export function GenericTable<T>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,
     enableSortingRemoval: false,
+    manualSorting: true,
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
     manualPagination: true,
@@ -153,8 +158,10 @@ export function GenericTable<T>({
     handleUrlUpdate([
       { param: "pageIndex", value: pagination.pageIndex },
       { param: "pageSize", value: pagination.pageSize },
+      { param: "sortBy", value: sorting[0].id },
+      { param: "direction", value: sorting[0].desc ? "desc" : "asc" },      
     ]);
-  }, [pagination, handleUrlUpdate]);
+  }, [pagination, handleUrlUpdate, sorting]);
 
   const handleColumnVisibilityUpdate = (open: boolean) => {
     // we only want to update after the dropdown is closed

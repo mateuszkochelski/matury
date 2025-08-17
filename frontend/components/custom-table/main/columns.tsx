@@ -85,6 +85,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
       filterType: "number",
     },
     cell: ({ row }) => <div className="text-center">{`${row.getValue("passRate")}%`}</div>,
+    enableSorting: false // TODO: add and test after data is added
   },
   {
     id: "salary",
@@ -97,6 +98,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
     cell: ({ row }) => (
       <div className="text-right">{`${Number(row.getValue("salary")) * 100} PLN`}</div>
     ),
+    enableSorting: false // TODO: add and test after data is added
   },
   {
     id: "actions",

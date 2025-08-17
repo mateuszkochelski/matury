@@ -8,9 +8,10 @@ export default async function Home({
 }: {
   searchParams?: Promise<TableSearchParams>;
 }) {
-  const { pageSize, pageIndex, hiddenColumns } = (await searchParams) ?? {};
+  const { pageSize, pageIndex, hiddenColumns, sortBy, direction } = (await searchParams) ?? {};
 
-  const response = await fetchData(`${BACKEND_URL}/api/field_of_study`, pageSize, pageIndex);
+  const response = await fetchData(`${BACKEND_URL}/api/field_of_study`, pageSize, pageIndex, sortBy, direction);
+  console.log({searchParams, response})
   const data: FieldOfStudyData = await response.json();
   const { content: fields, page: pageData } = data;
   const { number: pageNumber, totalElements, size } = pageData;
@@ -23,6 +24,8 @@ export default async function Home({
         pageSize={size}
         totalElements={totalElements}
         hiddenColumns={hiddenColumns?.split(",")}
+        sortBy={sortBy}
+        direction={direction}
       />
     </main>
   );
