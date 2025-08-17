@@ -296,4 +296,28 @@ public interface GraduateRepository extends JpaRepository<Graduate, Long> {
     List<Object[]> findRawEmploymentData(@Param("wojewodztwo") String wojewodztwo,
                                          @Param("poziom") String poziom,
                                          @Param("rokDyplomu") Integer rokDyplomu);
+
+    // ==================== SZCZEGÓŁY KIERUNKU/PROGRAMU ====================
+
+    @Query("SELECT g.uczelniaId, g.kierunekId, g.poziom, g.rokDyplomu, "+
+           "AVG(g.eZarP1), AVG(g.eZarP2), AVG(g.eZarP3), AVG(g.eZarP4), AVG(g.eZarP5), "+
+           "AVG(g.eZarEtatP1), AVG(g.eZarEtatP2), AVG(g.eZarEtatP3), AVG(g.eZarEtatP4), AVG(g.eZarEtatP5), "+
+           "AVG(g.meZar), AVG(g.meZarEtat), AVG(g.zarQ1), AVG(g.zarQ2), AVG(g.zarQ3), AVG(g.zarQ4), "+
+           "AVG(g.wwzP1), AVG(g.wwzP2), AVG(g.wwzP3), AVG(g.wwzP4), AVG(g.wwzP5), "+
+           "AVG(g.wwbP1), AVG(g.wwbP2), AVG(g.wwbP3), AVG(g.wwbP4), AVG(g.wwbP5), "+
+           "AVG(g.czasPraca), AVG(g.czasPracaQ1), AVG(g.czasPracaQ2), AVG(g.czasPracaQ3), AVG(g.czasPracaQ4), "+
+           "AVG(g.czasEtat), AVG(g.czasEtatQ1), AVG(g.czasEtatQ2), AVG(g.czasEtatQ3), AVG(g.czasEtatQ4), "+
+           "AVG(g.procMiesPraca), AVG(g.procMiesEtat), AVG(g.procMiesSamoz) "+
+           "FROM Graduate g "+
+           "WHERE (:uczelniaId IS NULL OR g.uczelniaId = :uczelniaId) "+
+           "AND (:kierunekId IS NULL OR g.kierunekId = :kierunekId) "+
+           "AND (:poziom IS NULL OR g.poziom = :poziom) "+
+           "AND (:rokDyplomu IS NULL OR g.rokDyplomu = :rokDyplomu) " +
+           "GROUP BY g.uczelniaId, g.kierunekId, g.poziom, g.rokDyplomu")
+    List<Object[]> findFieldOfStudyDetail(
+            @Param("uczelniaId") String uczelniaId,
+            @Param("kierunekId") String kierunekId,
+            @Param("poziom") String poziom,
+            @Param("rokDyplomu") Integer rokDyplomu
+    );
 }

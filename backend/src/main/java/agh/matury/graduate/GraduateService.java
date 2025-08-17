@@ -18,6 +18,7 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 public class GraduateService {
 
     private final GraduateRepository graduateRepository;
+    private final FieldOfStudyMonthlyIndexRepository monthlyIndexRepository;
 
     private BigDecimal toBigDecimal(Object value) {
         if (value instanceof BigDecimal) {
@@ -405,5 +406,70 @@ public class GraduateService {
                         (Long) result[1]         // liczba rekordów
                 ))
                 .collect(Collectors.toList());
+    }
+
+    // ==================== SZCZEGÓŁY KIERUNKU/PROGRAMU ====================
+
+    public FieldOfStudyDetailDTO getFieldOfStudyDetail(String uczelniaId, String kierunekId, String poziom, Integer rokDyplomu) {
+        List<Object[]> detailRes = graduateRepository.findFieldOfStudyDetail(uczelniaId, kierunekId, poziom, rokDyplomu);
+        if (detailRes.isEmpty()) {
+            return new FieldOfStudyDetailDTO();
+        }
+
+        Object[] r = detailRes.get(0);
+        FieldOfStudyDetailDTO.FieldOfStudyDetailDTOBuilder b = FieldOfStudyDetailDTO.builder()
+                .uczelniaId((String) r[0])
+                .kierunekId((String) r[1])
+                .poziom((String) r[2])
+                .rokDyplomu((Integer) r[3])
+                .eZarP1(toBigDecimal(r[4]))
+                .eZarP2(toBigDecimal(r[5]))
+                .eZarP3(toBigDecimal(r[6]))
+                .eZarP4(toBigDecimal(r[7]))
+                .eZarP5(toBigDecimal(r[8]))
+                .eZarEtatP1(toBigDecimal(r[9]))
+                .eZarEtatP2(toBigDecimal(r[10]))
+                .eZarEtatP3(toBigDecimal(r[11]))
+                .eZarEtatP4(toBigDecimal(r[12]))
+                .eZarEtatP5(toBigDecimal(r[13]))
+                .meZar(toBigDecimal(r[14]))
+                .meZarEtat(toBigDecimal(r[15]))
+                .zarQ1(toBigDecimal(r[16]))
+                .zarQ2(toBigDecimal(r[17]))
+                .zarQ3(toBigDecimal(r[18]))
+                .zarQ4(toBigDecimal(r[19]))
+                .wwzP1(toBigDecimal(r[20]))
+                .wwzP2(toBigDecimal(r[21]))
+                .wwzP3(toBigDecimal(r[22]))
+                .wwzP4(toBigDecimal(r[23]))
+                .wwzP5(toBigDecimal(r[24]))
+                .wwbP1(toBigDecimal(r[25]))
+                .wwbP2(toBigDecimal(r[26]))
+                .wwbP3(toBigDecimal(r[27]))
+                .wwbP4(toBigDecimal(r[28]))
+                .wwbP5(toBigDecimal(r[29]))
+                .czasPraca(toBigDecimal(r[30]))
+                .czasPracaQ1(toBigDecimal(r[31]))
+                .czasPracaQ2(toBigDecimal(r[32]))
+                .czasPracaQ3(toBigDecimal(r[33]))
+                .czasPracaQ4(toBigDecimal(r[34]))
+                .czasEtat(toBigDecimal(r[35]))
+                .czasEtatQ1(toBigDecimal(r[36]))
+                .czasEtatQ2(toBigDecimal(r[37]))
+                .czasEtatQ3(toBigDecimal(r[38]))
+                .czasEtatQ4(toBigDecimal(r[39]))
+                .procMiesPraca(toBigDecimal(r[40]))
+                .procMiesEtat(toBigDecimal(r[41]))
+                .procMiesSamoz(toBigDecimal(r[42]));
+
+        List<Object[]> monthly = monthlyIndexRepository.findMonthlySeries(uczelniaId, kierunekId, poziom, rokDyplomu);
+        if (!monthly.isEmpty()) {
+            List<Integer> mies = monthly.stream().map(o -> (Integer) o[0]).collect(Collectors.toList());
+            List<BigDecimal> wwz = monthly.stream().map(o -> toBigDecimal(o[1])).collect(Collectors.toList());
+            List<BigDecimal> wwb = monthly.stream().map(o -> toBigDecimal(o[2])).collect(Collectors.toList());
+            b.miesiace(mies).wwzMies(wwz).wwbMies(wwb);
+        }
+
+        return b.build();
     }
 }

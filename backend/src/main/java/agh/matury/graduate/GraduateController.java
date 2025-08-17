@@ -59,6 +59,21 @@ public class GraduateController {
         return ResponseEntity.ok(stats);
     }
 
+    // ==================== SZCZEGÓŁY KIERUNKU/PROGRAMU ====================
+
+    @GetMapping("/kierunek/szczegoly")
+    @Operation(summary = "Szczegóły kierunku/uczelni", 
+               description = "Zestaw metryk dla kierunku (zarobki średnie/medianę/kwantyle, WWZ/WWB, stabilność i czasy), z serią miesięczną WWZ/WWB")
+    public ResponseEntity<FieldOfStudyDetailDTO> getFieldOfStudyDetail(
+            @Parameter(description = "Id uczelni") @RequestParam(required = false) String uczelniaId,
+            @Parameter(description = "Id kierunku") @RequestParam(required = false) String kierunekId,
+            @Parameter(description = "Poziom studiów") @RequestParam(required = false) String poziom,
+            @Parameter(description = "Rok dyplomu") @RequestParam(required = false) Integer rokDyplomu
+    ) {
+        FieldOfStudyDetailDTO dto = graduateService.getFieldOfStudyDetail(uczelniaId, kierunekId, poziom, rokDyplomu);
+        return ResponseEntity.ok(dto);
+    }
+
     @GetMapping("/statystyki/zatrudnienie/wojewodztwa/zaawansowane")
     @Operation(summary = "Zaawansowane statystyki zatrudnienia per województwo",
                description = "Zwraca zaawansowane statystyki (średnia, mediana, odch. std, min, max) dla wskaźników zatrudnienia.")

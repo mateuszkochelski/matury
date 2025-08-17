@@ -357,4 +357,32 @@ public class Graduate {
 
     @Column(name = "e_roczna_n_koncowetatow_q4", precision = 6, scale = 2)
     private BigDecimal eRocznaNKoncowetatowQ4;
+
+    // Dodatkowe metryki stabilności zatrudnienia i rozproszenia zarobków
+    @Column(name = "proc_mies_praca", precision = 5, scale = 2)
+    private BigDecimal procMiesPraca;
+
+    @Column(name = "proc_mies_etat", precision = 5, scale = 2)
+    private BigDecimal procMiesEtat;
+
+    @Column(name = "proc_mies_samoz", precision = 5, scale = 2)
+    private BigDecimal procMiesSamoz;
+
+    @Column(name = "me_zar", precision = 10, scale = 2)
+    private BigDecimal meZar;
+
+    @Column(name = "me_zar_etat", precision = 10, scale = 2)
+    private BigDecimal meZarEtat;
+
+    @Column(name = "zar_q1", precision = 10, scale = 2)
+    private BigDecimal zarQ1;
+
+    @Column(name = "zar_q2", precision = 10, scale = 2)
+    private BigDecimal zarQ2;
+
+    @Column(name = "zar_q3", precision = 10, scale = 2)
+    private BigDecimal zarQ3;
+
+    @Column(name = "zar_q4", precision = 10, scale = 2)
+    private BigDecimal zarQ4;
 }

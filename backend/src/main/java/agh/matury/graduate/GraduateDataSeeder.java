@@ -24,6 +24,7 @@ import java.util.stream.Stream;
 public class GraduateDataSeeder implements CommandLineRunner {
 
     private final GraduateRepository graduateRepository;
+    private final FieldOfStudyMonthlyIndexRepository monthlyIndexRepository;
 
     private static final Map<String, String> WOJEWODZTWA_MAP = Stream.of(new String[][] {
         { "02", "dolnośląskie" },
@@ -217,6 +218,15 @@ public class GraduateDataSeeder implements CommandLineRunner {
                     .procDyplom(parseDecimal(values[16]))
                     .procDoktoranckie(parseDecimal(values[17]))
                     .procDoktorat(parseDecimal(values[18]))
+                    .procMiesPraca(parseDecimal(values[198]))
+                    .procMiesEtat(parseDecimal(values[228]))
+                    .procMiesSamoz(parseDecimal(values[259]))
+                    .meZar(parseDecimal(values[333]))
+                    .meZarEtat(parseDecimal(values[397]))
+                    .zarQ1(parseDecimal(values[334]))
+                    .zarQ2(parseDecimal(values[335]))
+                    .zarQ3(parseDecimal(values[336]))
+                    .zarQ4(parseDecimal(values[337]))
                     .build();
         } catch (Exception e) {
             log.warn("Error creating Graduate object from line: {}, error: {}", line.substring(0, Math.min(line.length(), 200)), e.getMessage());
@@ -353,6 +363,19 @@ public class GraduateDataSeeder implements CommandLineRunner {
         );
 
         graduateRepository.saveAll(sampleGraduates);
+
+        // Sample monthly series for demo (months 1..12)
+        for (int m = 1; m <= 12; m++) {
+            monthlyIndexRepository.save(FieldOfStudyMonthlyIndex.builder()
+                    .uczelniaId("PW")
+                    .kierunekId("INF")
+                    .poziom("I stopień")
+                    .rokDyplomu(2020)
+                    .miesiac(m)
+                    .wwz(new BigDecimal("1." + (10 + m)))
+                    .wwb(new BigDecimal("0." + (80 - Math.min(79, m))))
+                    .build());
+        }
         log.info("Created {} sample graduate records", sampleGraduates.size());
     }
 
