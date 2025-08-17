@@ -2,7 +2,7 @@ name: Main build & Deploy
 
 on:
   push:
-    branches: [main, test]
+    branches: [main, test3]
 
 jobs:
   build-backend:
@@ -94,5 +94,7 @@ jobs:
 
       - name: Stop and remove old containers
         run: sudo docker-compose -f docker-compose.yml down
+      - name: Pull containers
+        run: sudo docker-compose pull
       - name: Start containers
         run: sudo docker-compose -f docker-compose.yml up -d
