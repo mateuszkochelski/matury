@@ -7,10 +7,10 @@ import Link from "next/link";
 
 export const columns: ColumnDef<FieldOfStudy>[] = [
   {
+    id: "degree",
     header: "Stopień",
     accessorKey: "level",
     size: 100,
-    enableColumnFilter: false, // TODO
   },
   {
     id: "duration",

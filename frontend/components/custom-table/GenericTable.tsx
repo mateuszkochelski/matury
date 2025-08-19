@@ -61,6 +61,7 @@ import {
   SearchIcon,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FitlersForm } from "./FiltersForm";
 
 type UrlUpdateParam = { param: keyof TableSearchParams; value?: string | number | string[] };
 
@@ -118,7 +119,7 @@ export function GenericTable<T>({
     manualPagination: true,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
-    getFilteredRowModel: getFilteredRowModel(),
+    manualFiltering: true,
     getFacetedUniqueValues: getFacetedUniqueValues(),
     state: {
       sorting,
@@ -252,85 +253,7 @@ export function GenericTable<T>({
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-72 p-0" align="start">
-              <div className="space-y-3">
-                <Accordion type="multiple" className="w-full">
-                  {table
-                    .getAllColumns()
-                    .filter((column) => column.getCanFilter())
-                    .map((column) => {
-                      let Input;
-                      switch (column.columnDef.meta?.filterType) {
-                        case "string":
-                          Input = (
-                            <FloatingLabelInput
-                              // TODO: "Wyszukaj uczelnia" zamiast "uczelnię"
-                              placeholder={`Wyszukaj ${column.columnDef.header?.toString()}`}
-                            />
-                          );
-                          break;
-                        case "number":
-                          Input = <RangeInput />;
-                          break;
-                        default:
-                          break;
-                      }
-
-                      return (
-                        <AccordionItem value={column.id} className="*:p-3" key={column.id}>
-                          <AccordionTrigger className="py-2 hover:no-underline">
-                            {column.columnDef.header?.toString()}
-                          </AccordionTrigger>
-                          <AccordionContent>{Input}</AccordionContent>
-                        </AccordionItem>
-                      );
-                    })}
-                  <AccordionItem value="item-3" className="*:p-3 !border-b">
-                    <AccordionTrigger className="py-2 hover:no-underline">Degree</AccordionTrigger>
-                    <AccordionContent className="flex flex-col gap-1.5">
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="bachelors" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Bachelors
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="engineering" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Engineering
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="masters" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Masters
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="engineering-masters" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Engineering Masters
-                        </label>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <div className="p-3 grid grid-cols-2 gap-2">
-                  <Button>Save</Button>
-                  <Button variant="secondary">Cancel</Button>
-                </div>
-              </div>
+              <FitlersForm table={table}/>
             </PopoverContent>
           </Popover>
         </div>

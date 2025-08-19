@@ -1,7 +1,9 @@
 import { useId } from "react";
 import { Input } from "@/components/ui/input";
+import {FieldValues, UseFormRegister, type RegisterOptions} from "react-hook-form"
 
-export default function RangeInput() {
+
+export default function RangeInput({register}: {register?: {function: UseFormRegister<FieldValues>, name: string}}) {
   const id = useId();
   return (
     <div className="flex">
@@ -11,6 +13,7 @@ export default function RangeInput() {
         placeholder="From"
         type="number"
         aria-label="Min Value"
+        {...(register ? register.function(`${register.name}-min`) : {})}
       />
       <Input
         id={`${id}-2`}
@@ -18,6 +21,7 @@ export default function RangeInput() {
         placeholder="To"
         type="number"
         aria-label="Max Value"
+        {...(register ? register.function(`${register.name}-max`) : {})}
       />
     </div>
   );

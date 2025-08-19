@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { Input } from "@/components/ui/input";
 
-function FloatingLabelInput({ type, placeholder }: React.ComponentProps<"input">) {
+function FloatingLabelInput({ type, placeholder, ...rest }: React.ComponentProps<"input">) {
   const id = useId();
   return (
     <div className="group relative">
@@ -11,7 +11,7 @@ function FloatingLabelInput({ type, placeholder }: React.ComponentProps<"input">
       >
         <span className="bg-background inline-flex px-2">{placeholder}</span>
       </label>
-      <Input id={id} type={type} placeholder=" " />
+      <Input id={id} type={type} placeholder=" " {...rest} />
     </div>
   );
 }
