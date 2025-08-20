@@ -1,5 +1,5 @@
 import * as React from "react";
-import { badgeVariants } from "@/lib/badge";
+import { badgeVariants } from "@/components/ui/badge/variants";
 import { cn } from "@/lib/utils";
 import { type VariantProps } from "class-variance-authority";
 
