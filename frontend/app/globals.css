@@ -5,13 +5,13 @@
 
 @theme {
   /* colors */
-  --primary: #C6E7FF;
-  --secondary: #D4F6FF;
-  --tertiary: #FFDDAE;
+  --primary: #90CAF9;
+  --secondary: #ADD8FF;
+  --tertiary: #7DB6EC;
 
-  --white: #FBFBFB
-  --black: #0A122A
-  --blue: #235789
+  --white: #FBFBFB;
+  --black: #0A122A;
+  --blue: #235789;
 
   /* breakpoints */
   --breakpoint-*: initial;
@@ -89,20 +89,20 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.9616 0.0183 258.35);
+  --foreground: oklch(0.3488 0.028 244.58);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.8163 0.0896 243.62);
+  --primary-foreground: oklch(0.3488 0.028 244.58);
+  --secondary: oklch(0.865 0.07075 246.1054);
+  --secondary-foreground: oklch(0.3488 0.028 244.58);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.7577 0.0983 247.93);
+  --accent-foreground: oklch(0.3488 0.028 244.58);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -211,32 +211,11 @@
   scrollbar-width: none;
 }
 
-/* TODO: Update globalnych styli i ununąć dodatkowe style: */
-
-.bg-background {
-  --tw-bg-opacity: 1;
-  background-color: rgb(235 243 255 / var(--tw-bg-opacity, 1));
-}
-
 .container {
   width: 100%;
+  max-width: 1400px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 1rem;
   padding-left: 1rem;
-}
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1400px;
-  }
-}
-
-.bg-primary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(144 202 249 / var(--tw-bg-opacity, 1)) /* #90caf9 */;
-}
-
-.text-foreground {
-  --tw-text-opacity: 1;
-  color: rgb(46 60 72 / var(--tw-text-opacity, 1)) /* #2e3c48 */;
 }

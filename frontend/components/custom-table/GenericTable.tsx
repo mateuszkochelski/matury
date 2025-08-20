@@ -330,7 +330,7 @@ export function GenericTable<T>({
       </div>
 
       {/* Table */}
-      <div className="bg-background overflow-hidden rounded-md border">
+      <div className="bg-card/60 overflow-hidden rounded-md border">
         <Table className="table-fixed">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
