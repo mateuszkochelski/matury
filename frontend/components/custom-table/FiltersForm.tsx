@@ -1,5 +1,5 @@
 "use client";
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
@@ -69,7 +69,17 @@ export function FitlersForm<T>({table}: {table: Table<T>}) {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm();
+        control
+    } = useForm({
+        defaultValues: {
+            degrees: {
+                bachelors: true,
+                engineering: true,
+                masters: true,
+                engineeringMasters: true,
+            }
+        }
+    });
 
     return (
         <form className="space-y-3" onSubmit={handleSubmit((data) => console.log(data))}>
@@ -102,42 +112,54 @@ export function FitlersForm<T>({table}: {table: Table<T>}) {
                                 case "degree":
                                     Input = (
                                         <>
-                                        <div className="flex items-center space-x-2">
-                        <Checkbox id="bachelors" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Bachelors
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="engineering" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Engineering
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="masters" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Masters
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="engineering-masters" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Engineering Masters
-                        </label>
-                      </div>
+                                          <div className="flex items-center space-x-2">
+                                            <Controller
+                                              name="degrees.bachelors"
+                                              control={control}
+                                              render={({ field }) => (
+                                                <Checkbox id="bachelors" checked={!!field.value} onCheckedChange={field.onChange} />
+                                              )}
+                                            />
+                                            <label htmlFor="bachelors" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                              Bachelors
+                                            </label>
+                                          </div>
+                                          <div className="flex items-center space-x-2">
+                                            <Controller
+                                              name="degrees.engineering"
+                                              control={control}
+                                              render={({ field }) => (
+                                                <Checkbox id="engineering" checked={!!field.value} onCheckedChange={field.onChange} />
+                                              )}
+                                            />
+                                            <label htmlFor="engineering" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                              Engineering
+                                            </label>
+                                          </div>
+                                          <div className="flex items-center space-x-2">
+                                            <Controller
+                                              name="degrees.masters"
+                                              control={control}
+                                              render={({ field }) => (
+                                                <Checkbox id="masters" checked={!!field.value} onCheckedChange={field.onChange} />
+                                              )}
+                                            />
+                                            <label htmlFor="masters" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                              Masters
+                                            </label>
+                                          </div>
+                                          <div className="flex items-center space-x-2">
+                                            <Controller
+                                              name="degrees.engineeringMasters"
+                                              control={control}
+                                              render={({ field }) => (
+                                                <Checkbox id="engineering-masters" checked={!!field.value} onCheckedChange={field.onChange} />
+                                              )}
+                                            />
+                                            <label htmlFor="engineering-masters" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                              Engineering Masters
+                                            </label>
+                                          </div>
                                         </>
                                     )
                                     break;
