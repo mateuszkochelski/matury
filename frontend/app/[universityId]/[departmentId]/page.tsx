@@ -1,5 +1,5 @@
 import { getDepartmentData } from "@/app/utils/getDepartmentData";
-import { CustomBreadcrumb } from "@/components/custom-breadcrumb/CustomBradcrumb";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { DepartmentTable } from "@/components/custom-table/department";
 import { TableSearchParams } from "@/components/custom-table/fetchData";
 import { notFound, redirect } from "next/navigation";
@@ -33,18 +33,19 @@ export default async function Page({
 
   return (
     <>
-      <CustomBreadcrumb
+      <Breadcrumb
         items={[
-          { name: "Strona główna", href: "/" },
           {
             name: departmentData.university.name,
-            href: `/${universityId}`,
+            href: `/${departmentData.university.id}`,
           },
           { name: departmentData.name },
         ]}
       />
-      <h1>{departmentData.name}</h1>
-      <h2>Kierunki na wydziale</h2>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        {departmentData.name}
+      </h1>
+      <h2 className="text-xl md:text-2xl font-bold text-foreground">Wydziały</h2>
       <DepartmentTable
         data={fieldOfStudyData.content}
         pageNumber={pageNumber}
