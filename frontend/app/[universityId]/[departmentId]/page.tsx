@@ -32,7 +32,7 @@ export default async function Page({
   }
 
   return (
-    <div className="container mx-auto px-4 py-6 flex flex-col gap-5">
+    <>
       <Breadcrumb
         items={[
           {
@@ -53,6 +53,6 @@ export default async function Page({
         totalElements={totalElements}
         hiddenColumns={hiddenColumns?.split(",")}
       />
-    </div>
+    </>
   );
 }

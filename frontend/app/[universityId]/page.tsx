@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: Promise<{ universityId:
   const departments = departmentData.content;
 
   return (
-    <div className="container mx-auto px-4 py-6 flex flex-col gap-5">
+    <>
       <Breadcrumb items={[{ name: universityData.name }]} />
       <div>
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
@@ -124,6 +124,6 @@ export default async function Page({ params }: { params: Promise<{ universityId:
           ))}
         </div>
       </section>
-    </div>
+    </>
   );
 }

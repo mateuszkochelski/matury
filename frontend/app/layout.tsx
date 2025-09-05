@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <div className="min-h-screen bg-background">
           <Header />
-          {children}
+          <div className="container mx-auto px-4 py-6 flex flex-col gap-5">{children}</div>
         </div>
       </body>
     </html>

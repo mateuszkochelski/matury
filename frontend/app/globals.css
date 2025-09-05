@@ -91,9 +91,9 @@
   --radius: 0.625rem;
   --background: oklch(0.9616 0.0183 258.35);
   --foreground: oklch(0.3488 0.028 244.58);
-  --card: oklch(1 0 0);
+  --card: oklch(0.9881 0.0042 197.09);
   --card-foreground: oklch(0.145 0 0);
-  --table: oklch(1 0 0);
+  --table: oklch(0.9881 0.0042 197.09);
   --table-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
