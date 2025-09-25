@@ -45,45 +45,16 @@
 }
 
 @layer base {
-  /* typography */
   h1 {
-    @apply text-h1 font-h1;
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
   }
 
   h2 {
-    @apply text-h2 font-h2;
+    @apply text-xl md:text-2xl font-bold;
   }
 
   h3 {
-    @apply text-h3 font-h3;
-  }
-
-  @media (width >= theme(--breakpoint-md)) {
-    h1 {
-      @apply text-h1-md;
-    }
-
-    h2 {
-      @apply text-h2-md;
-    }
-
-    h3 {
-      @apply text-h3-md;
-    }
-  }
-
-  @media (width >= theme(--breakpoint-lg)) {
-    h1 {
-      @apply text-h1-lg;
-    }
-
-    h2 {
-      @apply text-h2-lg;
-    }
-
-    h3 {
-      @apply text-h3-lg;
-    }
+    @apply text-h3-lg;
   }
 }
 

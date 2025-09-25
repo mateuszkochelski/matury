@@ -1,24 +1,6 @@
 import { BACKEND_URL } from "../constants";
 import { fetchData } from "@/components/custom-table/fetchData";
-import { FieldOfStudyData } from "@/components/custom-table/types";
-
-export type FieldOfStudy = {
-  id: number;
-  name: string;
-  level: string;
-  duration: number;
-  language: string;
-  university: {
-    id: number;
-    name: string;
-    acronym: string;
-    city: string;
-  };
-  department: {
-    id: number;
-    name: string;
-  };
-};
+import { FieldOfStudy, FieldOfStudyData } from "@/components/custom-table/types";
 
 export type Threshold = {
   id: number;
@@ -58,15 +40,11 @@ export async function getFieldData(fieldId: string): Promise<{
     fieldResponse.json(),
     thresholdResponse.json(),
   ]);
-  const [departmentFieldsResponse] = await Promise.all([
-    fetchData(
-      `${BACKEND_URL}/api/field_of_study/department/${fieldData.department.id}`,
-      "1000",
-      "0",
-    ),
-  ]);
-  const [departmentFieldsData]: [FieldOfStudyData] = await Promise.all([
-    departmentFieldsResponse.json(),
-  ]);
+  const departmentFieldsResponse = await fetchData(
+    `${BACKEND_URL}/api/field_of_study/department/${fieldData.department.id}`,
+    "1000",
+    "0",
+  );
+  const departmentFieldsData: FieldOfStudyData = await departmentFieldsResponse.json();
   return { fieldData, departmentFields: departmentFieldsData.content, thresholdData };
 }
