@@ -11,10 +11,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function getAttr<T, K extends keyof T>(obj: T, key: K): T[K] {
-  return obj[key];
-}
-
 export type ThresholdGraphData = {
   year: number;
   threshold: number | null;
@@ -35,38 +31,30 @@ export default function CustomLineChart({
   tooltipLabel: string;
 }) {
   const [selectedPhase, setSelectedPhase] = useState(0);
-  const phases: number[] = [];
-  for (let i = 0; i < data.length; i++) {
-    phases.push(i);
-  }
-  let newData = [...data];
-  newData.forEach((dataInPhase, phaseIndex) => {
-    newData[phaseIndex] = dataInPhase.filter(
-      (dataRecord) => getAttr(dataRecord, yDataKey) !== null,
-    );
-  });
-  newData = newData.filter((dataInPhase) => dataInPhase.length > 0);
+  const filteredData = data
+    .map((dataInPhase) => dataInPhase.filter((dataRecord) => dataRecord[yDataKey] !== null))
+    .filter((dataInPhase) => dataInPhase.length > 0);
 
   return (
     <>
       <div className="h-64">
-        {newData.length > 0 && newData[selectedPhase].length > 0 ? (
+        {filteredData.length > 0 && filteredData[selectedPhase].length > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={newData[selectedPhase]}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e0e7ff" />
-              <XAxis dataKey={xDataKey} stroke="#64748b" />
-              <YAxis stroke="#64748b" />
+            <LineChart data={filteredData[selectedPhase]}>
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--secondary)" />
+              <XAxis dataKey={xDataKey} stroke="var(--foreground)" />
+              <YAxis stroke="var(--foreground)" />
               <Tooltip
                 formatter={(value) => [`${value.toLocaleString()}`, tooltipLabel]}
-                labelStyle={{ color: "#2E3C48" }}
-                contentStyle={{ backgroundColor: "white", border: "1px solid #90CAF9" }}
+                labelStyle={{ color: "var(--foreground)" }}
+                contentStyle={{ backgroundColor: "white", border: "1px solid var(--primary)" }}
               />
               <Line
                 type="monotone"
                 dataKey={yDataKey}
-                stroke="#90CAF9"
+                stroke="var(--primary)"
                 strokeWidth={3}
-                dot={{ fill: "#90CAF9", strokeWidth: 2, r: 4 }}
+                dot={{ fill: "var(--primary)", strokeWidth: 2, r: 4 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -76,10 +64,10 @@ export default function CustomLineChart({
           </div>
         )}
       </div>
-      {newData.length > 1 && showPhases ? (
+      {filteredData.length > 1 && showPhases ? (
         <div className="flex space-x-4 p-4 items-center">
           <p className="text-lg">Faza rekrutacji:</p>
-          {phases.map((phase) => (
+          {[...Array(data.length).keys()].map((phase) => (
             <label
               key={phase}
               className={`cursor-pointer px-4 py-2 rounded-2xl border transition w-15 text-center

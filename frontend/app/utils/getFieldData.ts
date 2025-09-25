@@ -1,24 +1,6 @@
 import { BACKEND_URL } from "../constants";
 import { fetchData } from "@/components/custom-table/fetchData";
-import { FieldOfStudyData } from "@/components/custom-table/types";
-
-export type FieldOfStudy = {
-  id: number;
-  name: string;
-  level: string;
-  duration: number;
-  language: string;
-  university: {
-    id: number;
-    name: string;
-    acronym: string;
-    city: string;
-  };
-  department: {
-    id: number;
-    name: string;
-  };
-};
+import { FieldOfStudy, FieldOfStudyData } from "@/components/custom-table/types";
 
 export type Threshold = {
   id: number;

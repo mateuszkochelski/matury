@@ -5,7 +5,7 @@ import CustomLineChart, {
 } from "@/components/custom-line-chart/CustomLineChart";
 import FieldsCarousel from "@/components/fields-carousel/FieldsCarousel";
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { School, Book, Calculator } from "lucide-react";
+import { Calculator } from "lucide-react";
 import { notFound, redirect } from "next/navigation";
 
 export default async function Page({
@@ -58,9 +58,7 @@ export default async function Page({
   const latestThreshold = thresholds.find(
     (threshold) => threshold.year === maxYear && threshold.phase === 1,
   );
-  const addidtionalRequirements = latestThreshold?.specialRequirements
-    ? latestThreshold.specialRequirements
-    : "";
+  const addidtionalRequirements = latestThreshold?.specialRequirements ?? "";
   // discourage user from providing artificial values
   if (
     fieldData.university.id !== Number(universityId) ||
@@ -88,21 +86,7 @@ export default async function Page({
       <section>
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <div className="flex-1">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              {fieldData.name}
-            </h1>
-            <a href={`/${fieldData.university.id}`}>
-              <div className="flex items-center gap-2 text-foreground/70 mb-4">
-                <School className="w-5 h-5" />
-                <span>{fieldData.university.name}</span>
-              </div>
-            </a>
-            <a href={`/${fieldData.university.id}/${fieldData.department.id}`}>
-              <div className="flex items-center gap-2 text-foreground/70 mb-4">
-                <Book className="w-5 h-5" />
-                <span>{fieldData.department.name}</span>
-              </div>
-            </a>
+            <h1 className="text-foreground mb-4">{fieldData.name}</h1>
           </div>
 
           <div className="lg:w-80">
@@ -138,9 +122,7 @@ export default async function Page({
       </section>
 
       <section className="mb-12">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-          Kalkulator szans rekrutacji
-        </h2>
+        <h2 className="text-foreground mb-6">Kalkulator szans rekrutacji</h2>
         <Card className="border-primary/20">
           <CardHeader>
             <CardTitle className="text-foreground flex items-center gap-2">
@@ -169,9 +151,7 @@ export default async function Page({
       </section>
 
       <section className="mb-12">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-          Informacje o rekrutacji
-        </h2>
+        <h2 className="text-foreground mb-6">Informacje o rekrutacji</h2>
         <div className="grid lg:grid-cols-2 gap-6">
           <Card className="border-primary/20">
             <CardHeader>
@@ -211,10 +191,8 @@ export default async function Page({
       </section>
 
       <section>
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-          Inne kierunki na tym wydziale
-        </h2>
-        <FieldsCarousel fields={departmentFields} itemsPerPage={4} />
+        <h2 className="text-foreground mb-6">Inne kierunki na tym wydziale</h2>
+        <FieldsCarousel fields={departmentFields} />
       </section>
     </>
   );
