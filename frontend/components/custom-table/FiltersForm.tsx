@@ -62,7 +62,38 @@ import {
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+export type FiltersFormValues = {
+  degrees: {
+    bachelors: boolean;
+    engineering: boolean;
+    masters: boolean;
+    engineeringMasters: boolean;
+  };
+  department_name: string;
+  "duration-max": string;
+  "duration-min": string;
+  name: string;
+  "passRate-max": string;
+  "passRate-min": string;
+  "salary-max": string;
+  "salary-min": string;
+  university_city: string;
+  university_name: string;
+};
 
+export const mapFrontendToBackendFilterNames = {
+  degrees: "degrees",
+  department_name: "department",
+  "duration-max": "semestersTo",
+  "duration-min": "semestersFrom",
+  name: "name",
+  "passRate-max": "passRateTo",
+  "passRate-min": "passRateFrom",
+  "salary-max": "avgSalaryTo",
+  "salary-min": "avgSalaryFrom",
+  university_city: "city",
+  university_name: "university"
+}
 
 export function FitlersForm<T>({table}: {table: Table<T>}) {
     const {
@@ -70,7 +101,7 @@ export function FitlersForm<T>({table}: {table: Table<T>}) {
         handleSubmit,
         formState: { errors },
         control
-    } = useForm({
+    } = useForm<FiltersFormValues>({
         defaultValues: {
             degrees: {
                 bachelors: true,
@@ -81,9 +112,42 @@ export function FitlersForm<T>({table}: {table: Table<T>}) {
         }
     });
 
+    const searchParams = useSearchParams();
+
+    const { replace } = useRouter();
+  const pathname = usePathname()
+    
+      const handleUrlUpdate = useCallback(
+        (updateParams: any) => {
+          console.log({updateParams})
+          const params = new URLSearchParams(searchParams.toString());
+    
+          const {degrees, ...otherParams} = updateParams;
+
+
+          // TODO: there is a bug on the BE, enable this after https://linear.app/matury/issue/MAT-53/filtrowanie-po-poziomie-studiow-nie-dziala is fixed
+            //   params.delete("degrees");
+            // Object.entries(degrees)
+            // .filter(([_, value]) => !!value)
+            // .forEach(([key]) => {
+            //   params.append("degrees", key);
+            // });
+
+          Object.entries(otherParams)
+            .filter(([_, value]) => !!value)
+            .forEach(([key, value]) => {
+              console.log({key, value})
+              params.set(key, value as string);
+            });
+
+          replace(`${pathname}?${params.toString()}`);
+        },
+        [searchParams, pathname, replace],
+      );
+
     return (
-        <form className="space-y-3" onSubmit={handleSubmit((data) => console.log(data))}>
-                <Accordion type="multiple" className="w-full">
+        <form className="space-y-3" onSubmit={handleSubmit(handleUrlUpdate)}>
+                <Accordion type="multiple" className="w-full max-h-80 overflow-x-scroll mb-0">
                   {table
                     .getAllColumns()
                     .filter((column) => column.getCanFilter())
@@ -190,7 +254,7 @@ export function FitlersForm<T>({table}: {table: Table<T>}) {
                     </AccordionContent>
                   </AccordionItem> */}
                 </Accordion>
-                <div className="p-3 grid grid-cols-2 gap-2">
+                <div className="p-3 grid grid-cols-2 gap-2 border-t">
                   <Button
                     type="submit"
                   >Save</Button>
