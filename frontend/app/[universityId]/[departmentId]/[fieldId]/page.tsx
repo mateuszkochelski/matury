@@ -153,7 +153,7 @@ export default async function Page({
       <section className="mb-12">
         <h2 className="text-foreground mb-6">Informacje o rekrutacji</h2>
         <div className="grid lg:grid-cols-2 gap-6">
-          <Card className="border-primary/20">
+          <Card className="border-primary/20 min-w-0">
             <CardHeader>
               <CardTitle className="text-foreground flex items-center gap-2">
                 Progi punktowe
@@ -170,7 +170,7 @@ export default async function Page({
               />
             </CardContent>
           </Card>
-          <Card className="border-primary/20">
+          <Card className="border-primary/20 min-w-0">
             <CardHeader>
               <CardTitle className="text-foreground flex items-center gap-2">
                 Procent przyjętych kandydatów
