@@ -41,18 +41,20 @@ public class FieldOfStudyController {
   """
 )
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
-  @GetMapping
-  public ResponseEntity<Page<FieldOfStudyDTO>> getAllFieldsOdStudy(
-    @ParameterObject FieldOfStudyFilter filter,
-    @RequestParam(defaultValue = "0") int page,
-    @RequestParam(defaultValue = "10") int size,
-    @RequestParam(defaultValue = "name") String sort,
-    @RequestParam(defaultValue = "asc") String direction
-) {
-    var sortDirection = Sort.Direction.fromString(direction);
-    Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
-    return ResponseEntity.ok(fieldOfStudyService.search(filter, pageable));
-}
+   @GetMapping
+   public ResponseEntity<Page<FieldOfStudyDTO>> getAllFieldsOdStudy(
+     @ParameterObject FieldOfStudyFilter filter,
+     @RequestParam(defaultValue = "0") int page,
+     @RequestParam(defaultValue = "10") int size,
+     @RequestParam(defaultValue = "name") String sort,
+     @RequestParam(defaultValue = "asc") String direction
+ ) {
+     var sortDirection = Sort.Direction.fromString(direction);
+     // Translate department-related sort fields to "department.name" for proper sorting
+     String actualSort = translateDepartmentSortField(sort);
+     Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, actualSort));
+     return ResponseEntity.ok(fieldOfStudyService.search(filter, pageable));
+ }
   
   @Operation(summary = "Get field of study.", description = "Returns field of study with provided id.")
   @ApiResponses(value = {
@@ -67,29 +69,40 @@ public class FieldOfStudyController {
 
   @Operation(summary = "Get all fields of study from university.", description = "Returns a paginated list of all fields of study from provided university id.")
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
-  @GetMapping("/university/{id}")
-  public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByUniversityId(
-      @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
-      @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
-      @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,
-      @Parameter(description = "Sort direction (asc/desc)") @RequestParam(defaultValue = "asc") String direction,
-      @Parameter(description = "University id", required = true, in = ParameterIn.PATH) @PathVariable Long id) {
-    Sort.Direction sortDirection = Sort.Direction.fromString(direction);
-    Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
-    return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByUniversityId(id, pageable));
-  }
+   @GetMapping("/university/{id}")
+   public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByUniversityId(
+       @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
+       @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
+       @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,
+       @Parameter(description = "Sort direction (asc/desc)") @RequestParam(defaultValue = "asc") String direction,
+       @Parameter(description = "University id", required = true, in = ParameterIn.PATH) @PathVariable Long id) {
+     Sort.Direction sortDirection = Sort.Direction.fromString(direction);
+     // Translate department-related sort fields to "department.name" for proper sorting
+     String actualSort = translateDepartmentSortField(sort);
+     Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, actualSort));
+     return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByUniversityId(id, pageable));
+   }
 
   @Operation(summary = "Get all fields of study from department.", description = "Returns a paginated list of all fields of study from provided department id.")
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
-  @GetMapping("/department/{id}")
-  public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByDepartmentId(
-      @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
-      @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
-      @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,
-      @Parameter(description = "Sort direction (asc/desc)") @RequestParam(defaultValue = "asc") String direction,
-      @Parameter(description = "Department id", required = true, in = ParameterIn.PATH) @PathVariable Long id) {
-    Sort.Direction sortDirection = Sort.Direction.fromString(direction);
-    Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
-    return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByDepartmentId(id, pageable));
-  }
+   @GetMapping("/department/{id}")
+   public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByDepartmentId(
+       @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
+       @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
+       @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,
+       @Parameter(description = "Sort direction (asc/desc)") @RequestParam(defaultValue = "asc") String direction,
+       @Parameter(description = "Department id", required = true, in = ParameterIn.PATH) @PathVariable Long id) {
+     Sort.Direction sortDirection = Sort.Direction.fromString(direction);
+     // Translate department-related sort fields to "department.name" for proper sorting
+     String actualSort = translateDepartmentSortField(sort);
+     Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, actualSort));
+     return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByDepartmentId(id, pageable));
+    }
+
+    private String translateDepartmentSortField(String sort) {
+        if ("department".equals(sort) || "department_name".equals(sort)) {
+            return "department.name";
+        }
+        return sort;
+    }
 }
