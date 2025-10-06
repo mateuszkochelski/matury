@@ -61,7 +61,7 @@ import {
   SearchIcon,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FitlersForm } from "./FiltersForm";
+import { FiltersFormValues, FitlersForm } from "./FiltersForm";
 
 type UrlUpdateParam = { param: keyof TableSearchParams; value?: string | number | string[] };
 
@@ -74,6 +74,9 @@ type GenericTableProps<T> = {
   hiddenColumns?: string[];
   sortBy?: string;
   direction?: string;
+  filters?: Omit<FiltersFormValues, "degrees"> & {
+    degrees?: string;
+  }
 };
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
@@ -87,7 +90,7 @@ export function GenericTable<T>({
   hiddenColumns = [],
   sortBy = "name",
   direction = "asc",
-
+  filters
 }: GenericTableProps<T>) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -99,6 +102,7 @@ export function GenericTable<T>({
     pageSize: pageSize,
   });
   const inputRef = useRef<HTMLInputElement>(null);
+  const popoverRef = useRef<HTMLInputElement>(null);
 
   const [sorting, setSorting] = useState<SortingState>([
     {
@@ -245,15 +249,16 @@ export function GenericTable<T>({
               <Button variant="outline">
                 <FilterIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
                 Filtry
-                {/* {selectedStatuses.length > 0 && (
+                {/* // TODO: this logic does not take degrees into account */}
+                {Object.values(filters ?? {}).filter((v) => !!v).length > 0 && (
                   <span className="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
-                    {selectedStatuses.length}
+                    {Object.values(filters ?? {}).filter((v) => !!v).length}
                   </span>
-                )} */}
+                )}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-72 p-0" align="start">
-              <FitlersForm table={table}/>
+              <FitlersForm table={table} filters={filters}/>
             </PopoverContent>
           </Popover>
         </div>

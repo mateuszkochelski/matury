@@ -10,17 +10,17 @@ export default function RangeInput({register}: {register?: {function: UseFormReg
       <Input
         id={`${id}-1`}
         className="flex-1 rounded-e-none [-moz-appearance:_textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none w-auto"
-        placeholder="From"
+        placeholder="Od"
         type="number"
-        aria-label="Min Value"
+        aria-label="Minimalna wartość"
         {...(register ? register.function(`${register.name}-min`) : {})}
       />
       <Input
         id={`${id}-2`}
         className="-ms-px flex-1 rounded-s-none [-moz-appearance:_textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none w-auto"
-        placeholder="To"
+        placeholder="Do"
         type="number"
-        aria-label="Max Value"
+        aria-label="Maksymalna wartość"
         {...(register ? register.function(`${register.name}-max`) : {})}
       />
     </div>

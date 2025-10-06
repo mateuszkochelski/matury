@@ -119,25 +119,23 @@ export function FitlersForm<T>({table}: {table: Table<T>}) {
     
       const handleUrlUpdate = useCallback(
         (updateParams: any) => {
-          console.log({updateParams})
+          console.log(updateParams)
           const params = new URLSearchParams(searchParams.toString());
     
           const {degrees, ...otherParams} = updateParams;
 
 
-          // TODO: there is a bug on the BE, enable this after https://linear.app/matury/issue/MAT-53/filtrowanie-po-poziomie-studiow-nie-dziala is fixed
-            //   params.delete("degrees");
-            // Object.entries(degrees)
-            // .filter(([_, value]) => !!value)
-            // .forEach(([key]) => {
-            //   params.append("degrees", key);
-            // });
+              params.delete("degrees");
+            Object.entries(degrees)
+            .filter(([_, value]) => !!value)
+            .forEach(([key]) => {
+              params.append("degrees", key);
+            });
 
           Object.entries(otherParams)
             .filter(([_, value]) => !!value)
             .forEach(([key, value]) => {
-              console.log({key, value})
-              params.set(key, value as string);
+              params.set(key, JSON.stringify(value));
             });
 
           replace(`${pathname}?${params.toString()}`);
@@ -258,6 +256,7 @@ export function FitlersForm<T>({table}: {table: Table<T>}) {
                   <Button
                     type="submit"
                   >Save</Button>
+                  {/* // TODO: think about inclufing "reset (all)" button, or replacing cancel with it */}
                   <Button variant="secondary">Cancel</Button>
                 </div>
               </form>
