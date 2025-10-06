@@ -22,7 +22,7 @@ export default function CustomLineChart({
   xDataKey,
   yDataKey,
   showPhases = false,
-  tooltipLabel = "Warość",
+  tooltipLabel = "Watrość",
 }: {
   data: ThresholdGraphData[][];
   xDataKey: keyof ThresholdGraphData;
@@ -40,7 +40,10 @@ export default function CustomLineChart({
       <div className="h-64">
         {filteredData.length > 0 && filteredData[selectedPhase].length > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={filteredData[selectedPhase]}>
+            <LineChart
+              data={filteredData[selectedPhase]}
+              margin={{ top: 0, right: 10, left: -15, bottom: 0 }}
+            >
               <CartesianGrid strokeDasharray="3 3" stroke="var(--secondary)" />
               <XAxis dataKey={xDataKey} stroke="var(--foreground)" />
               <YAxis stroke="var(--foreground)" />
