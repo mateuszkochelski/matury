@@ -5,6 +5,7 @@ import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
+import { FiltersFormValues, FitlersForm } from "./FiltersForm";
 import { TableSearchParams } from "./fetchData";
 import { Button } from "@/components/ui/button";
 import {
@@ -61,7 +62,6 @@ import {
   SearchIcon,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FiltersFormValues, FitlersForm } from "./FiltersForm";
 
 type UrlUpdateParam = { param: keyof TableSearchParams; value?: string | number | string[] };
 
@@ -76,7 +76,7 @@ type GenericTableProps<T> = {
   direction?: string;
   filters?: Omit<FiltersFormValues, "degrees"> & {
     degrees?: string;
-  }
+  };
 };
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
@@ -90,7 +90,7 @@ export function GenericTable<T>({
   hiddenColumns = [],
   sortBy = "name",
   direction = "asc",
-  filters
+  filters,
 }: GenericTableProps<T>) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -164,7 +164,7 @@ export function GenericTable<T>({
       { param: "pageIndex", value: pagination.pageIndex },
       { param: "pageSize", value: pagination.pageSize },
       { param: "sortBy", value: sorting[0].id },
-      { param: "direction", value: sorting[0].desc ? "desc" : "asc" },      
+      { param: "direction", value: sorting[0].desc ? "desc" : "asc" },
     ]);
   }, [pagination, handleUrlUpdate, sorting]);
 
@@ -259,7 +259,7 @@ export function GenericTable<T>({
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-72 p-0 bg-card" align="start">
-              <FitlersForm table={table} filters={filters}/>
+              <FitlersForm table={table} filters={filters} />
             </PopoverContent>
           </Popover>
         </div>

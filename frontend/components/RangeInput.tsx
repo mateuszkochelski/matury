@@ -1,9 +1,12 @@
 import { useId } from "react";
 import { Input } from "@/components/ui/input";
-import {FieldValues, UseFormRegister, type RegisterOptions} from "react-hook-form"
+import { FieldValues, UseFormRegister, type RegisterOptions } from "react-hook-form";
 
-
-export default function RangeInput({register}: {register?: {function: UseFormRegister<FieldValues>, name: string}}) {
+export default function RangeInput({
+  register,
+}: {
+  register?: { function: UseFormRegister<FieldValues>; name: string };
+}) {
   const id = useId();
   return (
     <div className="flex">
