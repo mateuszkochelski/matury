@@ -191,6 +191,7 @@ export function GenericTable<T>({
               className={cn(
                 "peer ps-9",
                 Boolean(table.getColumn("name")?.getFilterValue()) && "pe-9",
+                "bg-card",
               )}
               value={(table.getColumn("name")?.getFilterValue() ?? "") as string}
               onChange={(e) => table.getColumn("name")?.setFilterValue(e.target.value)}
@@ -224,7 +225,7 @@ export function GenericTable<T>({
                 Widok
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
+            <DropdownMenuContent align="start" className="bg-card">
               <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
               {table
                 .getAllColumns()
@@ -257,7 +258,7 @@ export function GenericTable<T>({
                 )}
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-72 p-0" align="start">
+            <PopoverContent className="w-72 p-0 bg-card" align="start">
               <FitlersForm table={table} filters={filters}/>
             </PopoverContent>
           </Popover>
@@ -265,7 +266,7 @@ export function GenericTable<T>({
       </div>
 
       {/* Table */}
-      <div className="bg-background overflow-hidden rounded-md border">
+      <div className="bg-table overflow-hidden rounded-md border">
         <Table className="table-fixed">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -360,10 +361,10 @@ export function GenericTable<T>({
               table.setPageSize(Number(value));
             }}
           >
-            <SelectTrigger id={id} className="w-fit whitespace-nowrap">
+            <SelectTrigger id={id} className="w-fit whitespace-nowrap bg-card">
               <SelectValue placeholder="Select number of results" />
             </SelectTrigger>
-            <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2">
+            <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 bg-card">
               {[5, 10, 25, 50].map((pageSize) => (
                 <SelectItem key={pageSize} value={pageSize.toString()}>
                   {pageSize}
