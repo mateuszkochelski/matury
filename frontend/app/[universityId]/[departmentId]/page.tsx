@@ -42,10 +42,8 @@ export default async function Page({
           { name: departmentData.name },
         ]}
       />
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-        {departmentData.name}
-      </h1>
-      <h2 className="text-xl md:text-2xl font-bold text-foreground">Wydziały</h2>
+      <h1 className="text-foreground mb-4">{departmentData.name}</h1>
+      <h2 className="text-foreground">Wydziały</h2>
       <DepartmentTable
         data={fieldOfStudyData.content}
         pageNumber={pageNumber}

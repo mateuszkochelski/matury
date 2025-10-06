@@ -12,7 +12,7 @@ type BreadcrumbProps = {
 
 export function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav className="flex items-center space-x-1 text-sm text-foreground/70">
+    <nav className="flex items-center space-x-1 text-sm text-foreground/70 overflow-scroll [scrollbar-width:none]">
       <Link href="/" className="flex items-center hover:text-foreground transition-colors">
         <Home className="w-4 h-4" />
       </Link>

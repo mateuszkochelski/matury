@@ -24,9 +24,7 @@ export default async function Page({ params }: { params: Promise<{ universityId:
       <div>
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <div className="flex-1">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              {universityData.name}
-            </h1>
+            <h1 className="font-bold text-foreground mb-4">{universityData.name}</h1>
             <div className="flex items-center gap-2 text-foreground/70 mb-4">
               <MapPin className="w-5 h-5" />
               <span>{universityData.city}</span>
@@ -85,7 +83,7 @@ export default async function Page({ params }: { params: Promise<{ universityId:
 
       <section>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground">Wydziały</h2>
+          <h2 className="text-foreground">Wydziały</h2>
           <Badge variant="secondary" className="bg-primary/10 text-primary">
             {departments.length} wydziałów
           </Badge>
