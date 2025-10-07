@@ -55,7 +55,7 @@ import {
   SearchIcon,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
 
 export type FiltersFormValues = {
   degrees: {
@@ -90,7 +90,7 @@ export const mapFrontendToBackendFilterNames = {
   university_name: "university",
 };
 
-export function FitlersForm<T>({ table }: { table: Table<T> }) {
+export function FitlersForm<T>({ table, filters }: { table: Table<T>, filters: FiltersFormValues | {} }) {
   const {
     register,
     handleSubmit,
@@ -112,9 +112,8 @@ export function FitlersForm<T>({ table }: { table: Table<T> }) {
   const { replace } = useRouter();
   const pathname = usePathname();
 
-  const handleUrlUpdate = useCallback(
-    // * this is a simplification, but it works
-    (updateParams: typeof mapFrontendToBackendFilterNames) => {
+  const handleUrlUpdate: SubmitHandler<FiltersFormValues> = useCallback(
+    (updateParams: FiltersFormValues) => {
       console.log(updateParams);
       const params = new URLSearchParams(searchParams.toString());
 
@@ -151,6 +150,7 @@ export function FitlersForm<T>({ table }: { table: Table<T> }) {
                 Input = (
                   <FloatingLabelInput
                     placeholder={`Wyszukaj ${column.columnDef.header?.toString().replace("Uczelnia", "Uczelnię")}`}
+                    // @ts-ignore
                     {...register(column.id)}
                   />
                 );

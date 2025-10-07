@@ -50,6 +50,8 @@ export default async function Page({
         pageSize={size}
         totalElements={totalElements}
         hiddenColumns={hiddenColumns?.split(",")}
+        // TODO: add logic here as well
+        filters={{}}
       />
     </>
   );
