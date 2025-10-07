@@ -1,7 +1,7 @@
 import { useId } from "react";
+import { FiltersFormValues } from "./custom-table/FiltersForm";
 import { Input } from "@/components/ui/input";
 import { UseFormRegister } from "react-hook-form";
-import { FiltersFormValues } from "./custom-table/FiltersForm";
 
 export default function RangeInput({
   register,
@@ -17,17 +17,15 @@ export default function RangeInput({
         placeholder="Od"
         type="number"
         aria-label="Minimalna wartość"
-        // @ts-ignore
-        {...(register ? register.function(`${register.name}-min`) : {})}
-        />
+        {...(register ? register.function(`${register.name}-min` as keyof FiltersFormValues) : {})}
+      />
       <Input
         id={`${id}-2`}
         className="-ms-px flex-1 rounded-s-none [-moz-appearance:_textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none w-auto"
         placeholder="Do"
         type="number"
         aria-label="Maksymalna wartość"
-        // @ts-ignore
-        {...(register ? register.function(`${register.name}-max`) : {})}
+        {...(register ? register.function(`${register.name}-max` as keyof FiltersFormValues) : {})}
       />
     </div>
   );

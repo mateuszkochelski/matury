@@ -74,9 +74,11 @@ type GenericTableProps<T> = {
   hiddenColumns?: string[];
   sortBy?: string;
   direction?: string;
-  filters: Omit<FiltersFormValues, "degrees"> & {
-    degrees?: string;
-  } | {};
+  filters:
+    | (Omit<FiltersFormValues, "degrees"> & {
+        degrees?: string;
+      })
+    | object;
 };
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;

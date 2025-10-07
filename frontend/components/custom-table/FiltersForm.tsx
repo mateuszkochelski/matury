@@ -90,7 +90,13 @@ export const mapFrontendToBackendFilterNames = {
   university_name: "university",
 };
 
-export function FitlersForm<T>({ table, filters }: { table: Table<T>, filters: FiltersFormValues | {} }) {
+export function FitlersForm<T>({
+  table,
+  filters,
+}: {
+  table: Table<T>;
+  filters: FiltersFormValues | object;
+}) {
   const {
     register,
     handleSubmit,
@@ -150,8 +156,7 @@ export function FitlersForm<T>({ table, filters }: { table: Table<T>, filters: F
                 Input = (
                   <FloatingLabelInput
                     placeholder={`Wyszukaj ${column.columnDef.header?.toString().replace("Uczelnia", "Uczelnię")}`}
-                    // @ts-ignore
-                    {...register(column.id)}
+                    {...register(column.id as keyof FiltersFormValues)}
                   />
                 );
                 break;
