@@ -5,18 +5,14 @@ import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
+import { DegreesObject } from "./types";
 import { Button } from "@/components/ui/button";
 import { type Table } from "@tanstack/react-table";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
 export type FiltersFormValues = {
-  degrees?: {
-    bachelors: boolean;
-    engineering: boolean;
-    masters: boolean;
-    engineeringMasters: boolean;
-  };
+  degrees?: DegreesObject;
   department_name?: string;
   "duration-max"?: string;
   "duration-min"?: string;
@@ -42,9 +38,7 @@ export function FitlersForm<T>({
     formState: { errors },
     control,
   } = useForm<FiltersFormValues>({
-    defaultValues: {
-      ...filters,
-    },
+    defaultValues: filters,
   });
 
   const searchParams = useSearchParams();
@@ -66,6 +60,7 @@ export function FitlersForm<T>({
         });
 
       Object.entries(otherParams)
+        // values such as 0 or "" should be default or not present
         .filter(([_, value]) => !!value)
         .forEach(([key, value]) => {
           params.set(key, JSON.stringify(value));
@@ -107,86 +102,7 @@ export function FitlersForm<T>({
                 // custom filter components
                 switch (column.id) {
                   case "degree":
-                    Input = (
-                      <>
-                        <div className="flex items-center space-x-2">
-                          <Controller
-                            name="degrees.bachelors"
-                            control={control}
-                            render={({ field }) => (
-                              <Checkbox
-                                id="bachelors"
-                                checked={!!field.value}
-                                onCheckedChange={field.onChange}
-                              />
-                            )}
-                          />
-                          <label
-                            htmlFor="bachelors"
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                          >
-                            Bachelors
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Controller
-                            name="degrees.engineering"
-                            control={control}
-                            render={({ field }) => (
-                              <Checkbox
-                                id="engineering"
-                                checked={!!field.value}
-                                onCheckedChange={field.onChange}
-                              />
-                            )}
-                          />
-                          <label
-                            htmlFor="engineering"
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                          >
-                            Engineering
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Controller
-                            name="degrees.masters"
-                            control={control}
-                            render={({ field }) => (
-                              <Checkbox
-                                id="masters"
-                                checked={!!field.value}
-                                onCheckedChange={field.onChange}
-                              />
-                            )}
-                          />
-                          <label
-                            htmlFor="masters"
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                          >
-                            Masters
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Controller
-                            name="degrees.engineeringMasters"
-                            control={control}
-                            render={({ field }) => (
-                              <Checkbox
-                                id="engineering-masters"
-                                checked={!!field.value}
-                                onCheckedChange={field.onChange}
-                              />
-                            )}
-                          />
-                          <label
-                            htmlFor="engineering-masters"
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                          >
-                            Engineering Masters
-                          </label>
-                        </div>
-                      </>
-                    );
+                    Input = <DegreeComponent control={control} />;
                     break;
                   case "actions":
                     break; // TODO: implement me
@@ -213,5 +129,81 @@ export function FitlersForm<T>({
         <Button variant="destructive">Resetuj</Button>
       </div>
     </form>
+  );
+}
+
+function DegreeComponent({
+  control,
+}: {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  control: Control<FiltersFormValues, any, FiltersFormValues>;
+}) {
+  return (
+    <>
+      <div className="flex items-center space-x-2">
+        <Controller
+          name="degrees.bachelors"
+          control={control}
+          render={({ field }) => (
+            <Checkbox id="bachelors" checked={!!field.value} onCheckedChange={field.onChange} />
+          )}
+        />
+        <label
+          htmlFor="bachelors"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Bachelors
+        </label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <Controller
+          name="degrees.engineering"
+          control={control}
+          render={({ field }) => (
+            <Checkbox id="engineering" checked={!!field.value} onCheckedChange={field.onChange} />
+          )}
+        />
+        <label
+          htmlFor="engineering"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Engineering
+        </label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <Controller
+          name="degrees.masters"
+          control={control}
+          render={({ field }) => (
+            <Checkbox id="masters" checked={!!field.value} onCheckedChange={field.onChange} />
+          )}
+        />
+        <label
+          htmlFor="masters"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Masters
+        </label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <Controller
+          name="degrees.engineeringMasters"
+          control={control}
+          render={({ field }) => (
+            <Checkbox
+              id="engineering-masters"
+              checked={!!field.value}
+              onCheckedChange={field.onChange}
+            />
+          )}
+        />
+        <label
+          htmlFor="engineering-masters"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Engineering Masters
+        </label>
+      </div>
+    </>
   );
 }

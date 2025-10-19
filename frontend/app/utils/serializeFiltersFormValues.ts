@@ -1,7 +1,6 @@
 import { FiltersFormValues } from "@/components/custom-table/FiltersForm";
 import { TableSearchParams } from "@/components/custom-table/fetchData";
-
-const possibleDegrees = ["bachelors", "engineering", "masters", "engineeringMasters"] as const;
+import { possibleDegrees } from "@/components/custom-table/types";
 
 export function serializeFiltersFormValues(rest: TableSearchParams) {
   const splitDegrees = (rest.degrees ?? "").toString().split(",").filter(Boolean);

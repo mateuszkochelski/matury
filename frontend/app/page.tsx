@@ -12,14 +12,14 @@ export default async function Home({
   const { pageSize, pageIndex, hiddenColumns, sortBy, direction, ...rest } =
     (await searchParams) ?? {};
 
-  const response = await fetchData(
-    `${BACKEND_URL}/api/field_of_study`,
+  const response = await fetchData({
+    baseUrl: `${BACKEND_URL}/api/field_of_study`,
     pageSize,
     pageIndex,
     sortBy,
     direction,
-    rest,
-  );
+    filters: rest,
+  });
   const data: FieldOfStudyData = await response.json();
   const { content: fields, page: pageData } = data;
   const { number: pageNumber, totalElements, size } = pageData;

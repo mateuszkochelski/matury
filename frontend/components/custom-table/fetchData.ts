@@ -25,14 +25,23 @@ export type TableSearchParams = {
     degrees?: string;
   };
 
-export async function fetchData(
-  baseUrl: string,
-  pageSize?: string,
-  pageIndex?: string,
-  sortBy?: string,
-  direction?: string,
-  filters?: object,
-): Promise<Response> {
+type FetchDataProps = {
+  baseUrl: string;
+  pageSize?: string;
+  pageIndex?: string;
+  sortBy?: string;
+  direction?: string;
+  filters?: object;
+};
+
+export async function fetchData({
+  baseUrl,
+  pageSize,
+  pageIndex,
+  sortBy,
+  direction,
+  filters,
+}: FetchDataProps): Promise<Response> {
   const url = new URL(baseUrl);
   if (pageSize) {
     url.searchParams.set("size", pageSize);

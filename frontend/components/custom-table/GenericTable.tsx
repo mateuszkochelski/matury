@@ -226,6 +226,7 @@ export function GenericTable<T>({
                     <DropdownMenuCheckboxItem
                       key={column.id}
                       checked={column.getIsVisible()}
+                      // values such as 0 or "" should be default or not present
                       onCheckedChange={(value) => column.toggleVisibility(!!value)}
                       onSelect={(event) => event.preventDefault()}
                     >

@@ -42,7 +42,11 @@ export async function getUniversityData(universityId: string): Promise<{
   const [universityResponse, departmentResponse] = await Promise.all([
     fetch(`${BACKEND_URL}/api/university/${universityId}`),
     // It's safe to assume that no university will have more than a 1000 departments
-    fetchData(`${BACKEND_URL}/api/department/university/${universityId}`, "1000", "0"),
+    fetchData({
+      baseUrl: `${BACKEND_URL}/api/department/university/${universityId}`,
+      pageSize: "1000",
+      pageIndex: "0",
+    }),
   ]);
   const [universityData, departmentData]: [University, DepartmentData] = await Promise.all([
     universityResponse.json(),
