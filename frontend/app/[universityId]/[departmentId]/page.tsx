@@ -1,4 +1,5 @@
 import { getDepartmentData } from "@/app/utils/getDepartmentData";
+import { serializeFiltersFormValues } from "@/app/utils/serializeFiltersFormValues";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { DepartmentTable } from "@/components/custom-table/department";
 import { TableSearchParams } from "@/components/custom-table/fetchData";
@@ -17,7 +18,7 @@ export default async function Page({
     notFound();
   }
 
-  const { pageSize, pageIndex, hiddenColumns } = (await searchParams) ?? {};
+  const { pageSize, pageIndex, hiddenColumns, ...rest } = (await searchParams) ?? {};
 
   const { departmentData, fieldOfStudyData } = await getDepartmentData(
     departmentId,
@@ -50,8 +51,7 @@ export default async function Page({
         pageSize={size}
         totalElements={totalElements}
         hiddenColumns={hiddenColumns?.split(",")}
-        // TODO: add logic here as well
-        filters={{}}
+        filters={serializeFiltersFormValues(rest)}
       />
     </>
   );

@@ -1,0 +1,24 @@
+import { FiltersFormValues } from "@/components/custom-table/FiltersForm";
+import { TableSearchParams } from "@/components/custom-table/fetchData";
+
+const possibleDegrees = ["bachelors", "engineering", "masters", "engineeringMasters"] as const;
+
+export function serializeFiltersFormValues(rest: TableSearchParams) {
+  const splitDegrees = (rest.degrees ?? "").toString().split(",").filter(Boolean);
+
+  const filters: FiltersFormValues | undefined =
+    Object.keys(rest).length > 0
+      ? {
+          ...rest,
+          degrees: possibleDegrees.reduce(
+            (acc, val) => {
+              acc![val] = splitDegrees.includes(val);
+              return acc;
+            },
+            {} as FiltersFormValues["degrees"],
+          ),
+        }
+      : undefined;
+
+  return filters;
+}

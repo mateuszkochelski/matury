@@ -1,10 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import RangeInput from "../RangeInput";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
-import { Checkbox } from "../ui/checkbox";
-import { FloatingLabelInput } from "../ui/floating-label-input";
 import { FiltersFormValues, FitlersForm } from "./FiltersForm";
 import { TableSearchParams } from "./fetchData";
 import { Button } from "@/components/ui/button";
@@ -41,9 +37,7 @@ import {
   flexRender,
   getCoreRowModel,
   getFacetedUniqueValues,
-  getFilteredRowModel,
   getPaginationRowModel,
-  getSortedRowModel,
   PaginationState,
   SortingState,
   useReactTable,
@@ -74,11 +68,7 @@ type GenericTableProps<T> = {
   hiddenColumns?: string[];
   sortBy?: string;
   direction?: string;
-  filters:
-    | (Omit<FiltersFormValues, "degrees"> & {
-        degrees?: string;
-      })
-    | object;
+  filters?: FiltersFormValues;
 };
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
@@ -104,7 +94,6 @@ export function GenericTable<T>({
     pageSize: pageSize,
   });
   const inputRef = useRef<HTMLInputElement>(null);
-  const popoverRef = useRef<HTMLInputElement>(null);
 
   const [sorting, setSorting] = useState<SortingState>([
     {
@@ -253,9 +242,9 @@ export function GenericTable<T>({
                 <FilterIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
                 Filtry
                 {/* // TODO: this logic does not take degrees into account */}
-                {Object.values(filters).filter((v) => !!v).length > 0 && (
+                {Object.values(filters ?? {}).filter((v) => !!v).length > 0 && (
                   <span className="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
-                    {Object.values(filters).filter((v) => !!v).length}
+                    {Object.values(filters ?? {}).filter((v) => !!v).length}
                   </span>
                 )}
               </Button>

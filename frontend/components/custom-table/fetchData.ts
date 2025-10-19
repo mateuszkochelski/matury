@@ -1,8 +1,7 @@
 import { FiltersFormValues } from "./FiltersForm";
 import { ValueOf } from "next/dist/shared/lib/constants";
 
-export const mapFrontendToBackendFilterNames = {
-  // TODO: duplicate code
+const mapFrontendToBackendFilterNames = {
   degrees: "degrees",
   department_name: "department",
   "duration-max": "semestersTo",
@@ -47,17 +46,15 @@ export async function fetchData(
   if (direction) {
     url.searchParams.set("direction", direction);
   }
-  console.log({ filters });
   if (filters) {
     Object.entries(filters).forEach(([key, value]) => {
       const backendKey =
         mapFrontendToBackendFilterNames[key as keyof typeof mapFrontendToBackendFilterNames];
       if (value !== undefined && value !== null && value !== "") {
-        console.log(value);
         url.searchParams.set(backendKey, value as ValueOf<typeof mapFrontendToBackendFilterNames>);
       }
     });
   }
-  console.log({ url });
+
   return fetch(url);
 }

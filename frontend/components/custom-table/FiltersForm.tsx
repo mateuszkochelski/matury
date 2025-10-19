@@ -1,93 +1,32 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback } from "react";
 import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
-import { TableSearchParams } from "./fetchData";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Pagination, PaginationContent, PaginationItem } from "@/components/ui/pagination";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { cn } from "@/lib/utils";
-import {
-  ColumnDef,
-  ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFacetedUniqueValues,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  PaginationState,
-  SortingState,
-  type Table,
-  useReactTable,
-  VisibilityState,
-} from "@tanstack/react-table";
-import {
-  ChevronDownIcon,
-  ChevronFirstIcon,
-  ChevronLastIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronUpIcon,
-  CircleXIcon,
-  Columns3Icon,
-  FilterIcon,
-  SearchIcon,
-} from "lucide-react";
+import { type Table } from "@tanstack/react-table";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 
 export type FiltersFormValues = {
-  degrees: {
+  degrees?: {
     bachelors: boolean;
     engineering: boolean;
     masters: boolean;
     engineeringMasters: boolean;
   };
-  department_name: string;
-  "duration-max": string;
-  "duration-min": string;
-  name: string;
-  "passRate-max": string;
-  "passRate-min": string;
-  "salary-max": string;
-  "salary-min": string;
-  university_city: string;
-  university_name: string;
-};
-
-export const mapFrontendToBackendFilterNames = {
-  degrees: "degrees",
-  department_name: "department",
-  "duration-max": "semestersTo",
-  "duration-min": "semestersFrom",
-  name: "name",
-  "passRate-max": "passRateTo",
-  "passRate-min": "passRateFrom",
-  "salary-max": "avgSalaryTo",
-  "salary-min": "avgSalaryFrom",
-  university_city: "city",
-  university_name: "university",
+  department_name?: string;
+  "duration-max"?: string;
+  "duration-min"?: string;
+  name?: string;
+  "passRate-max"?: string;
+  "passRate-min"?: string;
+  "salary-max"?: string;
+  "salary-min"?: string;
+  university_city?: string;
+  university_name?: string;
 };
 
 export function FitlersForm<T>({
@@ -95,7 +34,7 @@ export function FitlersForm<T>({
   filters,
 }: {
   table: Table<T>;
-  filters: FiltersFormValues | object;
+  filters?: FiltersFormValues;
 }) {
   const {
     register,
@@ -104,12 +43,7 @@ export function FitlersForm<T>({
     control,
   } = useForm<FiltersFormValues>({
     defaultValues: {
-      degrees: {
-        bachelors: true,
-        engineering: true,
-        masters: true,
-        engineeringMasters: true,
-      },
+      ...filters,
     },
   });
 
@@ -120,13 +54,12 @@ export function FitlersForm<T>({
 
   const handleUrlUpdate: SubmitHandler<FiltersFormValues> = useCallback(
     (updateParams: FiltersFormValues) => {
-      console.log(updateParams);
       const params = new URLSearchParams(searchParams.toString());
 
       const { degrees, ...otherParams } = updateParams;
 
       params.delete("degrees");
-      Object.entries(degrees)
+      Object.entries(degrees ?? {})
         .filter(([_, value]) => !!value)
         .forEach(([key]) => {
           params.append("degrees", key);
@@ -274,17 +207,10 @@ export function FitlersForm<T>({
               </AccordionItem>
             );
           })}
-        {/* <AccordionItem value="item-3" className="*:p-3 !border-b">
-                    <AccordionTrigger className="py-2 hover:no-underline">Degree</AccordionTrigger>
-                    <AccordionContent className="flex flex-col gap-1.5">
-                      
-                    </AccordionContent>
-                  </AccordionItem> */}
       </Accordion>
       <div className="p-3 grid grid-cols-2 gap-2 border-t">
-        <Button type="submit">Save</Button>
-        {/* // TODO: think about inclufing "reset (all)" button, or replacing cancel with it */}
-        <Button variant="secondary">Cancel</Button>
+        <Button type="submit">Zapisz</Button>
+        <Button variant="destructive">Resetuj</Button>
       </div>
     </form>
   );
