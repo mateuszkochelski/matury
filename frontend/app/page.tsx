@@ -16,7 +16,7 @@ export default async function Home() {
               <span className="text-primary block">Kierunek studiów</span>
             </h1>
             <p className="text-base md:text-lg text-foreground/70 leading-relaxed">
-              Z łatwością okdryj najlepsze uczelnie w Polsce. Eksploruj wydziały oraz kierunki
+              Z łatwością odkryj najlepsze uczelnie w Polsce. Eksploruj wydziały oraz kierunki
               studiów. Porównaj swoje wyniki z matury. Możesz zrobić to wszystko w jednym miejscu.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -36,7 +36,7 @@ export default async function Home() {
                 <div className="text-4xl md:text-6xl lg:text-8xl mb-4">🐧</div>
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 mx-auto max-w-xs">
                   <p className="text-sm text-foreground font-medium">
-                    {/* To be changed */}
+                    {/* // TODO: change it */}
                     "Study hard, because apparently sleep is optional"
                   </p>
                 </div>
@@ -107,12 +107,11 @@ export default async function Home() {
             <div className="text-4xl md:text-6xl mb-6">🐧</div>
             <h2 className="h2 text-foreground mb-4">Gotowy obliczyć swoje szanse?</h2>
             <p className="text-md md:text-lg text-foreground/80 mb-8">
-              Wpisz sowje wyniki maturalne i przekanaj się czy dostaniesz się na ulubione kierunki
-              studiów
+              Wpisz swoje wyniki maturalne i przekonaj się czy dostaniesz się na wymarzony kierunek
             </p>
             <div className="flex justify-center">
               {/* TODO: Make calculator page / Calculator popup */}
-              <Link href="/calculator">
+              <Link href="/">
                 <Button
                   size="lg"
                   className="bg-white hover:bg-white/70 w-full sm:w-auto cursor-pointer"
@@ -130,8 +129,7 @@ export default async function Home() {
           <div className="max-w-3xl mx-auto">
             <h2 className="h2 mb-4">O nas</h2>
             <p className="text-md md:text-lg mb-8">
-              Studenci debile. <br /> Tutaj może nasze imiona nazwiska + fotki? Krótkie
-              przedstawienie? Cytaty? Może ikonki z wykorzytanymi technologiami? Coś innego?
+              <a href="https://github.com/mateuszkochelski/matury">Repozytorium</a>
             </p>
           </div>
         </div>
