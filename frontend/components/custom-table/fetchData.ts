@@ -57,6 +57,9 @@ export async function fetchData({
   }
   if (filters) {
     Object.entries(filters).forEach(([key, value]) => {
+      // TODO: remove this after degrees are fixed on BE
+      if (key === "degrees") return;
+
       const backendKey =
         mapFrontendToBackendFilterNames[key as keyof typeof mapFrontendToBackendFilterNames];
       if (value !== undefined && value !== null && value !== "") {

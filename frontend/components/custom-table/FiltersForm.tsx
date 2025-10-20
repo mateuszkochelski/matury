@@ -60,10 +60,13 @@ export function FitlersForm<T>({
         });
 
       Object.entries(otherParams)
-        // values such as 0 or "" should be default or not present
-        .filter(([_, value]) => !!value)
+        .filter(([key, value]) => !!value || params.get(key) !== null)
         .forEach(([key, value]) => {
-          params.set(key, JSON.stringify(value));
+          if (!value) {
+            return params.delete(key);
+          }
+
+          params.set(key, value);
         });
 
       replace(`${pathname}?${params.toString()}`);
