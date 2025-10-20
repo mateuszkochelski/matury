@@ -35,6 +35,16 @@ public class FieldOfStudyService {
     }
 
     public Page<FieldOfStudyDTO> getFieldsOfStudyByUniversityId(Long universityId, Pageable pageable) {
+        // Filter out null departments when sorting by department-related fields
+        String sortField = getSortFieldFromPageable(pageable);
+        if (isDepartmentSortField(sortField)) {
+            Specification<FieldOfStudy> spec = (root, query, cb) ->
+                cb.and(
+                    cb.equal(root.get("university").get("id"), universityId),
+                    cb.isNotNull(root.get("department"))
+                );
+            return fieldOfStudyRepository.findAll(spec, pageable).map(this::toDTO);
+        }
         return fieldOfStudyRepository.findByUniversityId(universityId, pageable).map(this::toDTO);
     }
 
@@ -43,30 +53,53 @@ public class FieldOfStudyService {
     }
 
     private FieldOfStudyDTO toDTO(FieldOfStudy fieldOfStudy) {
-        return new FieldOfStudyDTO(
-                fieldOfStudy.getId(),
-                fieldOfStudy.getName(),
-                fieldOfStudy.getLevel(),
-                fieldOfStudy.getDuration(),
-                fieldOfStudy.getLanguage(),
-                new UniversityShortDTO(
-                        fieldOfStudy.getUniversity().getId(),
-                        fieldOfStudy.getUniversity().getName(),
-                        fieldOfStudy.getUniversity().getAcronym(),
-                        fieldOfStudy.getUniversity().getCity()
-                ),
-                new DepartmentShortDTO(
-                        fieldOfStudy.getDepartment().getId(),
-                        fieldOfStudy.getDepartment().getName()
-                )
-        );
-    }
+    var university = fieldOfStudy.getUniversity();
+    var department = fieldOfStudy.getDepartment();
 
+    return new FieldOfStudyDTO(
+            fieldOfStudy.getId(),
+            fieldOfStudy.getName(),
+            fieldOfStudy.getLevel(),
+            fieldOfStudy.getDuration(),
+            fieldOfStudy.getLanguage(),
+            university != null
+                    ? new UniversityShortDTO(
+                            university.getId(),
+                            university.getName(),
+                            university.getAcronym(),
+                            university.getCity()
+                    )
+                    : null,
+            department != null
+                    ? new DepartmentShortDTO(
+                            department.getId(),
+                            department.getName()
+                    )
+                    : null
+    );
+}
     public Page<FieldOfStudyDTO> search(FieldOfStudyFilter filter, Pageable pageable) {
     Specification<FieldOfStudy> spec = FieldOfStudySpecifications.byFilter(filter);
+
+    // Check if sorting by department-related field and filter out null departments
+    String sortField = getSortFieldFromPageable(pageable);
+    if (isDepartmentSortField(sortField)) {
+        spec = spec.and((root, query, cb) -> cb.isNotNull(root.get("department")));
+    }
 
     return fieldOfStudyRepository
             .findAll(spec, pageable)
             .map(this::toDTO);
+    }
+
+    private String getSortFieldFromPageable(Pageable pageable) {
+        if (pageable.getSort().isSorted()) {
+            return pageable.getSort().iterator().next().getProperty();
+        }
+        return null;
+    }
+
+    private boolean isDepartmentSortField(String sortField) {
+        return sortField != null && (sortField.equals("department") || sortField.startsWith("department."));
     }
 }
