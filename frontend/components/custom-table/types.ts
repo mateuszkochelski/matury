@@ -25,3 +25,16 @@ export type FieldOfStudyData = {
     totalPages: number;
   };
 };
+
+export const possibleDegrees = [
+  "bachelors",
+  "engineering",
+  "masters",
+  "engineeringMasters",
+] as const;
+
+export type DegreeType = (typeof possibleDegrees)[number];
+
+export type DegreesObject = {
+  [K in DegreeType]: boolean;
+};

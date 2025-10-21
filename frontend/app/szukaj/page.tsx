@@ -1,4 +1,5 @@
 import { BACKEND_URL } from "../constants";
+import { serializeFiltersFormValues } from "../utils/serializeFiltersFormValues";
 import { fetchData, TableSearchParams } from "@/components/custom-table/fetchData";
 import { MainTable } from "@/components/custom-table/main";
 import { FieldOfStudyData } from "@/components/custom-table/types";
@@ -8,9 +9,17 @@ export default async function Home({
 }: {
   searchParams?: Promise<TableSearchParams>;
 }) {
-  const { pageSize, pageIndex, hiddenColumns } = (await searchParams) ?? {};
+  const { pageSize, pageIndex, hiddenColumns, sortBy, direction, ...rest } =
+    (await searchParams) ?? {};
 
-  const response = await fetchData(`${BACKEND_URL}/api/field_of_study`, pageSize, pageIndex);
+  const response = await fetchData({
+    baseUrl: `${BACKEND_URL}/api/field_of_study`,
+    pageSize,
+    pageIndex,
+    sortBy,
+    direction,
+    filters: rest,
+  });
   const data: FieldOfStudyData = await response.json();
   const { content: fields, page: pageData } = data;
   const { number: pageNumber, totalElements, size } = pageData;
@@ -23,6 +32,9 @@ export default async function Home({
         pageSize={size}
         totalElements={totalElements}
         hiddenColumns={hiddenColumns?.split(",")}
+        sortBy={sortBy}
+        direction={direction}
+        filters={serializeFiltersFormValues(rest)}
       />
     </main>
   );

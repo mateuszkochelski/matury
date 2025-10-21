@@ -24,7 +24,11 @@ export async function getDepartmentData(
 }> {
   const [departmentResponse, fieldOfStudyResponse] = await Promise.all([
     fetch(`${BACKEND_URL}/api/department/${departmentId}`),
-    fetchData(`${BACKEND_URL}/api/field_of_study/department/${departmentId}`, pageSize, pageIndex),
+    fetchData({
+      baseUrl: `${BACKEND_URL}/api/field_of_study/department/${departmentId}`,
+      pageSize,
+      pageIndex,
+    }),
   ]);
   const [departmentData, fieldOfStudyData]: [Department, FieldOfStudyData] = await Promise.all([
     departmentResponse.json(),

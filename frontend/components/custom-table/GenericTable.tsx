@@ -1,10 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import RangeInput from "../RangeInput";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
-import { Checkbox } from "../ui/checkbox";
-import { FloatingLabelInput } from "../ui/floating-label-input";
+import { FiltersFormValues, FitlersForm } from "./FiltersForm";
 import { TableSearchParams } from "./fetchData";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,9 +37,7 @@ import {
   flexRender,
   getCoreRowModel,
   getFacetedUniqueValues,
-  getFilteredRowModel,
   getPaginationRowModel,
-  getSortedRowModel,
   PaginationState,
   SortingState,
   useReactTable,
@@ -71,6 +66,9 @@ type GenericTableProps<T> = {
   pageSize?: number;
   totalElements?: number;
   hiddenColumns?: string[];
+  sortBy?: string;
+  direction?: string;
+  filters?: FiltersFormValues;
 };
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
@@ -82,6 +80,9 @@ export function GenericTable<T>({
   pageSize = 10,
   totalElements,
   hiddenColumns = [],
+  sortBy = "name",
+  direction = "asc",
+  filters,
 }: GenericTableProps<T>) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -96,8 +97,8 @@ export function GenericTable<T>({
 
   const [sorting, setSorting] = useState<SortingState>([
     {
-      id: "name",
-      desc: false,
+      id: sortBy,
+      desc: direction === "desc",
     },
   ]);
 
@@ -105,15 +106,15 @@ export function GenericTable<T>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,
     enableSortingRemoval: false,
+    manualSorting: true,
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
     manualPagination: true,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
-    getFilteredRowModel: getFilteredRowModel(),
+    manualFiltering: true,
     getFacetedUniqueValues: getFacetedUniqueValues(),
     state: {
       sorting,
@@ -153,8 +154,10 @@ export function GenericTable<T>({
     handleUrlUpdate([
       { param: "pageIndex", value: pagination.pageIndex },
       { param: "pageSize", value: pagination.pageSize },
+      { param: "sortBy", value: sorting[0].id },
+      { param: "direction", value: sorting[0].desc ? "desc" : "asc" },
     ]);
-  }, [pagination, handleUrlUpdate]);
+  }, [pagination, handleUrlUpdate, sorting]);
 
   const handleColumnVisibilityUpdate = (open: boolean) => {
     // we only want to update after the dropdown is closed
@@ -223,6 +226,7 @@ export function GenericTable<T>({
                     <DropdownMenuCheckboxItem
                       key={column.id}
                       checked={column.getIsVisible()}
+                      // values such as 0 or "" should be default or not present
                       onCheckedChange={(value) => column.toggleVisibility(!!value)}
                       onSelect={(event) => event.preventDefault()}
                     >
@@ -238,93 +242,16 @@ export function GenericTable<T>({
               <Button variant="outline">
                 <FilterIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
                 Filtry
-                {/* {selectedStatuses.length > 0 && (
+                {/* // TODO: this logic does not take degrees into account */}
+                {Object.values(filters ?? {}).filter((v) => !!v).length > 0 && (
                   <span className="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
-                    {selectedStatuses.length}
+                    {Object.values(filters ?? {}).filter((v) => !!v).length}
                   </span>
-                )} */}
+                )}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-72 p-0 bg-card" align="start">
-              <div className="space-y-3">
-                <Accordion type="multiple" className="w-full">
-                  {table
-                    .getAllColumns()
-                    .filter((column) => column.getCanFilter())
-                    .map((column) => {
-                      let Input;
-                      switch (column.columnDef.meta?.filterType) {
-                        case "string":
-                          Input = (
-                            <FloatingLabelInput
-                              // TODO: "Wyszukaj uczelnia" zamiast "uczelnię"
-                              placeholder={`Wyszukaj ${column.columnDef.header?.toString()}`}
-                            />
-                          );
-                          break;
-                        case "number":
-                          Input = <RangeInput />;
-                          break;
-                        default:
-                          break;
-                      }
-
-                      return (
-                        <AccordionItem value={column.id} className="*:p-3" key={column.id}>
-                          <AccordionTrigger className="py-2 hover:no-underline">
-                            {column.columnDef.header?.toString()}
-                          </AccordionTrigger>
-                          <AccordionContent>{Input}</AccordionContent>
-                        </AccordionItem>
-                      );
-                    })}
-                  <AccordionItem value="item-3" className="*:p-3 !border-b">
-                    <AccordionTrigger className="py-2 hover:no-underline">Degree</AccordionTrigger>
-                    <AccordionContent className="flex flex-col gap-1.5">
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="bachelors" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Bachelors
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="engineering" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Engineering
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="masters" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Masters
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox id="engineering-masters" />
-                        <label
-                          htmlFor="terms"
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                          Engineering Masters
-                        </label>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <div className="p-3 grid grid-cols-2 gap-2">
-                  <Button>Save</Button>
-                  <Button variant="secondary">Cancel</Button>
-                </div>
-              </div>
+              <FitlersForm table={table} filters={filters} />
             </PopoverContent>
           </Popover>
         </div>

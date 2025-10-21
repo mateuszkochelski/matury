@@ -34,17 +34,21 @@ export async function getFieldData(fieldId: string): Promise<{
   const [fieldResponse, thresholdResponse] = await Promise.all([
     fetch(`${BACKEND_URL}/api/field_of_study/${fieldId}`),
     // It's safe to assume that no field of study will have more than a 1000 threshold entries
-    fetchData(`${BACKEND_URL}/api/threshold/fieldOfStudy/${fieldId}`, "1000", "0"),
+    fetchData({
+      baseUrl: `${BACKEND_URL}/api/threshold/fieldOfStudy/${fieldId}`,
+      pageSize: "1000",
+      pageIndex: "0",
+    }),
   ]);
   const [fieldData, thresholdData]: [FieldOfStudy, ThresholdData] = await Promise.all([
     fieldResponse.json(),
     thresholdResponse.json(),
   ]);
-  const departmentFieldsResponse = await fetchData(
-    `${BACKEND_URL}/api/field_of_study/department/${fieldData.department.id}`,
-    "1000",
-    "0",
-  );
+  const departmentFieldsResponse = await fetchData({
+    baseUrl: `${BACKEND_URL}/api/field_of_study/department/${fieldData.department.id}`,
+    pageSize: "1000",
+    pageIndex: "0",
+  });
   const departmentFieldsData: FieldOfStudyData = await departmentFieldsResponse.json();
   return { fieldData, departmentFields: departmentFieldsData.content, thresholdData };
 }
