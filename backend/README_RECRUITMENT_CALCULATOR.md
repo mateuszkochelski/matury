@@ -34,7 +34,133 @@ Zgodny z rekordem `CalculateRecruitmentPointsRequest`:
   - `level`: poziom egzaminu. Akceptowane wartosci to m.in. `BASIC`, `EXTENDED`, `BILINGUAL`, `VOCATIONAL_TECHNICIAN`. Dla egzaminow bez poziomu (`art_exam`) pole moze byc puste (`null`).
   - `score`: liczba rzeczywista >= 0.0 reprezentujaca wynik procentowy albo punktowy (w zaleznosci od przedmiotu).
 
+#### Dozwolone poziomy
+
+| level | opis | uwagi |
+| --- | --- | --- |
+| BASIC | Poziom podstawowy | Moze korzystac z konwersji rozszerzenia jesli `allowExtendedToBasicConversion = true`. |
+| EXTENDED | Poziom rozszerzony | Brany pod uwage w termach wymagajacych rozszerzenia oraz w kompozytach X/XG. |
+| BILINGUAL | Wersja dwujezyczna | W termach jezykowych moze zostac znormalizowana (`normalizeBilingualScores = true`). |
+| VOCATIONAL_TECHNICIAN | Egzamin zawodowy technika | Oceniany z dodatkowym mnoznikiem tam, gdzie wlaczono `includeVocationalResults`. |
+
+#### Dostepne przedmioty (`subjectCode`)
+
+| kod | opis |
+| --- | --- |
+| mathematics | Matematyka |
+| polish_language | Jezyk polski |
+| english_language | Jezyk angielski |
+| german_language | Jezyk niemiecki |
+| english_bilingual | Jezyk angielski dwujezyczny |
+| spanish_bilingual | Jezyk hiszpanski dwujezyczny |
+| french_bilingual | Jezyk francuski dwujezyczny |
+| german_bilingual | Jezyk niemiecki dwujezyczny |
+| russian_bilingual | Jezyk rosyjski dwujezyczny |
+| italian_bilingual | Jezyk wloski dwujezyczny |
+| russian_language | Jezyk rosyjski |
+| spanish_language | Jezyk hiszpanski |
+| french_language | Jezyk francuski |
+| belarusian_language | Jezyk bialoruski |
+| italian_language | Jezyk wloski |
+| lithuanian_language | Jezyk litewski |
+| ukrainian_language | Jezyk ukrainski |
+| biology | Biologia |
+| chemistry | Chemia |
+| geography | Geografia |
+| physics | Fizyka |
+| history | Historia |
+| civics | Wiedza o spoleczenstwie |
+| informatics | Informatyka |
+| philosophy | Filozofia |
+| history_of_art | Historia sztuki |
+| history_of_music | Historia muzyki |
+| latin_and_culture | Lacinski i kultura antyczna |
+| lemko_language | Jezyk lemkowski |
+| cashubian_language | Jezyk kaszubski |
+| german_minority_language | Jezyk niemiecki (mniejszosci narodowej) |
+| art_exam | Egzamin z uzdolnien artystycznych (0-500 pkt) |
+| vocational_exam | Egzamin zawodowy |
+
 > Uwaga: jezeli formuly wymagaja konkretnego wyniku (`failIfMissing = true`), brak odpowiedniego wpisu w `examResults` spowoduje blad `RecruitmentCalculationException`.
+
+## Swagger-style spec
+
+```yaml
+paths:
+  /api/recruitment-calculator/calculate:
+    post:
+      summary: Oblicza wynik rekrutacyjny
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [universityId, fieldOfStudyId, examResults]
+              properties:
+                universityId:
+                  type: string
+                  example: politechnika-poznanska
+                fieldOfStudyId:
+                  type: string
+                  example: architecture
+                examResults:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    required: [subjectCode, score]
+                    properties:
+                      subjectCode:
+                        type: string
+                        enum: [mathematics, polish_language, english_language, german_language, english_bilingual, spanish_bilingual, french_bilingual, german_bilingual, russian_bilingual, italian_bilingual, russian_language, spanish_language, french_language, belarusian_language, italian_language, lithuanian_language, ukrainian_language, biology, chemistry, geography, physics, history, civics, informatics, philosophy, history_of_art, history_of_music, latin_and_culture, lemko_language, cashubian_language, german_minority_language, art_exam, vocational_exam]
+                      level:
+                        type: string
+                        nullable: true
+                        enum: [BASIC, EXTENDED, BILINGUAL, VOCATIONAL_TECHNICIAN]
+                      score:
+                        type: number
+                        format: double
+                        minimum: 0
+      responses:
+        "200":
+          description: Sukces
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  universityId:
+                    type: string
+                  fieldOfStudyId:
+                    type: string
+                  totalPoints:
+                    type: number
+                    format: double
+                  breakdown:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        termId:
+                          type: string
+                        description:
+                          type: string
+                        subjectCode:
+                          type: string
+                          nullable: true
+                        level:
+                          type: string
+                          nullable: true
+                        rawScore:
+                          type: number
+                        coefficient:
+                          type: number
+                        pointsAwarded:
+                          type: number
+      tags:
+        - Recruitment Calculator
+```
 
 ## Jak dziala kalkulator
 
@@ -66,6 +192,15 @@ GLOWNE ZRODLO: `backend/src/main/resources/recruitment/formulas.json`.
 - Sekcja `subjects` – lista wszystkich kodow przedmiotow. W razie potrzeby mozna ja rozszerzyc.
 - Sekcja `subjectGroups` – zdefiniowane grupy przedmiotow (np. `pp-x`, `pp-xg`, jezyki obce).
 - Sekcja `universities` – definicje uczelni wraz z kierunkami, aliasami oraz formuly skladajacej sie z terminow.
+
+### Uczelnie i kierunki (stan aktualny)
+
+| universityId | nazwa | kierunki (`fieldOfStudyId`) | przykladowy alias |
+| --- | --- | --- | --- |
+| politechnika-slaska | Politechnika Slaska | `default` (Pozostale kierunki ksztalcenia) | 35 |
+| politechnika-poznanska | Politechnika Poznanska | `engineering-x`, `science-xg`, `architecture` | 33 |
+
+> Pelna lista aliasow oraz dodatkowych nazw pol znajdziesz bezposrednio w `formulas.json` (klucze `aliases`).
 
 Zmiany w konfiguracji wymagaja ponownego uruchomienia backendu (plik jest ladowany przy starcie aplikacji).
 
