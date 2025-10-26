@@ -39,3 +39,33 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Data files (university data, CKE data)
+university_data/
+
+# Temporary analysis files and data
+backend/.split_tmp/
+backend/analiza*.py
+backend/analiza*.txt
+backend/analiza*.csv
+backend/analiza*.awk
+backend/analyze_polibudy.py
+backend/graduate-real-data*.csv
+graduates-major-data.csv
+graduates-major-dictionary*.xlsx
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# AI/ML models and cache
+*.pkl
+*.h5
+*.joblib
+/tmp/

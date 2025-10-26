@@ -1,0 +1,23 @@
+# Dependencies dla Pipeline 1 - Predykcja szans przyjęcia na studia
+
+# Core data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Excel file reading
+openpyxl>=3.1.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+
+# Statistics & distributions
+scipy>=1.11.0
+statsmodels>=0.14.0
+
+# Visualization (opcjonalne - dla plot_reliability)
+matplotlib>=3.7.0
+
+# Optional: Pipeline 2 (Bayesian quantile regression)
+# pymc>=5.0.0  # Uncomment jeśli będziesz implementować Pipeline 2
+
+
