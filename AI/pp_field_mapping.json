@@ -1,0 +1,644 @@
+{
+  "3597": {
+    "field_of_study_id": 3014,
+    "pp_name": "architektura",
+    "db_name": "Architektura",
+    "similarity": 1.0
+  },
+  "3596": {
+    "field_of_study_id": 3014,
+    "pp_name": "architektura/Architecture",
+    "db_name": "Architektura",
+    "similarity": 0.649
+  },
+  "3598": {
+    "field_of_study_id": 3015,
+    "pp_name": "architektura wnętrz (profil praktyczny)",
+    "db_name": "Architektura Wnętrz",
+    "similarity": 0.655
+  },
+  "3580": {
+    "field_of_study_id": 2999,
+    "pp_name": "automatyka i robotyka",
+    "db_name": "Automatyka i Robotyka",
+    "similarity": 1.0
+  },
+  "3581": {
+    "field_of_study_id": 2999,
+    "pp_name": "automatyka i robotyka/Automatic Control and Robotics",
+    "db_name": "Automatyka i Robotyka",
+    "similarity": 0.575
+  },
+  "3583": {
+    "field_of_study_id": 3002,
+    "pp_name": "bioinformatyka",
+    "db_name": "Bioinformatyka",
+    "similarity": 1.0
+  },
+  "3586": {
+    "field_of_study_id": 3016,
+    "pp_name": "budownictwo",
+    "db_name": "Budownictwo",
+    "similarity": 1.0
+  },
+  "3569": {
+    "field_of_study_id": 3017,
+    "pp_name": "budownictwo zrównoważone/Sustainable Building Engineering",
+    "db_name": "Budownictwo Zrównoważone",
+    "similarity": 0.593
+  },
+  "3571": {
+    "field_of_study_id": 3007,
+    "pp_name": "edukacja techniczno-informatyczna",
+    "db_name": "Edukacja Techniczno - Informatyczna",
+    "similarity": 1.0
+  },
+  "3582": {
+    "field_of_study_id": 1434,
+    "pp_name": "elektromobilność",
+    "db_name": "Elektromobilność",
+    "similarity": 1.0
+  },
+  "3584": {
+    "field_of_study_id": 3003,
+    "pp_name": "elektronika i telekomunikacja",
+    "db_name": "Elektronika i Telekomunikacja",
+    "similarity": 1.0
+  },
+  "3602": {
+    "field_of_study_id": 3003,
+    "pp_name": "elektronika i telekomunikacja/Electronics and Telecommunications",
+    "db_name": "Elektronika i Telekomunikacja",
+    "similarity": 0.624
+  },
+  "3591": {
+    "field_of_study_id": 3000,
+    "pp_name": "elektrotechnika",
+    "db_name": "Elektrotechnika",
+    "similarity": 1.0
+  },
+  "3594": {
+    "field_of_study_id": 3025,
+    "pp_name": "energetyka",
+    "db_name": "Energetyka",
+    "similarity": 1.0
+  },
+  "3570": {
+    "field_of_study_id": 3008,
+    "pp_name": "fizyka techniczna",
+    "db_name": "Fizyka Techniczna",
+    "similarity": 1.0
+  },
+  "3585": {
+    "field_of_study_id": 3004,
+    "pp_name": "informatyka",
+    "db_name": "Informatyka",
+    "similarity": 1.0
+  },
+  "3599": {
+    "field_of_study_id": 3027,
+    "pp_name": "inżynieria bezpieczeństwa",
+    "db_name": "Inżynieria Bezpieczeństwa",
+    "similarity": 1.0
+  },
+  "3587": {
+    "field_of_study_id": 3021,
+    "pp_name": "inżynieria biomedyczna",
+    "db_name": "Inżynieria Biomedyczna",
+    "similarity": 1.0
+  },
+  "3606": {
+    "field_of_study_id": 2693,
+    "pp_name": "inżynieria biomedyczna/Biomedical Engineering",
+    "db_name": "Biomedical Engineering",
+    "similarity": 0.657
+  },
+  "3604": {
+    "field_of_study_id": 3010,
+    "pp_name": "inżynieria chemiczna i procesowa",
+    "db_name": "Inżynieria Chemiczna i Procesowa",
+    "similarity": 1.0
+  },
+  "3590": {
+    "field_of_study_id": 3011,
+    "pp_name": "inżynieria farmaceutyczna",
+    "db_name": "Inżynieria Farmaceutyczna",
+    "similarity": 1.0
+  },
+  "3603": {
+    "field_of_study_id": 3009,
+    "pp_name": "inżynieria materiałowa",
+    "db_name": "Inżynieria Materiałowa",
+    "similarity": 1.0
+  },
+  "3595": {
+    "field_of_study_id": 3026,
+    "pp_name": "inżynieria środowiska",
+    "db_name": "Inżynieria Środowiska",
+    "similarity": 1.0
+  },
+  "3588": {
+    "field_of_study_id": 3028,
+    "pp_name": "inżynieria zarządzania",
+    "db_name": "Inżynieria Zarządzania",
+    "similarity": 1.0
+  },
+  "3589": {
+    "field_of_study_id": 3028,
+    "pp_name": "inżynieria zarządzania/Engineering Management",
+    "db_name": "Inżynieria Zarządzania",
+    "similarity": 0.657
+  },
+  "3600": {
+    "field_of_study_id": 3029,
+    "pp_name": "logistyka",
+    "db_name": "Logistyka",
+    "similarity": 1.0
+  },
+  "3572": {
+    "field_of_study_id": 2379,
+    "pp_name": "lotnictwo",
+    "db_name": "Lotnictwo",
+    "similarity": 1.0
+  },
+  "3592": {
+    "field_of_study_id": 3001,
+    "pp_name": "matematyka w technice",
+    "db_name": "Matematyka w Technice",
+    "similarity": 1.0
+  },
+  "3593": {
+    "field_of_study_id": 3022,
+    "pp_name": "mechanika i budowa maszyn",
+    "db_name": "Mechanika i Budowa Maszyn",
+    "similarity": 1.0
+  },
+  "3575": {
+    "field_of_study_id": 1438,
+    "pp_name": "mechanika i budowa pojazdów",
+    "db_name": "Mechanika i Budowa Pojazdów",
+    "similarity": 1.0
+  },
+  "3577": {
+    "field_of_study_id": 3023,
+    "pp_name": "mechatronika",
+    "db_name": "Mechatronika",
+    "similarity": 1.0
+  },
+  "3573": {
+    "field_of_study_id": 3005,
+    "pp_name": "sztuczna inteligencja/Artificial Intelligence",
+    "db_name": "Sztuczna Inteligencja",
+    "similarity": 0.636
+  },
+  "3579": {
+    "field_of_study_id": 3012,
+    "pp_name": "technologia chemiczna",
+    "db_name": "Technologia Chemiczna",
+    "similarity": 1.0
+  },
+  "3601": {
+    "field_of_study_id": 3012,
+    "pp_name": "technologia chemiczna/Chemical Technology",
+    "db_name": "Technologia Chemiczna",
+    "similarity": 0.677
+  },
+  "3605": {
+    "field_of_study_id": 1440,
+    "pp_name": "technologie obiegu zamkniętego",
+    "db_name": "Technologie Obiegu Zamkniętego",
+    "similarity": 1.0
+  },
+  "3574": {
+    "field_of_study_id": 3006,
+    "pp_name": "teleinformatyka",
+    "db_name": "Teleinformatyka",
+    "similarity": 1.0
+  },
+  "3576": {
+    "field_of_study_id": 3020,
+    "pp_name": "transport",
+    "db_name": "Transport",
+    "similarity": 1.0
+  },
+  "3578": {
+    "field_of_study_id": 3024,
+    "pp_name": "zarządzanie i inżynieria produkcji",
+    "db_name": "Zarządzanie i Inżynieria Produkcji",
+    "similarity": 1.0
+  },
+  "3663": {
+    "field_of_study_id": 2999,
+    "pp_name": "automatyka i robotyka",
+    "db_name": "Automatyka i Robotyka",
+    "similarity": 1.0
+  },
+  "3675": {
+    "field_of_study_id": 3016,
+    "pp_name": "budownictwo",
+    "db_name": "Budownictwo",
+    "similarity": 1.0
+  },
+  "3673": {
+    "field_of_study_id": 3003,
+    "pp_name": "elektronika i telekomunikacja",
+    "db_name": "Elektronika i Telekomunikacja",
+    "similarity": 1.0
+  },
+  "3672": {
+    "field_of_study_id": 3000,
+    "pp_name": "elektrotechnika",
+    "db_name": "Elektrotechnika",
+    "similarity": 1.0
+  },
+  "3667": {
+    "field_of_study_id": 3025,
+    "pp_name": "energetyka",
+    "db_name": "Energetyka",
+    "similarity": 1.0
+  },
+  "3674": {
+    "field_of_study_id": 3004,
+    "pp_name": "informatyka",
+    "db_name": "Informatyka",
+    "similarity": 1.0
+  },
+  "3662": {
+    "field_of_study_id": 3027,
+    "pp_name": "inżynieria bezpieczeństwa",
+    "db_name": "Inżynieria Bezpieczeństwa",
+    "similarity": 1.0
+  },
+  "3668": {
+    "field_of_study_id": 3026,
+    "pp_name": "inżynieria środowiska",
+    "db_name": "Inżynieria Środowiska",
+    "similarity": 1.0
+  },
+  "3669": {
+    "field_of_study_id": 3028,
+    "pp_name": "inżynieria zarządzania",
+    "db_name": "Inżynieria Zarządzania",
+    "similarity": 1.0
+  },
+  "3677": {
+    "field_of_study_id": 3029,
+    "pp_name": "logistyka",
+    "db_name": "Logistyka",
+    "similarity": 1.0
+  },
+  "3665": {
+    "field_of_study_id": 3022,
+    "pp_name": "mechanika i budowa maszyn",
+    "db_name": "Mechanika i Budowa Maszyn",
+    "similarity": 1.0
+  },
+  "3671": {
+    "field_of_study_id": 1438,
+    "pp_name": "mechanika i budowa pojazdów",
+    "db_name": "Mechanika i Budowa Pojazdów",
+    "similarity": 1.0
+  },
+  "3676": {
+    "field_of_study_id": 3023,
+    "pp_name": "mechatronika",
+    "db_name": "Mechatronika",
+    "similarity": 1.0
+  },
+  "3670": {
+    "field_of_study_id": 3012,
+    "pp_name": "technologia chemiczna",
+    "db_name": "Technologia Chemiczna",
+    "similarity": 1.0
+  },
+  "3664": {
+    "field_of_study_id": 3020,
+    "pp_name": "transport",
+    "db_name": "Transport",
+    "similarity": 1.0
+  },
+  "3666": {
+    "field_of_study_id": 3024,
+    "pp_name": "zarządzanie i inżynieria produkcji",
+    "db_name": "Zarządzanie i Inżynieria Produkcji",
+    "similarity": 1.0
+  },
+  "3870": {
+    "field_of_study_id": 3014,
+    "pp_name": "architektura",
+    "db_name": "Architektura",
+    "similarity": 1.0
+  },
+  "3867": {
+    "field_of_study_id": 3014,
+    "pp_name": "architektura/Architecture",
+    "db_name": "Architektura",
+    "similarity": 0.649
+  },
+  "3871": {
+    "field_of_study_id": 3015,
+    "pp_name": "architektura wnętrz (profil praktyczny)",
+    "db_name": "Architektura Wnętrz",
+    "similarity": 0.655
+  },
+  "3862": {
+    "field_of_study_id": 2999,
+    "pp_name": "automatyka i robotyka",
+    "db_name": "Automatyka i Robotyka",
+    "similarity": 1.0
+  },
+  "3854": {
+    "field_of_study_id": 2999,
+    "pp_name": "automatyka i robotyka/Automatic Control and Robotics",
+    "db_name": "Automatyka i Robotyka",
+    "similarity": 0.575
+  },
+  "3864": {
+    "field_of_study_id": 3002,
+    "pp_name": "bioinformatyka",
+    "db_name": "Bioinformatyka",
+    "similarity": 1.0
+  },
+  "3873": {
+    "field_of_study_id": 3016,
+    "pp_name": "budownictwo",
+    "db_name": "Budownictwo",
+    "similarity": 1.0
+  },
+  "3853": {
+    "field_of_study_id": 3017,
+    "pp_name": "budownictwo zrównoważone/Sustainable Building Engineering",
+    "db_name": "Budownictwo Zrównoważone",
+    "similarity": 0.593
+  },
+  "3855": {
+    "field_of_study_id": 3007,
+    "pp_name": "edukacja techniczno-informatyczna",
+    "db_name": "Edukacja Techniczno - Informatyczna",
+    "similarity": 1.0
+  },
+  "3863": {
+    "field_of_study_id": 1434,
+    "pp_name": "elektromobilność",
+    "db_name": "Elektromobilność",
+    "similarity": 1.0
+  },
+  "3865": {
+    "field_of_study_id": 3003,
+    "pp_name": "elektronika i telekomunikacja",
+    "db_name": "Elektronika i Telekomunikacja",
+    "similarity": 1.0
+  },
+  "3869": {
+    "field_of_study_id": 3003,
+    "pp_name": "elektronika i telekomunikacja/Electronics and Telecommunications",
+    "db_name": "Elektronika i Telekomunikacja",
+    "similarity": 0.624
+  },
+  "3876": {
+    "field_of_study_id": 3000,
+    "pp_name": "elektrotechnika",
+    "db_name": "Elektrotechnika",
+    "similarity": 1.0
+  },
+  "3884": {
+    "field_of_study_id": 3025,
+    "pp_name": "energetyka",
+    "db_name": "Energetyka",
+    "similarity": 1.0
+  },
+  "3886": {
+    "field_of_study_id": 3008,
+    "pp_name": "fizyka techniczna",
+    "db_name": "Fizyka Techniczna",
+    "similarity": 1.0
+  },
+  "3872": {
+    "field_of_study_id": 3004,
+    "pp_name": "informatyka",
+    "db_name": "Informatyka",
+    "similarity": 1.0
+  },
+  "3882": {
+    "field_of_study_id": 3027,
+    "pp_name": "inżynieria bezpieczeństwa i jakości",
+    "db_name": "Inżynieria Bezpieczeństwa",
+    "similarity": 0.833
+  },
+  "3874": {
+    "field_of_study_id": 3021,
+    "pp_name": "inżynieria biomedyczna",
+    "db_name": "Inżynieria Biomedyczna",
+    "similarity": 1.0
+  },
+  "3881": {
+    "field_of_study_id": 2693,
+    "pp_name": "inżynieria biomedyczna/Biomedical Engineering",
+    "db_name": "Biomedical Engineering",
+    "similarity": 0.657
+  },
+  "3887": {
+    "field_of_study_id": 3010,
+    "pp_name": "inżynieria chemiczna i procesowa",
+    "db_name": "Inżynieria Chemiczna i Procesowa",
+    "similarity": 1.0
+  },
+  "3888": {
+    "field_of_study_id": 3011,
+    "pp_name": "inżynieria farmaceutyczna",
+    "db_name": "Inżynieria Farmaceutyczna",
+    "similarity": 1.0
+  },
+  "3879": {
+    "field_of_study_id": 3009,
+    "pp_name": "inżynieria materiałowa",
+    "db_name": "Inżynieria Materiałowa",
+    "similarity": 1.0
+  },
+  "3877": {
+    "field_of_study_id": 3026,
+    "pp_name": "inżynieria środowiska",
+    "db_name": "Inżynieria Środowiska",
+    "similarity": 1.0
+  },
+  "3875": {
+    "field_of_study_id": 3028,
+    "pp_name": "inżynieria zarządzania",
+    "db_name": "Inżynieria Zarządzania",
+    "similarity": 1.0
+  },
+  "3868": {
+    "field_of_study_id": 3028,
+    "pp_name": "inżynieria zarządzania/Engineering Management",
+    "db_name": "Inżynieria Zarządzania",
+    "similarity": 0.657
+  },
+  "3878": {
+    "field_of_study_id": 3029,
+    "pp_name": "logistyka",
+    "db_name": "Logistyka",
+    "similarity": 1.0
+  },
+  "3856": {
+    "field_of_study_id": 2379,
+    "pp_name": "lotnictwo",
+    "db_name": "Lotnictwo",
+    "similarity": 1.0
+  },
+  "3883": {
+    "field_of_study_id": 3001,
+    "pp_name": "matematyka nowoczesnych technologii",
+    "db_name": "Matematyka w Technice",
+    "similarity": 0.679
+  },
+  "3885": {
+    "field_of_study_id": 3022,
+    "pp_name": "mechanika i budowa maszyn",
+    "db_name": "Mechanika i Budowa Maszyn",
+    "similarity": 1.0
+  },
+  "3858": {
+    "field_of_study_id": 1438,
+    "pp_name": "mechanika i budowa pojazdów",
+    "db_name": "Mechanika i Budowa Pojazdów",
+    "similarity": 1.0
+  },
+  "3860": {
+    "field_of_study_id": 3023,
+    "pp_name": "mechatronika",
+    "db_name": "Mechatronika",
+    "similarity": 1.0
+  },
+  "3852": {
+    "field_of_study_id": 3005,
+    "pp_name": "sztuczna inteligencja/Artificial Intelligence",
+    "db_name": "Sztuczna Inteligencja",
+    "similarity": 0.636
+  },
+  "3866": {
+    "field_of_study_id": 3012,
+    "pp_name": "technologia chemiczna",
+    "db_name": "Technologia Chemiczna",
+    "similarity": 1.0
+  },
+  "3880": {
+    "field_of_study_id": 3012,
+    "pp_name": "technologia chemiczna/Chemical Technology",
+    "db_name": "Technologia Chemiczna",
+    "similarity": 0.677
+  },
+  "3889": {
+    "field_of_study_id": 1440,
+    "pp_name": "technologie obiegu zamkniętego",
+    "db_name": "Technologie Obiegu Zamkniętego",
+    "similarity": 1.0
+  },
+  "3857": {
+    "field_of_study_id": 3006,
+    "pp_name": "teleinformatyka",
+    "db_name": "Teleinformatyka",
+    "similarity": 1.0
+  },
+  "3859": {
+    "field_of_study_id": 3020,
+    "pp_name": "transport",
+    "db_name": "Transport",
+    "similarity": 1.0
+  },
+  "3861": {
+    "field_of_study_id": 3024,
+    "pp_name": "zarządzanie i inżynieria produkcji",
+    "db_name": "Zarządzanie i Inżynieria Produkcji",
+    "similarity": 1.0
+  },
+  "3939": {
+    "field_of_study_id": 2999,
+    "pp_name": "automatyka i robotyka",
+    "db_name": "Automatyka i Robotyka",
+    "similarity": 1.0
+  },
+  "3927": {
+    "field_of_study_id": 3016,
+    "pp_name": "budownictwo",
+    "db_name": "Budownictwo",
+    "similarity": 1.0
+  },
+  "3928": {
+    "field_of_study_id": 3003,
+    "pp_name": "elektronika i telekomunikacja",
+    "db_name": "Elektronika i Telekomunikacja",
+    "similarity": 1.0
+  },
+  "3929": {
+    "field_of_study_id": 3000,
+    "pp_name": "elektrotechnika",
+    "db_name": "Elektrotechnika",
+    "similarity": 1.0
+  },
+  "3940": {
+    "field_of_study_id": 3025,
+    "pp_name": "energetyka",
+    "db_name": "Energetyka",
+    "similarity": 1.0
+  },
+  "3930": {
+    "field_of_study_id": 3004,
+    "pp_name": "informatyka",
+    "db_name": "Informatyka",
+    "similarity": 1.0
+  },
+  "3938": {
+    "field_of_study_id": 3027,
+    "pp_name": "inżynieria bezpieczeństwa i jakości",
+    "db_name": "Inżynieria Bezpieczeństwa",
+    "similarity": 0.833
+  },
+  "3931": {
+    "field_of_study_id": 3028,
+    "pp_name": "inżynieria zarządzania",
+    "db_name": "Inżynieria Zarządzania",
+    "similarity": 1.0
+  },
+  "3932": {
+    "field_of_study_id": 3029,
+    "pp_name": "logistyka",
+    "db_name": "Logistyka",
+    "similarity": 1.0
+  },
+  "3941": {
+    "field_of_study_id": 3022,
+    "pp_name": "mechanika i budowa maszyn",
+    "db_name": "Mechanika i Budowa Maszyn",
+    "similarity": 1.0
+  },
+  "3937": {
+    "field_of_study_id": 1438,
+    "pp_name": "mechanika i budowa pojazdów",
+    "db_name": "Mechanika i Budowa Pojazdów",
+    "similarity": 1.0
+  },
+  "3933": {
+    "field_of_study_id": 3023,
+    "pp_name": "mechatronika",
+    "db_name": "Mechatronika",
+    "similarity": 1.0
+  },
+  "3936": {
+    "field_of_study_id": 3012,
+    "pp_name": "technologia chemiczna",
+    "db_name": "Technologia Chemiczna",
+    "similarity": 1.0
+  },
+  "3934": {
+    "field_of_study_id": 3020,
+    "pp_name": "transport",
+    "db_name": "Transport",
+    "similarity": 1.0
+  },
+  "3935": {
+    "field_of_study_id": 3024,
+    "pp_name": "zarządzanie i inżynieria produkcji",
+    "db_name": "Zarządzanie i Inżynieria Produkcji",
+    "similarity": 1.0
+  }
+}
