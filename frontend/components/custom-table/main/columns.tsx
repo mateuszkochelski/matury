@@ -1,7 +1,7 @@
 "use client";
 
-import { RowActions } from "../RowActions";
 import { FieldOfStudy } from "../types";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
@@ -103,7 +103,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
   {
     id: "actions",
     header: "Zapisz",
-    cell: ({ row }) => <RowActions row={row} />,
+    cell: ({ row }) => <FavoriteButton fieldId={row.original.id} size="small" />,
     size: 60,
     enableHiding: false,
     enableColumnFilter: false, // TODO
