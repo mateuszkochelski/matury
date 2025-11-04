@@ -5,6 +5,7 @@ import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { DegreesObject } from "./types";
 import { Button } from "@/components/ui/button";
 import { type Table } from "@tanstack/react-table";
@@ -13,6 +14,7 @@ import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
 export type FiltersFormValues = {
   degrees?: DegreesObject;
+  favorite?: string;
   department_name?: string;
   "duration-max"?: string;
   "duration-min"?: string;
@@ -108,7 +110,8 @@ export function FitlersForm<T>({
                     Input = <DegreeComponent control={control} />;
                     break;
                   case "actions":
-                    break; // TODO: implement me
+                    Input = <ActionsComponent control={control} />;
+                    break;
                   default:
                     console.warn(
                       `Filter configuration missing for column "${column.id}". This column is marked as filterable, but no filter input is rendered. Please check both the column definition to ensure 'meta.filterType' is set correctly and the custom filter components.`,
@@ -208,5 +211,51 @@ function DegreeComponent({
         </label>
       </div>
     </>
+  );
+}
+
+function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) {
+  return (
+    <Controller
+      name="favorite"
+      control={control}
+      render={({ field }) => (
+        <RadioGroup
+          value={field.value}
+          onValueChange={field.onChange}
+          className="flex flex-col space-y-2"
+        >
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem id="favorite-all" value="all" />
+            <label
+              htmlFor="favorite-all"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              All
+            </label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem id="favorite-favorite" value="favorite" />
+            <label
+              htmlFor="favorite-favorite"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Ulubione
+            </label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem id="favorite-not-favorite" value="notFavorite" />
+            <label
+              htmlFor="favorite-not-favorite"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Nie polubione
+            </label>
+          </div>
+        </RadioGroup>
+      )}
+    />
   );
 }

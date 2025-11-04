@@ -86,7 +86,7 @@ export default async function Page({
 
       <section>
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-2">
             <h1 className="text-foreground">{fieldData.name}</h1>
             <FavoriteButton fieldId={fieldData.id} size="large" />
           </div>

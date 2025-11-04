@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
 import { HeartIcon } from "lucide-react";
 
 export function FavoriteButton({ fieldId, size }: { fieldId: number; size: "small" | "large" }) {
@@ -39,12 +38,12 @@ export function FavoriteButton({ fieldId, size }: { fieldId: number; size: "smal
 
   return (
     <div className="flex justify-center w-fit">
-      <Button variant="ghost" size="icon" onClick={toggleFavorite}>
+      <div className="cursor-pointer group" onClick={toggleFavorite}>
         <HeartIcon
-          fill={isFavorite ? "#f008" : "none"}
-          className={size === "large" ? "size-7" : ""}
+          fill={isFavorite ? "#f008" : "background"}
+          className={`transition-[fill] duration-100 ${size === "large" ? "size-8" : ""} ${isFavorite ? "" : "group-hover:fill-[#f008]"}`}
         />
-      </Button>
+      </div>
     </div>
   );
 }

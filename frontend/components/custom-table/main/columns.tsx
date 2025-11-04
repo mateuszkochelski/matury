@@ -101,11 +101,9 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
     enableSorting: false, // TODO: add and test after data is added
   },
   {
-    id: "actions",
+    id: "favorite",
     header: "Zapisz",
     cell: ({ row }) => <FavoriteButton fieldId={row.original.id} size="small" />,
     size: 60,
-    enableHiding: false,
-    enableColumnFilter: false, // TODO
   },
 ];
