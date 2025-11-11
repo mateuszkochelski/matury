@@ -1,0 +1,38 @@
+{
+  "mathematics": ["BASIC", "EXTENDED"],
+  "polish_language": ["BASIC", "EXTENDED"],
+  "english_language": ["BASIC", "EXTENDED"],
+  "german_language": ["BASIC", "EXTENDED"],
+  "spanish_language": ["BASIC", "EXTENDED"],
+  "french_language": ["BASIC", "EXTENDED"],
+  "russian_language": ["BASIC", "EXTENDED"],
+  "italian_language": ["BASIC", "EXTENDED"],
+  "belarusian_language": ["BASIC", "EXTENDED"],
+  "lithuanian_language": ["BASIC", "EXTENDED"],
+  "ukrainian_language": ["BASIC", "EXTENDED"],
+  "german_minority_language": ["BASIC", "EXTENDED"],
+  "lemko_language": ["BASIC", "EXTENDED"],
+  "cashubian_language": ["BASIC", "EXTENDED"],
+
+  "english_bilingual": ["BILINGUAL"],
+  "german_bilingual": ["BILINGUAL"],
+  "french_bilingual": ["BILINGUAL"],
+  "spanish_bilingual": ["BILINGUAL"],
+  "italian_bilingual": ["BILINGUAL"],
+  "russian_bilingual": ["BILINGUAL"],
+
+  "biology": ["EXTENDED"],
+  "chemistry": ["EXTENDED"],
+  "geography": ["EXTENDED"],
+  "physics": ["EXTENDED"],
+  "history": ["EXTENDED"],
+  "civics": ["EXTENDED"],
+  "informatics": ["EXTENDED"],
+  "philosophy": ["EXTENDED"],
+  "history_of_art": ["EXTENDED"],
+  "history_of_music": ["EXTENDED"],
+  "latin_and_culture": ["EXTENDED"],
+
+  "art_exam": ["SPECIAL"],
+  "vocational_exam": ["SPECIAL"]
+}
