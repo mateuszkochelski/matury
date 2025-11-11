@@ -1,6 +1,6 @@
 import { getFieldData } from "@/app/utils/getFieldData";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { FavoriteButton } from "@/components/FavoriteButton";
+import { FavouriteButton } from "@/components/FavouriteButton";
 import CustomLineChart, {
   ThresholdGraphData,
 } from "@/components/custom-line-chart/CustomLineChart";
@@ -88,7 +88,7 @@ export default async function Page({
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <div className="flex items-center gap-2">
             <h1 className="text-foreground">{fieldData.name}</h1>
-            <FavoriteButton fieldId={fieldData.id} size="large" />
+            <FavouriteButton fieldId={fieldData.id} size="large" />
           </div>
 
           <div className="lg:w-80">

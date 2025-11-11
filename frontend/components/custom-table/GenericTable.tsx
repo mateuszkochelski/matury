@@ -86,6 +86,7 @@ export function GenericTable<T>({
 }: GenericTableProps<T>) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  console.log({columnFilters})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
     Object.fromEntries(hiddenColumns.map((column) => [column, false])),
   );

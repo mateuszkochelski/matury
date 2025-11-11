@@ -14,7 +14,7 @@ import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
 export type FiltersFormValues = {
   degrees?: DegreesObject;
-  favorite?: string;
+  favourite?: string;
   department_name?: string;
   "duration-max"?: string;
   "duration-min"?: string;
@@ -50,6 +50,7 @@ export function FitlersForm<T>({
 
   const handleUrlUpdate: SubmitHandler<FiltersFormValues> = useCallback(
     (updateParams: FiltersFormValues) => {
+      console.log({updateParams})
       const params = new URLSearchParams(searchParams.toString());
 
       const { degrees, ...otherParams } = updateParams;
@@ -76,6 +77,8 @@ export function FitlersForm<T>({
     [searchParams, pathname, replace],
   );
 
+  console.log("seba", table.getRowModel().rows)
+
   return (
     <form className="space-y-3" onSubmit={handleSubmit(handleUrlUpdate)}>
       <Accordion type="multiple" className="w-full max-h-80 overflow-x-scroll mb-0">
@@ -84,6 +87,7 @@ export function FitlersForm<T>({
           .filter((column) => column.getCanFilter())
           .map((column) => {
             let Input;
+            console.log({column}, column.columnDef.meta?.filterType)
             switch (column.columnDef.meta?.filterType) {
               case "string":
                 Input = (
@@ -109,7 +113,7 @@ export function FitlersForm<T>({
                   case "degree":
                     Input = <DegreeComponent control={control} />;
                     break;
-                  case "actions":
+                  case "favourite":
                     Input = <ActionsComponent control={control} />;
                     break;
                   default:
@@ -217,7 +221,7 @@ function DegreeComponent({
 function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) {
   return (
     <Controller
-      name="favorite"
+      name="favourite"
       control={control}
       render={({ field }) => (
         <RadioGroup
@@ -226,9 +230,9 @@ function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) 
           className="flex flex-col space-y-2"
         >
           <div className="flex items-center space-x-2">
-            <RadioGroupItem id="favorite-all" value="all" />
+            <RadioGroupItem id="favourite-all" value="all" />
             <label
-              htmlFor="favorite-all"
+              htmlFor="favourite-all"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               All
@@ -236,9 +240,9 @@ function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) 
           </div>
 
           <div className="flex items-center space-x-2">
-            <RadioGroupItem id="favorite-favorite" value="favorite" />
+            <RadioGroupItem id="favourite-favourite" value="favourite" />
             <label
-              htmlFor="favorite-favorite"
+              htmlFor="favourite-favourite"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               Ulubione
@@ -246,9 +250,9 @@ function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) 
           </div>
 
           <div className="flex items-center space-x-2">
-            <RadioGroupItem id="favorite-not-favorite" value="notFavorite" />
+            <RadioGroupItem id="favourite-not-favourite" value="notFavourite" />
             <label
-              htmlFor="favorite-not-favorite"
+              htmlFor="favourite-not-favourite"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               Nie polubione

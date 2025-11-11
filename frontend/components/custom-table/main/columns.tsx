@@ -1,7 +1,7 @@
 "use client";
 
 import { FieldOfStudy } from "../types";
-import { FavoriteButton } from "@/components/FavoriteButton";
+import { FavouriteButton } from "@/components/FavouriteButton";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
@@ -101,9 +101,18 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
     enableSorting: false, // TODO: add and test after data is added
   },
   {
-    id: "favorite",
+    id: "favourite",
     header: "Zapisz",
-    cell: ({ row }) => <FavoriteButton fieldId={row.original.id} size="small" />,
+    cell: ({ row }) => <FavouriteButton fieldId={row.original.id} size="small" />,
     size: 60,
+    meta: {
+      filterType: "favourite",
+    },
+    accessorFn: (row) => {
+      const stored = localStorage.getItem("favourites");
+      const favourites: number[] = stored ? JSON.parse(stored) : [];
+
+      return favourites.includes(row.id)
+    }
   },
 ];
