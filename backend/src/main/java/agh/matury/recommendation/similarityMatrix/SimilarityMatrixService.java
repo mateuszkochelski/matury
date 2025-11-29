@@ -20,7 +20,7 @@ public class SimilarityMatrixService {
 
     private final FieldOfStudyRepository fieldOfStudyRepository;
 
-    private Map<Long, Map<Long, Double>> similarityMatrix = new HashMap<>();
+    private Map<Long, Map<Long, Float>> similarityMatrix = new HashMap<>();
     //    private final LevenshteinDistance ld = LevenshteinDistance.getDefaultInstance();
     private final JaroWinklerSimilarity jw = new JaroWinklerSimilarity();
     private final Map<String, String> synonymMap = new HashMap<>();
@@ -35,10 +35,10 @@ public class SimilarityMatrixService {
         this.fieldOfStudyRepository = fieldOfStudyRepository;
     }
 
-    public Double getSimilarity(Long a, Long b) {
+    public Float getSimilarity(Long a, Long b) {
         return similarityMatrix
                 .getOrDefault(Math.min(a, b), Collections.emptyMap())
-                .getOrDefault(Math.max(a, b), 0.0);
+                .getOrDefault(Math.max(a, b),  (float) 0.0);
     }
 
     public Boolean getReadyStatus() {
@@ -54,14 +54,14 @@ public class SimilarityMatrixService {
 
         System.out.println("Similarity Matrix Progress = [0/" + all.size() + "]");
 
-        Map<Long, Map<Long, Double>> matrix = new HashMap<>();
+        Map<Long, Map<Long, Float>> matrix = new HashMap<>();
 
         for (FieldOfStudy f1 : all) {
             if(f1.getId() % 100 == 0) System.out.println("Similarity Matrix Progress = [" + f1.getId() + "/" + all.size() + "]");
-            Map<Long, Double> row = new HashMap<>();
+            Map<Long, Float> row = new HashMap<>();
             for (FieldOfStudy f2 : all) {
                 if (f1.getId() != f2.getId() && f1.getId() < f2.getId()) {
-                    double sim = getFieldsSimilarity(f1, f2);
+                    float sim = (float) getFieldsSimilarity(f1, f2);
                     row.put(f2.getId(), sim);
                 }
             }
