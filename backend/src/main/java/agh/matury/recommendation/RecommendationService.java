@@ -30,7 +30,7 @@ public class RecommendationService {
         if (fieldOfStudyIds.isEmpty() || k <= 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Fields of study ids empty or k not positive integer");
         }
-        Map<Long, Double> fieldsSimilarities = new HashMap<>();
+        Map<Long, Float> fieldsSimilarities = new HashMap<>();
         List<FieldOfStudy> allFields = fieldOfStudyRepository.findAll();
         for(Long fieldOfStudyId : fieldOfStudyIds) {
             if (fieldOfStudyRepository.findById(fieldOfStudyId).isPresent()) {
@@ -38,7 +38,7 @@ public class RecommendationService {
                     if(!fieldOfStudyIds.contains(field.getId())) {
                         fieldsSimilarities.put(
                                 field.getId(),
-                                fieldsSimilarities.getOrDefault(field.getId(), 0.0) +
+                                fieldsSimilarities.getOrDefault(field.getId(), (float) 0.0) +
                                 similarityMatrixService.getSimilarity(field.getId(), fieldOfStudyId)
                         );
                     }
@@ -55,7 +55,7 @@ public class RecommendationService {
         checkForMatrixReady();
         List<FieldOfStudy> allFields = fieldOfStudyRepository.findAll();
         if (fieldOfStudyRepository.findById(fieldOfStudyId).isPresent()) {
-            Map<Long, Double> fieldsSimilarities = new HashMap<>();
+            Map<Long, Float> fieldsSimilarities = new HashMap<>();
             for(FieldOfStudy field : allFields) {
                 if(field.getId() != fieldOfStudyId) {
                     fieldsSimilarities.put(
@@ -71,10 +71,10 @@ public class RecommendationService {
         }
     }
 
-    private List<FieldOfStudyDTO> getTopKFields(Map<Long, Double> fieldsSimilarities, int k) {
+    private List<FieldOfStudyDTO> getTopKFields(Map<Long, Float> fieldsSimilarities, int k) {
         List<Long> topIds = fieldsSimilarities.entrySet()
                 .stream()
-                .sorted(Map.Entry.<Long, Double>comparingByValue().reversed())
+                .sorted(Map.Entry.<Long, Float>comparingByValue().reversed())
                 .limit(k)
                 .map(Map.Entry::getKey)
                 .toList();
