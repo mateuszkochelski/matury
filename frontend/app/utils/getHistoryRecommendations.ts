@@ -4,6 +4,7 @@ import { BACKEND_URL } from "../constants";
 import { FieldOfStudy } from "@/components/custom-table/types";
 
 export async function getHistoryRecommendations(fieldIds: number[]) {
+  if (fieldIds.length === 0) return [];
   const res = await fetch(`${BACKEND_URL}/api/recommendation/history`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
