@@ -1,3 +1,4 @@
+import { FunctionalitySection } from "@/components/FunctionalitySection";
 import { Header } from "@/components/Header";
 import HistoryRecommedations from "@/components/recommendation/HistoryRecommendations";
 import { Button } from "@/components/ui/button";
@@ -56,49 +57,7 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {[
-              {
-                icon: <Search className="w-6 md:w-8 h-6 md:h-8 text-primary" />,
-                title: "Wyszukiwarka",
-                description:
-                  "Znajdź dokładnie te rzeczy których potrzebujesz za pomocą różnych kryteriów",
-              },
-              {
-                icon: <FileText className="w-6 md:w-8 h-6 md:h-8 text-orange-400" />,
-                title: "Dane historyczne",
-                description:
-                  "Zobacz jak w ostatnich latach wyglądała rekrutacja na dany kierunek studiów",
-              },
-              {
-                icon: <Calculator className="w-6 md:w-8 h-6 md:h-8 text-accent" />,
-                title: "Kalkulator rekrytacyjny",
-                description: "Sprawdź jaką masz szansę na udaną rekrutację na ulubionej uczelni",
-              },
-              {
-                icon: <TrendingUp className="w-6 md:w-8 h-6 md:h-8 text-green-400" />,
-                title: "Dalsza kariera",
-                description: "Sprawdź jak zarabiają absolwenci wybranych kierunków studiów",
-              },
-            ].map((feature, index) => (
-              <Card
-                key={index}
-                className="text-center border-primary/20 hover:shadow-lg transition-shadow"
-              >
-                <CardHeader>
-                  <div className="mx-auto mb-4 p-3 bg-background rounded-full w-fit">
-                    {feature.icon}
-                  </div>
-                  <CardTitle className="text-foreground text-lg">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-foreground/60">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <FunctionalitySection />
         </div>
       </section>
 
@@ -112,7 +71,7 @@ export default async function Home() {
             </p>
             <div className="flex justify-center">
               {/* TODO: Make calculator page / Calculator popup */}
-              <Link href="/">
+              <Link href="/szukaj">
                 <Button
                   size="lg"
                   className="bg-white hover:bg-white/70 w-full sm:w-auto cursor-pointer"

@@ -1,6 +1,6 @@
 import { getFieldData } from "@/app/utils/getFieldData";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import CalculatorForm from "@/components/CalculatorForm";
+import CalculatorForm from "@/components/calculator/CalculatorForm";
 import CustomLineChart, {
   ThresholdGraphData,
 } from "@/components/custom-line-chart/CustomLineChart";
