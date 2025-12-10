@@ -45,24 +45,40 @@ public class RecruitmentCalculatorService {
         for (RecruitmentFormulaConfig.TermConfig term : formulaConfig.terms()) {
             TermEvaluation evaluation = evaluateTerm(term, request.examResults());
 
-            if (evaluation.status == TermStatus.MISSING && term.failIfMissingOrDefault()) {
-                throw new RecruitmentCalculationException("Missing result for required term: " + term.description());
-            }
-
-            if (evaluation.status == TermStatus.MISSING && term.fallbackToZeroOrDefault()) {
-                breakdown.add(new TermBreakdownDTO(
-                        term.id(),
-                        term.description(),
-                        null,
-                        null,
-                        0.0,
-                        0.0,
-                        0.0
-                ));
-                continue;
-            }
-
             if (evaluation.status == TermStatus.MISSING) {
+                Double defaultPoints = term.defaultPoints();
+                if (defaultPoints != null) {
+                    TermEvaluation fallbackEvaluation = TermEvaluation.defaulted(term.id(), defaultPoints);
+                    total += fallbackEvaluation.points();
+                    breakdown.add(new TermBreakdownDTO(
+                            term.id(),
+                            term.description(),
+                            fallbackEvaluation.subjectCode(),
+                            fallbackEvaluation.level(),
+                            fallbackEvaluation.rawScore(),
+                            fallbackEvaluation.coefficient(),
+                            fallbackEvaluation.points()
+                    ));
+                    continue;
+                }
+
+                if (term.failIfMissingOrDefault()) {
+                    throw new RecruitmentCalculationException("Missing result for required term: " + term.description());
+                }
+
+                if (term.fallbackToZeroOrDefault()) {
+                    breakdown.add(new TermBreakdownDTO(
+                            term.id(),
+                            term.description(),
+                            null,
+                            null,
+                            0.0,
+                            0.0,
+                            0.0
+                    ));
+                    continue;
+                }
+
                 // Missing result without fallback and not required -> treat as zero but highlight.
                 breakdown.add(new TermBreakdownDTO(
                         term.id(),
@@ -157,7 +173,11 @@ public class RecruitmentCalculatorService {
             case "SPECIFIC_SUBJECT" -> evaluateSpecificSubject(term, examResults);
             case "BEST_OF_GROUPS" -> evaluateBestOfGroups(term, examResults);
             case "LANGUAGE_GROUP" -> evaluateLanguageGroup(term, examResults);
+            case "LANGUAGE_MULTI_LEVEL" -> evaluateLanguageMultiLevel(term, examResults);
             case "POZNAN_COMPOSITE_X" -> evaluatePoznanCompositeX(term, examResults);
+            case "SUM_OF_GROUPS" -> evaluateSumOfGroups(term, examResults);
+            case "WEIGHTED_SUBJECT" -> evaluateWeightedSubject(term, examResults);
+            case "LUBLIN_SUBJECT" -> evaluateLublinSubject(term, examResults);
             default -> throw new RecruitmentCalculationException("Unsupported term type: " + term.type());
         };
     }
@@ -199,6 +219,10 @@ public class RecruitmentCalculatorService {
         double bestPoints = Double.NEGATIVE_INFINITY;
         TermEvaluation bestEvaluation = null;
 
+        boolean basicLevelRequested = "BASIC".equalsIgnoreCase(requiredLevel);
+        boolean exactLevelAvailable = subjectResults.stream()
+                .anyMatch(result -> requiredLevel.equals(result.normalizedLevel()));
+
         for (ExamResultDTO result : subjectResults) {
             if (result.score() == null) {
                 continue;
@@ -213,7 +237,8 @@ public class RecruitmentCalculatorService {
                 rawScore = result.score();
                 coefficient = term.coefficientOrDefault(normalizedLevel);
                 levelLabel = normalizedLevel;
-            } else if ("BASIC".equals(requiredLevel)
+            } else if (basicLevelRequested
+                    && !exactLevelAvailable
                     && term.allowExtendedToBasicConversionOrDefault()
                     && "EXTENDED".equals(normalizedLevel)) {
                 rawScore = convertExtendedToBasic(result.score());
@@ -306,7 +331,13 @@ public class RecruitmentCalculatorService {
                 continue;
             }
 
-            double coefficient = term.coefficientOrDefault("BASIC");
+            String coefficientLevel = bestBasic.level();
+            double coefficient;
+            try {
+                coefficient = term.coefficientOrDefault(coefficientLevel);
+            } catch (IllegalStateException ex) {
+                coefficient = term.coefficientOrDefault("BASIC");
+            }
             double points = bestBasic.score() * coefficient;
 
             if (points > bestPoints) {
@@ -314,8 +345,110 @@ public class RecruitmentCalculatorService {
                 bestEvaluation = TermEvaluation.evaluated(
                         term.id(),
                         subjectCode,
-                        bestBasic.level(),
+                        coefficientLevel,
                         bestBasic.score(),
+                        coefficient
+                );
+            }
+        }
+
+        return bestEvaluation != null ? bestEvaluation : TermEvaluation.missing(term.id());
+    }
+
+    private TermEvaluation evaluateLublinSubject(RecruitmentFormulaConfig.TermConfig term, List<ExamResultDTO> examResults) {
+        Set<String> allowedSubjects = new HashSet<>();
+        allowedSubjects.addAll(collectSubjectCodes(term.allowedGroupIds()));
+        if (!isBlank(term.subjectCode())) {
+            allowedSubjects.add(term.subjectCode().trim().toLowerCase(Locale.ROOT));
+        }
+
+        if (allowedSubjects.isEmpty()) {
+            throw new RecruitmentCalculationException("LUBLIN_SUBJECT term requires subject code or subject group");
+        }
+
+        double bestPoints = Double.NEGATIVE_INFINITY;
+        TermEvaluation bestEvaluation = null;
+
+        for (String subjectCode : allowedSubjects) {
+            List<ExamResultDTO> subjectResults = examResults.stream()
+                    .filter(result -> subjectCode.equals(result.normalizedSubjectCode()))
+                    .toList();
+
+            double rawScore = calculateLublinSubjectScore(subjectResults);
+            if (rawScore <= 0.0) {
+                continue;
+            }
+
+            double coefficient = term.coefficientOrDefault("BASIC");
+            double points = rawScore * coefficient;
+
+            if (points > bestPoints) {
+                bestPoints = points;
+                bestEvaluation = TermEvaluation.evaluated(
+                        term.id(),
+                        subjectCode,
+                        "LUBLIN_AGGREGATED",
+                        rawScore,
+                        coefficient
+                );
+            }
+        }
+
+        return bestEvaluation != null ? bestEvaluation : TermEvaluation.missing(term.id());
+    }
+
+    private TermEvaluation evaluateLanguageMultiLevel(RecruitmentFormulaConfig.TermConfig term, List<ExamResultDTO> examResults) {
+        Set<String> allowedSubjects = collectSubjectCodes(term.allowedGroupIds());
+        if (allowedSubjects.isEmpty()) {
+            throw new RecruitmentCalculationException("LANGUAGE_MULTI_LEVEL term requires allowed subject groups");
+        }
+
+        double bestPoints = Double.NEGATIVE_INFINITY;
+        TermEvaluation bestEvaluation = null;
+        double bilingualMultiplier = term.bilingualMultiplierOrDefault();
+
+        for (String subjectCode : allowedSubjects) {
+            List<ExamResultDTO> subjectResults = examResults.stream()
+                    .filter(result -> subjectCode.equals(result.normalizedSubjectCode()))
+                    .toList();
+
+            if (subjectResults.isEmpty()) {
+                continue;
+            }
+
+            double basicScore = subjectResults.stream()
+                    .filter(result -> "BASIC".equals(result.normalizedLevel()))
+                    .mapToDouble(ExamResultDTO::score)
+                    .max()
+                    .orElse(0.0);
+
+            double extendedScore = subjectResults.stream()
+                    .filter(result -> "EXTENDED".equals(result.normalizedLevel()))
+                    .mapToDouble(ExamResultDTO::score)
+                    .max()
+                    .orElse(0.0);
+
+            double bilingualScore = subjectResults.stream()
+                    .filter(result -> "BILINGUAL".equals(result.normalizedLevel()))
+                    .mapToDouble(ExamResultDTO::score)
+                    .max()
+                    .orElse(0.0);
+
+            double rawScore = basicScore + extendedScore + bilingualMultiplier * bilingualScore;
+            if (rawScore == 0.0) {
+                continue;
+            }
+
+            double coefficient = term.coefficientOrDefault("BASIC");
+            double points = rawScore * coefficient;
+
+            if (points > bestPoints) {
+                bestPoints = points;
+                bestEvaluation = TermEvaluation.evaluated(
+                        term.id(),
+                        subjectCode,
+                        "AGGREGATED",
+                        rawScore,
                         coefficient
                 );
             }
@@ -398,6 +531,161 @@ public class RecruitmentCalculatorService {
                 coefficient
         );
     }
+
+    private TermEvaluation evaluateWeightedSubject(RecruitmentFormulaConfig.TermConfig term, List<ExamResultDTO> examResults) {
+        Map<String, Double> subjectWeights = term.subjectWeights();
+        if (subjectWeights.isEmpty()) {
+            throw new RecruitmentCalculationException("WEIGHTED_SUBJECT term requires subjectWeights");
+        }
+
+        String defaultRequiredLevel = term.requiredLevel() == null
+                ? null
+                : term.requiredLevel().trim().toUpperCase(Locale.ROOT);
+
+        double bestPoints = Double.NEGATIVE_INFINITY;
+        TermEvaluation bestEvaluation = null;
+
+        for (Map.Entry<String, Double> entry : subjectWeights.entrySet()) {
+            String subject = entry.getKey();
+            double coefficient = entry.getValue();
+            if (subject == null) {
+                continue;
+            }
+
+            String normalizedSubject;
+            String entryLevel = null;
+            String rawSubject = subject.trim();
+            int separatorIdx = rawSubject.indexOf('|');
+            if (separatorIdx >= 0) {
+                normalizedSubject = rawSubject.substring(0, separatorIdx).trim().toLowerCase(Locale.ROOT);
+                entryLevel = rawSubject.substring(separatorIdx + 1).trim();
+            } else {
+                normalizedSubject = rawSubject.toLowerCase(Locale.ROOT);
+            }
+
+            String normalizedEntryLevel = entryLevel == null || entryLevel.isEmpty()
+                    ? null
+                    : entryLevel.toUpperCase(Locale.ROOT);
+
+            for (ExamResultDTO result : examResults) {
+                if (result.score() == null) {
+                    continue;
+                }
+                if (!normalizedSubject.equals(result.normalizedSubjectCode())) {
+                    continue;
+                }
+
+                String effectiveRequiredLevel = normalizedEntryLevel != null
+                        ? normalizedEntryLevel
+                        : defaultRequiredLevel;
+
+                if (effectiveRequiredLevel != null && !effectiveRequiredLevel.equals(result.normalizedLevel())) {
+                    continue;
+                }
+
+                double rawScore = result.score();
+                double points = rawScore * coefficient;
+                if (points > bestPoints) {
+                    bestPoints = points;
+                    bestEvaluation = TermEvaluation.evaluated(
+                            term.id(),
+                            result.normalizedSubjectCode(),
+                            result.normalizedLevel(),
+                            rawScore,
+                            coefficient
+                    );
+                }
+            }
+        }
+
+        return bestEvaluation != null ? bestEvaluation : TermEvaluation.missing(term.id());
+    }
+
+    private TermEvaluation evaluateSumOfGroups(RecruitmentFormulaConfig.TermConfig term, List<ExamResultDTO> examResults) {
+        if (CollectionUtils.isEmpty(term.allowedGroupIds())) {
+            throw new RecruitmentCalculationException("SUM_OF_GROUPS term requires allowedGroupIds");
+        }
+
+        Set<String> allowedSubjects = collectSubjectCodes(term.allowedGroupIds());
+        String requiredLevel = term.requiredLevel() == null ? null : term.requiredLevel().trim().toUpperCase(Locale.ROOT);
+        int selections = term.maxSubjectsOrDefault();
+
+        List<ExamResultDTO> matching = examResults.stream()
+                .filter(result -> result.score() != null)
+                .filter(result -> {
+                    String subject = result.normalizedSubjectCode();
+                    if (subject == null || !allowedSubjects.contains(subject)) {
+                        return false;
+                    }
+                    if (requiredLevel == null) {
+                        return true;
+                    }
+                    return requiredLevel.equals(result.normalizedLevel());
+                })
+                .sorted(Comparator.comparingDouble((ExamResultDTO result) -> Optional.ofNullable(result.score()).orElse(0.0)).reversed())
+                .toList();
+
+        if (matching.isEmpty()) {
+            return TermEvaluation.missing(term.id());
+        }
+
+        List<ExamResultDTO> selected = matching.subList(0, Math.min(selections, matching.size()));
+        double rawSum = selected.stream()
+                .mapToDouble(ExamResultDTO::score)
+                .sum();
+        String subjectLabel = selected.stream()
+                .map(ExamResultDTO::normalizedSubjectCode)
+                .collect(Collectors.joining("+"));
+
+        double coefficient = term.coefficientOrDefault(requiredLevel);
+        String levelLabel = requiredLevel == null ? "AGGREGATED" : requiredLevel + "_AGGREGATED";
+
+        return TermEvaluation.evaluated(
+                term.id(),
+                subjectLabel,
+                levelLabel,
+                rawSum,
+                coefficient
+        );
+    }
+
+    private double calculateLublinSubjectScore(List<ExamResultDTO> results) {
+        if (results.isEmpty()) {
+            return 0.0;
+        }
+
+        double basicScore = results.stream()
+                .filter(result -> "BASIC".equals(result.normalizedLevel()))
+                .filter(result -> result.score() != null)
+                .mapToDouble(ExamResultDTO::score)
+                .max()
+                .orElse(Double.NEGATIVE_INFINITY);
+
+        double extendedScore = results.stream()
+                .filter(result -> {
+                    String level = result.normalizedLevel();
+                    return "EXTENDED".equals(level) || "BILINGUAL".equals(level);
+                })
+                .filter(result -> result.score() != null)
+                .mapToDouble(ExamResultDTO::score)
+                .max()
+                .orElse(Double.NEGATIVE_INFINITY);
+
+        boolean hasBasic = basicScore != Double.NEGATIVE_INFINITY;
+        boolean hasExtended = extendedScore != Double.NEGATIVE_INFINITY;
+
+        if (hasBasic && hasExtended) {
+            return basicScore + extendedScore;
+        }
+        if (hasBasic) {
+            return basicScore;
+        }
+        if (hasExtended) {
+            return extendedScore + convertLublinExtendedBonus(extendedScore);
+        }
+        return 0.0;
+    }
+
 
     private TermEvaluation toEvaluation(RecruitmentFormulaConfig.TermConfig term, ExamResultDTO result) {
         String level = result.normalizedLevel();
@@ -493,6 +781,13 @@ public class RecruitmentCalculatorService {
         return 100.0;
     }
 
+    private double convertLublinExtendedBonus(double extendedScore) {
+        if (extendedScore < 30.0) {
+            return extendedScore;
+        }
+        return (6 * extendedScore + 100.0) / 7.0;
+    }
+
     private enum TermStatus {
         EVALUATED,
         MISSING
@@ -522,6 +817,18 @@ public class RecruitmentCalculatorService {
                     rawScore,
                     coefficient,
                     rawScore * coefficient
+            );
+        }
+
+        static TermEvaluation defaulted(String termId, double points) {
+            return new TermEvaluation(
+                    TermStatus.EVALUATED,
+                    termId,
+                    null,
+                    "DEFAULT",
+                    points,
+                    1.0,
+                    points
             );
         }
 
