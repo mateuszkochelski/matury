@@ -8,14 +8,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Search, X } from "lucide-react";
 
+type AddExamHandler = (exam: SubjectAndLevel, level: string, score: number) => void;
+
 type ExamSelectionModalProps = {
-  handleAddExam: (exam: SubjectAndLevel, level: string, score: number) => void;
+  onAddExam: AddExamHandler;
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function ExamSelectionModal({
-  handleAddExam,
+  onAddExam,
   showModal,
   setShowModal,
 }: ExamSelectionModalProps) {
@@ -39,6 +41,14 @@ export default function ExamSelectionModal({
   useEffect(() => {
     if (selectedExam?.levels.length === 1) setSelectedLevel(selectedExam.levels[0]);
   }, [selectedExam]);
+
+  const handleAddExam: AddExamHandler = (selectedExam, selectedLevel, score) => {
+    onAddExam(selectedExam, selectedLevel, score);
+
+    setSelectedExam(null);
+    setSelectedLevel("");
+    setSearchQuery("");
+  };
 
   return (
     showModal && (
@@ -149,10 +159,6 @@ export default function ExamSelectionModal({
                       if (e.key === "Enter" && selectedLevel) {
                         const score = Number.parseInt((e.target as HTMLInputElement).value) || 0;
                         handleAddExam(selectedExam, selectedLevel, score);
-
-                        setSelectedExam(null);
-                        setSelectedLevel("");
-                        setSearchQuery("");
                       }
                     }}
                     onChange={() => {}}
@@ -168,10 +174,6 @@ export default function ExamSelectionModal({
                     const score = Number.parseInt(input.value || "0");
                     if (selectedLevel) {
                       handleAddExam(selectedExam, selectedLevel, score);
-
-                        setSelectedExam(null);
-                        setSelectedLevel("");
-                        setSearchQuery("");
                     }
                   }}
                   disabled={!selectedLevel}

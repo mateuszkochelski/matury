@@ -29,7 +29,7 @@ export default function CalculatorForm() {
       level,
       score,
     };
-    setExamScores([...examScores, newScore]);
+    setExamScores((curr) => [...curr, newScore]);
     setShowModal(false);
   };
 
@@ -96,7 +96,7 @@ export default function CalculatorForm() {
 
       {/* Modal for exam selection */}
       <ExamSelectionModal
-        handleAddExam={handleAddExam}
+        onAddExam={handleAddExam}
         showModal={showModal}
         setShowModal={setShowModal}
       />
