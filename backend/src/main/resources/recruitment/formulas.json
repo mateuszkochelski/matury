@@ -30,7 +30,10 @@
     { "code": "latin_and_culture", "label": "Lacinski i kultura antyczna" },
     { "code": "lemko_language", "label": "Jezyk lemkowski" },
     { "code": "cashubian_language", "label": "Jezyk kaszubski" },
-    { "code": "german_minority_language", "label": "Jezyk niemiecki (mniejszosci narodowej)" },
+    {
+      "code": "german_minority_language",
+      "label": "Jezyk niemiecki (mniejszosci narodowej)"
+    },
     { "code": "art_exam", "label": "Egzamin z uzdolnien artystycznych" },
     { "code": "vocational_exam", "label": "Egzamin zawodowy" }
   ],
@@ -71,13 +74,8 @@
         "cashubian_language",
         "german_minority_language"
       ],
-      "allowedLevels": [
-        "BASIC",
-        "EXTENDED",
-        "BILINGUAL"
-      ]
-    }
-    ,
+      "allowedLevels": ["BASIC", "EXTENDED", "BILINGUAL"]
+    },
     {
       "id": "pp-languages",
       "label": "Politechnika Poznanska - jezyki obce",
@@ -98,25 +96,13 @@
         "lithuanian_language",
         "ukrainian_language"
       ],
-      "allowedLevels": [
-        "BASIC",
-        "EXTENDED",
-        "BILINGUAL"
-      ]
+      "allowedLevels": ["BASIC", "EXTENDED", "BILINGUAL"]
     },
     {
       "id": "pp-x",
       "label": "Politechnika Poznanska - przedmioty X",
-      "subjectCodes": [
-        "biology",
-        "chemistry",
-        "physics",
-        "informatics"
-      ],
-      "allowedLevels": [
-        "BASIC",
-        "EXTENDED"
-      ]
+      "subjectCodes": ["biology", "chemistry", "physics", "informatics"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
     },
     {
       "id": "pp-xg",
@@ -128,30 +114,213 @@
         "informatics",
         "geography"
       ],
-      "allowedLevels": [
-        "BASIC",
-        "EXTENDED"
-      ]
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pb-languages-basic",
+      "label": "Politechnika Bialostocka - jezyki (poziom podstawowy)",
+      "subjectCodes": [
+        "english_language",
+        "german_language",
+        "french_language",
+        "spanish_language",
+        "italian_language",
+        "russian_language",
+        "belarusian_language",
+        "lithuanian_language",
+        "ukrainian_language"
+      ],
+      "allowedLevels": ["BASIC"]
+    },
+    {
+      "id": "pb-languages-extended",
+      "label": "Politechnika Bialostocka - jezyki (poziom rozszerzony)",
+      "subjectCodes": [
+        "english_language",
+        "german_language",
+        "french_language",
+        "spanish_language",
+        "italian_language",
+        "russian_language",
+        "belarusian_language",
+        "lithuanian_language",
+        "ukrainian_language"
+      ],
+      "allowedLevels": ["EXTENDED"]
+    },
+    {
+      "id": "pbs-languages",
+      "label": "Politechnika Bydgoska - jezyki obce",
+      "subjectCodes": [
+        "english_language",
+        "german_language",
+        "french_language",
+        "spanish_language",
+        "italian_language",
+        "russian_language",
+        "belarusian_language",
+        "lithuanian_language",
+        "ukrainian_language",
+        "english_bilingual",
+        "german_bilingual",
+        "french_bilingual",
+        "spanish_bilingual",
+        "italian_bilingual",
+        "russian_bilingual"
+      ],
+      "allowedLevels": ["BASIC", "EXTENDED", "BILINGUAL"]
+    },
+    {
+      "id": "pcz-math",
+      "label": "Politechnika Czestochowska - matematyka",
+      "subjectCodes": ["mathematics"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pcz-additional-tech",
+      "label": "Politechnika Czestochowska - przedmioty dodatkowe (techniczne)",
+      "subjectCodes": ["physics", "informatics", "chemistry"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pcz-additional-arch",
+      "label": "Politechnika Czestochowska - przedmioty dodatkowe (architektura krajobrazu)",
+      "subjectCodes": [
+        "physics",
+        "biology",
+        "chemistry",
+        "geography",
+        "history_of_art",
+        "informatics",
+        "civics",
+        "history"
+      ],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pcz-additional-bio",
+      "label": "Politechnika Czestochowska - przedmioty dodatkowe (bio/energia)",
+      "subjectCodes": [
+        "physics",
+        "biology",
+        "chemistry",
+        "informatics",
+        "geography"
+      ],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pcz-additional-human",
+      "label": "Politechnika Czestochowska - przedmioty dodatkowe (biznes)",
+      "subjectCodes": ["geography", "history", "civics"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-a",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa A)",
+      "subjectCodes": [
+        "mathematics",
+        "physics",
+        "chemistry",
+        "informatics",
+        "biology"
+      ],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-b",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa B)",
+      "subjectCodes": ["mathematics", "physics", "chemistry", "informatics"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-c",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa C)",
+      "subjectCodes": ["mathematics", "physics", "informatics"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-d",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa D)",
+      "subjectCodes": ["mathematics", "physics"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-e",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa E)",
+      "subjectCodes": [
+        "mathematics",
+        "physics",
+        "chemistry",
+        "informatics",
+        "biology",
+        "geography"
+      ],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-f",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa F)",
+      "subjectCodes": [
+        "mathematics",
+        "physics",
+        "chemistry",
+        "informatics",
+        "geography",
+        "civics"
+      ],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-h",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa H)",
+      "subjectCodes": [
+        "mathematics",
+        "physics",
+        "chemistry",
+        "informatics",
+        "geography"
+      ],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pollub-additional-i",
+      "label": "Politechnika Lubelska - przedmioty dodatkowe (grupa I)",
+      "subjectCodes": ["mathematics", "geography", "informatics", "civics"],
+      "allowedLevels": ["BASIC", "EXTENDED"]
+    },
+    {
+      "id": "pb-additional",
+      "label": "Politechnika Bialostocka - przedmiot dodatkowy",
+      "subjectCodes": [
+        "physics",
+        "geography",
+        "history",
+        "history_of_art",
+        "chemistry",
+        "biology",
+        "informatics",
+        "civics"
+      ],
+      "allowedLevels": ["EXTENDED"]
+    },
+    {
+      "id": "pb-technical-additional",
+      "label": "Politechnika Bialostocka - przedmiot dodatkowy (techniczne)",
+      "subjectCodes": ["physics", "chemistry", "biology", "informatics"],
+      "allowedLevels": ["EXTENDED"]
     }
   ],
   "universities": [
     {
       "id": "politechnika-slaska",
       "name": "Politechnika Slaska",
-      "aliases": [
-        "polsl",
-        "politechnika slaska",
-        "35"
-      ],
+      "aliases": ["polsl", "politechnika slaska", "35"],
       "fieldsOfStudy": [
         {
           "id": "default",
           "name": "Pozostale kierunki ksztalcenia",
-          "aliases": [
-            "pozostale",
-            "default",
-            "1983"
-          ],
+          "aliases": ["pozostale", "default", "1983"],
           "formula": {
             "type": "LINEAR_SUM",
             "terms": [
@@ -162,15 +331,13 @@
                 "subjectCode": "mathematics",
                 "requiredLevel": "BASIC",
                 "coefficient": 0.5,
-                "failIfMissing": true
+                "fallbackToZero": true
               },
               {
                 "id": "best-additional",
                 "description": "Najlepszy wynik z przedmiotu dodatkowego lub egzaminu zawodowego",
                 "type": "BEST_OF_GROUPS",
-                "allowedGroupIds": [
-                  "polsl-pozostale-additional"
-                ],
+                "allowedGroupIds": ["polsl-pozostale-additional"],
                 "allowVocationalTechnician": true,
                 "coefficientByLevel": {
                   "BASIC": 0.5,
@@ -188,12 +355,7 @@
     {
       "id": "politechnika-poznanska",
       "name": "Politechnika Poznanska",
-      "aliases": [
-        "pp",
-        "politechnika poznanska",
-        "33",
-        "put"
-      ],
+      "aliases": ["pp", "politechnika poznanska", "33", "put"],
       "fieldsOfStudy": [
         {
           "id": "engineering-x",
@@ -211,22 +373,22 @@
             "3001",
             "3022",
             "3023",
-        "3024",
-        "automatyka i robotyka",
-        "automatic control and robotics",
-        "elektromobilnosc",
-        "elektrotechnika",
-        "energetyka",
-        "inzynieria biomedyczna",
-        "biomedical engineering",
-        "inzynieria farmaceutyczna",
-        "inzynieria srodowiska",
-        "matematyka nowoczesnych technologii",
-        "matematyka w technice",
-        "mechanika i budowa maszyn",
-        "mechatronika",
-        "zarzadzanie i inzynieria produkcji"
-      ],
+            "3024",
+            "automatyka i robotyka",
+            "automatic control and robotics",
+            "elektromobilnosc",
+            "elektrotechnika",
+            "energetyka",
+            "inzynieria biomedyczna",
+            "biomedical engineering",
+            "inzynieria farmaceutyczna",
+            "inzynieria srodowiska",
+            "matematyka nowoczesnych technologii",
+            "matematyka w technice",
+            "mechanika i budowa maszyn",
+            "mechatronika",
+            "zarzadzanie i inzynieria produkcji"
+          ],
           "formula": {
             "type": "LINEAR_SUM",
             "terms": [
@@ -238,15 +400,13 @@
                 "requiredLevel": "BASIC",
                 "coefficient": 0.5,
                 "allowExtendedToBasicConversion": true,
-                "failIfMissing": true
+                "fallbackToZero": true
               },
               {
                 "id": "pp-jo",
                 "description": "Jezyk obcy nowozytny - najlepszy wynik",
                 "type": "LANGUAGE_GROUP",
-                "allowedGroupIds": [
-                  "pp-languages"
-                ],
+                "allowedGroupIds": ["pp-languages"],
                 "coefficient": 0.5,
                 "allowExtendedToBasicConversion": true,
                 "normalizeBilingualScores": true,
@@ -260,7 +420,7 @@
                 "requiredLevel": "BASIC",
                 "coefficient": 2.5,
                 "allowExtendedToBasicConversion": true,
-                "failIfMissing": true
+                "fallbackToZero": true
               },
               {
                 "id": "pp-math-extended",
@@ -275,15 +435,11 @@
                 "id": "pp-x-composite",
                 "description": "Najlepszy wynik X (przedmiot lub egzamin zawodowy)",
                 "type": "POZNAN_COMPOSITE_X",
-                "allowedGroupIds": [
-                  "pp-x"
-                ],
+                "allowedGroupIds": ["pp-x"],
                 "coefficient": 2.0,
                 "allowExtendedToBasicConversion": true,
                 "includeVocationalResults": true,
-                "vocationalSubjectCodes": [
-                  "vocational_exam"
-                ],
+                "vocationalSubjectCodes": ["vocational_exam"],
                 "vocationalMultiplier": 2.0,
                 "fallbackToZero": true
               }
@@ -291,66 +447,66 @@
           }
         },
         {
-      "id": "science-xg",
-      "name": "Kierunki z przedmiotem XG (z geografia)",
-      "aliases": [
-        "3002",
-        "3016",
-        "3017",
-        "3003",
-        "3098",
-        "3004",
-        "3005",
-        "3006",
-        "3007",
-        "3008",
-        "3009",
-        "3010",
-        "3012",
-        "3100",
-        "3013",
-        "3027",
-        "3028",
-        "3099",
-        "3029",
-        "2379",
-        "3018",
-        "3019",
-        "3020",
-        "1436",
-        "1438",
-        "1440",
-        "bioinformatyka",
-        "budownictwo",
-        "budownictwo zrownowazone",
-        "cyberbezpieczenstwo",
-        "data science w biznesie",
-        "edukacja techniczno-informatyczna",
-        "elektronika i telekomunikacja",
-        "electronics and telecommunications",
-        "fizyka techniczna",
-        "informatyka",
-        "inzynieria bezpieczenstwa",
-        "inzynieria chemiczna i procesowa",
-        "inzynieria materialowa",
-        "inzynieria zarzadzania",
-        "engineering management",
-        "logistyka",
-        "lotnictwo",
-        "inzynieria lotnicza",
-        "lotnictwo i kosmonautyka",
-        "mechanika i budowa pojazdow",
-        "mikroelektronika i komunikacja cyfrowa",
-        "sztuczna inteligencja",
-        "artificial intelligence",
-        "technologia chemiczna",
-        "chemical technology",
-        "technologie obiegu zamknietego",
-        "technologie ochrony srodowiska",
-        "teleinformatyka",
-        "transport",
-        "inzynieria bezpieczenstwa i jakosci"
-      ],
+          "id": "science-xg",
+          "name": "Kierunki z przedmiotem XG (z geografia)",
+          "aliases": [
+            "3002",
+            "3016",
+            "3017",
+            "3003",
+            "3098",
+            "3004",
+            "3005",
+            "3006",
+            "3007",
+            "3008",
+            "3009",
+            "3010",
+            "3012",
+            "3100",
+            "3013",
+            "3027",
+            "3028",
+            "3099",
+            "3029",
+            "2379",
+            "3018",
+            "3019",
+            "3020",
+            "1436",
+            "1438",
+            "1440",
+            "bioinformatyka",
+            "budownictwo",
+            "budownictwo zrownowazone",
+            "cyberbezpieczenstwo",
+            "data science w biznesie",
+            "edukacja techniczno-informatyczna",
+            "elektronika i telekomunikacja",
+            "electronics and telecommunications",
+            "fizyka techniczna",
+            "informatyka",
+            "inzynieria bezpieczenstwa",
+            "inzynieria chemiczna i procesowa",
+            "inzynieria materialowa",
+            "inzynieria zarzadzania",
+            "engineering management",
+            "logistyka",
+            "lotnictwo",
+            "inzynieria lotnicza",
+            "lotnictwo i kosmonautyka",
+            "mechanika i budowa pojazdow",
+            "mikroelektronika i komunikacja cyfrowa",
+            "sztuczna inteligencja",
+            "artificial intelligence",
+            "technologia chemiczna",
+            "chemical technology",
+            "technologie obiegu zamknietego",
+            "technologie ochrony srodowiska",
+            "teleinformatyka",
+            "transport",
+            "inzynieria bezpieczenstwa i jakosci"
+          ],
           "formula": {
             "type": "LINEAR_SUM",
             "terms": [
@@ -362,15 +518,13 @@
                 "requiredLevel": "BASIC",
                 "coefficient": 0.5,
                 "allowExtendedToBasicConversion": true,
-                "failIfMissing": true
+                "fallbackToZero": true
               },
               {
                 "id": "pp2-jo",
                 "description": "Jezyk obcy nowozytny - najlepszy wynik",
                 "type": "LANGUAGE_GROUP",
-                "allowedGroupIds": [
-                  "pp-languages"
-                ],
+                "allowedGroupIds": ["pp-languages"],
                 "coefficient": 0.5,
                 "allowExtendedToBasicConversion": true,
                 "normalizeBilingualScores": true,
@@ -384,7 +538,7 @@
                 "requiredLevel": "BASIC",
                 "coefficient": 2.5,
                 "allowExtendedToBasicConversion": true,
-                "failIfMissing": true
+                "fallbackToZero": true
               },
               {
                 "id": "pp2-math-extended",
@@ -399,15 +553,11 @@
                 "id": "pp2-x-composite",
                 "description": "Najlepszy wynik XG (przedmiot lub egzamin zawodowy)",
                 "type": "POZNAN_COMPOSITE_X",
-                "allowedGroupIds": [
-                  "pp-xg"
-                ],
+                "allowedGroupIds": ["pp-xg"],
                 "coefficient": 2.0,
                 "allowExtendedToBasicConversion": true,
                 "includeVocationalResults": true,
-                "vocationalSubjectCodes": [
-                  "vocational_exam"
-                ],
+                "vocationalSubjectCodes": ["vocational_exam"],
                 "vocationalMultiplier": 2.0,
                 "fallbackToZero": true
               }
@@ -437,15 +587,13 @@
                 "requiredLevel": "BASIC",
                 "coefficient": 1.0,
                 "allowExtendedToBasicConversion": true,
-                "failIfMissing": true
+                "fallbackToZero": true
               },
               {
                 "id": "pp-arch-jo",
                 "description": "Jezyk obcy nowozytny - najlepszy wynik",
                 "type": "LANGUAGE_GROUP",
-                "allowedGroupIds": [
-                  "pp-languages"
-                ],
+                "allowedGroupIds": ["pp-languages"],
                 "coefficient": 1.0,
                 "allowExtendedToBasicConversion": true,
                 "normalizeBilingualScores": true,
@@ -459,7 +607,7 @@
                 "requiredLevel": "BASIC",
                 "coefficient": 1.5,
                 "allowExtendedToBasicConversion": true,
-                "failIfMissing": true
+                "fallbackToZero": true
               },
               {
                 "id": "pp-arch-math-extended",
@@ -476,7 +624,2221 @@
                 "type": "SPECIFIC_SUBJECT",
                 "subjectCode": "art_exam",
                 "coefficient": 1.0,
-                "failIfMissing": true
+                "fallbackToZero": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "politechnika-bialostocka",
+      "name": "Politechnika Bialostocka",
+      "aliases": ["politechnika bialostocka", "pb", "bialystok"],
+      "fieldsOfStudy": [
+        {
+          "id": "drawing-required",
+          "name": "Kierunki z egzaminem z rysunku",
+          "aliases": [
+            "architektura",
+            "architektura krajobrazu",
+            "architektura wnetrz",
+            "grafika"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pb-dr-math-basic",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-dr-math-extended",
+                "description": "Matematyka (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.25,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-dr-lang-basic",
+                "description": "Jezyk obcy (poziom podstawowy)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-basic"],
+                "coefficientByLevel": {
+                  "BASIC": 0.25
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-dr-lang-extended",
+                "description": "Jezyk obcy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-extended"],
+                "coefficientByLevel": {
+                  "EXTENDED": 0.75
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-dr-additional",
+                "description": "Przedmiot dodatkowy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-additional"],
+                "coefficientByLevel": {
+                  "EXTENDED": 1.75
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-dr-art",
+                "description": "Egzamin z rysunku",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "art_exam",
+                "coefficient": 4.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "wr-technical",
+          "name": "Kierunki techniczne z waga przedmiotu dodatkowego",
+          "aliases": [
+            "automatyka i robotyka",
+            "inzynieria biomedyczna",
+            "mechanika i budowa maszyn",
+            "mechatronika"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pb-wr-math-basic",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-wr-math-extended",
+                "description": "Matematyka (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.25,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-wr-lang-basic",
+                "description": "Jezyk obcy (poziom podstawowy)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-basic"],
+                "coefficientByLevel": {
+                  "BASIC": 0.25
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-wr-lang-extended",
+                "description": "Jezyk obcy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-extended"],
+                "coefficientByLevel": {
+                  "EXTENDED": 0.75
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-wr-additional",
+                "description": "Przedmiot dodatkowy z waga",
+                "type": "WEIGHTED_SUBJECT",
+                "requiredLevel": "EXTENDED",
+                "subjectWeights": {
+                  "physics": 1.75,
+                  "chemistry": 1.5,
+                  "informatics": 1.5,
+                  "biology": 1.25
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "math-applied",
+          "name": "Matematyka stosowana",
+          "aliases": ["matematyka stosowana"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pb-math-mp",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-math-mr",
+                "description": "Matematyka (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 2.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-math-lang-basic",
+                "description": "Jezyk obcy (poziom podstawowy)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-basic"],
+                "coefficientByLevel": {
+                  "BASIC": 0.25
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-math-lang-extended",
+                "description": "Jezyk obcy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-extended"],
+                "coefficientByLevel": {
+                  "EXTENDED": 0.75
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-math-additional",
+                "description": "Przedmiot dodatkowy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-additional"],
+                "coefficientByLevel": {
+                  "EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "biotechnology",
+          "name": "Biotechnologia",
+          "aliases": ["biotechnologia", "biotechnology", "2489"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pb-bio-math-basic",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-bio-math-extended",
+                "description": "Matematyka (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.25,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-bio-lang-basic",
+                "description": "Jezyk obcy (poziom podstawowy)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-basic"],
+                "coefficientByLevel": {
+                  "BASIC": 0.25
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-bio-lang-extended",
+                "description": "Jezyk obcy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-extended"],
+                "coefficientByLevel": {
+                  "EXTENDED": 0.75
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-bio-additional",
+                "description": "Dwa najlepsze przedmioty dodatkowe (poziom rozszerzony)",
+                "type": "SUM_OF_GROUPS",
+                "allowedGroupIds": ["pb-additional"],
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.75,
+                "maxSubjects": 2,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "environmental-engineering",
+          "name": "Inzynieria srodowiska",
+          "aliases": [
+            "inzynieria srodowiska",
+            "environmental engineering",
+            "2498"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pb-env-math-basic",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-env-math-extended",
+                "description": "Matematyka (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.25,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-env-lang-basic",
+                "description": "Jezyk obcy (poziom podstawowy)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-basic"],
+                "coefficientByLevel": {
+                  "BASIC": 0.25
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-env-lang-extended",
+                "description": "Jezyk obcy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-extended"],
+                "coefficientByLevel": {
+                  "EXTENDED": 0.75
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-env-additional",
+                "description": "Dwa najlepsze przedmioty dodatkowe (poziom rozszerzony)",
+                "type": "SUM_OF_GROUPS",
+                "allowedGroupIds": ["pb-additional"],
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.75,
+                "maxSubjects": 2,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "default",
+          "name": "Pozostale kierunki",
+          "aliases": [
+            "agroekobiznes",
+            "budownictwo",
+            "cyfryzacja przemyslu",
+            "data science",
+            "ekoenergetyka",
+            "elektromobilnosc",
+            "elektronika i telekomunikacja",
+            "elektrotechnika",
+            "elektrotechnika studia dualne",
+            "energetyka cieplna",
+            "gospodarka przestrzenna",
+            "informatyka",
+            "lesnictwo",
+            "logistyka",
+            "mechanika i budowa maszyn dualne",
+            "transport",
+            "turystyka i rekreacja",
+            "zarzadzanie",
+            "zarzadzanie finansami i rachunkowoscia",
+            "zarzadzanie i inzynieria produkcji",
+            "zarzadzanie projektami"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pb-def-math-basic",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-def-math-extended",
+                "description": "Matematyka (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.25,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-def-lang-basic",
+                "description": "Jezyk obcy (poziom podstawowy)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-basic"],
+                "coefficientByLevel": {
+                  "BASIC": 0.25
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-def-lang-extended",
+                "description": "Jezyk obcy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-languages-extended"],
+                "coefficientByLevel": {
+                  "EXTENDED": 0.75
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pb-def-additional",
+                "description": "Przedmiot dodatkowy (poziom rozszerzony)",
+                "type": "BEST_OF_GROUPS",
+                "allowedGroupIds": ["pb-additional"],
+                "coefficientByLevel": {
+                  "EXTENDED": 1.75
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "politechnika-bydgoska",
+      "name": "Politechnika Bydgoska im. Jana i Jedrzeja Sniadeckich",
+      "aliases": [
+        "pbs",
+        "politechnika bydgoska",
+        "politechnika bydgoska im. jana i jedrzeja sniadeckich",
+        "bydgoszcz"
+      ],
+      "fieldsOfStudy": [
+        {
+          "id": "architecture",
+          "name": "Architektura",
+          "aliases": ["architektura"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-arch-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arch-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arch-math-basic",
+                "description": "Matematyka (poziom podstawowy, waga 1.5)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arch-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / fizyka / historia / historia sztuki)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 1.5,
+                  "physics|BASIC": 1.0,
+                  "physics|EXTENDED": 1.0,
+                  "history|BASIC": 1.0,
+                  "history|EXTENDED": 1.0,
+                  "history_of_art|BASIC": 1.0,
+                  "history_of_art|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arch-art",
+                "description": "Egzamin z uzdolnien artystycznych (0-300)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "art_exam",
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "arts-portfolio",
+          "name": "Architektura wnetrz / Komunikacja wizualna / Wzornictwo",
+          "aliases": [
+            "architektura wnetrz",
+            "komunikacja wizualna",
+            "wzornictwo"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-arts-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arts-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arts-math-basic",
+                "description": "Matematyka (poziom podstawowy, waga 1.5)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.5,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arts-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / fizyka / historia / historia sztuki)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 1.5,
+                  "physics|BASIC": 1.0,
+                  "physics|EXTENDED": 1.0,
+                  "history|BASIC": 1.0,
+                  "history|EXTENDED": 1.0,
+                  "history_of_art|BASIC": 1.0,
+                  "history_of_art|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-arts-art",
+                "description": "Egzamin praktyczny (portfolio, 0-300)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "art_exam",
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "engineering-general",
+          "name": "Budownictwo / Geodezja / Inzynieria srodowiska",
+          "aliases": [
+            "budownictwo",
+            "geodezja i kartografia",
+            "inzynieria srodowiska",
+            "geodezja i gospodarka nieruchomosciami"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-eng-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-eng-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-eng-math",
+                "description": "Matematyka (poziom podstawowy, waga 3)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 3.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-eng-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / fizyka / chemia)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 3.0,
+                  "physics|BASIC": 2.0,
+                  "physics|EXTENDED": 2.0,
+                  "chemistry|BASIC": 2.0,
+                  "chemistry|EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "animal-sciences",
+          "name": "Zootechnika / Inspekcja weterynaryjna / Zoofizjoterapia",
+          "aliases": [
+            "zootechnika",
+            "inspekcja weterynaryjna",
+            "zoofizjoterapia i pielegnacja zwierzat"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-animal-jp",
+                "description": "Jezyk polski (pp = 1, pr = 1.5)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 1.5
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-animal-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 1.5,
+                  "BILINGUAL_ADJUSTED": 1.5
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-animal-math",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-animal-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / biologia / chemia / fizyka / geografia)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 1.5,
+                  "biology|BASIC": 2.0,
+                  "biology|EXTENDED": 1.5,
+                  "chemistry|BASIC": 1.5,
+                  "chemistry|EXTENDED": 1.5,
+                  "physics|BASIC": 1.0,
+                  "physics|EXTENDED": 1.5,
+                  "geography|BASIC": 1.0,
+                  "geography|EXTENDED": 1.5
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "medical-engineering",
+          "name": "Inzynieria w medycynie",
+          "aliases": ["inzynieria w medycynie"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-med-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-med-math",
+                "description": "Matematyka (poziom podstawowy, waga 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 2.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-med-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / fizyka / chemia / biologia)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 2.0,
+                  "physics|BASIC": 2.0,
+                  "physics|EXTENDED": 2.0,
+                  "chemistry|BASIC": 2.0,
+                  "chemistry|EXTENDED": 2.0,
+                  "biology|BASIC": 2.0,
+                  "biology|EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "mechanical-engineering",
+          "name": "Mechanika / Mechatronika / Inzynieria odnawialnych zrodel energii / Transport",
+          "aliases": [
+            "mechanika i budowa maszyn",
+            "mechatronika",
+            "inzynieria odnawialnych zrodel energii",
+            "transport i logistyka",
+            "transport"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-mech-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-mech-math",
+                "description": "Matematyka (poziom podstawowy, waga 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 2.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-mech-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / fizyka / chemia)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 2.0,
+                  "physics|BASIC": 2.0,
+                  "physics|EXTENDED": 2.0,
+                  "chemistry|BASIC": 2.0,
+                  "chemistry|EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "safety-technology",
+          "name": "Technika bezpieczenstwa i obronnosci",
+          "aliases": ["technika bezpieczenstwa i obronnosci"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-safety-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-safety-math",
+                "description": "Matematyka (poziom podstawowy, waga 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 2.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-safety-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / informatyka / WOS)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 2.0,
+                  "informatics|BASIC": 2.0,
+                  "informatics|EXTENDED": 2.0,
+                  "civics|BASIC": 2.0,
+                  "civics|EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "agriculture",
+          "name": "Agrotechnologia / Architektura krajobrazu / Zielarstwo i fitoterapia",
+          "aliases": [
+            "agrotechnologia",
+            "architektura krajobrazu",
+            "zielarstwo i fitoterapia"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-agro-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-agro-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-agro-math",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-agro-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / biologia / chemia / fizyka / geografia)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 2.0,
+                  "biology|BASIC": 2.0,
+                  "biology|EXTENDED": 2.0,
+                  "chemistry|BASIC": 1.5,
+                  "chemistry|EXTENDED": 1.5,
+                  "physics|BASIC": 1.0,
+                  "physics|EXTENDED": 1.0,
+                  "geography|BASIC": 1.0,
+                  "geography|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "biotechnology",
+          "name": "Biotechnologia",
+          "aliases": ["biotechnologia"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-bio-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-bio-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-bio-math",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-bio-biology",
+                "description": "Biologia (waga 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "biology",
+                "coefficientByLevel": {
+                  "BASIC": 2.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "tech-chemistry",
+          "name": "Technologia chemiczna / Inzynieria farmaceutyczna / Analityka chemiczna",
+          "aliases": [
+            "technologia chemiczna",
+            "inzynieria farmaceutyczna",
+            "analityka chemiczna i spozywcza",
+            "technologia zywnosci i zywienie czlowieka"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-techchem-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-techchem-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-techchem-math",
+                "description": "Matematyka (poziom podstawowy, waga 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 2.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-techchem-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / chemia / fizyka / biologia / geografia / informatyka)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 2.0,
+                  "chemistry|BASIC": 3.0,
+                  "chemistry|EXTENDED": 3.0,
+                  "physics|BASIC": 2.0,
+                  "physics|EXTENDED": 2.0,
+                  "biology|BASIC": 2.0,
+                  "biology|EXTENDED": 2.0,
+                  "geography|BASIC": 2.0,
+                  "geography|EXTENDED": 2.0,
+                  "informatics|BASIC": 2.0,
+                  "informatics|EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "ict",
+          "name": "Cyberbezpieczenstwo / Informatyka / Telekomunikacja",
+          "aliases": [
+            "cyberbezpieczenstwo i teleinformatyka",
+            "informatyka stosowana",
+            "telekomunikacja i technologie internetu rzeczy"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-ict-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-ict-math",
+                "description": "Matematyka (poziom podstawowy, waga 3)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 3.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-ict-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / fizyka / informatyka)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 6.0,
+                  "physics|BASIC": 3.0,
+                  "physics|EXTENDED": 6.0,
+                  "informatics|BASIC": 3.0,
+                  "informatics|EXTENDED": 6.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "electrical",
+          "name": "Elektrotechnika / Automatyka i elektronika",
+          "aliases": ["elektrotechnika", "automatyka i elektronika"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-elec-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-elec-math",
+                "description": "Matematyka (poziom podstawowy, waga 3)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 3.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-elec-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / fizyka)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 6.0,
+                  "physics|BASIC": 3.0,
+                  "physics|EXTENDED": 6.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "finance",
+          "name": "Finanse i rachunkowosc",
+          "aliases": ["finanse i rachunkowosc"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-fin-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-fin-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-fin-math",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-fin-additional",
+                "description": "Najlepszy przedmiot dodatkowy (mat. rozszerzona / historia / WOS / geografia / biologia / chemia / informatyka)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 2.0,
+                  "history|BASIC": 1.0,
+                  "history|EXTENDED": 1.0,
+                  "civics|BASIC": 1.0,
+                  "civics|EXTENDED": 1.0,
+                  "geography|BASIC": 1.0,
+                  "geography|EXTENDED": 1.0,
+                  "biology|BASIC": 1.0,
+                  "biology|EXTENDED": 1.0,
+                  "chemistry|BASIC": 1.0,
+                  "chemistry|EXTENDED": 1.0,
+                  "informatics|BASIC": 1.0,
+                  "informatics|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "management",
+          "name": "Zarzadzanie / Zarzadzanie w sporcie",
+          "aliases": ["zarzadzanie", "zarzadzanie w sporcie"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-mgmt-jp",
+                "description": "Jezyk polski (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-mgmt-lang",
+                "description": "Najlepszy jezyk obcy (poziom podstawowy)",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficient": 1.0,
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-mgmt-math",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-mgmt-additional",
+                "description": "Najlepszy przedmiot dodatkowy (tylko poziom rozszerzony)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 1.0,
+                  "history|EXTENDED": 1.0,
+                  "civics|EXTENDED": 1.0,
+                  "geography|EXTENDED": 1.0,
+                  "biology|EXTENDED": 1.0,
+                  "chemistry|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "production-management",
+          "name": "Zarzadzanie i inzynieria produkcji",
+          "aliases": ["zarzadzanie i inzynieria produkcji"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-zip-jp",
+                "description": "Jezyk polski (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-zip-lang",
+                "description": "Najlepszy jezyk obcy (poziom podstawowy)",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficient": 1.0,
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-zip-math",
+                "description": "Matematyka (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "mathematics",
+                "requiredLevel": "BASIC",
+                "allowExtendedToBasicConversion": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-zip-additional",
+                "description": "Najlepszy przedmiot dodatkowy (tylko poziom rozszerzony)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "mathematics|EXTENDED": 2.0,
+                  "physics|EXTENDED": 1.0,
+                  "chemistry|EXTENDED": 1.0,
+                  "biology|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "medicine",
+          "name": "Kierunek lekarski",
+          "aliases": ["kierunek lekarski", "medycyna"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-medicine-biology",
+                "description": "Biologia (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "biology",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-medicine-optional",
+                "description": "Najlepszy przedmiot dodatkowy (chemia / matematyka / fizyka \u2013 poziom rozszerzony)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "chemistry|EXTENDED": 1.0,
+                  "mathematics|EXTENDED": 1.0,
+                  "physics|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "nursing",
+          "name": "Pielegniarstwo",
+          "aliases": ["pielegniarstwo"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-nurse-best",
+                "description": "Najlepszy wynik z biologii / chemii / matematyki / fizyki",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "biology|BASIC": 1.0,
+                  "biology|EXTENDED": 1.0,
+                  "chemistry|BASIC": 1.0,
+                  "chemistry|EXTENDED": 1.0,
+                  "mathematics|BASIC": 1.0,
+                  "mathematics|EXTENDED": 1.0,
+                  "physics|BASIC": 1.0,
+                  "physics|EXTENDED": 1.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "law",
+          "name": "Prawo",
+          "aliases": ["prawo"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pbs-law-jp",
+                "description": "Jezyk polski (pp = 1, pr = 2)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-law-lang",
+                "description": "Najlepszy jezyk obcy",
+                "type": "LANGUAGE_GROUP",
+                "allowedGroupIds": ["pbs-languages"],
+                "coefficientByLevel": {
+                  "BASIC": 1.0,
+                  "BASIC_FROM_EXTENDED": 2.0,
+                  "BILINGUAL_ADJUSTED": 2.0
+                },
+                "allowExtendedToBasicConversion": true,
+                "normalizeBilingualScores": true,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pbs-law-additional",
+                "description": "Najlepszy przedmiot dodatkowy (historia / WOS / matematyka)",
+                "type": "WEIGHTED_SUBJECT",
+                "subjectWeights": {
+                  "history|BASIC": 1.0,
+                  "history|EXTENDED": 2.0,
+                  "civics|BASIC": 1.0,
+                  "civics|EXTENDED": 2.0,
+                  "mathematics|BASIC": 1.0,
+                  "mathematics|EXTENDED": 2.0
+                },
+                "fallbackToZero": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "politechnika-lubelska",
+      "name": "Politechnika Lubelska",
+      "aliases": ["politechnika lubelska", "pollub", "lublin"],
+      "fieldsOfStudy": [
+        {
+          "id": "pollub-biomedical",
+          "name": "Inzynieria biomedyczna",
+          "aliases": ["inzynieria biomedyczna"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-biomed-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-biomed-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-biomed-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-biomed-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz/chem/inf/bio, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-a"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-biomed-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-mechanical",
+          "name": "Inzynieria pojazdow / Mechanika / Mechatronika / Transport",
+          "aliases": [
+            "inzynieria pojazdow",
+            "mechanika i budowa maszyn",
+            "mechatronika",
+            "robotyzacja procesow wytworczych",
+            "transport",
+            "zarzadzanie i inzynieria produkcji",
+            "inzynieria produkcji"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-mech-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-mech-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-mech-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-mech-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz/chem/inf, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-b"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-mech-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-ict",
+          "name": "Elektrotechnika / Informatyka / Inzynieria multimediow",
+          "aliases": [
+            "elektrotechnika",
+            "informatyka",
+            "inzynieria multimediow",
+            "inzynierskie zastosowania informatyki w elektrotechnice"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-ict-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-ict-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-ict-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-ict-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz/inf, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-c"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-ict-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-architecture",
+          "name": "Architektura",
+          "aliases": ["architektura"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-arch-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-arch-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-arch-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-arch-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-d"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-arch-art",
+                "description": "Egzamin z uzdolnien artystycznych (0-500)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "art_exam",
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-arch-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-civil",
+          "name": "Budownictwo",
+          "aliases": ["budownictwo"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-civil-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-civil-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-civil-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-civil-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-d"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-civil-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-environmental",
+          "name": "Inzynieria srodowiska / Energia / Recykling / Bezpieczenstwo",
+          "aliases": [
+            "inzynieria odnawialnych zrodel energii",
+            "inzynieria recyklingu",
+            "inzynieria srodowiska",
+            "inzynieria bezpieczenstwa"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-env-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-env-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-env-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-env-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz/chem/inf/bio/geo, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-e"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-env-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-education",
+          "name": "Edukacja techniczno-informatyczna",
+          "aliases": ["edukacja techniczno-informatyczna"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-edu-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-edu-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-edu-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-edu-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz/chem/inf/geo/wos, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-f"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-edu-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-data",
+          "name": "Inzynieria i analiza danych / Matematyka",
+          "aliases": ["inzynieria i analiza danych", "matematyka"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-data-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-data-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-data-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-data-additional",
+                "description": "Przedmiot dodatkowy (mat/fiz/chem/inf/geo, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-h"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-data-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pollub-business",
+          "name": "Finanse / Marketing / Zarzadzanie / Inzynieria logistyki",
+          "aliases": [
+            "finanse i rachunkowosc",
+            "inzynieria logistyki",
+            "marketing i komunikacja rynkowa",
+            "zarzadzanie"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pollub-biz-jp",
+                "description": "Jezyk polski (suma poziomow, waga 0.8)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "polish_language",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-biz-jo",
+                "description": "Jezyk obcy (P+R+2*dwujezyczny)",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pollub-biz-math",
+                "description": "Matematyka (suma poziomow, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "subjectCode": "mathematics",
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-biz-additional",
+                "description": "Przedmiot dodatkowy (mat/geo/inf/wos, minimum 20 pkt)",
+                "type": "LUBLIN_SUBJECT",
+                "allowedGroupIds": ["pollub-additional-i"],
+                "coefficient": 1.0,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pollub-biz-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "allowVocationalTechnician": true,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "politechnika-czestochowska",
+      "name": "Politechnika Czestochowska",
+      "aliases": ["pcz", "politechnika czestochowska", "pczestochowska"],
+      "fieldsOfStudy": [
+        {
+          "id": "pcz-technical",
+          "name": "Kierunki techniczne",
+          "aliases": [
+            "automatyka i robotyka",
+            "bezpieczenstwo i higiena pracy",
+            "budownictwo",
+            "budownictwo z wykorzystaniem automatyki i robotyki",
+            "budownictwo z wykorzystaniem technologii bim",
+            "elektromobilnosc i energia odnawialna",
+            "elektronika i telekomunikacja",
+            "elektrotechnika",
+            "informatyka",
+            "informatyka przemyslowa",
+            "inzynieria samochodow hybrydowych i elektrycznych",
+            "komputerowe modelowanie w mechanice",
+            "logistyka inzynierska",
+            "matematyka stosowana i technologie informatyczne",
+            "mechanika i budowa maszyn",
+            "mechatronika",
+            "sztuczna inteligencja",
+            "sztuczna inteligencja w architekturze i urbanistyce",
+            "technologie wytwarzania implantow i narzedzi medycznych",
+            "zarzadzanie jakoscia i produkcja",
+            "zarzadzanie jakoscia i produkcja (studia w jezyku angielskim)",
+            "budownictwo z wykorzystaniem technologii bim",
+            "budownictwo z wykorzystaniem technologii bim (studia w jezyku angielskim)"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pcz-tech-jp-basic",
+                "description": "Jezyk polski (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-tech-jp-extended",
+                "description": "Jezyk polski (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-tech-jo",
+                "description": "Jezyk obcy - suma poziomow",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-tech-math",
+                "description": "Matematyka (podstawowy + rozszerzony, minimum 20 pkt)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-math"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-tech-additional",
+                "description": "Przedmiot dodatkowy z listy (minimum 20 pkt)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-additional-tech"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-tech-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pcz-arch-landscape",
+          "name": "Architektura krajobrazu",
+          "aliases": ["architektura krajobrazu"],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pcz-arch-jp-basic",
+                "description": "Jezyk polski (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-arch-jp-extended",
+                "description": "Jezyk polski (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-arch-jo",
+                "description": "Jezyk obcy - suma poziomow",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-arch-math",
+                "description": "Matematyka (podstawowy + rozszerzony, minimum 20 pkt)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-math"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-arch-additional",
+                "description": "Przedmiot dodatkowy (lista architektura krajobrazu)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-additional-arch"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-arch-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pcz-bio-env",
+          "name": "Biotechnologia / Energia / Srodowisko",
+          "aliases": [
+            "biotechnologia",
+            "energetyka",
+            "energetyka jadrowa",
+            "fizyka techniczna",
+            "informatyczne wspomaganie procesow produkcyjnych",
+            "inzynieria materialowa",
+            "inzynieria srodowiska",
+            "metalurgia",
+            "odnawialne zrodla energii",
+            "projektowanie i logistyka materialow",
+            "projektowanie i logistyka materialow (studia w jezyku angielskim)",
+            "technologie wyrobow metalowych",
+            "zarzadzanie i inzynieria produkcji"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pcz-bio-jp-basic",
+                "description": "Jezyk polski (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-bio-jp-extended",
+                "description": "Jezyk polski (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-bio-jo",
+                "description": "Jezyk obcy - suma poziomow",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-bio-math",
+                "description": "Matematyka (podstawowy + rozszerzony, minimum 20 pkt)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-math"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-bio-additional",
+                "description": "Przedmiot dodatkowy (lista bio/energia)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-additional-bio"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-bio-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pcz-business",
+          "name": "Logistyka i kierunki biznesowe",
+          "aliases": [
+            "angielski jezyk biznesu",
+            "design i zarzadzanie projektami",
+            "finanse i rachunkowosc w biznesie",
+            "logistyka",
+            "zarzadzanie",
+            "zarzadzanie w turystyce i sporcie"
+          ],
+          "formula": {
+            "type": "LINEAR_SUM",
+            "terms": [
+              {
+                "id": "pcz-biz-jp-basic",
+                "description": "Jezyk polski (poziom podstawowy)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "BASIC",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-biz-jp-extended",
+                "description": "Jezyk polski (poziom rozszerzony)",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "polish_language",
+                "requiredLevel": "EXTENDED",
+                "coefficient": 0.8,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-biz-jo",
+                "description": "Jezyk obcy - suma poziomow",
+                "type": "LANGUAGE_MULTI_LEVEL",
+                "allowedGroupIds": ["pp-languages"],
+                "bilingualMultiplier": 2.0,
+                "coefficient": 1.0,
+                "fallbackToZero": true
+              },
+              {
+                "id": "pcz-biz-math",
+                "description": "Matematyka (podstawowy + rozszerzony, minimum 20 pkt)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-math"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-biz-additional",
+                "description": "Przedmiot dodatkowy (lista biznesowa)",
+                "type": "POZNAN_COMPOSITE_X",
+                "allowedGroupIds": ["pcz-additional-human"],
+                "allowExtendedToBasicConversion": false,
+                "coefficient": 1.0,
+                "fallbackToZero": true,
+                "defaultPoints": 20.0
+              },
+              {
+                "id": "pcz-biz-voc",
+                "description": "Egzamin zawodowy / dyplom technika",
+                "type": "SPECIFIC_SUBJECT",
+                "subjectCode": "vocational_exam",
+                "coefficient": 1.0,
+                "fallbackToZero": true
               }
             ]
           }

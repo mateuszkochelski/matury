@@ -78,7 +78,11 @@ public record RecruitmentFormulaConfig(
             Boolean normalizeBilingualScores,
             Boolean includeVocationalResults,
             List<String> vocationalSubjectCodes,
-            Double vocationalMultiplier
+            Double vocationalMultiplier,
+            Map<String, Double> subjectWeights,
+            Integer maxSubjects,
+            Double defaultPoints,
+            Double bilingualMultiplier
     ) {
         public List<String> allowedGroupIds() {
             return allowedGroupIds == null ? List.of() : allowedGroupIds;
@@ -132,6 +136,22 @@ public record RecruitmentFormulaConfig(
 
         public double vocationalMultiplierOrDefault() {
             return vocationalMultiplier == null ? 2.0 : vocationalMultiplier;
+        }
+
+        public Map<String, Double> subjectWeights() {
+            return subjectWeights == null ? Map.of() : Map.copyOf(subjectWeights);
+        }
+
+        public int maxSubjectsOrDefault() {
+            return maxSubjects == null ? 1 : Math.max(1, maxSubjects);
+        }
+
+        public Double defaultPoints() {
+            return defaultPoints;
+        }
+
+        public double bilingualMultiplierOrDefault() {
+            return bilingualMultiplier == null ? 2.0 : bilingualMultiplier;
         }
     }
 }

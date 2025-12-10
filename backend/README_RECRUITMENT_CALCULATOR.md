@@ -69,9 +69,16 @@ GLOWNE ZRODLO: `backend/src/main/resources/recruitment/formulas.json`.
 
 Zmiany w konfiguracji wymagaja ponownego uruchomienia backendu (plik jest ladowany przy starcie aplikacji).
 
+### Nowe uczelnie
+
+- **Politechnika Czestochowska** – wzoruje sie na relacji `R = 0.8*JP + JO + M + D + E`. W konfiguracji wykorzystano:
+  - `LANGUAGE_MULTI_LEVEL` – sumuje podstawowy, rozszerzony i (2x) wynik matury dwujezycznej dla jednego jezyka i wybiera najlepszy jezyk.
+  - `POZNAN_COMPOSITE_X` z polem `defaultPoints` ustawionym na `20`, aby zapewnic minimalna liczbe punktow za matematyke lub przedmiot dodatkowy, gdy kandydat nie zdawal danego egzaminu.
+  - Dedykowane grupy przedmiotow dodatkowych (`pcz-additional-*`) odpowiadaja tabelom z uchwaly; aliasy dla kierunkow grupuja wszystkie nazwy wymienione w dokumencie w czterech kategoriach (techniczne, architektura krajobrazu, bio/energia oraz biznes).
+
 ## Narzedzia pomocnicze
 
-- Skrypty `backend/docs/politechnika-slaska-scenarios.sh` oraz `backend/docs/politechnika-poznanska-scenarios.sh` wysylaja gotowe zestawy wynikow matur do API i zapisuje raporty w formacie Markdown. Ustaw `BASE_URL=http://localhost:8080/api` i uruchom skrypt, aby porownac wyniki z kalkulatorami uczelni.
+- Skrypty `backend/docs/politechnika-slaska-scenarios.sh`, `backend/docs/politechnika-poznanska-scenarios.sh` oraz `backend/docs/politechnika-bialostocka-scenarios.sh` wysylaja gotowe zestawy wynikow matur do API i zapisuje raporty w formacie Markdown. Ustaw `BASE_URL=http://localhost:8080/api` i uruchom skrypt, aby porownac wyniki z kalkulatorami uczelni.
 - `backend/docs/recruitment-calculator-curls.sh` – proste smoke testy przykrywajace kilka scenariuszy (wymagac `jq`).
 - `backend/docs/politechnika-poznanska-curl.sh` – pojedynczy przyklad dla kierunku architektury (uzyteczne do szybkich testow).
 
