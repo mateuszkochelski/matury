@@ -44,9 +44,11 @@ export async function getFieldData(fieldId: string): Promise<{
     fieldResponse.json(),
     thresholdResponse.json(),
   ]);
-  const recoUrl = new URL(`${BACKEND_URL}/api/recommendation/field/${fieldId}`);
-  recoUrl.searchParams.set("k", "16");
-  const recoResponse = await fetch(recoUrl);
+  const recoResponse = await fetch(`${BACKEND_URL}/api/recommendation/field/${fieldId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ k: 16 }),
+  });
   const recoData: FieldOfStudy[] = await recoResponse.json();
   return { fieldData, recoFields: recoData, thresholdData };
 }

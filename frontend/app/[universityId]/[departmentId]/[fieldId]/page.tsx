@@ -192,10 +192,12 @@ export default async function Page({
         </div>
       </section>
 
-      <section>
-        <h2 className="text-foreground mb-6">Podobne kierunki</h2>
-        <FieldsCarousel fields={recoFields} />
-      </section>
+      {recoFields.length > 0 && (
+        <section>
+          <h2 className="text-foreground mb-6">Podobne kierunki</h2>
+          <FieldsCarousel fields={recoFields} />
+        </section>
+      )}
     </>
   );
 }

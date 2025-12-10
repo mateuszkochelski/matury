@@ -42,6 +42,7 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
             size="sm"
             onClick={prevPage}
             className="border-primary/30 bg-transparent"
+            disabled={currentPage == 0}
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
@@ -62,6 +63,7 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
             size="sm"
             onClick={nextPage}
             className="border-primary/30 bg-transparent"
+            disabled={currentPage == pagesCount - 1}
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
@@ -73,7 +75,7 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
             .map((field) => (
               <Card
                 key={field.id}
-                className="border-primary/10 hover:shadow-md transition-shadow flex flex-col justify-between"
+                className="border-primary/10 hover:shadow-md transition-shadow flex flex-col justify-between h-54"
               >
                 <CardHeader className="pb-3">
                   <CardTitle className="text-base text-foreground">{field.name}</CardTitle>

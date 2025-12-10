@@ -31,7 +31,7 @@ export default function HistoryRecommedations() {
           <div className="text-center mb-8 md:mb-16">
             <h2 className="h2 text-foreground mb-4">Sprawdź te kierunki!</h2>
             <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
-              Wygenerowne na podstawie twojej historii przeglądania na naszej stronie
+              Dobrane na podstawie Twojej aktywności
             </p>
           </div>
           <FieldsCarousel fields={recoFields} />
