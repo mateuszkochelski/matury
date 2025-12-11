@@ -15,7 +15,7 @@ export async function getSubjectsAndLevels(): Promise<SubjectAndLevel[]> {
 
   try {
     const subjectsLevels = JSON.parse(await readFile(subjectsLevelsPath, "utf-8"));
-    const formulas = JSON.parse(await readFile(formulasPath, "utf-8"));
+    const formulas = JSON.parse(await readFile(formulasPath, "utf-8")); //universities.fieldsOfStudy.formula.requiredLevel
 
     return formulas.subjects.map((subject) => ({
       levels: subjectsLevels[subject.code],

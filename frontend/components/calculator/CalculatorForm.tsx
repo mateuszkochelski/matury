@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Plus, Trash2 } from "lucide-react";
+import { getAdmissionProbability } from "./utils/getAdmissionProbability";
+import { useParams } from "next/navigation";
 
 export type ExamScore = {
   examCode: string;
@@ -17,6 +19,7 @@ export type ExamScore = {
 };
 
 export default function CalculatorForm() {
+  const {universityId, fieldId} = useParams<{ universityId: string; fieldId: string }>()
   const [examScores, setExamScores] = useState<ExamScore[]>([]);
   const [showModal, setShowModal] = useState(false);
 
@@ -58,9 +61,11 @@ export default function CalculatorForm() {
     setProbability(null);
   };
 
-  const calculateProbability = () => {
+  const calculateProbability = async () => {
     if (examScores.length === 0) return;
 
+    const data = await getAdmissionProbability(universityId, fieldId, examScores);
+    console.log({data});
     // Calculate average score
     // const totalScore = examScores.reduce((sum, exam) => sum + exam.score, 0);
     // const averageScore = totalScore / examScores.length;

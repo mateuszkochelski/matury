@@ -19,13 +19,22 @@ export async function getAdmissionProbability(
     level: score.level,
     score: score.score,
   }));
-  const respone = await fetch(`${BACKEND_URL}/api/recruitment-calculator/calculate`, {
+  const response = await fetch(`${BACKEND_URL}/api/recruitment-calculator/calculate`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
     body: JSON.stringify({ universityId, fieldOfStudyId, examResults: normalizedExamScores }),
   });
 
-  if (!respone.ok) {
+  console.log({ body: JSON.stringify({ universityId, fieldOfStudyId, examResults: normalizedExamScores }), response });
+
+  if (!response.ok) {
     // noop
+    return;
   }
-  const data = await respone.json()
+
+  const data = await response.json();
+  return data;
 }
