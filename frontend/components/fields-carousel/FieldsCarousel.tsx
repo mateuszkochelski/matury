@@ -75,7 +75,7 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
             .map((field) => (
               <Card
                 key={field.id}
-                className="border-primary/10 hover:shadow-md transition-shadow flex flex-col justify-between h-54"
+                className="border-primary/10 hover:shadow-md transition-shadow flex flex-col justify-between"
               >
                 <CardHeader className="pb-3">
                   <CardTitle className="text-base text-foreground">{field.name}</CardTitle>
