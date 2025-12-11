@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import ExamSelectionModal from "./ExamSelectionModal";
+import { getAdmissionProbability } from "./utils/getAdmissionProbability";
 import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Badge } from "@/components/ui/badge/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Plus, Trash2 } from "lucide-react";
-import { getAdmissionProbability } from "./utils/getAdmissionProbability";
 import { useParams } from "next/navigation";
 
 export type ExamScore = {
@@ -18,12 +18,17 @@ export type ExamScore = {
   score: number;
 };
 
+type ScoringResults = {
+  probability: number;
+  points: number;
+};
+
 export default function CalculatorForm() {
-  const {universityId, fieldId} = useParams<{ universityId: string; fieldId: string }>()
+  const { universityId, fieldId } = useParams<{ universityId: string; fieldId: string }>();
   const [examScores, setExamScores] = useState<ExamScore[]>([]);
   const [showModal, setShowModal] = useState(false);
 
-  const [probability, setProbability] = useState<number | null>(null);
+  const [scoringResults, setScoringResults] = useState<ScoringResults | null>(null);
 
   const handleAddExam = (exam: SubjectAndLevel, level: string, score: number) => {
     const newScore: ExamScore = {
@@ -53,19 +58,19 @@ export default function CalculatorForm() {
     const updated = [...examScores];
     updated[index].score = Math.max(0, Math.min(100, score));
     setExamScores(updated);
-    setProbability(null);
+    setScoringResults(null);
   };
 
   const handleRemoveScore = (index: number) => {
     setExamScores(examScores.filter((_, i) => i !== index));
-    setProbability(null);
+    setScoringResults(null);
   };
 
   const calculateProbability = async () => {
     if (examScores.length === 0) return;
 
     const data = await getAdmissionProbability(universityId, fieldId, examScores);
-    console.log({data});
+    console.log({ data });
     // Calculate average score
     // const totalScore = examScores.reduce((sum, exam) => sum + exam.score, 0);
     // const averageScore = totalScore / examScores.length;
@@ -83,7 +88,10 @@ export default function CalculatorForm() {
 
     // Convert to probability (0-100)
     const baseProbability = Math.min(100, (adjustedAverage / 100) * 110);
-    setProbability(Math.round(Math.max(5, baseProbability)));
+    setScoringResults({
+      probability: Math.round(Math.max(5, baseProbability)),
+      points: data.totalPoints ?? weightedScores,
+    });
   };
 
   return (
@@ -158,27 +166,40 @@ export default function CalculatorForm() {
 
       {/* Calculate Button and Result */}
       {examScores.length > 0 && (
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-4 border-t border-primary/20">
+        <div className="flex flex-col gap-4 pt-4 border-t border-primary/20">
           <Button
             onClick={calculateProbability}
-            className="bg-primary hover:bg-primary/90 text-foreground"
+            className="bg-primary hover:bg-primary/90 text-foreground w-full sm:w-auto"
           >
-            Calculate Probability
+            Oblicz Prawdopodobieństwo
           </Button>
 
-          {probability !== null && (
-            <div className="flex items-center gap-3">
-              <div className="flex-1">
-                <p className="text-sm text-foreground/60 mb-1">Admission Probability</p>
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 bg-primary/10 rounded-full h-3 overflow-hidden">
+          {scoringResults !== null && (
+            <div className="space-y-4 p-4 bg-primary/5 rounded-lg border border-primary/20 sm:flex">
+              {/* Points Scored Section */}
+              <div className="space-y-2">
+                <p className="text-sm text-foreground/60">Zdobyte Punkty</p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-primary">{scoringResults.points}</span>
+                  <span className="text-foreground/60">punktów</span>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="block border-primary/20 border-t sm:border-t-0 sm:border-l sm:self-stretch sm:mx-4" />
+
+              {/* Probability Section */}
+              <div className="space-y-2 sm:flex-1">
+                <p className="text-sm text-foreground/60">Prawdopodobieństwo Przyjęcia</p>
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 bg-primary/10 rounded-full h-4 overflow-hidden">
                     <div
                       className="bg-primary h-full transition-all"
-                      style={{ width: `${probability}%` }}
+                      style={{ width: `${scoringResults.probability}%` }}
                     />
                   </div>
-                  <span className="text-xl font-bold text-primary whitespace-nowrap">
-                    {probability}%
+                  <span className="text-3xl font-bold text-primary whitespace-nowrap">
+                    {scoringResults.probability}%
                   </span>
                 </div>
               </div>
