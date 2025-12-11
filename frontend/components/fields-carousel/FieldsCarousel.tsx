@@ -42,6 +42,7 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
             size="sm"
             onClick={prevPage}
             className="border-primary/30 bg-transparent"
+            disabled={currentPage == 0}
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
@@ -62,6 +63,7 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
             size="sm"
             onClick={nextPage}
             className="border-primary/30 bg-transparent"
+            disabled={currentPage == pagesCount - 1}
           >
             <ChevronRight className="w-4 h-4" />
           </Button>

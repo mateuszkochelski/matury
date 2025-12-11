@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import HistoryRecommedations from "@/components/recommendation/HistoryRecommendations";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -122,6 +123,10 @@ export default async function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="py-8 md:py-16 md:px-8 bg-white">
+        <HistoryRecommedations />
       </section>
 
       <footer className="bg-foreground text-white py-8 md:py-12">

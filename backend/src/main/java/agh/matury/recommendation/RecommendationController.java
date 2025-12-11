@@ -1,6 +1,7 @@
 package agh.matury.recommendation;
 
 import agh.matury.fieldOfStudy.dto.FieldOfStudyDTO;
+import agh.matury.recommendation.dto.RecommendationRequestDTO;
 import agh.matury.recommendation.dto.RecommendationsHistoryRequestDTO;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -22,13 +23,12 @@ public class RecommendationController {
         this.recommendationService = recommendationService;
     }
 
-    @GetMapping("/field/{id}")
+    @PostMapping("/field/{id}")
     public ResponseEntity<List<FieldOfStudyDTO>> getFieldsOfStudySimilarity(
             @Parameter(description = "Field of study id", required = true, in = ParameterIn.PATH) @PathVariable Long id,
-            @Parameter(description = "Number of results")
-            @RequestParam() int k
-    ) {
-        return ResponseEntity.ok(recommendationService.getRecommendationsForField(id, k));
+            @RequestBody RecommendationRequestDTO request
+            ) {
+        return ResponseEntity.ok(recommendationService.getRecommendationsForField(id, request.getK()));
     }
 
     @PostMapping("/history")

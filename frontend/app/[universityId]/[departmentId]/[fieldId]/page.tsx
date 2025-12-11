@@ -4,6 +4,7 @@ import CustomLineChart, {
   ThresholdGraphData,
 } from "@/components/custom-line-chart/CustomLineChart";
 import FieldsCarousel from "@/components/fields-carousel/FieldsCarousel";
+import UserHistoryTracker from "@/components/recommendation/UserHistoryTracker";
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Calculator } from "lucide-react";
 import { notFound, redirect } from "next/navigation";
@@ -18,7 +19,7 @@ export default async function Page({
     notFound();
   }
 
-  const { fieldData, departmentFields, thresholdData } = await getFieldData(fieldId);
+  const { fieldData, recoFields, thresholdData } = await getFieldData(fieldId);
 
   const thresholds = thresholdData.content;
 
@@ -69,6 +70,7 @@ export default async function Page({
 
   return (
     <>
+      <UserHistoryTracker fieldId={fieldData.id} />
       <Breadcrumb
         items={[
           {
@@ -190,10 +192,12 @@ export default async function Page({
         </div>
       </section>
 
-      <section>
-        <h2 className="text-foreground mb-6">Inne kierunki na tym wydziale</h2>
-        <FieldsCarousel fields={departmentFields} />
-      </section>
+      {recoFields.length > 0 && (
+        <section>
+          <h2 className="text-foreground mb-6">Podobne kierunki</h2>
+          <FieldsCarousel fields={recoFields} />
+        </section>
+      )}
     </>
   );
 }

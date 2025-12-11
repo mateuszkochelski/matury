@@ -1,6 +1,6 @@
 import { BACKEND_URL } from "../constants";
 import { fetchData } from "@/components/custom-table/fetchData";
-import { FieldOfStudy, FieldOfStudyData } from "@/components/custom-table/types";
+import { FieldOfStudy } from "@/components/custom-table/types";
 
 export type Threshold = {
   id: number;
@@ -28,7 +28,7 @@ type ThresholdData = {
 
 export async function getFieldData(fieldId: string): Promise<{
   fieldData: FieldOfStudy;
-  departmentFields: FieldOfStudy[];
+  recoFields: FieldOfStudy[];
   thresholdData: ThresholdData;
 }> {
   const [fieldResponse, thresholdResponse] = await Promise.all([
@@ -44,11 +44,11 @@ export async function getFieldData(fieldId: string): Promise<{
     fieldResponse.json(),
     thresholdResponse.json(),
   ]);
-  const departmentFieldsResponse = await fetchData({
-    baseUrl: `${BACKEND_URL}/api/field_of_study/department/${fieldData.department.id}`,
-    pageSize: "1000",
-    pageIndex: "0",
+  const recoResponse = await fetch(`${BACKEND_URL}/api/recommendation/field/${fieldId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ k: 16 }),
   });
-  const departmentFieldsData: FieldOfStudyData = await departmentFieldsResponse.json();
-  return { fieldData, departmentFields: departmentFieldsData.content, thresholdData };
+  const recoData: FieldOfStudy[] = await recoResponse.json();
+  return { fieldData, recoFields: recoData, thresholdData };
 }
