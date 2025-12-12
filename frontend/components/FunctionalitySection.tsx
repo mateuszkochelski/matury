@@ -12,8 +12,6 @@ export function FunctionalitySection() {
   const [showModal, setShowModal] = useState(false);
 
   const onAddExam = (exam: SubjectAndLevel, level: string, score: number) => {
-    setShowModal(false);
-
     let toSave = [];
     const currentlyStored = localStorage.getItem("examScores");
     if (currentlyStored) {
@@ -75,7 +73,12 @@ export function FunctionalitySection() {
           </CardContent>
         </Card>
       ))}
-      <ExamSelectionModal onAddExam={onAddExam} showModal={showModal} setShowModal={setShowModal} />
+      <ExamSelectionModal
+        onAddExam={onAddExam}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        shouldShowConfirmation
+      />
     </div>
   );
 }

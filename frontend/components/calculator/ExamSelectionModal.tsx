@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Search, X } from "lucide-react";
+import { CheckCircle, Plus, Search, X } from "lucide-react";
 
 type AddExamHandler = (exam: SubjectAndLevel, level: string, score: number) => void;
 
@@ -14,12 +14,14 @@ type ExamSelectionModalProps = {
   onAddExam: AddExamHandler;
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
+  shouldShowConfirmation?: boolean;
 };
 
 export default function ExamSelectionModal({
   onAddExam,
   showModal,
   setShowModal,
+  shouldShowConfirmation,
 }: ExamSelectionModalProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -30,6 +32,8 @@ export default function ExamSelectionModal({
   const filteredExams = examsData.filter((exam) =>
     exam.label.toLowerCase().includes(searchQuery.toLowerCase()),
   );
+
+  const [nowLastPage, setNowLastPage] = useState(false);
 
   useEffect(() => {
     async function initializeExamsData() {
@@ -44,20 +48,26 @@ export default function ExamSelectionModal({
     }
   }, [selectedExam]);
 
-  const handleAddExam: AddExamHandler = (selectedExam, selectedLevel, score) => {
-    onAddExam(selectedExam, selectedLevel, score);
-
+  const resetState = () => {
     setSelectedExam(null);
     setSelectedLevel("");
     setSearchQuery("");
+    setNowLastPage(false);
+  };
+
+  const handleAddExam: AddExamHandler = (selectedExam, selectedLevel, score) => {
+    onAddExam(selectedExam, selectedLevel, score);
+
+    if (!shouldShowConfirmation) {
+      resetState();
+    }
+
+    setNowLastPage(!!shouldShowConfirmation);
   };
 
   const handleClose = () => {
     setShowModal(false);
-    setSelectedExam(null);
-    setSelectedLevel("");
-
-    setSearchQuery("");
+    resetState();
   };
 
   const handleChangeSelectedExam = () => {
@@ -71,28 +81,32 @@ export default function ExamSelectionModal({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <Card className="w-full max-w-md border-primary/20">
         <CardHeader className="flex flex-row items-center justify-between space-y-0">
-          <CardTitle className="text-foreground">Add Exam Score</CardTitle>
+          <CardTitle className="text-foreground">
+            {nowLastPage ? "Egzamin dodany" : "Add Exam Score"}
+          </CardTitle>
           <button onClick={handleClose} className="text-foreground/60 hover:text-foreground">
             <X className="w-5 h-5" />
           </button>
         </CardHeader>
         <CardContent className="space-y-4">
           {/* Search Exams */}
-          <div className="space-y-2">
-            <Label className="text-foreground">Search Exams</Label>
-            <div className="relative">
-              <Search className="absolute left-3 top-3 w-4 h-4 text-foreground/40" />
-              <Input
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 32 exams..."
-                className="pl-10 border-primary/30"
-              />
+          {!selectedExam && !nowLastPage && (
+            <div className="space-y-2">
+              <Label className="text-foreground">Search Exams</Label>
+              <div className="relative">
+                <Search className="absolute left-3 top-3 w-4 h-4 text-foreground/40" />
+                <Input
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search 32 exams..."
+                  className="pl-10 border-primary/30"
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Exam Selection */}
-          {!selectedExam ? (
+          {!selectedExam && !nowLastPage && (
             <div className="space-y-2">
               <Label className="text-foreground">Select Exam</Label>
               <div className="max-h-64 overflow-y-auto space-y-1 border border-primary/20 rounded-lg p-2">
@@ -114,7 +128,8 @@ export default function ExamSelectionModal({
                 )}
               </div>
             </div>
-          ) : (
+          )}
+          {selectedExam && !nowLastPage && (
             <div className="space-y-4">
               {/* Level Selection */}
               <div className="space-y-2 gap-1">
@@ -181,6 +196,39 @@ export default function ExamSelectionModal({
               >
                 Add Exam
               </Button>
+            </div>
+          )}
+
+          {nowLastPage && (
+            <div className="space-y-6 py-4">
+              <div className="flex flex-col items-center text-center space-y-3">
+                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+                  <CheckCircle className="w-10 h-10 text-primary" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold text-foreground">Egzamin został dodany!</h3>
+                  <p className="text-sm text-foreground/60">
+                    {selectedExam?.label} ({selectedLevel}) został pomyślnie dodany do listy.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Button
+                  onClick={resetState}
+                  className="w-full bg-primary hover:bg-primary/90 text-foreground gap-2"
+                >
+                  <Plus className="w-4 h-4" />
+                  Dodaj kolejny egzamin
+                </Button>
+                <Button
+                  onClick={handleClose}
+                  variant="outline"
+                  className="w-full border-primary/30 text-foreground hover:bg-primary/5 bg-transparent"
+                >
+                  Zamknij
+                </Button>
+              </div>
             </div>
           )}
         </CardContent>
