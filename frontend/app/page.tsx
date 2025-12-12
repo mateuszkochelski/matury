@@ -1,10 +1,6 @@
 import { FunctionalitySection } from "@/components/FunctionalitySection";
-import { Header } from "@/components/Header";
 import HistoryRecommedations from "@/components/recommendation/HistoryRecommendations";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Calculator, FileText, MapPin, Search, Star, TrendingUp, Users } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {

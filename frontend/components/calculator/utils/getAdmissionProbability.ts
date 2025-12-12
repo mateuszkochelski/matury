@@ -28,7 +28,10 @@ export async function getAdmissionProbability(
     body: JSON.stringify({ universityId, fieldOfStudyId, examResults: normalizedExamScores }),
   });
 
-  console.log({ body: JSON.stringify({ universityId, fieldOfStudyId, examResults: normalizedExamScores }), response });
+  console.log({
+    body: JSON.stringify({ universityId, fieldOfStudyId, examResults: normalizedExamScores }),
+    response,
+  });
 
   if (!response.ok) {
     // noop
