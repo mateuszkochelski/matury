@@ -27,6 +27,7 @@ export default function CalculatorForm() {
   const { universityId, fieldId } = useParams<{ universityId: string; fieldId: string }>();
   const [examScores, setExamScores] = useState<ExamScore[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [showAllExams, setShowAllExams] = useState(false);
 
   const [scoringResults, setScoringResults] = useState<ScoringResults | null>(null);
 
@@ -120,47 +121,90 @@ export default function CalculatorForm() {
           <Label className="text-foreground font-semibold">
             Selected Exams ({examScores.length})
           </Label>
-          <div className="space-y-2">
-            {examScores.map((exam, index) => (
-              <div
-                key={index}
-                className="flex flex-col sm:flex-row sm:items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20"
-              >
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-medium text-foreground">{exam.examLabel}</span>
-                    <Badge variant="secondary" className="bg-accent/20 text-accent border-0">
-                      {exam.level}
-                    </Badge>
+          <div
+            className={`relative transition-all duration-300 ${showAllExams ? "" : "max-h-96 overflow-hidden"}`}
+          >
+            <div className="space-y-2">
+              {examScores.slice(0, showAllExams ? examScores.length : 4).map((exam, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col sm:flex-row sm:items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-medium text-foreground">{exam.examLabel}</span>
+                      <Badge variant="secondary" className="bg-accent/20 text-accent border-0">
+                        {exam.level}
+                      </Badge>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 sm:ml-auto">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-foreground/60">Score:</span>
+                      <Input
+                        type="number"
+                        min="0"
+                        max="100"
+                        value={exam.score}
+                        onChange={(e) =>
+                          handleUpdateScore(index, Number.parseInt(e.target.value) || 0)
+                        }
+                        className="w-20 border-primary/30 text-center"
+                      />
+                      <span className="text-sm text-foreground/60">/100</span>
+                    </div>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handleRemoveScore(index)}
+                      className="text-red-500 hover:text-red-600 hover:bg-red-50"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 sm:ml-auto">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-foreground/60">Score:</span>
-                    <Input
-                      type="number"
-                      min="0"
-                      max="100"
-                      value={exam.score}
-                      onChange={(e) =>
-                        handleUpdateScore(index, Number.parseInt(e.target.value) || 0)
-                      }
-                      className="w-20 border-primary/30 text-center"
-                    />
-                    <span className="text-sm text-foreground/60">/100</span>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => handleRemoveScore(index)}
-                    className="text-red-500 hover:text-red-600 hover:bg-red-50"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            {!showAllExams && examScores.length > 3 && (
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white pointer-events-none" />
+            )}
           </div>
+          {examScores.length > 3 && (
+            <Button
+              variant="outline"
+              onClick={() => setShowAllExams(!showAllExams)}
+              className="w-full border-primary/30 text-primary hover:bg-primary/5 gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {showAllExams ? (
+                  <>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-4.803m5.596-3.856a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0z"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </>
+                )}
+              </svg>
+              {showAllExams ? "Pokaż mniej" : "Pokaż wszystkie"}
+            </Button>
+          )}
         </div>
       )}
 
