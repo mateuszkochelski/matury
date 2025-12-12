@@ -77,7 +77,7 @@ export function FunctionalitySection() {
         onAddExam={onAddExam}
         showModal={showModal}
         setShowModal={setShowModal}
-        shouldShowConfirmation
+        shouldShowConfirmationPage
       />
     </div>
   );

@@ -1,68 +1,45 @@
 "use client";
 
-import { SetStateAction, useEffect, useState, Dispatch } from "react";
-import { getSubjectsAndLevels, SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
-import { Button } from "@/components/ui/button";
+import { SetStateAction, useState, Dispatch } from "react";
+import Page1 from "./modal-pages/Page1";
+import Page2 from "./modal-pages/Page2";
+import Page3 from "./modal-pages/Page3";
+import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { CheckCircle, Plus, Search, X } from "lucide-react";
+import { X } from "lucide-react";
 
-type AddExamHandler = (exam: SubjectAndLevel, level: string, score: number) => void;
+export type AddExamHandler = (exam: SubjectAndLevel, level: string, score: number) => void;
 
 type ExamSelectionModalProps = {
   onAddExam: AddExamHandler;
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
-  shouldShowConfirmation?: boolean;
+  shouldShowConfirmationPage?: boolean;
 };
 
 export default function ExamSelectionModal({
   onAddExam,
   showModal,
   setShowModal,
-  shouldShowConfirmation,
+  shouldShowConfirmationPage,
 }: ExamSelectionModalProps) {
-  const [searchQuery, setSearchQuery] = useState("");
-
   const [selectedExam, setSelectedExam] = useState<SubjectAndLevel | null>(null);
   const [selectedLevel, setSelectedLevel] = useState<string>("");
-
-  const [examsData, setExamsData] = useState<SubjectAndLevel[]>([]);
-  const filteredExams = examsData.filter((exam) =>
-    exam.label.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
-
-  const [nowLastPage, setNowLastPage] = useState(false);
-
-  useEffect(() => {
-    async function initializeExamsData() {
-      setExamsData(await getSubjectsAndLevels());
-    }
-    initializeExamsData();
-  }, []);
-
-  useEffect(() => {
-    if (selectedExam?.levels.length === 1) {
-      setSelectedLevel(selectedExam.levels[0]);
-    }
-  }, [selectedExam]);
+  const [showConfirmationPage, setShowConfirmationPage] = useState(false);
 
   const resetState = () => {
     setSelectedExam(null);
     setSelectedLevel("");
-    setSearchQuery("");
-    setNowLastPage(false);
+    setShowConfirmationPage(false);
   };
 
-  const handleAddExam: AddExamHandler = (selectedExam, selectedLevel, score) => {
-    onAddExam(selectedExam, selectedLevel, score);
+  const handleAddExam: AddExamHandler = (exam, level, score) => {
+    onAddExam(exam, level, score);
 
-    if (!shouldShowConfirmation) {
+    if (!shouldShowConfirmationPage) {
       resetState();
     }
-
-    setNowLastPage(!!shouldShowConfirmation);
+    setShowConfirmationPage(!!shouldShowConfirmationPage);
   };
 
   const handleClose = () => {
@@ -75,161 +52,41 @@ export default function ExamSelectionModal({
     setSelectedLevel("");
   };
 
-  if (!showModal) return;
+  if (!showModal) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <Card className="w-full max-w-md border-primary/20">
         <CardHeader className="flex flex-row items-center justify-between space-y-0">
           <CardTitle className="text-foreground">
-            {nowLastPage ? "Egzamin dodany" : "Add Exam Score"}
+            {showConfirmationPage ? "Egzamin dodany" : "Add Exam Score"}
           </CardTitle>
           <button onClick={handleClose} className="text-foreground/60 hover:text-foreground">
             <X className="w-5 h-5" />
           </button>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Search Exams */}
-          {!selectedExam && !nowLastPage && (
-            <div className="space-y-2">
-              <Label className="text-foreground">Search Exams</Label>
-              <div className="relative">
-                <Search className="absolute left-3 top-3 w-4 h-4 text-foreground/40" />
-                <Input
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search 32 exams..."
-                  className="pl-10 border-primary/30"
-                />
-              </div>
-            </div>
+          {!selectedExam && !showConfirmationPage && (
+            <Page1 onSelectExam={(exam) => setSelectedExam(exam)} />
           )}
 
-          {/* Exam Selection */}
-          {!selectedExam && !nowLastPage && (
-            <div className="space-y-2">
-              <Label className="text-foreground">Select Exam</Label>
-              <div className="max-h-64 overflow-y-auto space-y-1 border border-primary/20 rounded-lg p-2">
-                {filteredExams.length > 0 ? (
-                  filteredExams.map((exam) => (
-                    <button
-                      key={exam.code}
-                      onClick={() => setSelectedExam(exam)}
-                      className="w-full text-left px-3 py-2 rounded hover:bg-primary/10 transition-colors text-foreground hover:text-foreground"
-                    >
-                      <span className="font-medium">{exam.label}</span>
-                      <span className="text-foreground/60 text-xs ml-2">
-                        ({exam.levels.length} levels)
-                      </span>
-                    </button>
-                  ))
-                ) : (
-                  <div className="px-3 py-2 text-foreground/60 text-sm">No exams found</div>
-                )}
-              </div>
-            </div>
-          )}
-          {selectedExam && !nowLastPage && (
-            <div className="space-y-4">
-              {/* Level Selection */}
-              <div className="space-y-2 gap-1">
-                <div className="flex items-center justify-between">
-                  <Label className="text-foreground">{selectedExam.label}</Label>
-                  <button
-                    onClick={handleChangeSelectedExam}
-                    className="text-primary hover:text-primary/80 text-sm"
-                  >
-                    Change
-                  </button>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {selectedExam.levels.map((level) => (
-                    <button
-                      key={level}
-                      onClick={() => {
-                        setSelectedLevel(level);
-                      }}
-                      className={`px-4 py-2 rounded border-2 transition-colors font-medium ${
-                        selectedLevel === level
-                          ? "bg-primary text-foreground border-primary"
-                          : "border-primary/30 text-foreground hover:border-primary/60"
-                      }`}
-                    >
-                      {level}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Score Input */}
-              <div className="space-y-2">
-                <Label className="text-foreground">Score (0-100)</Label>
-                <Input
-                  type="number"
-                  min="0"
-                  max="100"
-                  placeholder="Enter score"
-                  className="border-primary/30"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && selectedLevel) {
-                      const score = Number.parseInt((e.target as HTMLInputElement).value) || 0;
-                      handleAddExam(selectedExam, selectedLevel, score);
-                    }
-                  }}
-                  onChange={() => {}}
-                />
-              </div>
-
-              {/* Add Button */}
-              <Button
-                onClick={() => {
-                  const input = document.querySelector(
-                    "input[placeholder='Enter score']",
-                  ) as HTMLInputElement;
-                  const score = Number.parseInt(input.value || "0");
-                  if (selectedLevel) {
-                    handleAddExam(selectedExam, selectedLevel, score);
-                  }
-                }}
-                disabled={!selectedLevel}
-                className="w-full bg-primary hover:bg-primary/90 text-foreground"
-              >
-                Add Exam
-              </Button>
-            </div>
+          {selectedExam && !showConfirmationPage && (
+            <Page2
+              selectedExam={selectedExam}
+              selectedLevel={selectedLevel}
+              setSelectedLevel={setSelectedLevel}
+              onAddExam={handleAddExam}
+              onChangeSelectedExam={handleChangeSelectedExam}
+            />
           )}
 
-          {nowLastPage && (
-            <div className="space-y-6 py-4">
-              <div className="flex flex-col items-center text-center space-y-3">
-                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                  <CheckCircle className="w-10 h-10 text-primary" />
-                </div>
-                <div className="space-y-1">
-                  <h3 className="text-lg font-semibold text-foreground">Egzamin został dodany!</h3>
-                  <p className="text-sm text-foreground/60">
-                    {selectedExam?.label} ({selectedLevel}) został pomyślnie dodany do listy.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <Button
-                  onClick={resetState}
-                  className="w-full bg-primary hover:bg-primary/90 text-foreground gap-2"
-                >
-                  <Plus className="w-4 h-4" />
-                  Dodaj kolejny egzamin
-                </Button>
-                <Button
-                  onClick={handleClose}
-                  variant="outline"
-                  className="w-full border-primary/30 text-foreground hover:bg-primary/5 bg-transparent"
-                >
-                  Zamknij
-                </Button>
-              </div>
-            </div>
+          {showConfirmationPage && (
+            <Page3
+              selectedExam={selectedExam}
+              selectedLevel={selectedLevel}
+              onAddAnother={() => resetState()}
+              onClose={handleClose}
+            />
           )}
         </CardContent>
       </Card>
