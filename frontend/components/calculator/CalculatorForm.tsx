@@ -28,19 +28,9 @@ export default function CalculatorForm() {
   const [examScores, setExamScores] = useState<ExamScore[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [showAllExams, setShowAllExams] = useState(false);
+  const examsToShow = showAllExams ? examScores.length : 4;
 
   const [scoringResults, setScoringResults] = useState<ScoringResults | null>(null);
-
-  const handleAddExam = (exam: SubjectAndLevel, level: string, score: number) => {
-    const newScore: ExamScore = {
-      examCode: exam.code,
-      examLabel: exam.label,
-      level,
-      score,
-    };
-    setExamScores((curr) => [...curr, newScore]);
-    setShowModal(false);
-  };
 
   useEffect(() => {
     const stored = localStorage.getItem("examScores");
@@ -54,6 +44,17 @@ export default function CalculatorForm() {
     if (examScores.length === 0) return;
     localStorage.setItem("examScores", JSON.stringify(examScores));
   }, [examScores]);
+
+  const onAddExam = (exam: SubjectAndLevel, level: string, score: number) => {
+    const newScore: ExamScore = {
+      examCode: exam.code,
+      examLabel: exam.label,
+      level,
+      score,
+    };
+    setExamScores((curr) => [...curr, newScore]);
+    setShowModal(false);
+  };
 
   const handleUpdateScore = (index: number, score: number) => {
     const updated = [...examScores];
@@ -70,6 +71,7 @@ export default function CalculatorForm() {
   const calculateProbability = async () => {
     if (examScores.length === 0) return;
 
+    // TODO: once the BE is corrected this logic should be refined
     const data = await getAdmissionProbability(universityId, fieldId, examScores);
     console.log({ data });
     // Calculate average score
@@ -96,12 +98,12 @@ export default function CalculatorForm() {
   };
 
   return (
-    <div>
+    <div className="space-y-2">
       {/* Add Exam Button */}
       <div>
         <Button
           onClick={() => setShowModal(true)}
-          className="bg-primary hover:bg-primary/90 text-foreground gap-2"
+          className="bg-primary hover:bg-primary/90 text-foreground gap-2 w-full sm:w-auto"
         >
           <Plus className="w-4 h-4" />
           Add Exam Score
@@ -109,23 +111,17 @@ export default function CalculatorForm() {
       </div>
 
       {/* Modal for exam selection */}
-      <ExamSelectionModal
-        onAddExam={handleAddExam}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
+      <ExamSelectionModal onAddExam={onAddExam} showModal={showModal} setShowModal={setShowModal} />
 
       {/* Exam Scores Summary */}
       {examScores.length > 0 && (
-        <div className="space-y-3">
+        <div className="space-y-4">
           <Label className="text-foreground font-semibold">
             Selected Exams ({examScores.length})
           </Label>
-          <div
-            className={`relative transition-all duration-300 ${showAllExams ? "" : "max-h-96 overflow-hidden"}`}
-          >
+          <div className="relative transition-all duration-300">
             <div className="space-y-2">
-              {examScores.slice(0, showAllExams ? examScores.length : 4).map((exam, index) => (
+              {examScores.slice(0, examsToShow).map((exam, index) => (
                 <div
                   key={index}
                   className="flex flex-col sm:flex-row sm:items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20"
@@ -169,12 +165,13 @@ export default function CalculatorForm() {
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white pointer-events-none" />
             )}
           </div>
-          {examScores.length > 3 && (
+          {examScores.length > 4 && (
             <Button
               variant="outline"
               onClick={() => setShowAllExams(!showAllExams)}
               className="w-full border-primary/30 text-primary hover:bg-primary/5 gap-2"
             >
+              {/* // TODO: those should be emotes rather than svgs */}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {showAllExams ? (
                   <>
@@ -210,7 +207,7 @@ export default function CalculatorForm() {
 
       {/* Calculate Button and Result */}
       {examScores.length > 0 && (
-        <div className="flex flex-col gap-4 pt-4 border-t border-primary/20">
+        <div className="flex flex-col gap-4 border-primary/20">
           <Button
             onClick={calculateProbability}
             className="bg-primary hover:bg-primary/90 text-foreground w-full sm:w-auto"

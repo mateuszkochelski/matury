@@ -19,6 +19,7 @@ export async function getAdmissionProbability(
     level: score.level,
     score: score.score,
   }));
+
   const response = await fetch(`${BACKEND_URL}/api/recruitment-calculator/calculate`, {
     method: "POST",
     headers: {
@@ -28,16 +29,19 @@ export async function getAdmissionProbability(
     body: JSON.stringify({ universityId, fieldOfStudyId, examResults: normalizedExamScores }),
   });
 
-  console.log({
-    body: JSON.stringify({ universityId, fieldOfStudyId, examResults: normalizedExamScores }),
-    response,
-  });
-
   if (!response.ok) {
-    // noop
+    const errorBody = await response.text();
+    console.error("Recruitment calculator API error:", {
+      status: response.status,
+      statusText: response.statusText,
+      url: response.url,
+      universityId,
+      fieldOfStudyId,
+      examScoresCount: examScores.length,
+      errorBody,
+    });
     return;
   }
 
-  const data = await response.json();
-  return data;
+  return await response.json();
 }
