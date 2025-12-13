@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import ExamSelectionModal from "./calculator/ExamSelectionModal";
+import React, { useMemo, useState, lazy, Suspense } from "react";
 import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Calculator, FileText, Search, TrendingUp } from "lucide-react";
 import { useRouter } from "next/navigation";
+
+const ExamSelectionModal = lazy(() => import("./calculator/ExamSelectionModal"));
 
 export function FunctionalitySection({ examsData }: { examsData: SubjectAndLevel[] }) {
   const router = useRouter();
@@ -74,13 +75,15 @@ export function FunctionalitySection({ examsData }: { examsData: SubjectAndLevel
         </Card>
       ))}
 
-      <ExamSelectionModal
-        onAddExam={onAddExam}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        shouldShowConfirmationPage
-        examsData={examsData}
-      />
+      <Suspense fallback={null}>
+        <ExamSelectionModal
+          onAddExam={onAddExam}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          shouldShowConfirmationPage
+          examsData={examsData}
+        />
+      </Suspense>
     </div>
   );
 }

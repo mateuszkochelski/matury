@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import ExamSelectionModal from "./ExamSelectionModal";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { getAdmissionProbability } from "./utils/getAdmissionProbability";
 import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Badge } from "@/components/ui/badge/badge";
@@ -10,6 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { EyeIcon, EyeOffIcon, Plus, Trash2 } from "lucide-react";
 import { useParams } from "next/navigation";
+
+const ExamSelectionModal = lazy(() => import("./ExamSelectionModal"));
 
 export type ExamScore = {
   examCode: string;
@@ -111,12 +112,14 @@ export default function CalculatorForm({ examsData }: { examsData: SubjectAndLev
       </div>
 
       {/* Modal for exam selection */}
-      <ExamSelectionModal
-        onAddExam={onAddExam}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        examsData={examsData}
-      />
+      <Suspense fallback={null}>
+        <ExamSelectionModal
+          onAddExam={onAddExam}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          examsData={examsData}
+        />
+      </Suspense>
 
       {/* Exam Scores Summary */}
       {examScores.length > 0 && (
