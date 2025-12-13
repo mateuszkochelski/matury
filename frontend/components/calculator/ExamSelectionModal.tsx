@@ -15,6 +15,7 @@ type ExamSelectionModalProps = {
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   shouldShowConfirmationPage?: boolean;
+  examsData: SubjectAndLevel[];
 };
 
 export default function ExamSelectionModal({
@@ -22,6 +23,7 @@ export default function ExamSelectionModal({
   showModal,
   setShowModal,
   shouldShowConfirmationPage,
+  examsData,
 }: ExamSelectionModalProps) {
   const [selectedExam, setSelectedExam] = useState<SubjectAndLevel | null>(null);
   const [selectedLevel, setSelectedLevel] = useState<string>("");
@@ -67,7 +69,7 @@ export default function ExamSelectionModal({
         </CardHeader>
         <CardContent className="space-y-4">
           {!selectedExam && !showConfirmationPage && (
-            <Page1 onSelectExam={(exam) => setSelectedExam(exam)} />
+            <Page1 onSelectExam={(exam) => setSelectedExam(exam)} examsData={examsData} />
           )}
 
           {selectedExam && !showConfirmationPage && (

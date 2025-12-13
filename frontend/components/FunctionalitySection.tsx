@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Calculator, FileText, Search, TrendingUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export function FunctionalitySection() {
+export function FunctionalitySection({ examsData }: { examsData: SubjectAndLevel[] }) {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
 
@@ -73,11 +73,13 @@ export function FunctionalitySection() {
           </CardContent>
         </Card>
       ))}
+
       <ExamSelectionModal
         onAddExam={onAddExam}
         showModal={showModal}
         setShowModal={setShowModal}
         shouldShowConfirmationPage
+        examsData={examsData}
       />
     </div>
   );

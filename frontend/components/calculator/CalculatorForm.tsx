@@ -23,7 +23,7 @@ type ScoringResults = {
   points: number;
 };
 
-export default function CalculatorForm() {
+export default function CalculatorForm({ examsData }: { examsData: SubjectAndLevel[] }) {
   const { universityId, fieldId } = useParams<{ universityId: string; fieldId: string }>();
   const [examScores, setExamScores] = useState<ExamScore[]>([]);
   const [showModal, setShowModal] = useState(false);
@@ -111,7 +111,12 @@ export default function CalculatorForm() {
       </div>
 
       {/* Modal for exam selection */}
-      <ExamSelectionModal onAddExam={onAddExam} showModal={showModal} setShowModal={setShowModal} />
+      <ExamSelectionModal
+        onAddExam={onAddExam}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        examsData={examsData}
+      />
 
       {/* Exam Scores Summary */}
       {examScores.length > 0 && (
