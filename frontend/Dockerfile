@@ -16,6 +16,7 @@ RUN if [ -d patches ]; then cp -r patches ./patches; fi
 RUN bun i --frozen-lockfile
 
 COPY . .
+COPY ../backend/src/main/resources/recruitment ../backend/src/main/resources/recruitment
 
 RUN chown -R bun:bun /app
 
