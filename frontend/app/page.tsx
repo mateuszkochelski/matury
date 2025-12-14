@@ -1,12 +1,9 @@
-import { getSubjectsAndLevels } from "./utils/getSubjectsAndLevels";
 import { FunctionalitySection } from "@/components/FunctionalitySection";
 import HistoryRecommedations from "@/components/recommendation/HistoryRecommendations";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default async function Home() {
-  const examsData = await getSubjectsAndLevels();
-
   return (
     <>
       <section className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
@@ -56,7 +53,7 @@ export default async function Home() {
             </p>
           </div>
 
-          <FunctionalitySection examsData={examsData} />
+          <FunctionalitySection />
         </div>
       </section>
 

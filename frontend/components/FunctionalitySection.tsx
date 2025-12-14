@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 const ExamSelectionModal = lazy(() => import("./calculator/ExamSelectionModal"));
 
-export function FunctionalitySection({ examsData }: { examsData: SubjectAndLevel[] }) {
+export function FunctionalitySection() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
 
@@ -81,7 +81,6 @@ export function FunctionalitySection({ examsData }: { examsData: SubjectAndLevel
           showModal={showModal}
           setShowModal={setShowModal}
           shouldShowConfirmationPage
-          examsData={examsData}
         />
       </Suspense>
     </div>

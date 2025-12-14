@@ -1,5 +1,4 @@
 import { getFieldData } from "@/app/utils/getFieldData";
-import { getSubjectsAndLevels } from "@/app/utils/getSubjectsAndLevels";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import CalculatorForm from "@/components/calculator/CalculatorForm";
 import CustomLineChart, {
@@ -16,8 +15,6 @@ export default async function Page({
 }: {
   params: Promise<{ universityId: string; departmentId: string; fieldId: string }>;
 }) {
-  const examsData = await getSubjectsAndLevels();
-
   const { universityId, departmentId, fieldId } = await params;
   if (!fieldId) {
     notFound();
@@ -141,7 +138,7 @@ export default async function Page({
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <CalculatorForm examsData={examsData} />
+            <CalculatorForm />
             <div className="bg-primary/5 rounded-lg p-4">
               <h4 className="font-semibold text-foreground mb-2">Dodatkowe wymagania:</h4>
               {addidtionalRequirements ? (

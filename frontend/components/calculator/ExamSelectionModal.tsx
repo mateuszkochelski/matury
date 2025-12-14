@@ -1,10 +1,10 @@
 "use client";
 
-import { SetStateAction, useState, Dispatch } from "react";
+import { SetStateAction, useState, Dispatch, useEffect } from "react";
 import Page1 from "./modal-pages/Page1";
 import Page2 from "./modal-pages/Page2";
 import Page3 from "./modal-pages/Page3";
-import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
+import { getSubjectsAndLevels, SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { X } from "lucide-react";
 
@@ -15,7 +15,6 @@ type ExamSelectionModalProps = {
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   shouldShowConfirmationPage?: boolean;
-  examsData: SubjectAndLevel[];
 };
 
 export default function ExamSelectionModal({
@@ -23,11 +22,12 @@ export default function ExamSelectionModal({
   showModal,
   setShowModal,
   shouldShowConfirmationPage,
-  examsData,
 }: ExamSelectionModalProps) {
   const [selectedExam, setSelectedExam] = useState<SubjectAndLevel | null>(null);
   const [selectedLevel, setSelectedLevel] = useState<string>("");
   const [showConfirmationPage, setShowConfirmationPage] = useState(false);
+  const [examsData, setExamsData] = useState<SubjectAndLevel[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const resetState = () => {
     setSelectedExam(null);
@@ -54,6 +54,14 @@ export default function ExamSelectionModal({
     setSelectedLevel("");
   };
 
+  useEffect(() => {
+    const initializeExamsData = async () => {
+      setExamsData(await getSubjectsAndLevels());
+      setIsLoading(false);
+    };
+    initializeExamsData();
+  }, []);
+
   if (!showModal) return null;
 
   return (
@@ -69,7 +77,11 @@ export default function ExamSelectionModal({
         </CardHeader>
         <CardContent className="space-y-4">
           {!selectedExam && !showConfirmationPage && (
-            <Page1 onSelectExam={(exam) => setSelectedExam(exam)} examsData={examsData} />
+            <Page1
+              onSelectExam={(exam) => setSelectedExam(exam)}
+              examsData={examsData}
+              isLoading={isLoading}
+            />
           )}
 
           {selectedExam && !showConfirmationPage && (
