@@ -1,27 +1,19 @@
 "use server";
 
-import { readFile } from "fs/promises";
-import path from "path";
+import { BACKEND_URL } from "../constants";
 
 export type ExamLevel = "BASIC" | "EXTENDED" | "BILINGUAL" | "SPECIAL";
 export type SubjectAndLevel = { code: string; label: string; levels: ExamLevel[] };
 
-const dirPath = "../backend/src/main/resources/recruitment";
-
 export async function getSubjectsAndLevels(): Promise<SubjectAndLevel[]> {
-  const subjectsLevelsPath = path.join(process.cwd(), dirPath, "subjects.json");
+  const response = await fetch(`${BACKEND_URL}/api/recruitment-calculator/subjects`, {
+    headers: { Accept: "application/json" },
+  });
 
-  const formulasPath = path.join(process.cwd(), dirPath, "formulas.json");
-
-  try {
-    const subjectsLevels = JSON.parse(await readFile(subjectsLevelsPath, "utf-8"));
-    const formulas = JSON.parse(await readFile(formulasPath, "utf-8"));
-
-    return formulas.subjects.map((subject: Omit<SubjectAndLevel, "levels">) => ({
-      levels: subjectsLevels[subject.code],
-      ...subject,
-    }));
-  } catch (err) {
-    throw new Error(`Failed to parse JSON at ${subjectsLevelsPath}: ${err}`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch subjects from backend: ${response.status}`);
   }
+
+  const data = await response.json();
+  return data as SubjectAndLevel[];
 }
