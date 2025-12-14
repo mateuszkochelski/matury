@@ -1,5 +1,6 @@
 import { getFieldData } from "@/app/utils/getFieldData";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import CalculatorForm from "@/components/calculator/CalculatorForm";
 import CustomLineChart, {
   ThresholdGraphData,
 } from "@/components/custom-line-chart/CustomLineChart";
@@ -137,7 +138,7 @@ export default async function Page({
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <p className="font-bold text-red-400">TODO: Formularz tutaj</p>
+            <CalculatorForm />
             <div className="bg-primary/5 rounded-lg p-4">
               <h4 className="font-semibold text-foreground mb-2">Dodatkowe wymagania:</h4>
               {addidtionalRequirements ? (

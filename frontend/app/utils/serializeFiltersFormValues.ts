@@ -11,6 +11,7 @@ export function serializeFiltersFormValues(rest: TableSearchParams) {
           ...rest,
           degrees: possibleDegrees.reduce(
             (acc, val) => {
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               acc![val] = splitDegrees.includes(val);
               return acc;
             },

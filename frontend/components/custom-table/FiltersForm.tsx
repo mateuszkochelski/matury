@@ -35,6 +35,8 @@ export function FitlersForm<T>({
   const {
     register,
     handleSubmit,
+    // TODO: fix this once error handling is added or remove it entirely
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
     control,
   } = useForm<FiltersFormValues>({
