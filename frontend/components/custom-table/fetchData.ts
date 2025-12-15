@@ -57,13 +57,14 @@ export async function fetchData({
   }
   if (filters) {
     Object.entries(filters).forEach(([key, value]) => {
-      // TODO: remove this after degrees are fixed on BE
-      if (key === "degrees") return;
-
       const backendKey =
         mapFrontendToBackendFilterNames[key as keyof typeof mapFrontendToBackendFilterNames];
       if (value !== undefined && value !== null && value !== "") {
-        url.searchParams.set(backendKey, value as ValueOf<typeof mapFrontendToBackendFilterNames>);
+        const paramValue = Array.isArray(value) ? value.join(",") : value;
+        url.searchParams.set(
+          backendKey,
+          paramValue as ValueOf<typeof mapFrontendToBackendFilterNames>,
+        );
       }
     });
   }

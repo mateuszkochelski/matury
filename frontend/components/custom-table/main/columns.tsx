@@ -11,6 +11,7 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
     header: "Stopień",
     accessorKey: "level",
     size: 100,
+    cell: ({ row }) => (row.getValue("degree") as string).replaceAll("_", " "),
   },
   {
     id: "duration",

@@ -26,12 +26,7 @@ export type FieldOfStudyData = {
   };
 };
 
-export const possibleDegrees = [
-  "bachelors",
-  "engineering",
-  "masters",
-  "engineeringMasters",
-] as const;
+export const possibleDegrees = ["bachelor", "engineer", "master", "long_master"] as const;
 
 export type DegreeType = (typeof possibleDegrees)[number];
 
