@@ -48,6 +48,10 @@ public final class FieldOfStudySpecifications {
         preds.add(root.get("level").in(f.getDegrees()));
       }
 
+      if (f.getIds() != null && !f.getIds().isEmpty()) {
+        preds.add(root.get("id").in(f.getIds()));
+      }
+
       if ((wantsDept || wantsUni || wantsCity)) {
         query.distinct(true);
       }

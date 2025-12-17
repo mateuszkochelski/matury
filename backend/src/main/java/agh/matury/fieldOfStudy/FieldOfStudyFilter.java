@@ -37,4 +37,7 @@ public class FieldOfStudyFilter {
   private BigDecimal passRateTo;
   private BigDecimal avgSalaryFrom;
   private BigDecimal avgSalaryTo;
+
+  @Schema(description = "Lista ID kierunków (powtarzany parametr lub rozdzielone przecinkami), np. ids=1,2,3")
+  private Set<Long> ids;
 }
