@@ -23,19 +23,19 @@ export default function Page1({
 
   return (
     <div className="space-y-2">
-      <Label className="text-foreground">Search Exams</Label>
+      <Label className="text-foreground">Wyszukaj przedmiot</Label>
       <div className="relative">
         <Search className="absolute left-3 top-3 w-4 h-4 text-foreground/40" />
         <Input
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search 32 exams..."
+          placeholder="Wyszukaj z 32 przedmiotów..."
           className="pl-10 border-primary/30"
         />
       </div>
 
       <div className="space-y-2">
-        <Label className="text-foreground">Select Exam</Label>
+        <Label className="text-foreground">Wybierz przedmiot</Label>
         <div>
           <div className="max-h-64 overflow-y-auto space-y-1 border border-primary/20 rounded-lg p-2">
             <ExamsList exams={filteredExams} isLoading={isLoading} onSelectExam={onSelectExam} />
@@ -67,7 +67,7 @@ function ExamsList({
   }
 
   if (exams.length === 0) {
-    return <div className="px-3 py-2 text-foreground/60 text-sm">No exams found</div>;
+    return <div className="px-3 py-2 text-foreground/60 text-sm">Nie znaleziono matur</div>;
   }
 
   return exams.map((exam) => (
@@ -77,7 +77,7 @@ function ExamsList({
       className="w-full text-left px-3 py-2 rounded hover:bg-primary/10 transition-colors text-foreground hover:text-foreground"
     >
       <span className="font-medium">{exam.label}</span>
-      <span className="text-foreground/60 text-xs ml-2">({exam.levels.length} levels)</span>
+      <span className="text-foreground/60 text-xs ml-2">({exam.levels.length} poziomy)</span>
     </button>
   ));
 }

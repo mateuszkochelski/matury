@@ -2,6 +2,7 @@
 
 import { lazy, Suspense, useEffect, useState } from "react";
 import { getAdmissionProbability } from "./utils/getAdmissionProbability";
+import { mapLevelToPolish } from "./utils/mapLevelsToPolish";
 import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Badge } from "@/components/ui/badge/badge";
 import { Button } from "@/components/ui/button";
@@ -107,7 +108,7 @@ export default function CalculatorForm() {
           className="bg-primary hover:bg-primary/90 text-foreground gap-2 w-full sm:w-auto"
         >
           <Plus className="w-4 h-4" />
-          Add Exam Score
+          Dodaj wyniki matur
         </Button>
       </div>
 
@@ -124,7 +125,7 @@ export default function CalculatorForm() {
       {examScores.length > 0 && (
         <div className="space-y-4">
           <Label className="text-foreground font-semibold">
-            Selected Exams ({examScores.length})
+            Wybrane matury ({examScores.length})
           </Label>
           <div className="relative transition-all duration-300">
             <div className="space-y-2">
@@ -137,13 +138,13 @@ export default function CalculatorForm() {
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-medium text-foreground">{exam.examLabel}</span>
                       <Badge variant="secondary" className="bg-accent/20 text-accent border-0">
-                        {exam.level}
+                        {mapLevelToPolish(exam.level)}
                       </Badge>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 sm:ml-auto">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-foreground/60">Score:</span>
+                      <span className="text-sm text-foreground/60">Wynik:</span>
                       <Input
                         type="number"
                         min="0"
@@ -232,7 +233,7 @@ export default function CalculatorForm() {
       {examScores.length === 0 && (
         <div className="text-center py-8">
           <p className="text-foreground/60">
-            No exams selected. Click "Add Exam Score" to get started.
+            Nie wybrano żadnych matur. Kliknij "Dodaj wyniki matur", aby rozpocząć.
           </p>
         </div>
       )}
