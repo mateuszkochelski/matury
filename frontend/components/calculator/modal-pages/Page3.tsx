@@ -25,7 +25,7 @@ export default function Page3({
           <h3 className="text-lg font-semibold text-foreground">Egzamin został dodany!</h3>
           {!!selectedExam && (
             <p className="text-sm text-foreground/60">
-              {selectedExam.label} ({selectedLevel}) został pomyślnie dodany do listy.
+              {selectedExam.label} ({selectedLevel}) został pomyślnie dodany do Twojej listy.
             </p>
           )}
         </div>

@@ -2,6 +2,7 @@
 
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { AddExamHandler } from "../ExamSelectionModal";
+import { mapLevelToPolish } from "../utils/mapLevelsToPolish";
 import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,7 +38,7 @@ export default function Page2({
             onClick={onChangeSelectedExam}
             className="text-primary hover:text-primary/80 text-sm"
           >
-            Change
+            Zmień
           </button>
         </div>
         <div className="grid grid-cols-2 gap-2">
@@ -51,19 +52,19 @@ export default function Page2({
                   : "border-primary/30 text-foreground hover:border-primary/60"
               }`}
             >
-              {level}
+              {mapLevelToPolish(level)}
             </button>
           ))}
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label className="text-foreground">Score (0-100)</Label>
+        <Label className="text-foreground">Wynik (0-100)</Label>
         <Input
           type="number"
           min="0"
           max="100"
-          placeholder="Enter score"
+          placeholder="Wpisz wynik"
           className="border-primary/30"
           value={scoreInput}
           onChange={(e) => setScoreInput(e.target.value)}
@@ -84,7 +85,7 @@ export default function Page2({
         disabled={!selectedLevel}
         className="w-full bg-primary hover:bg-primary/90 text-foreground"
       >
-        Add Exam
+        Dodaj maturę
       </Button>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { FiltersFormValues, FitlersForm } from "./FiltersForm";
+import { FiltersFormValues, FiltersForm } from "./FiltersForm";
 import { TableSearchParams } from "./fetchData";
 import { Button } from "@/components/ui/button";
 import {
@@ -196,7 +196,7 @@ export function GenericTable<T>({
             {Boolean(table.getColumn("name")?.getFilterValue()) && (
               <button
                 className="text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md transition-[color,box-shadow] outline-none focus:z-10 focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
-                aria-label="Clear filter"
+                aria-label="Wyczyść filtry"
                 onClick={() => {
                   table.getColumn("name")?.setFilterValue("");
                   if (inputRef.current) {
@@ -217,7 +217,7 @@ export function GenericTable<T>({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="bg-card">
-              <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+              <DropdownMenuLabel>Widoczność kolumn</DropdownMenuLabel>
               {table
                 .getAllColumns()
                 .filter((column) => column.getCanHide())
@@ -251,7 +251,7 @@ export function GenericTable<T>({
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-72 p-0 bg-card" align="start">
-              <FitlersForm table={table} filters={filters} />
+              <FiltersForm table={table} filters={filters} />
             </PopoverContent>
           </Popover>
         </div>
@@ -332,7 +332,7 @@ export function GenericTable<T>({
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24">
-                  No results.
+                  Brak wyników
                 </TableCell>
               </TableRow>
             )}
@@ -354,7 +354,7 @@ export function GenericTable<T>({
             }}
           >
             <SelectTrigger id={id} className="w-fit whitespace-nowrap bg-card">
-              <SelectValue placeholder="Select number of results" />
+              <SelectValue placeholder="Wybierz liczbę wyników" />
             </SelectTrigger>
             <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 bg-card">
               {[5, 10, 25, 50].map((pageSize) => (
@@ -398,7 +398,7 @@ export function GenericTable<T>({
                   className="disabled:pointer-events-none disabled:opacity-50"
                   onClick={() => table.firstPage()}
                   disabled={!table.getCanPreviousPage()}
-                  aria-label="Go to first page"
+                  aria-label="Pierwsza strona"
                 >
                   <ChevronFirstIcon size={16} aria-hidden="true" />
                 </Button>
@@ -411,7 +411,7 @@ export function GenericTable<T>({
                   className="disabled:pointer-events-none disabled:opacity-50"
                   onClick={() => table.previousPage()}
                   disabled={!table.getCanPreviousPage()}
-                  aria-label="Go to previous page"
+                  aria-label="Poprzednia strona"
                 >
                   <ChevronLeftIcon size={16} aria-hidden="true" />
                 </Button>
@@ -424,7 +424,7 @@ export function GenericTable<T>({
                   className="disabled:pointer-events-none disabled:opacity-50"
                   onClick={() => table.nextPage()}
                   disabled={!table.getCanNextPage()}
-                  aria-label="Go to next page"
+                  aria-label="Następna strona"
                 >
                   <ChevronRightIcon size={16} aria-hidden="true" />
                 </Button>
@@ -437,7 +437,7 @@ export function GenericTable<T>({
                   className="disabled:pointer-events-none disabled:opacity-50"
                   onClick={() => table.lastPage()}
                   disabled={!table.getCanNextPage()}
-                  aria-label="Go to last page"
+                  aria-label="Ostatnia strona"
                 >
                   <ChevronLastIcon size={16} aria-hidden="true" />
                 </Button>

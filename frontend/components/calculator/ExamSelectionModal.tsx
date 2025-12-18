@@ -69,7 +69,7 @@ export default function ExamSelectionModal({
       <Card className="w-full max-w-md border-primary/20">
         <CardHeader className="flex flex-row items-center justify-between space-y-0">
           <CardTitle className="text-foreground">
-            {showConfirmationPage ? "Egzamin dodany" : "Add Exam Score"}
+            {showConfirmationPage ? "Egzamin dodany" : "Dodaj wyniki matur"}
           </CardTitle>
           <button onClick={handleClose} className="text-foreground/60 hover:text-foreground">
             <X className="w-5 h-5" />

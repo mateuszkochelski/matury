@@ -95,7 +95,7 @@ export default async function Page({
           <div className="lg:w-80">
             <Card className="border-primary/20">
               <CardHeader>
-                <CardTitle className="text-foreground">Quick Facts</CardTitle>
+                <CardTitle className="text-foreground">Kluczowe informacje</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
@@ -130,10 +130,10 @@ export default async function Page({
           <CardHeader>
             <CardTitle className="text-foreground flex items-center gap-2">
               <Calculator className="w-5 h-5" />
-              Oblisz swoje szanse
+              Oblicz swoje szanse
             </CardTitle>
             <CardDescription>
-              Podaj swoje wyniki matury a my obliczymy jakie masz szanse dostać się na kierunek:{" "}
+              Podaj wyniki matur, a my obliczymy Twoje szanse na dostanie się na kierunek:{" "}
               {fieldData.name}
             </CardDescription>
           </CardHeader>
@@ -145,7 +145,7 @@ export default async function Page({
                 <p className="">{addidtionalRequirements}</p>
               ) : (
                 <p className="text-muted-foreground">
-                  Z tego co wiemy, ten kierunek nie ma dodatkowych wymagań rekrutacji
+                  Z tego co wiemy, ten kierunek nie ma dodatkowych wymagań rekrutacyjnych
                 </p>
               )}
             </div>

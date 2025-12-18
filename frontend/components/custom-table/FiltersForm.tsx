@@ -25,7 +25,7 @@ export type FiltersFormValues = {
   university_name?: string;
 };
 
-export function FitlersForm<T>({
+export function FiltersForm<T>({
   table,
   filters,
 }: {
@@ -130,7 +130,7 @@ export function FitlersForm<T>({
           })}
       </Accordion>
       <div className="p-3 grid grid-cols-2 gap-2 border-t">
-        <Button type="submit">Zapisz</Button>
+        <Button type="submit">Zastosuj</Button>
         <Button variant="destructive">Resetuj</Button>
       </div>
     </form>
