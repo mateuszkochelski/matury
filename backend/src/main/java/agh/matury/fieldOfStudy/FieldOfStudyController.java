@@ -35,6 +35,7 @@ public class FieldOfStudyController {
       - semestersFrom / semestersTo (duration)
       - department / university / city (LIKE)
       - degrees (powtarzany parametr, np. degrees=Bachelors&degrees=Engineering)
+      - ids (powtarzany parametr lub lista oddzielona przecinkami, np. ids=1,2,3)
       Paginacja: page, size. Sortowanie: sort, direction=asc|desc.
       """)
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
