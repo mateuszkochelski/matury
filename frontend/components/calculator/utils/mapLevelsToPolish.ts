@@ -4,5 +4,5 @@ export const mapLevelToPolish = (level: string) => {
     EXTENDED: "ROZSZERZONY",
     BILINGUAL: "DWUJĘZYCZNY",
   };
-  return levels[level] || level;
+  return levels[level] ?? level;
 };

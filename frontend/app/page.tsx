@@ -15,7 +15,8 @@ export default async function Home() {
             </h1>
             <p className="text-base md:text-lg text-foreground/70 leading-relaxed">
               Z łatwością odkryj najlepsze uczelnie w Polsce. Eksploruj wydziały oraz kierunki
-              studiów. Porównaj swoje wyniki z matury. Możesz zrobić to wszystko w jednym miejscu.
+              studiów. Porównaj swoje wyniki z matur. Sprwadź zdawanalność kierunlku oraz zarobki
+              absolwentów. Możesz zrobić to wszystko w jednym miejscu.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="szukaj">
@@ -34,7 +35,6 @@ export default async function Home() {
                 <div className="text-4xl md:text-6xl lg:text-8xl mb-4">🐧</div>
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 mx-auto max-w-xs">
                   <p className="text-sm text-foreground font-medium">
-                    {/* // TODO: change it */}
                     „Twoja przyszłość zaczyna się od świadomego wyboru kierunku studiów.”
                   </p>
                 </div>

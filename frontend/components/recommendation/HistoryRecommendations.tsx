@@ -40,7 +40,7 @@ export default function HistoryRecommedations() {
         <div className="text-center">
           <h2 className="h2 text-foreground mb-4">Odkryj swoje możliwości</h2>
           <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
-            Przeglądaj kierunki, a my przygotujemy dla Ciebie personalizowane propozycje
+            Przeglądaj kierunki, a my przygotujemy dla Ciebie spersonalizowane propozycje
           </p>
         </div>
       )}

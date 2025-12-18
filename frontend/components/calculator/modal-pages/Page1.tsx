@@ -23,13 +23,12 @@ export default function Page1({
 
   return (
     <div className="space-y-2">
-      <Label className="text-foreground">Wyszukaj przedmiot</Label>
       <div className="relative">
         <Search className="absolute left-3 top-3 w-4 h-4 text-foreground/40" />
         <Input
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Wyszukaj z 32 przedmiotów..."
+          placeholder="Wyszukaj przedmiot"
           className="pl-10 border-primary/30"
         />
       </div>
@@ -67,7 +66,11 @@ function ExamsList({
   }
 
   if (exams.length === 0) {
-    return <div className="px-3 py-2 text-foreground/60 text-sm">Nie znaleziono matur</div>;
+    return (
+      <div className="px-3 py-2 text-foreground/60 text-sm">
+        Wystąpił problem podczas pobierania możliwych matur
+      </div>
+    );
   }
 
   return exams.map((exam) => (
