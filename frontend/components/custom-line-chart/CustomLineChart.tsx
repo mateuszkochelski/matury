@@ -22,7 +22,7 @@ export default function CustomLineChart({
   xDataKey,
   yDataKey,
   showPhases = false,
-  tooltipLabel = "Watrość",
+  tooltipLabel = "Wartość",
 }: {
   data: ThresholdGraphData[][];
   xDataKey: keyof ThresholdGraphData;

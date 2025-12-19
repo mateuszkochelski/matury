@@ -29,19 +29,18 @@ export default function HistoryRecommedations() {
       {recoFields.length > 0 ? (
         <>
           <div className="text-center mb-8 md:mb-16">
-            <h2 className="h2 text-foreground mb-4">Sprawdź te kierunki!</h2>
+            <h2 className="h2 text-foreground mb-4">Polecane dla Ciebie</h2>
             <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
-              Dobrane na podstawie Twojej aktywności
+              Dobrane na podstawie Twoich ostatnich wyszukiwań
             </p>
           </div>
           <FieldsCarousel fields={recoFields} />
         </>
       ) : (
         <div className="text-center">
-          <h2 className="h2 text-foreground mb-4">Zastanawiamy się czego szukasz</h2>
+          <h2 className="h2 text-foreground mb-4">Odkryj swoje możliwości</h2>
           <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
-            Tutaj pojawią się rekomendacje kierunków studiów na podstawie twojej aktywności na
-            naszej stronie. Nie ma czasu do stracenia!
+            Przeglądaj kierunki, a my przygotujemy dla Ciebie spersonalizowane propozycje
           </p>
         </div>
       )}

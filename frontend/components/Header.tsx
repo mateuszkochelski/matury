@@ -10,24 +10,21 @@ export function Header() {
           <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
             <span className="text-xl">🐧</span>
           </div>
-          <h1 className="text-xl font-bold text-foreground">nazwa_strony</h1>
+          <h1 className="text-xl font-bold text-foreground">matury.eu</h1>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
+          {/* Nie wiem co jeszcze dodać do headera, póki co nie mamy czego, dodałem cokolwiek żeby nie było placeholderów */}
           <Link href="/" className="text-foreground/70 hover:text-foreground transition-colors">
-            Link1
+            Strona główna
           </Link>
-          <Link href="/" className="text-foreground/70 hover:text-foreground transition-colors">
-            Link2
+          <Link href="/szukaj" className="">
+            <Button
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/30 bg-transparent cursor-pointer"
+            >
+              Szukaj
+            </Button>
           </Link>
-          <Link href="/" className="text-foreground/70 hover:text-foreground transition-colors">
-            Link3
-          </Link>
-          <Button
-            variant="outline"
-            className="border-primary text-primary hover:bg-primary/10 bg-transparent"
-          >
-            Button
-          </Button>
         </nav>
         <Button variant="ghost" size="sm" className="md:hidden">
           <Menu className="w-5 h-5" />

@@ -35,13 +35,14 @@ export function FunctionalitySection() {
       {
         icon: <Search className={`${commonClassName} text-primary`} />,
         title: "Wyszukiwarka",
-        description: "Znajdź dokładnie te rzeczy których potrzebujesz za pomocą różnych kryteriów",
+        description:
+          "Znajdź dokładnie te informacje które potrzebujesz dzięki rozbudowanym filtrom",
         onClick: () => router.push("/szukaj"),
       },
       {
         icon: <Calculator className={`${commonClassName} text-orange-400`} />,
         title: "Kalkulator rekrutacyjny",
-        description: "Sprawdź jaką masz szansę na udaną rekrutację na ulubionej uczelni",
+        description: "Sprawdź jaką masz szansę dostać się na wymarzony kierunek studiów",
         onClick: () => setShowModal(true),
       },
       {

@@ -2,11 +2,13 @@ package agh.matury.recruitment;
 
 import agh.matury.recruitment.config.RecruitmentConfigLoader;
 import agh.matury.recruitment.config.RecruitmentFormulaConfig;
+import agh.matury.recruitment.dto.AcceptanceProbabilityDTO;
 import agh.matury.recruitment.dto.CalculateRecruitmentPointsRequest;
 import agh.matury.recruitment.dto.ExamResultDTO;
 import agh.matury.recruitment.dto.RecruitmentCalculationResponse;
 import agh.matury.recruitment.dto.TermBreakdownDTO;
 import agh.matury.recruitment.exception.RecruitmentCalculationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -20,8 +22,13 @@ public class RecruitmentCalculatorService {
     private final RecruitmentFormulaConfig config;
     private final List<RecruitmentFormulaConfig.UniversityConfig> universities;
     private final Map<String, RecruitmentFormulaConfig.SubjectGroupConfig> subjectGroupsById;
+    private final RecruitmentProbabilityLookup probabilityLookup;
 
-    public RecruitmentCalculatorService(RecruitmentConfigLoader configLoader) {
+    @Autowired
+    public RecruitmentCalculatorService(
+            RecruitmentConfigLoader configLoader,
+            RecruitmentProbabilityLookup probabilityLookup
+    ) {
         this.config = configLoader.getConfig();
         this.universities = Optional.ofNullable(config.universities()).orElseGet(List::of);
         List<RecruitmentFormulaConfig.SubjectGroupConfig> groups = Optional.ofNullable(config.subjectGroups()).orElseGet(List::of);
@@ -30,6 +37,11 @@ public class RecruitmentCalculatorService {
                         group -> group.id().toLowerCase(Locale.ROOT),
                         Function.identity()
                 ));
+        this.probabilityLookup = probabilityLookup;
+    }
+
+    public RecruitmentCalculatorService(RecruitmentConfigLoader configLoader) {
+        this(configLoader, new RecruitmentProbabilityLookup());
     }
 
     public RecruitmentCalculationResponse calculatePoints(CalculateRecruitmentPointsRequest request) {
@@ -104,11 +116,18 @@ public class RecruitmentCalculatorService {
             ));
         }
 
+        AcceptanceProbabilityDTO acceptanceProbability = probabilityLookup.findProbability(
+                universityConfig,
+                request.fieldOfStudyId(),
+                total
+        );
+
         return new RecruitmentCalculationResponse(
                 universityConfig.id(),
                 fieldOfStudyConfig.id(),
                 total,
-                breakdown
+                breakdown,
+                acceptanceProbability == null ? null : acceptanceProbability.probability()
         );
     }
 

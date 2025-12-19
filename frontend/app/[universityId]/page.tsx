@@ -35,25 +35,21 @@ export default async function Page({ params }: { params: Promise<{ universityId:
           <div className="lg:w-80">
             <Card className="border-primary/20">
               <CardHeader>
-                <CardTitle className="text-foreground">Quick Facts</CardTitle>
+                <CardTitle className="text-foreground">Kluczowe informacje</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <div className="text-sm text-foreground/60">Students</div>
-                    <div className="font-semibold text-foreground">1000</div>
+                    <div className="text-sm text-foreground/60">Studenci</div>
+                    <div className="font-semibold text-foreground">TODO</div>
                   </div>
                   <div>
-                    <div className="text-sm text-foreground/60">Faculty</div>
-                    <div className="font-semibold text-foreground">1000</div>
+                    <div className="text-sm text-foreground/60">Wydziały</div>
+                    <div className="font-semibold text-foreground">{departments.length}</div>
                   </div>
                   <div>
-                    <div className="text-sm text-foreground/60">Programs</div>
-                    <div className="font-semibold text-foreground">1000</div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-foreground/60">Founded</div>
-                    <div className="font-semibold text-foreground">1000</div>
+                    <div className="text-sm text-foreground/60">Kierunki</div>
+                    <div className="font-semibold text-foreground">TODO</div>
                   </div>
                 </div>
 

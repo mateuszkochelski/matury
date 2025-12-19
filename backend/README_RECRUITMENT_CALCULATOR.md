@@ -58,6 +58,7 @@ Kod zrodlowy: `backend/src/main/java/agh/matury/recruitment/RecruitmentCalculato
   - `termId`, `description`,
   - `subjectCode` oraz `level` uzyte do obliczenia,
   - `rawScore`, `coefficient`, `pointsAwarded`.
+- `probability` – opcjonalne; tylko dla Politechniki Poznanskiej (id `politechnika-poznanska`/`33`), pochodzi z `recruitment/lookup_table.csv` dla zaokraglonych punktow kandydata.
 
 ## Dostepne konfiguracje
 
