@@ -57,22 +57,17 @@ export default async function Page({
     });
   });
 
-  let year = 1;
-  const incomeData: IncomeGraphData[][] = [[]];
-  [
-    graduateData.incomeAfterYear1,
-    graduateData.incomeAfterYear2,
-    graduateData.incomeAfterYear3,
-    graduateData.incomeAfterYear4,
-    graduateData.incomeAfterYear5,
-  ].forEach((income) => {
-    if (income > 0.0)
-      incomeData[0].push({
-        year,
-        income,
-      });
-    year += 1;
-  });
+  const incomeData: IncomeGraphData[][] = [
+    [
+      graduateData.incomeAfterYear1,
+      graduateData.incomeAfterYear2,
+      graduateData.incomeAfterYear3,
+      graduateData.incomeAfterYear4,
+      graduateData.incomeAfterYear5,
+    ]
+      .map((income, index) => ({ year: index + 1, income }))
+      .filter((item) => item.income > 0),
+  ];
 
   // Checking for additional requirements (only latest known threshold, first phase)
   const latestThreshold = thresholds.find(
