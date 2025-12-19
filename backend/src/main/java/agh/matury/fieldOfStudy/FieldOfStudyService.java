@@ -52,20 +52,20 @@ public class FieldOfStudyService {
       return loadGraduateDataFromCsv(dto);
   }
 
-  public Page<FieldOfStudyDTO> getFieldsOfStudyByUniversityId(Long universityId, Pageable pageable) {
+  public Page<FieldOfStudyExtendedDTO> getFieldsOfStudyByUniversityId(Long universityId, Pageable pageable) {
     // Filter out null departments when sorting by department-related fields
     String sortField = getSortFieldFromPageable(pageable);
     if (isDepartmentSortField(sortField)) {
       Specification<FieldOfStudy> spec = (root, query, cb) -> cb.and(
           cb.equal(root.get("university").get("id"), universityId),
           cb.isNotNull(root.get("department")));
-      return fieldOfStudyRepository.findAll(spec, pageable).map(this::toDTO);
+      return fieldOfStudyRepository.findAll(spec, pageable).map(this::toDTO).map(this::toExtendedDTO);
     }
-    return fieldOfStudyRepository.findByUniversityId(universityId, pageable).map(this::toDTO);
+    return fieldOfStudyRepository.findByUniversityId(universityId, pageable).map(this::toDTO).map(this::toExtendedDTO);
   }
 
-  public Page<FieldOfStudyDTO> getFieldsOfStudyByDepartmentId(Long departmentId, Pageable pageable) {
-    return fieldOfStudyRepository.findByDepartmentId(departmentId, pageable).map(this::toDTO);
+  public Page<FieldOfStudyExtendedDTO> getFieldsOfStudyByDepartmentId(Long departmentId, Pageable pageable) {
+    return fieldOfStudyRepository.findByDepartmentId(departmentId, pageable).map(this::toDTO).map(this::toExtendedDTO);
   }
 
   public Page<FieldOfStudyExtendedDTO> search(FieldOfStudyFilter filter, Pageable pageable) {
@@ -148,7 +148,13 @@ public class FieldOfStudyService {
 
   private static boolean levelMatch(String levelName, String levelNumber) {
     if (levelNumber == null || levelNumber.trim().isEmpty()) return false;
-    int levelNumberInt = Integer.parseInt(levelNumber);
+    if (levelNumber.trim().equals("JM") && levelName.equals("jednolite_magisterskie")) return true;
+    int levelNumberInt;
+    try {
+      levelNumberInt = Integer.parseInt(levelNumber);
+    } catch (NumberFormatException e) {
+      return false;
+    }
     if ((levelName.equals("inżynierskie") || levelName.equals("licencjackie")) && levelNumberInt == 2) return false;
     if (levelName.equals("magisterskie") && levelNumberInt == 2) return false;
     return true;

@@ -82,7 +82,7 @@ public class FieldOfStudyController {
   @Operation(summary = "Get all fields of study from university.", description = "Returns a paginated list of all fields of study from provided university id.")
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
   @GetMapping("/university/{id}")
-  public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByUniversityId(
+  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getFieldsOfStudyByUniversityId(
       @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
       @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
       @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,
@@ -99,7 +99,7 @@ public class FieldOfStudyController {
   @Operation(summary = "Get all fields of study from department.", description = "Returns a paginated list of all fields of study from provided department id.")
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
   @GetMapping("/department/{id}")
-  public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByDepartmentId(
+  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getFieldsOfStudyByDepartmentId(
       @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
       @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
       @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,
