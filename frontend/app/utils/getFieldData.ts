@@ -26,8 +26,20 @@ type ThresholdData = {
   };
 };
 
+type GraduateData = {
+  fieldOfStudyId: number;
+  avgIncome: number;
+  incomeAfterYear1: number;
+  incomeAfterYear2: number;
+  incomeAfterYear3: number;
+  incomeAfterYear4: number;
+  incomeAfterYear5: number;
+  passRate: number;
+};
+
 export async function getFieldData(fieldId: string): Promise<{
   fieldData: FieldOfStudy;
+  graduateData: GraduateData;
   recoFields: FieldOfStudy[];
   thresholdData: ThresholdData;
 }> {
@@ -44,11 +56,26 @@ export async function getFieldData(fieldId: string): Promise<{
     fieldResponse.json(),
     thresholdResponse.json(),
   ]);
+  const graduateResponse = await fetch(`${BACKEND_URL}/api/field_of_study/${fieldId}/graduate`);
+  // default values if request fails (not found)
+  let graduateData: GraduateData = {
+    fieldOfStudyId: fieldData.id,
+    avgIncome: 0.0,
+    incomeAfterYear1: 0.0,
+    incomeAfterYear2: 0.0,
+    incomeAfterYear3: 0.0,
+    incomeAfterYear4: 0.0,
+    incomeAfterYear5: 0.0,
+    passRate: 0.0,
+  };
+  if (graduateResponse.ok) {
+    graduateData = await graduateResponse.json();
+  }
   const recoResponse = await fetch(`${BACKEND_URL}/api/recommendation/field/${fieldId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ k: 16 }),
   });
   const recoData: FieldOfStudy[] = await recoResponse.json();
-  return { fieldData, recoFields: recoData, thresholdData };
+  return { fieldData, graduateData, recoFields: recoData, thresholdData };
 }

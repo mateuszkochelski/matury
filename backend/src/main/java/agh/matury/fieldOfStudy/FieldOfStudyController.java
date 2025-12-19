@@ -1,6 +1,8 @@
 package agh.matury.fieldOfStudy;
 
 import agh.matury.fieldOfStudy.dto.FieldOfStudyDTO;
+import agh.matury.fieldOfStudy.dto.FieldOfStudyExtendedDTO;
+import agh.matury.fieldOfStudy.dto.GraduateDataDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -40,7 +42,7 @@ public class FieldOfStudyController {
       """)
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
   @GetMapping
-  public ResponseEntity<Page<FieldOfStudyDTO>> getAllFieldsOdStudy(
+  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getAllFieldsOdStudy(
       @ParameterObject FieldOfStudyFilter filter,
       @RequestParam(defaultValue = "0") int page,
       @RequestParam(defaultValue = "10") int size,
@@ -64,6 +66,18 @@ public class FieldOfStudyController {
       @Parameter(description = "Field of study id", required = true, in = ParameterIn.PATH) @PathVariable Long id) {
     return ResponseEntity.ok(fieldOfStudyService.getFieldOfStudyById(id));
   }
+
+  @Operation(summary = "Get field of study graduate data.", description = "Returns field of study graduate data with provided id.")
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "200", description = "Successfully retrieved field of study data", content = @Content(schema = @Schema(implementation = FieldOfStudyDTO.class))),
+          @ApiResponse(responseCode = "404", description = "Field of study data not found", content = @Content)
+  })
+  @GetMapping("/{id}/graduate")
+  public ResponseEntity<GraduateDataDTO> getFieldOfStudyGraduateDAtaById(
+          @Parameter(description = "Field of study id", required = true, in = ParameterIn.PATH) @PathVariable Long id) {
+    return ResponseEntity.ok(fieldOfStudyService.getFieldOfStudyGraduateDataById(id));
+  }
+
 
   @Operation(summary = "Get all fields of study from university.", description = "Returns a paginated list of all fields of study from provided university id.")
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))

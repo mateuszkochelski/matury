@@ -2,7 +2,7 @@ import { BACKEND_URL } from "../constants";
 import { serializeFiltersFormValues } from "../utils/serializeFiltersFormValues";
 import { fetchData, TableSearchParams } from "@/components/custom-table/fetchData";
 import { MainTable } from "@/components/custom-table/main";
-import { FieldOfStudyData } from "@/components/custom-table/types";
+import { FieldOfStudyExtendedData } from "@/components/custom-table/types";
 
 export default async function Home({
   searchParams,
@@ -20,7 +20,7 @@ export default async function Home({
     direction,
     filters: rest,
   });
-  const data: FieldOfStudyData = await response.json();
+  const data: FieldOfStudyExtendedData = await response.json();
   const { content: fields, page: pageData } = data;
   const { number: pageNumber, totalElements, size } = pageData;
 
