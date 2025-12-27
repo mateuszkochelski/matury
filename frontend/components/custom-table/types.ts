@@ -16,8 +16,13 @@ export type FieldOfStudy = {
   };
 };
 
-export type FieldOfStudyData = {
-  content: FieldOfStudy[];
+export type FieldOfStudyExtended = FieldOfStudy & {
+  passRate: number;
+  avgIncome: number;
+};
+
+export type FieldOfStudyExtendedData = {
+  content: FieldOfStudyExtended[];
   page: {
     size: number;
     number: number;

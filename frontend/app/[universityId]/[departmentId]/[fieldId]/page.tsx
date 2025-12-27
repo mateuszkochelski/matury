@@ -2,6 +2,7 @@ import { getFieldData } from "@/app/utils/getFieldData";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import CalculatorForm from "@/components/calculator/CalculatorForm";
 import CustomLineChart, {
+  IncomeGraphData,
   ThresholdGraphData,
 } from "@/components/custom-line-chart/CustomLineChart";
 import FieldsCarousel from "@/components/fields-carousel/FieldsCarousel";
@@ -20,7 +21,7 @@ export default async function Page({
     notFound();
   }
 
-  const { fieldData, recoFields, thresholdData } = await getFieldData(fieldId);
+  const { fieldData, graduateData, recoFields, thresholdData } = await getFieldData(fieldId);
 
   const thresholds = thresholdData.content;
 
@@ -55,6 +56,18 @@ export default async function Page({
           : null,
     });
   });
+
+  const incomeData: IncomeGraphData[][] = [
+    [
+      graduateData.incomeAfterYear1,
+      graduateData.incomeAfterYear2,
+      graduateData.incomeAfterYear3,
+      graduateData.incomeAfterYear4,
+      graduateData.incomeAfterYear5,
+    ]
+      .map((income, index) => ({ year: index + 1, income }))
+      .filter((item) => item.income > 0),
+  ];
 
   // Checking for additional requirements (only latest known threshold, first phase)
   const latestThreshold = thresholds.find(
@@ -117,6 +130,20 @@ export default async function Page({
                       {latestAdmissionLimit ? latestAdmissionLimit : "Nieznana"}
                     </div>
                   </div>
+                  <div>
+                    <div className="text-sm text-foreground/60">Średni zarobek</div>
+                    <div className="font-semibold text-foreground">
+                      {graduateData.avgIncome
+                        ? `${Math.round(graduateData.avgIncome).toString()} zł`
+                        : "Nieznany"}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-foreground/60">Zdawalność</div>
+                    <div className="font-semibold text-foreground">
+                      {graduateData.passRate ? `${graduateData.passRate.toString()} %` : "Nieznana"}
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -124,33 +151,57 @@ export default async function Page({
         </div>
       </section>
 
-      <section className="mb-12">
-        <h2 className="text-foreground mb-6">Kalkulator szans rekrutacji</h2>
-        <Card className="border-primary/20">
-          <CardHeader>
-            <CardTitle className="text-foreground flex items-center gap-2">
-              <Calculator className="w-5 h-5" />
-              Oblicz swoje szanse
-            </CardTitle>
-            <CardDescription>
-              Podaj wyniki matur, a my obliczymy Twoje szanse na dostanie się na kierunek:{" "}
-              {fieldData.name}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <CalculatorForm />
-            <div className="bg-primary/5 rounded-lg p-4">
-              <h4 className="font-semibold text-foreground mb-2">Dodatkowe wymagania:</h4>
-              {addidtionalRequirements ? (
-                <p className="">{addidtionalRequirements}</p>
-              ) : (
-                <p className="text-muted-foreground">
-                  Z tego co wiemy, ten kierunek nie ma dodatkowych wymagań rekrutacyjnych
-                </p>
-              )}
-            </div>
-          </CardContent>
-        </Card>
+      <section className="mb-12 grid lg:grid-cols-2 gap-6 ">
+        <div className="flex flex-col flex-1">
+          <h2 className="text-foreground mb-6">Kalkulator szans rekrutacji</h2>
+          <Card className="border-primary/20 h-full">
+            <CardHeader>
+              <CardTitle className="text-foreground flex items-center gap-2">
+                <Calculator className="w-5 h-5" />
+                Oblicz swoje szanse
+              </CardTitle>
+              <CardDescription>
+                Podaj wyniki matur, a my obliczymy Twoje szanse na dostanie się na kierunek:{" "}
+                {fieldData.name}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <CalculatorForm />
+              <div className="bg-primary/5 rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Dodatkowe wymagania:</h4>
+                {addidtionalRequirements ? (
+                  <p className="">{addidtionalRequirements}</p>
+                ) : (
+                  <p className="text-muted-foreground">
+                    Z tego co wiemy, ten kierunek nie ma dodatkowych wymagań rekrutacyjnych
+                  </p>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        <div className="flex flex-col flex-1 h-full">
+          <h2 className="text-foreground mb-6">Zarobki po ukończeniu</h2>
+          <Card className="border-primary/20 min-w-0 h-full">
+            <CardHeader>
+              <CardTitle className="text-foreground flex items-center gap-2">
+                Średnie zarobki absolwentów
+              </CardTitle>
+              <CardDescription>
+                Średnie zarobki w kolejne lata po ukończeniu studiów [zł]
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <CustomLineChart
+                data={incomeData}
+                xDataKey="year"
+                yDataKey="income"
+                showPhases
+                tooltipLabel="Zarobek:"
+              />
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       <section className="mb-12">

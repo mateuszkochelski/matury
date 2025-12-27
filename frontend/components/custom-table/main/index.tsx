@@ -1,7 +1,7 @@
 import { GenericTable, TableProps } from "../GenericTable";
-import { FieldOfStudy } from "../types";
+import { FieldOfStudyExtended } from "../types";
 import { columns } from "./columns";
 
-export const MainTable = (props: TableProps<FieldOfStudy>) => (
+export const MainTable = (props: TableProps<FieldOfStudyExtended>) => (
   <GenericTable columns={columns} {...props} />
 );
