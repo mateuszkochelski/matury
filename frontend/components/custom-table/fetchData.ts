@@ -9,6 +9,8 @@ const mapFrontendToBackendFilterNames = {
   name: "name",
   "passRate-max": "passRateTo",
   "passRate-min": "passRateFrom",
+  "avgIncome-max": "avgSalaryTo",
+  "avgIncome-min": "avgSalaryFrom",
   "salary-max": "avgSalaryTo",
   "salary-min": "avgSalaryFrom",
   university_city: "city",
