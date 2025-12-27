@@ -88,7 +88,6 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
     cell: ({ row }) => (
       <div>{row.getValue("passRate") ? `${row.getValue("passRate")} %` : "-"}</div>
     ),
-    enableSorting: false,
   },
   {
     id: "avgIncome",
@@ -101,7 +100,6 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
     cell: ({ row }) => (
       <div>{row.getValue("avgIncome") ? `${Math.round(row.getValue("avgIncome"))} zł` : "-"}</div>
     ),
-    enableSorting: false,
   },
   {
     id: "actions",

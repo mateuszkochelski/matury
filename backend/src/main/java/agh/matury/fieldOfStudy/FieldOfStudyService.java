@@ -10,6 +10,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -19,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Comparator;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -61,6 +63,17 @@ public class FieldOfStudyService {
   public Page<FieldOfStudyExtendedDTO> getFieldsOfStudyByUniversityId(Long universityId, Pageable pageable) {
     // Filter out null departments when sorting by department-related fields
     String sortField = getSortFieldFromPageable(pageable);
+    if (isGraduateSortField(sortField)) {
+      List<FieldOfStudyExtendedDTO> sorted = fieldOfStudyRepository
+          .findByUniversityId(universityId, Pageable.unpaged())
+          .getContent()
+          .stream()
+          .map(this::toDTO)
+          .map(this::toExtendedDTO)
+          .sorted(buildGraduateSortComparator(pageable))
+          .collect(Collectors.toList());
+      return paginate(sorted, pageable);
+    }
     if (isDepartmentSortField(sortField)) {
       Specification<FieldOfStudy> spec = (root, query, cb) -> cb.and(
           cb.equal(root.get("university").get("id"), universityId),
@@ -71,7 +84,39 @@ public class FieldOfStudyService {
   }
 
   public Page<FieldOfStudyExtendedDTO> getFieldsOfStudyByDepartmentId(Long departmentId, Pageable pageable) {
+    String sortField = getSortFieldFromPageable(pageable);
+    if (isGraduateSortField(sortField)) {
+      List<FieldOfStudyExtendedDTO> sorted = fieldOfStudyRepository
+          .findByDepartmentId(departmentId, Pageable.unpaged())
+          .getContent()
+          .stream()
+          .map(this::toDTO)
+          .map(this::toExtendedDTO)
+          .sorted(buildGraduateSortComparator(pageable))
+          .collect(Collectors.toList());
+      return paginate(sorted, pageable);
+    }
     return fieldOfStudyRepository.findByDepartmentId(departmentId, pageable).map(this::toDTO).map(this::toExtendedDTO);
+  }
+
+  public Page<FieldOfStudyExtendedDTO> getFieldsOfStudyByDepartmentIds(List<Long> departmentIds, Pageable pageable) {
+    List<Long> distinctIds = departmentIds.stream().distinct().collect(Collectors.toList());
+    String sortField = getSortFieldFromPageable(pageable);
+    if (isGraduateSortField(sortField)) {
+      List<FieldOfStudyExtendedDTO> sorted = fieldOfStudyRepository
+          .findByDepartmentIdIn(distinctIds, Pageable.unpaged())
+          .getContent()
+          .stream()
+          .map(this::toDTO)
+          .map(this::toExtendedDTO)
+          .sorted(buildGraduateSortComparator(pageable))
+          .collect(Collectors.toList());
+      return paginate(sorted, pageable);
+    }
+    return fieldOfStudyRepository
+        .findByDepartmentIdIn(distinctIds, pageable)
+        .map(this::toDTO)
+        .map(this::toExtendedDTO);
   }
 
   public Page<FieldOfStudyExtendedDTO> search(FieldOfStudyFilter filter, Pageable pageable) {
@@ -91,28 +136,33 @@ public class FieldOfStudyService {
       spec = spec.and((root, query, cb) -> cb.isNotNull(root.get("department")));
     }
 
-    if (!hasGraduateFilters(filter)) {
+    boolean graduateSort = isGraduateSortField(sortField);
+    if (!hasGraduateFilters(filter) && !graduateSort) {
       return fieldOfStudyRepository
           .findAll(spec, pageable)
           .map(this::toDTO)
           .map(this::toExtendedDTO);
     }
 
-    List<FieldOfStudyExtendedDTO> filtered = fieldOfStudyRepository
-        .findAll(spec, pageable.getSort())
+    List<FieldOfStudyExtendedDTO> results = (graduateSort
+        ? fieldOfStudyRepository.findAll(spec)
+        : fieldOfStudyRepository.findAll(spec, pageable.getSort()))
         .stream()
         .map(this::toDTO)
         .map(this::toExtendedDTO)
-        .filter(dto -> matchesGraduateFilters(dto, filter))
         .collect(Collectors.toList());
 
-    int totalElements = filtered.size();
-    int start = Math.toIntExact(pageable.getOffset());
-    if (start >= totalElements) {
-      return new PageImpl<>(Collections.emptyList(), pageable, totalElements);
+    if (hasGraduateFilters(filter)) {
+      results = results.stream()
+          .filter(dto -> matchesGraduateFilters(dto, filter))
+          .collect(Collectors.toList());
     }
-    int end = Math.min(start + pageable.getPageSize(), totalElements);
-    return new PageImpl<>(filtered.subList(start, end), pageable, totalElements);
+
+    if (graduateSort) {
+      results.sort(buildGraduateSortComparator(pageable));
+    }
+
+    return paginate(results, pageable);
   }
 
   private String getSortFieldFromPageable(Pageable pageable) {
@@ -124,6 +174,10 @@ public class FieldOfStudyService {
 
   private boolean isDepartmentSortField(String sortField) {
     return sortField != null && (sortField.equals("department") || sortField.startsWith("department."));
+  }
+
+  private boolean isGraduateSortField(String sortField) {
+    return sortField != null && ("passRate".equals(sortField) || "avgIncome".equals(sortField));
   }
 
   private GraduateDataDTO loadGraduateDataFromCsv(FieldOfStudyDTO dto) {
@@ -225,6 +279,47 @@ public class FieldOfStudyService {
     }
 
     return true;
+  }
+
+  private Comparator<FieldOfStudyExtendedDTO> buildGraduateSortComparator(Pageable pageable) {
+    String sortField = getSortFieldFromPageable(pageable);
+    Sort.Direction direction = Sort.Direction.ASC;
+    if (sortField != null) {
+      Sort.Order order = pageable.getSort().getOrderFor(sortField);
+      if (order != null) {
+        direction = order.getDirection();
+      }
+    }
+
+    Comparator<FieldOfStudyExtendedDTO> comparator;
+    if ("passRate".equals(sortField)) {
+      comparator = Comparator.comparing(dto -> dto.passRate() != null ? dto.passRate() : 0.0f);
+    } else if ("avgIncome".equals(sortField)) {
+      comparator = Comparator.comparing(dto -> dto.avgIncome() != null ? dto.avgIncome() : 0.0f);
+    } else {
+      comparator = Comparator.comparing(FieldOfStudyExtendedDTO::id);
+    }
+
+    if (direction.isDescending()) {
+      comparator = comparator.reversed();
+    }
+
+    Comparator<FieldOfStudyExtendedDTO> idComparator = Comparator.comparing(FieldOfStudyExtendedDTO::id);
+    if (direction.isDescending()) {
+      idComparator = idComparator.reversed();
+    }
+
+    return comparator.thenComparing(idComparator);
+  }
+
+  private Page<FieldOfStudyExtendedDTO> paginate(List<FieldOfStudyExtendedDTO> items, Pageable pageable) {
+    int totalElements = items.size();
+    int start = Math.toIntExact(pageable.getOffset());
+    if (start >= totalElements) {
+      return new PageImpl<>(Collections.emptyList(), pageable, totalElements);
+    }
+    int end = Math.min(start + pageable.getPageSize(), totalElements);
+    return new PageImpl<>(items.subList(start, end), pageable, totalElements);
   }
 
   private static float parseFloatOrZero(String value) {

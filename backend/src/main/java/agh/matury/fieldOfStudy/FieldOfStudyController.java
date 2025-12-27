@@ -17,8 +17,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("field_of_study")
@@ -125,7 +129,39 @@ public class FieldOfStudyController {
     return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByDepartmentId(id, pageable));
   }
 
+  @Operation(summary = "Get all fields of study from departments.",
+      description = "Returns a paginated list of all fields of study from provided department ids.")
+  @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study",
+      content = @Content(schema = @Schema(implementation = Page.class)))
+  @GetMapping("/departments")
+  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getFieldsOfStudyByDepartmentIds(
+      @Parameter(description = "Department ids (comma-separated or repeated)")
+      @RequestParam List<Long> ids,
+      @Parameter(description = "Page number (zero-based)")
+      @RequestParam(defaultValue = "0") int page,
+      @Parameter(description = "Number of items per page")
+      @RequestParam(defaultValue = "10") int size,
+      @Parameter(description = "Sort field")
+      @RequestParam(defaultValue = "name") String sort,
+      @Parameter(description = "Sort direction (asc/desc)")
+      @RequestParam(defaultValue = "asc") String direction) {
+    if (ids == null || ids.isEmpty()) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ids parameter is required");
+    }
+    Sort.Direction sortDirection = Sort.Direction.fromString(direction);
+    String actualSort = translateDepartmentSortField(sort);
+    Sort sortOrder = Sort.by(sortDirection, actualSort);
+    if (!"id".equals(actualSort)) {
+      sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
+    }
+    Pageable pageable = PageRequest.of(page, size, sortOrder);
+    return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByDepartmentIds(ids, pageable));
+  }
+
   private String translateDepartmentSortField(String sort) {
+    if ("degree".equals(sort)) {
+      return "level";
+    }
     if ("department".equals(sort) || "department_name".equals(sort)) {
       return "department.name";
     }
