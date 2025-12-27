@@ -104,7 +104,7 @@ public class FieldOfStudyService {
   private GraduateDataDTO loadGraduateDataFromCsv(FieldOfStudyDTO dto) {
 
     ClassPathResource resource =
-            new ClassPathResource("graduate/graduate-real-data.csv");
+            new ClassPathResource("graduate/graduate-data.csv");
 
     try (BufferedReader reader = new BufferedReader(
             new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8))) {
@@ -121,22 +121,18 @@ public class FieldOfStudyService {
 
         String[] columns = line.split(";");
 
-        String fieldName = columns[11].trim();
-        String universityName = columns[12].trim();
+        String fieldId = columns[0].trim();
 
-        if (similar(fieldName, dto.name(), 3)
-                && similar(universityName, dto.university().name(), 3)
-                && levelMatch(dto.level(), columns[2])) {
-
+        if (fieldId.equals(Long.toString(dto.id()))) {
             return new GraduateDataDTO(
                   dto.id(),
+                  parseFloatOrZero(columns[1]),
+                  parseFloatOrZero(columns[2]),
+                  parseFloatOrZero(columns[3]),
                   parseFloatOrZero(columns[4]),
                   parseFloatOrZero(columns[5]),
                   parseFloatOrZero(columns[6]),
-                  parseFloatOrZero(columns[7]),
-                  parseFloatOrZero(columns[8]),
-                  parseFloatOrZero(columns[9]),
-                  parseFloatOrZero(columns[10])
+                  parseFloatOrZero(columns[7])
           );
         }
       }
@@ -144,30 +140,6 @@ public class FieldOfStudyService {
     } catch (IOException e) {
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error reading graduate data");
     }
-  }
-
-  private static boolean levelMatch(String levelName, String levelNumber) {
-    if (levelNumber == null || levelNumber.trim().isEmpty()) return false;
-    if (levelNumber.trim().equals("JM") && levelName.equals("jednolite_magisterskie")) return true;
-    int levelNumberInt;
-    try {
-      levelNumberInt = Integer.parseInt(levelNumber);
-    } catch (NumberFormatException e) {
-      return false;
-    }
-    if ((levelName.equals("inżynierskie") || levelName.equals("licencjackie")) && levelNumberInt == 2) return false;
-    if (levelName.equals("magisterskie") && levelNumberInt == 2) return false;
-    return true;
-  }
-
-  private static boolean similar(String a, String b, int maxDistance) {
-    if (a == null || b == null) return false;
-
-    a = a.trim().toLowerCase();
-    b = b.trim().toLowerCase();
-
-    return LevenshteinDistance.getDefaultInstance()
-            .apply(a, b) <= maxDistance;
   }
 
   private static float parseFloatOrZero(String value) {
