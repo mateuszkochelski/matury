@@ -5,7 +5,8 @@ import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { Switch } from "../ui/switch";
+import { FetchDataIdsProp } from "./fetchData";
 import { DegreesObject } from "./types";
 import { Button } from "@/components/ui/button";
 import { type Table } from "@tanstack/react-table";
@@ -14,7 +15,7 @@ import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
 export type FiltersFormValues = {
   degrees?: DegreesObject;
-  favourite?: string;
+  isFavouritesOnly?: string;
   department_name?: string;
   "duration-max"?: string;
   "duration-min"?: string;
@@ -52,10 +53,10 @@ export function FiltersForm<T>({
 
   const handleUrlUpdate: SubmitHandler<FiltersFormValues> = useCallback(
     (updateParams: FiltersFormValues) => {
-      console.log({updateParams})
+      console.log({ updateParams });
       const params = new URLSearchParams(searchParams.toString());
 
-      const { degrees, ...otherParams } = updateParams;
+      const { degrees, isFavouritesOnly, ...otherParams } = updateParams;
 
       params.delete("degrees");
       Object.entries(degrees ?? {})
@@ -63,6 +64,15 @@ export function FiltersForm<T>({
         .forEach(([key]) => {
           params.append("degrees", key);
         });
+
+      const stored = localStorage.getItem("favourites");
+      const favouritesParamName: keyof FetchDataIdsProp = "ids";
+      const storedFavourites: number[] = stored ? JSON.parse(stored) : [];
+      if (!isFavouritesOnly || storedFavourites.length === 0) {
+        params.delete(favouritesParamName);
+      } else {
+        params.set(favouritesParamName, storedFavourites.toString());
+      }
 
       Object.entries(otherParams)
         .filter(([key, value]) => !!value || params.get(key) !== null)
@@ -79,7 +89,7 @@ export function FiltersForm<T>({
     [searchParams, pathname, replace],
   );
 
-  console.log("seba", table.getRowModel().rows)
+  console.log("seba", table.getRowModel().rows);
 
   return (
     <form className="space-y-3" onSubmit={handleSubmit(handleUrlUpdate)}>
@@ -89,7 +99,6 @@ export function FiltersForm<T>({
           .filter((column) => column.getCanFilter())
           .map((column) => {
             let Input;
-            console.log({column}, column.columnDef.meta?.filterType)
             switch (column.columnDef.meta?.filterType) {
               case "string":
                 Input = (
@@ -219,44 +228,21 @@ function DegreeComponent({
 function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) {
   return (
     <Controller
-      name="favourite"
+      name="isFavouritesOnly"
       control={control}
       render={({ field }) => (
-        <RadioGroup
-          value={field.value}
-          onValueChange={field.onChange}
-          className="flex flex-col space-y-2"
+        <div
+          className="flex items-center gap-2
+         pt-2 border-t border-primary/10"
         >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem id="favourite-all" value="all" />
-            <label
-              htmlFor="favourite-all"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              All
-            </label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem id="favourite-favourite" value="favourite" />
-            <label
-              htmlFor="favourite-favourite"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Ulubione
-            </label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem id="favourite-not-favourite" value="notFavourite" />
-            <label
-              htmlFor="favourite-not-favourite"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Nie polubione
-            </label>
-          </div>
-        </RadioGroup>
+          <Switch id="favorites-toggle" checked={!!field.value} onCheckedChange={field.onChange} />
+          <label
+            htmlFor="favorites-toggle"
+            className="text-sm font-medium text-foreground cursor-pointer"
+          >
+            Pokaż tylko ulubione
+          </label>
+        </div>
       )}
     />
   );

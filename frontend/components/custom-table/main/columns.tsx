@@ -1,7 +1,7 @@
 "use client";
 
-import { FavouriteButton } from "@/components/FavouriteButton";
 import { FieldOfStudyExtended } from "../types";
+import { FavouriteButton } from "@/components/FavouriteButton";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
@@ -105,9 +105,9 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
   },
   {
     id: "favourite",
-    header: "Zapisz",
+    header: "Ulubione",
     cell: ({ row }) => <FavouriteButton fieldId={row.original.id} size="small" />,
-    size: 60,
+    size: 80,
     meta: {
       filterType: "favourite",
     },
@@ -115,7 +115,7 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
       const stored = localStorage.getItem("favourites");
       const favourites: number[] = stored ? JSON.parse(stored) : [];
 
-      return favourites.includes(row.id)
-    }
+      return favourites.includes(row.id);
+    },
   },
 ];

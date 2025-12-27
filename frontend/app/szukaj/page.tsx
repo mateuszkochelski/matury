@@ -9,7 +9,7 @@ export default async function Home({
 }: {
   searchParams?: Promise<TableSearchParams>;
 }) {
-  const { pageSize, pageIndex, hiddenColumns, sortBy, direction, ...rest } =
+  const { pageSize, pageIndex, hiddenColumns, sortBy, direction, ids, ...rest } =
     (await searchParams) ?? {};
 
   const response = await fetchData({
@@ -19,6 +19,7 @@ export default async function Home({
     sortBy,
     direction,
     filters: rest,
+    ids,
   });
   const data: FieldOfStudyExtendedData = await response.json();
   const { content: fields, page: pageData } = data;
