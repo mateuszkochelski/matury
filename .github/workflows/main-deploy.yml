@@ -63,6 +63,8 @@ jobs:
               restart: always
             frontend:
               image: unsignedgodeveloper/matury-frontend:latest
+              environment:
+                - GOOGLE_MAPS_API_KEY
               container_name: frontend
               restart: always
               ports:
