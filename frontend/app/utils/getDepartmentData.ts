@@ -1,6 +1,6 @@
 import { BACKEND_URL } from "../constants";
 import { fetchData } from "@/components/custom-table/fetchData";
-import { FieldOfStudyData } from "@/components/custom-table/types";
+import { FieldOfStudyExtendedData } from "@/components/custom-table/types";
 
 export type Department = {
   id: number;
@@ -20,7 +20,7 @@ export async function getDepartmentData(
   pageIndex?: string,
 ): Promise<{
   departmentData: Department;
-  fieldOfStudyData: FieldOfStudyData;
+  fieldOfStudyData: FieldOfStudyExtendedData;
 }> {
   const [departmentResponse, fieldOfStudyResponse] = await Promise.all([
     fetch(`${BACKEND_URL}/api/department/${departmentId}`),
@@ -30,9 +30,7 @@ export async function getDepartmentData(
       pageIndex,
     }),
   ]);
-  const [departmentData, fieldOfStudyData]: [Department, FieldOfStudyData] = await Promise.all([
-    departmentResponse.json(),
-    fieldOfStudyResponse.json(),
-  ]);
+  const [departmentData, fieldOfStudyData]: [Department, FieldOfStudyExtendedData] =
+    await Promise.all([departmentResponse.json(), fieldOfStudyResponse.json()]);
   return { departmentData, fieldOfStudyData };
 }

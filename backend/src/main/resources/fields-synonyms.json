@@ -1,0 +1,1876 @@
+{
+  "informatyka": {
+    "synonyms": [
+      "computer science",
+      "technologie informatyczne",
+      "informatics",
+      "software engineering"
+    ],
+    "very_similar": [
+      "informatyka stosowana",
+      "analityka danych",
+      "sztuczna inteligencja",
+      "cyberbezpieczeństwo",
+      "kognitywistyka",
+      "geoinformatyka"
+    ],
+    "little_similar": [
+      "matematyka",
+      "inżynieria elektryczna",
+      "mechatronika",
+      "automatyka i robotyka",
+      "fizyka techniczna",
+      "grafika"
+    ]
+  },
+  "informatyka stosowana": {
+    "synonyms": [
+      "applied computer science",
+      "informatyka aplikacyjna",
+      "aplikowana informatyka"
+    ],
+    "very_similar": [
+      "informatyka",
+      "analityka danych",
+      "cyberbezpieczeństwo",
+      "kognitywistyka",
+      "geoinformatyka"
+    ],
+    "little_similar": [
+      "inżynieria",
+      "zarządzanie",
+      "logistyka",
+      "mechatronika"
+    ]
+  },
+  "analityka danych": {
+    "synonyms": [
+      "data analytics",
+      "data science",
+      "analiza danych",
+      "big data"
+    ],
+    "very_similar": [
+      "informatyka",
+      "informatyka stosowana",
+      "sztuczna inteligencja",
+      "matematyka",
+      "matematyka finansowa",
+      "kognitywistyka"
+    ],
+    "little_similar": [
+      "ekonomia",
+      "finanse",
+      "rachunkowość",
+      "socjologia"
+    ]
+  },
+  "sztuczna inteligencja": {
+    "synonyms": [
+      "artificial intelligence",
+      "machine learning",
+      "inteligencja sztuczna"
+    ],
+    "very_similar": [
+      "informatyka",
+      "analityka danych",
+      "kognitywistyka",
+      "automatyka i robotyka"
+    ],
+    "little_similar": [
+      "matematyka",
+      "fizyka",
+      "psychologia",
+      "socjologia"
+    ]
+  },
+  "inżynieria": {
+    "synonyms": [
+      "engineering",
+      "technika",
+      "engineering science",
+      "technik inżynieryjny"
+    ],
+    "very_similar": [
+      "inżynieria biomedyczna",
+      "inżynieria chemiczna",
+      "inżynieria elektryczna",
+      "inżynieria materiałowa",
+      "inżynieria środowiska",
+      "inżynieria kosmiczna",
+      "mechanika i budowa maszyn",
+      "budownictwo",
+      "automatyka i robotyka",
+      "inżynieria rolnicza"
+    ],
+    "little_similar": [
+      "fizyka techniczna",
+      "logistyka",
+      "zarządzanie"
+    ]
+  },
+  "inżynieria biomedyczna": {
+    "synonyms": [
+      "biomedical engineering",
+      "bioengineering",
+      "inżynieria medyczna"
+    ],
+    "very_similar": [
+      "inżynieria elektryczna",
+      "mechanika i budowa maszyn",
+      "biologia",
+      "biotechnologia",
+      "medycyna",
+      "fizjoterapia"
+    ],
+    "little_similar": [
+      "inżynieria",
+      "fizyka techniczna",
+      "chemia",
+      "analityka medyczna"
+    ]
+  },
+  "inżynieria chemiczna": {
+    "synonyms": [
+      "chemical engineering",
+      "chemiczne inżynieria procesowa",
+      "procesy chemiczne"
+    ],
+    "very_similar": [
+      "chemia",
+      "biotechnologia",
+      "chemia żywności",
+      "inżynieria materiałowa",
+      "inżynieria środowiska"
+    ],
+    "little_similar": [
+      "energetyka",
+      "inżynieria",
+      "fizyka techniczna",
+      "ochrona środowiska"
+    ]
+  },
+  "inżynieria elektryczna": {
+    "synonyms": [
+      "electrical engineering",
+      "elektrotechnika",
+      "inżynieria elektryczna"
+    ],
+    "very_similar": [
+      "informatyka",
+      "inżynieria",
+      "fizyka techniczna",
+      "automatyka i robotyka",
+      "mechatronika"
+    ],
+    "little_similar": [
+      "energetyka",
+      "inżynieria biomedyczna",
+      "mechanika i budowa maszyn"
+    ]
+  },
+  "inżynieria materiałowa": {
+    "synonyms": [
+      "materials engineering",
+      "inżynieria materiałowa",
+      "engineering materials"
+    ],
+    "very_similar": [
+      "inżynieria",
+      "inżynieria chemiczna",
+      "fizyka techniczna",
+      "chemia",
+      "mechanika i budowa maszyn"
+    ],
+    "little_similar": [
+      "budownictwo",
+      "inżynieria kosmiczna",
+      "górnictwo i geologia"
+    ]
+  },
+  "inżynieria środowiska": {
+    "synonyms": [
+      "environmental engineering",
+      "inżynieria środowiska",
+      "environmental protection"
+    ],
+    "very_similar": [
+      "ochrona środowiska",
+      "ekologia",
+      "budownictwo",
+      "geologia",
+      "energia odnawialna",
+      "inżynieria chemiczna"
+    ],
+    "little_similar": [
+      "inżynieria",
+      "geografia",
+      "rolnictwo",
+      "gospodarka przestrzenna"
+    ]
+  },
+  "inżynieria kosmiczna": {
+    "synonyms": [
+      "aerospace engineering",
+      "inżynieria kosmiczna",
+      "space engineering"
+    ],
+    "very_similar": [
+      "mechanika i budowa maszyn",
+      "inżynieria",
+      "fizyka",
+      "fizyka techniczna"
+    ],
+    "little_similar": [
+      "inżynieria elektryczna",
+      "geodezja",
+      "geoinformatyka"
+    ]
+  },
+  "mechanika i budowa maszyn": {
+    "synonyms": [
+      "mechanical engineering",
+      "mechanika",
+      "machine design"
+    ],
+    "very_similar": [
+      "inżynieria",
+      "mechatronika",
+      "automatyka i robotyka",
+      "inżynieria kosmiczna",
+      "inżynieria materiałowa",
+      "inżynieria rolnicza"
+    ],
+    "little_similar": [
+      "fizyka techniczna",
+      "inżynieria elektryczna",
+      "budownictwo"
+    ]
+  },
+  "mechatronika": {
+    "synonyms": [
+      "mechatronics",
+      "mechatronika",
+      "mechanotronika"
+    ],
+    "very_similar": [
+      "mechanika i budowa maszyn",
+      "automatyka i robotyka",
+      "inżynieria elektryczna",
+      "informatyka stosowana"
+    ],
+    "little_similar": [
+      "informatyka",
+      "inżynieria biomedyczna",
+      "fizyka techniczna"
+    ]
+  },
+  "automatyka i robotyka": {
+    "synonyms": [
+      "automation and robotics",
+      "robotyka",
+      "automatyka"
+    ],
+    "very_similar": [
+      "mechatronika",
+      "mechanika i budowa maszyn",
+      "inżynieria elektryczna",
+      "sztuczna inteligencja",
+      "informatyka"
+    ],
+    "little_similar": [
+      "fizyka techniczna",
+      "inżynieria",
+      "logistyka"
+    ]
+  },
+  "budownictwo": {
+    "synonyms": [
+      "civil engineering",
+      "construction",
+      "inżynieria budowlana",
+      "building engineering"
+    ],
+    "very_similar": [
+      "architektura",
+      "gospodarka przestrzenna",
+      "geodezja",
+      "inżynieria środowiska",
+      "inżynieria materiałowa"
+    ],
+    "little_similar": [
+      "mechanika i budowa maszyn",
+      "urbanistyka",
+      "architektura krajobrazu",
+      "inwestycje"
+    ]
+  },
+  "architektura": {
+    "synonyms": [
+      "architecture",
+      "projektowanie architektoniczne",
+      "architectural design"
+    ],
+    "very_similar": [
+      "budownictwo",
+      "architektura krajobrazu",
+      "urbanistyka",
+      "gospodarka przestrzenna"
+    ],
+    "little_similar": [
+      "sztuki piękne",
+      "historyka",
+      "ochrona kulturowa"
+    ]
+  },
+  "architektura krajobrazu": {
+    "synonyms": [
+      "landscape architecture",
+      "projektowanie krajobrazu"
+    ],
+    "very_similar": [
+      "architektura",
+      "gospodarka przestrzenna",
+      "ekologia",
+      "ochrona środowiska",
+      "budownictwo"
+    ],
+    "little_similar": [
+      "turystyka i rekreacja",
+      "sztuki piękne",
+      "geografia",
+      "biologia"
+    ]
+  },
+  "geodezja": {
+    "synonyms": [
+      "geodesy",
+      "surveying",
+      "geomatyka",
+      "inżynieria geodezyjna"
+    ],
+    "very_similar": [
+      "geoinformatyka",
+      "budownictwo",
+      "gospodarka przestrzenna",
+      "geografia",
+      "geologia"
+    ],
+    "little_similar": [
+      "informatyka",
+      "inżynieria kosmiczna",
+      "inżynieria środowiska"
+    ]
+  },
+  "geoinformatyka": {
+    "synonyms": [
+      "geoinformatics",
+      "informatyka geograficzna",
+      "geo informatyka"
+    ],
+    "very_similar": [
+      "geodezja",
+      "informatyka",
+      "geografia",
+      "analityka danych"
+    ],
+    "little_similar": [
+      "geologia",
+      "gospodarka przestrzenna",
+      "turystyka i rekreacja"
+    ]
+  },
+  "geografia": {
+    "synonyms": [
+      "geography",
+      "nauki geograficzne",
+      "geographical sciences"
+    ],
+    "very_similar": [
+      "geodezja",
+      "geoinformatyka",
+      "geologia",
+      "ekologia",
+      "gospodarka przestrzenna",
+      "turystyka i rekreacja"
+    ],
+    "little_similar": [
+      "historyka",
+      "socjologia",
+      "inżynieria środowiska"
+    ]
+  },
+  "geologia": {
+    "synonyms": [
+      "geology",
+      "nauki geologiczne",
+      "geologia inżynierska"
+    ],
+    "very_similar": [
+      "geografia",
+      "górnictwo i geologia",
+      "inżynieria środowiska"
+    ],
+    "little_similar": [
+      "chemia",
+      "fizyka",
+      "inżynieria materiałowa",
+      "archeologia"
+    ]
+  },
+  "fizyka": {
+    "synonyms": [
+      "physics",
+      "fizyka teoretyczna",
+      "physical sciences"
+    ],
+    "very_similar": [
+      "fizyka techniczna",
+      "matematyka",
+      "inżynieria kosmiczna",
+      "energetyka"
+    ],
+    "little_similar": [
+      "informatyka",
+      "inżynieria elektryczna",
+      "chemia",
+      "biologia"
+    ]
+  },
+  "fizyka techniczna": {
+    "synonyms": [
+      "technical physics",
+      "applied physics",
+      "fizyka stosowana"
+    ],
+    "very_similar": [
+      "fizyka",
+      "inżynieria",
+      "inżynieria elektryczna",
+      "inżynieria materiałowa",
+      "mechanika i budowa maszyn",
+      "energetyka"
+    ],
+    "little_similar": [
+      "informatyka",
+      "mechatronika",
+      "inżynieria biomedyczna"
+    ]
+  },
+  "matematyka": {
+    "synonyms": [
+      "mathematics",
+      "matematyka stosowana",
+      "applied mathematics",
+      "math"
+    ],
+    "very_similar": [
+      "matematyka finansowa",
+      "fizyka",
+      "informatyka",
+      "analityka danych",
+      "inżynieria"
+    ],
+    "little_similar": [
+      "ekonomia",
+      "finanse",
+      "sztuczna inteligencja",
+      "kognitywistyka"
+    ]
+  },
+  "matematyka finansowa": {
+    "synonyms": [
+      "financial mathematics",
+      "matematyka w finansach"
+    ],
+    "very_similar": [
+      "matematyka",
+      "finanse",
+      "ekonomia",
+      "rachunkowość",
+      "analityka danych"
+    ],
+    "little_similar": [
+      "zarządzanie",
+      "inwestycje"
+    ]
+  },
+  "biologia": {
+    "synonyms": [
+      "biology",
+      "nauki biologiczne",
+      "life sciences",
+      "biologia ogólna"
+    ],
+    "very_similar": [
+      "biologia molekularna",
+      "genetyka",
+      "biotechnologia",
+      "agrobiologia",
+      "ekologia"
+    ],
+    "little_similar": [
+      "chemia",
+      "medycyna",
+      "weterynaria",
+      "psychologia",
+      "dietetyka",
+      "farmacja"
+    ]
+  },
+  "biologia molekularna": {
+    "synonyms": [
+      "molecular biology",
+      "biologia molekularna",
+      "bio-molecular science"
+    ],
+    "very_similar": [
+      "biologia",
+      "genetyka",
+      "biotechnologia",
+      "analityka medyczna",
+      "farmacja"
+    ],
+    "little_similar": [
+      "chemia",
+      "medycyna",
+      "weterynaria",
+      "inżynieria biomedyczna"
+    ]
+  },
+  "genetyka": {
+    "synonyms": [
+      "genetics",
+      "genetyka",
+      "biologia genetyczna"
+    ],
+    "very_similar": [
+      "biologia",
+      "biologia molekularna",
+      "biotechnologia",
+      "medycyna",
+      "weterynaria"
+    ],
+    "little_similar": [
+      "farmacja",
+      "analityka medyczna",
+      "agrobiologia"
+    ]
+  },
+  "biotechnologia": {
+    "synonyms": [
+      "biotechnology",
+      "inżynieria biologiczna",
+      "bioinżynieria"
+    ],
+    "very_similar": [
+      "biologia",
+      "biologia molekularna",
+      "genetyka",
+      "chemia",
+      "inżynieria chemiczna",
+      "farmacja"
+    ],
+    "little_similar": [
+      "chemia żywności",
+      "medycyna",
+      "weterynaria",
+      "inżynieria biomedyczna"
+    ]
+  },
+  "chemia": {
+    "synonyms": [
+      "chemistry",
+      "nauki chemiczne",
+      "chemical sciences"
+    ],
+    "very_similar": [
+      "inżynieria chemiczna",
+      "chemia kosmetyczna",
+      "chemia żywności",
+      "inżynieria materiałowa",
+      "biotechnologia",
+      "farmacja"
+    ],
+    "little_similar": [
+      "fizyka",
+      "biologia",
+      "geologia",
+      "inżynieria środowiska",
+      "kosmetologia"
+    ]
+  },
+  "chemia kosmetyczna": {
+    "synonyms": [
+      "cosmetic chemistry",
+      "chemia kosmetyczna"
+    ],
+    "very_similar": [
+      "chemia",
+      "kosmetologia",
+      "farmacja"
+    ],
+    "little_similar": [
+      "biotechnologia",
+      "inżynieria chemiczna",
+      "biologia"
+    ]
+  },
+  "chemia żywności": {
+    "synonyms": [
+      "food chemistry",
+      "technologia żywności",
+      "food technology"
+    ],
+    "very_similar": [
+      "chemia",
+      "biotechnologia",
+      "dietetyka",
+      "żywność i żywienie",
+      "inżynieria chemiczna"
+    ],
+    "little_similar": [
+      "rolnictwo",
+      "ochrona zdrowia"
+    ]
+  },
+  "ekologia": {
+    "synonyms": [
+      "ecology",
+      "ochrona środowiska",
+      "environmental science"
+    ],
+    "very_similar": [
+      "ochrona środowiska",
+      "inżynieria środowiska",
+      "biologia",
+      "geografia",
+      "architektura krajobrazu"
+    ],
+    "little_similar": [
+      "rolnictwo",
+      "leśnictwo"
+    ]
+  },
+  "ochrona środowiska": {
+    "synonyms": [
+      "environmental protection",
+      "inżynieria ochrony środowiska"
+    ],
+    "very_similar": [
+      "ekologia",
+      "inżynieria środowiska",
+      "energia odnawialna",
+      "chemia",
+      "leśnictwo"
+    ],
+    "little_similar": [
+      "budownictwo",
+      "rolnictwo",
+      "architektura krajobrazu"
+    ]
+  },
+  "energia odnawialna": {
+    "synonyms": [
+      "renewable energy",
+      "energia odnawialna",
+      "sustainable energy"
+    ],
+    "very_similar": [
+      "energetyka",
+      "inżynieria środowiska",
+      "ochrona środowiska",
+      "fizyka techniczna"
+    ],
+    "little_similar": [
+      "inżynieria elektryczna",
+      "inżynieria"
+    ]
+  },
+  "energetyka": {
+    "synonyms": [
+      "power engineering",
+      "inżynieria energetyczna"
+    ],
+    "very_similar": [
+      "energia odnawialna",
+      "fizyka",
+      "fizyka techniczna",
+      "inżynieria elektryczna"
+    ],
+    "little_similar": [
+      "mechanika i budowa maszyn",
+      "inżynieria chemiczna",
+      "górnictwo i geologia"
+    ]
+  },
+  "logistyka": {
+    "synonyms": [
+      "logistics",
+      "transport i spedycja",
+      "supply chain management"
+    ],
+    "very_similar": [
+      "zarządzanie",
+      "ekonomia",
+      "informatyka stosowana"
+    ],
+    "little_similar": [
+      "automatyka i robotyka",
+      "finanse",
+      "inżynieria",
+      "gospodarka przestrzenna"
+    ]
+  },
+  "zarządzanie": {
+    "synonyms": [
+      "management",
+      "biznes",
+      "business administration",
+      "menedżment"
+    ],
+    "very_similar": [
+      "zarządzanie zasobami ludzkimi",
+      "marketing",
+      "finanse",
+      "ekonomia",
+      "logistyka",
+      "hotelarstwo"
+    ],
+    "little_similar": [
+      "informatyka stosowana",
+      "finanse i rachunkowość",
+      "prawo",
+      "administracja"
+    ]
+  },
+  "zarządzanie zasobami ludzkimi": {
+    "synonyms": [
+      "human resources management",
+      "hr",
+      "zarządzanie kadrami"
+    ],
+    "very_similar": [
+      "zarządzanie",
+      "psychologia",
+      "socjologia",
+      "psychologia społeczna"
+    ],
+    "little_similar": [
+      "prawo",
+      "administracja",
+      "marketing"
+    ]
+  },
+  "marketing": {
+    "synonyms": [
+      "marketing",
+      "marketing i reklama",
+      "advertising"
+    ],
+    "very_similar": [
+      "zarządzanie",
+      "ekonomia",
+      "psychologia społeczna",
+      "socjologia",
+      "hotelarstwo"
+    ],
+    "little_similar": [
+      "informatyka",
+      "sztuki piękne (grafika)",
+      "finanse"
+    ]
+  },
+  "finanse": {
+    "synonyms": [
+      "finance",
+      "finanse",
+      "financial management"
+    ],
+    "very_similar": [
+      "matematyka finansowa",
+      "rachunkowość",
+      "ekonomia",
+      "inwestycje",
+      "finanse i rachunkowość",
+      "zarządzanie"
+    ],
+    "little_similar": [
+      "analityka danych",
+      "prawo",
+      "administracja"
+    ]
+  },
+  "rachunkowość": {
+    "synonyms": [
+      "accounting",
+      "księgowość",
+      "accountancy"
+    ],
+    "very_similar": [
+      "finanse",
+      "finanse i rachunkowość",
+      "ekonomia",
+      "matematyka finansowa"
+    ],
+    "little_similar": [
+      "zarządzanie",
+      "administracja",
+      "informatyka stosowana"
+    ]
+  },
+  "ekonomia": {
+    "synonyms": [
+      "economics",
+      "ekonomia",
+      "economic science",
+      "financial economics"
+    ],
+    "very_similar": [
+      "finanse",
+      "rachunkowość",
+      "matematyka finansowa",
+      "inwestycje",
+      "zarządzanie",
+      "politologia"
+    ],
+    "little_similar": [
+      "historyka",
+      "socjologia",
+      "geografia"
+    ]
+  },
+  "inwestycje": {
+    "synonyms": [
+      "investments",
+      "inwestowanie",
+      "investment management"
+    ],
+    "very_similar": [
+      "finanse",
+      "ekonomia",
+      "zarządzanie",
+      "matematyka finansowa"
+    ],
+    "little_similar": [
+      "budownictwo",
+      "gospodarka przestrzenna",
+      "rachunkowość"
+    ]
+  },
+  "finanse i rachunkowość": {
+    "synonyms": [
+      "finance and accounting",
+      "finanse i rachunkowość"
+    ],
+    "very_similar": [
+      "finanse",
+      "rachunkowość",
+      "ekonomia",
+      "matematyka finansowa",
+      "zarządzanie",
+      "inwestycje"
+    ],
+    "little_similar": [
+      "prawo",
+      "administracja",
+      "analityka danych"
+    ]
+  },
+  "politologia": {
+    "synonyms": [
+      "political science",
+      "politologia",
+      "politics"
+    ],
+    "very_similar": [
+      "stosunki międzynarodowe",
+      "bezpieczeństwo narodowe",
+      "socjologia",
+      "historyka",
+      "ekonomia"
+    ],
+    "little_similar": [
+      "prawo",
+      "administrację",
+      "filozofia"
+    ]
+  },
+  "stosunki międzynarodowe": {
+    "synonyms": [
+      "international relations",
+      "IR",
+      "stosunki międzynarodowe"
+    ],
+    "very_similar": [
+      "politologia",
+      "bezpieczeństwo narodowe",
+      "historyka",
+      "ekonomia"
+    ],
+    "little_similar": [
+      "prawo",
+      "socjologia",
+      "filologia",
+      "filologia angielska"
+    ]
+  },
+  "bezpieczeństwo narodowe": {
+    "synonyms": [
+      "national security",
+      "security studies",
+      "bezpieczeństwo narodowe"
+    ],
+    "very_similar": [
+      "politologia",
+      "stosunki międzynarodowe",
+      "cyberbezpieczeństwo",
+      "prawo"
+    ],
+    "little_similar": [
+      "historyka",
+      "administracja",
+      "ochrona zdrowia",
+      "ratownictwo medyczne"
+    ]
+  },
+  "cyberbezpieczeństwo": {
+    "synonyms": [
+      "cybersecurity",
+      "bezpieczeństwo informatyczne",
+      "information security"
+    ],
+    "very_similar": [
+      "informatyka",
+      "informatyka stosowana",
+      "bezpieczeństwo narodowe",
+      "prawo"
+    ],
+    "little_similar": [
+      "zarządzanie",
+      "administracja",
+      "kognitywistyka"
+    ]
+  },
+  "prawo": {
+    "synonyms": [
+      "law",
+      "prawo",
+      "legal studies"
+    ],
+    "very_similar": [
+      "administracja",
+      "prawo kanoniczne",
+      "bezpieczeństwo narodowe",
+      "politologia",
+      "cyberbezpieczeństwo"
+    ],
+    "little_similar": [
+      "finanse",
+      "ekonomia",
+      "historyka",
+      "filozofia",
+      "zarządzanie"
+    ]
+  },
+  "administracja": {
+    "synonyms": [
+      "administration",
+      "administracja publiczna",
+      "public administration"
+    ],
+    "very_similar": [
+      "prawo",
+      "zarządzanie",
+      "politologia",
+      "zdrowie publiczne"
+    ],
+    "little_similar": [
+      "finanse i rachunkowość",
+      "socjologia",
+      "bezpieczeństwo narodowe"
+    ]
+  },
+  "pedagogika": {
+    "synonyms": [
+      "pedagogy",
+      "pedagogika",
+      "educational studies",
+      "teaching"
+    ],
+    "very_similar": [
+      "psychologia",
+      "psychologia kliniczna",
+      "psychologia społeczna",
+      "socjologia",
+      "praca socjalna"
+    ],
+    "little_similar": [
+      "filozofia",
+      "kognitywistyka",
+      "dietetyka"
+    ]
+  },
+  "psychologia": {
+    "synonyms": [
+      "psychology",
+      "psychologia",
+      "behavioral science"
+    ],
+    "very_similar": [
+      "psychologia kliniczna",
+      "psychologia społeczna",
+      "kognitywistyka",
+      "socjologia",
+      "pedagogika"
+    ],
+    "little_similar": [
+      "biologia",
+      "medycyna",
+      "filozofia",
+      "zarządzanie zasobami ludzkimi"
+    ]
+  },
+  "psychologia kliniczna": {
+    "synonyms": [
+      "clinical psychology",
+      "psychologia kliniczna",
+      "psychology of health"
+    ],
+    "very_similar": [
+      "psychologia",
+      "medycyna",
+      "pielęgniarstwo",
+      "ratownictwo medyczne",
+      "dietetyka",
+      "fizjoterapia"
+    ],
+    "little_similar": [
+      "biologia",
+      "farmacja",
+      "kognitywistyka"
+    ]
+  },
+  "psychologia społeczna": {
+    "synonyms": [
+      "social psychology",
+      "psychologia społeczna"
+    ],
+    "very_similar": [
+      "psychologia",
+      "socjologia",
+      "marketing",
+      "zarządzanie zasobami ludzkimi",
+      "pedagogika"
+    ],
+    "little_similar": [
+      "politologia",
+      "ekonomia",
+      "kognitywistyka"
+    ]
+  },
+  "socjologia": {
+    "synonyms": [
+      "sociology",
+      "socjologia",
+      "social sciences"
+    ],
+    "very_similar": [
+      "socjologia stosowana",
+      "psychologia społeczna",
+      "politologia",
+      "historyka",
+      "ekonomia",
+      "praca socjalna",
+      "pedagogika"
+    ],
+    "little_similar": [
+      "geografia",
+      "filozofia",
+      "zarządzanie zasobami ludzkimi",
+      "marketing"
+    ]
+  },
+  "socjologia stosowana": {
+    "synonyms": [
+      "applied sociology",
+      "socjologia stosowana"
+    ],
+    "very_similar": [
+      "socjologia",
+      "psychologia społeczna",
+      "praca socjalna"
+    ],
+    "little_similar": [
+      "ekonomia",
+      "marketing",
+      "administracja"
+    ]
+  },
+  "filozofia": {
+    "synonyms": [
+      "philosophy",
+      "filozofia",
+      "ethics",
+      "filozofia i etyka"
+    ],
+    "very_similar": [
+      "kognitywistyka",
+      "teologia",
+      "prawo kanoniczne",
+      "psychologia"
+    ],
+    "little_similar": [
+      "socjologia",
+      "historyka",
+      "filologia",
+      "prawo"
+    ]
+  },
+  "filologia": {
+    "synonyms": [
+      "philology",
+      "filologia",
+      "language studies",
+      "linguistics"
+    ],
+    "very_similar": [
+      "filologia angielska",
+      "filologia polska",
+      "filologia niemiecka",
+      "filologia hiszpańska",
+      "filologia francuska",
+      "historyka",
+      "kognitywistyka"
+    ],
+    "little_similar": [
+      "filozofia",
+      "stosunki międzynarodowe",
+      "informacja naukowa i bibliotekoznawstwo"
+    ]
+  },
+  "filologia angielska": {
+    "synonyms": [
+      "english philology",
+      "anglistyka",
+      "english studies"
+    ],
+    "very_similar": [
+      "filologia",
+      "filologia polska",
+      "historyka"
+    ],
+    "little_similar": [
+      "stosunki międzynarodowe",
+      "kognitywistyka",
+      "marketing"
+    ]
+  },
+  "filologia polska": {
+    "synonyms": [
+      "polish philology",
+      "polonistyka",
+      "polish studies"
+    ],
+    "very_similar": [
+      "filologia",
+      "filologia angielska",
+      "historyka",
+      "pedagogika"
+    ],
+    "little_similar": [
+      "praca socjalna",
+      "archiwistyka"
+    ]
+  },
+  "filologia niemiecka": {
+    "synonyms": [
+      "german philology",
+      "germanistyka",
+      "german studies"
+    ],
+    "very_similar": [
+      "filologia",
+      "historyka"
+    ],
+    "little_similar": [
+      "stosunki międzynarodowe",
+      "ekonomia"
+    ]
+  },
+  "filologia hiszpańska": {
+    "synonyms": [
+      "spanish philology",
+      "hispanistyka",
+      "spanish studies"
+    ],
+    "very_similar": [
+      "filologia",
+      "historyka"
+    ],
+    "little_similar": [
+      "turystyka i rekreacja"
+    ]
+  },
+  "filologia francuska": {
+    "synonyms": [
+      "french philology",
+      "francistyka",
+      "french studies"
+    ],
+    "very_similar": [
+      "filologia",
+      "historyka"
+    ],
+    "little_similar": [
+      "sztuki piękne"
+    ]
+  },
+  "archeologia": {
+    "synonyms": [
+      "archaeology",
+      "archeologia",
+      "archaeological studies"
+    ],
+    "very_similar": [
+      "historyka",
+      "archiwistyka",
+      "ochrona kulturowa",
+      "geologia"
+    ],
+    "little_similar": [
+      "geografia",
+      "sztuki piękne",
+      "antropologia"
+    ]
+  },
+  "archiwistyka": {
+    "synonyms": [
+      "archival studies",
+      "archiwistyka",
+      "archival science"
+    ],
+    "very_similar": [
+      "historyka",
+      "archeologia",
+      "informacja naukowa i bibliotekoznawstwo",
+      "ochrona kulturowa"
+    ],
+    "little_similar": [
+      "informatyka",
+      "administracja",
+      "prawo"
+    ]
+  },
+  "historyka": {
+    "synonyms": [
+      "history",
+      "historia",
+      "studia historyczne"
+    ],
+    "very_similar": [
+      "archeologia",
+      "archiwistyka",
+      "politologia",
+      "stosunki międzynarodowe",
+      "socjologia",
+      "filologia",
+      "teologia"
+    ],
+    "little_similar": [
+      "ekonomia",
+      "prawo",
+      "filozofia"
+    ]
+  },
+  "turystyka i rekreacja": {
+    "synonyms": [
+      "tourism and recreation",
+      "turystyka",
+      "rekreacja"
+    ],
+    "very_similar": [
+      "hotelarstwo",
+      "geografia",
+      "architektura krajobrazu",
+      "zarządzanie",
+      "żywność i żywienie"
+    ],
+    "little_similar": [
+      "ekonomia",
+      "marketing",
+      "praca socjalna",
+      "socjologia"
+    ]
+  },
+  "hotelarstwo": {
+    "synonyms": [
+      "hospitality management",
+      "hotelarstwo",
+      "hotel management"
+    ],
+    "very_similar": [
+      "turystyka i rekreacja",
+      "zarządzanie",
+      "marketing",
+      "żywność i żywienie"
+    ],
+    "little_similar": [
+      "ekonomia",
+      "finanse",
+      "administracja"
+    ]
+  },
+  "gospodarka przestrzenna": {
+    "synonyms": [
+      "spatial management",
+      "planowanie przestrzenne",
+      "urban planning"
+    ],
+    "very_similar": [
+      "urbanistyka",
+      "architektura",
+      "budownictwo",
+      "geodezja",
+      "geografia",
+      "inżynieria środowiska"
+    ],
+    "little_similar": [
+      "inwestycje",
+      "ekonomia",
+      "rolnictwo"
+    ]
+  },
+  "urbanistyka": {
+    "synonyms": [
+      "urban planning",
+      "urbanistyka",
+      "spatial planning"
+    ],
+    "very_similar": [
+      "gospodarka przestrzenna",
+      "architektura",
+      "budownictwo"
+    ],
+    "little_similar": [
+      "socjologia",
+      "ekologia",
+      "ochrona kulturowa",
+      "inżynieria środowiska"
+    ]
+  },
+  "ochrona kulturowa": {
+    "synonyms": [
+      "cultural heritage protection",
+      "ochrona dóbr kultury",
+      "heritage management"
+    ],
+    "very_similar": [
+      "historyka",
+      "archeologia",
+      "archiwistyka",
+      "architektura",
+      "sztuki piękne"
+    ],
+    "little_similar": [
+      "administracja",
+      "prawo",
+      "turystyka i rekreacja"
+    ]
+  },
+  "informacja naukowa i bibliotekoznawstwo": {
+    "synonyms": [
+      "library science",
+      "bibliotekoznawstwo",
+      "information science"
+    ],
+    "very_similar": [
+      "archiwistyka",
+      "informatyka",
+      "filologia",
+      "historyka"
+    ],
+    "little_similar": [
+      "zarządzanie",
+      "pedagogika"
+    ]
+  },
+  "praca socjalna": {
+    "synonyms": [
+      "social work",
+      "praca socjalna",
+      "social services"
+    ],
+    "very_similar": [
+      "socjologia",
+      "socjologia stosowana",
+      "pedagogika",
+      "psychologia kliniczna",
+      "zdrowie publiczne",
+      "pielęgniarstwo"
+    ],
+    "little_similar": [
+      "administracja",
+      "prawo",
+      "dietetyka"
+    ]
+  },
+  "dietetyka": {
+    "synonyms": [
+      "dietetics",
+      "dietetyka",
+      "nutrition science"
+    ],
+    "very_similar": [
+      "żywność i żywienie",
+      "zdrowie publiczne",
+      "chemia żywności",
+      "medycyna",
+      "pielęgniarstwo",
+      "psychologia kliniczna"
+    ],
+    "little_similar": [
+      "biologia",
+      "farmacja",
+      "kosmetologia"
+    ]
+  },
+  "zdrowie publiczne": {
+    "synonyms": [
+      "public health",
+      "zdrowie publiczne",
+      "health policy"
+    ],
+    "very_similar": [
+      "dietetyka",
+      "pielęgniarstwo",
+      "medycyna",
+      "farmacja",
+      "administracja",
+      "praca socjalna"
+    ],
+    "little_similar": [
+      "ekonomia",
+      "socjologia",
+      "biotechnologia"
+    ]
+  },
+  "fizjoterapia": {
+    "synonyms": [
+      "physiotherapy",
+      "fizjoterapia",
+      "rehabilitation"
+    ],
+    "very_similar": [
+      "pielęgniarstwo",
+      "ratownictwo medyczne",
+      "medycyna",
+      "inżynieria biomedyczna",
+      "psychologia kliniczna",
+      "ochrona zdrowia"
+    ],
+    "little_similar": [
+      "biologia",
+      "wychowanie fizyczne"
+    ]
+  },
+  "pielęgniarstwo": {
+    "synonyms": [
+      "nursing",
+      "pielęgniarstwo",
+      "nurse studies"
+    ],
+    "very_similar": [
+      "medycyna",
+      "fizjoterapia",
+      "ratownictwo medyczne",
+      "psychologia kliniczna",
+      "zdrowie publiczne",
+      "dietetyka"
+    ],
+    "little_similar": [
+      "biologia",
+      "farmacja",
+      "praca socjalna"
+    ]
+  },
+  "medycyna": {
+    "synonyms": [
+      "medicine",
+      "medycyna",
+      "medical science"
+    ],
+    "very_similar": [
+      "stomatologia",
+      "farmacja",
+      "weterynaria",
+      "analityka medyczna",
+      "pielęgniarstwo",
+      "biologia",
+      "genetyka",
+      "zdrowie publiczne",
+      "ratownictwo medyczne"
+    ],
+    "little_similar": [
+      "inżynieria biomedyczna",
+      "chemia",
+      "psychologia kliniczna"
+    ]
+  },
+  "stomatologia": {
+    "synonyms": [
+      "dentistry",
+      "stomatologia"
+    ],
+    "very_similar": [
+      "medycyna",
+      "analityka medyczna"
+    ],
+    "little_similar": [
+      "inżynieria biomedyczna",
+      "farmacja",
+      "kosmetologia"
+    ]
+  },
+  "farmacja": {
+    "synonyms": [
+      "pharmacy",
+      "farmacja",
+      "pharmaceutical studies"
+    ],
+    "very_similar": [
+      "medycyna",
+      "biotechnologia",
+      "chemia",
+      "biologia molekularna",
+      "analityka medyczna",
+      "chemia kosmetyczna"
+    ],
+    "little_similar": [
+      "weterynaria",
+      "dietetyka",
+      "inżynieria chemiczna"
+    ]
+  },
+  "weterynaria": {
+    "synonyms": [
+      "veterinary medicine",
+      "weterynaria",
+      "animal science"
+    ],
+    "very_similar": [
+      "medycyna",
+      "genetyka",
+      "biologia",
+      "agrobiologia",
+      "rolnictwo"
+    ],
+    "little_similar": [
+      "farmacja",
+      "biotechnologia",
+      "chemia żywności"
+    ]
+  },
+  "analityka medyczna": {
+    "synonyms": [
+      "medical analytics",
+      "diagnostyka laboratoryjna",
+      "medical laboratory science"
+    ],
+    "very_similar": [
+      "medycyna",
+      "biologia molekularna",
+      "genetyka",
+      "farmacja",
+      "chemia"
+    ],
+    "little_similar": [
+      "biotechnologia",
+      "inżynieria biomedyczna",
+      "diagnostyka obrazowa"
+    ]
+  },
+  "kognitywistyka": {
+    "synonyms": [
+      "cognitive science",
+      "kognityka",
+      "neurokognitywistyka"
+    ],
+    "very_similar": [
+      "psychologia",
+      "sztuczna inteligencja",
+      "informatyka",
+      "analityka danych",
+      "filozofia"
+    ],
+    "little_similar": [
+      "matematyka",
+      "fizyka",
+      "filologia"
+    ]
+  },
+  "kosmetologia": {
+    "synonyms": [
+      "cosmetology",
+      "kosmetologia",
+      "beauty science"
+    ],
+    "very_similar": [
+      "chemia kosmetyczna",
+      "farmacja",
+      "pielęgniarstwo"
+    ],
+    "little_similar": [
+      "chemia",
+      "biotechnologia",
+      "dietetyka",
+      "medycyna estetyczna"
+    ]
+  },
+  "górnictwo i geologia": {
+    "synonyms": [
+      "mining and geology",
+      "górnictwo i geologia",
+      "mining engineering"
+    ],
+    "very_similar": [
+      "geologia",
+      "inżynieria",
+      "inżynieria środowiska",
+      "energetyka"
+    ],
+    "little_similar": [
+      "inżynieria materiałowa",
+      "mechanika i budowa maszyn"
+    ]
+  },
+  "rolnictwo": {
+    "synonyms": [
+      "agriculture",
+      "rolnictwo",
+      "agricultural sciences"
+    ],
+    "very_similar": [
+      "agrobiologia",
+      "leśnictwo",
+      "inżynieria rolnicza",
+      "ekologia",
+      "chemia żywności",
+      "weterynaria"
+    ],
+    "little_similar": [
+      "ochrona środowiska",
+      "gospodarka przestrzenna",
+      "żywność i żywienie"
+    ]
+  },
+  "agrobiologia": {
+    "synonyms": [
+      "agrobiology",
+      "biologia rolna",
+      "agricultural biology"
+    ],
+    "very_similar": [
+      "rolnictwo",
+      "biologia",
+      "weterynaria",
+      "biotechnologia"
+    ],
+    "little_similar": [
+      "chemia",
+      "leśnictwo"
+    ]
+  },
+  "leśnictwo": {
+    "synonyms": [
+      "forestry",
+      "leśnictwo",
+      "forest management"
+    ],
+    "very_similar": [
+      "rolnictwo",
+      "ekologia",
+      "ochrona środowiska",
+      "agrobiologia"
+    ],
+    "little_similar": [
+      "gospodarka przestrzenna",
+      "turystyka i rekreacja",
+      "biologia"
+    ]
+  },
+  "inżynieria rolnicza": {
+    "synonyms": [
+      "agricultural engineering",
+      "inżynieria rolnicza",
+      "agro‑engineering"
+    ],
+    "very_similar": [
+      "rolnictwo",
+      "inżynieria",
+      "mechanika i budowa maszyn",
+      "inżynieria środowiska"
+    ],
+    "little_similar": [
+      "energetyka",
+      "automatyka i robotyka"
+    ]
+  },
+  "żywność i żywienie": {
+    "synonyms": [
+      "food science",
+      "żywność i żywienie",
+      "nutrition and food technology"
+    ],
+    "very_similar": [
+      "dietetyka",
+      "chemia żywności",
+      "rolnictwo",
+      "zdrowie publiczne",
+      "hotelarstwo"
+    ],
+    "little_similar": [
+      "biologia",
+      "biotechnologia",
+      "ochrona zdrowia"
+    ]
+  },
+  "ochrona zdrowia": {
+    "synonyms": [
+      "healthcare studies",
+      "ochrona zdrowia",
+      "health protection"
+    ],
+    "very_similar": [
+      "zdrowie publiczne",
+      "medycyna",
+      "pielęgniarstwo",
+      "ratownictwo medyczne",
+      "praca socjalna",
+      "dietetyka"
+    ],
+    "little_similar": [
+      "zarządzanie",
+      "ekonomia",
+      "administracja"
+    ]
+  },
+  "sztuki piękne": {
+    "synonyms": [
+      "fine arts",
+      "sztuki plastyczne",
+      "art studies"
+    ],
+    "very_similar": [
+      "grafika",
+      "architektura",
+      "ochrona kulturowa",
+      "muzykologia"
+    ],
+    "little_similar": [
+      "filologia francuska",
+      "historyka",
+      "urbanistyka"
+    ]
+  },
+  "grafika": {
+    "synonyms": [
+      "graphic design",
+      "grafika",
+      "visual arts"
+    ],
+    "very_similar": [
+      "sztuki piękne",
+      "informatyka",
+      "architektura"
+    ],
+    "little_similar": [
+      "marketing",
+      "kompozycja muzyczna"
+    ]
+  },
+  "muzykologia": {
+    "synonyms": [
+      "musicology",
+      "muzykologia",
+      "music studies"
+    ],
+    "very_similar": [
+      "kompozycja muzyczna",
+      "historyka",
+      "sztuki piękne",
+      "filologia"
+    ],
+    "little_similar": [
+      "kognitywistyka",
+      "informatyka"
+    ]
+  },
+  "kompozycja muzyczna": {
+    "synonyms": [
+      "composition",
+      "kompozycja",
+      "music composition"
+    ],
+    "very_similar": [
+      "muzykologia",
+      "sztuki piękne"
+    ],
+    "little_similar": [
+      "informatyka",
+      "grafika"
+    ]
+  },
+  "teologia": {
+    "synonyms": [
+      "theology",
+      "teologia",
+      "religious studies"
+    ],
+    "very_similar": [
+      "prawo kanoniczne",
+      "filozofia",
+      "historyka",
+      "pedagogika"
+    ],
+    "little_similar": [
+      "filologia",
+      "socjologia"
+    ]
+  },
+  "prawo kanoniczne": {
+    "synonyms": [
+      "canon law",
+      "prawo kanoniczne"
+    ],
+    "very_similar": [
+      "prawo",
+      "teologia",
+      "filozofia"
+    ],
+    "little_similar": [
+      "historyka",
+      "administracja"
+    ]
+  },
+  "ratownictwo medyczne": {
+    "synonyms": [
+      "emergency medical services",
+      "ratownictwo medyczne",
+      "paramedicine"
+    ],
+    "very_similar": [
+      "medycyna",
+      "pielęgniarstwo",
+      "fizjoterapia",
+      "zdrowie publiczne",
+      "psychologia kliniczna",
+      "ochrona zdrowia"
+    ],
+    "little_similar": [
+      "biologia",
+      "zarządzanie",
+      "bezpieczeństwo narodowe"
+    ]
+  }
+}

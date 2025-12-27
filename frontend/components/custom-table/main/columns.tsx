@@ -1,16 +1,17 @@
 "use client";
 
-import { FieldOfStudy } from "../types";
 import { FavouriteButton } from "@/components/FavouriteButton";
+import { FieldOfStudyExtended } from "../types";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
-export const columns: ColumnDef<FieldOfStudy>[] = [
+export const columns: ColumnDef<FieldOfStudyExtended>[] = [
   {
     id: "degree",
     header: "Stopień",
     accessorKey: "level",
     size: 100,
+    cell: ({ row }) => (row.getValue("degree") as string).replaceAll("_", " "),
   },
   {
     id: "duration",
@@ -79,26 +80,28 @@ export const columns: ColumnDef<FieldOfStudy>[] = [
   {
     id: "passRate",
     header: "Średnia zdawalność",
-    accessorKey: "university.id",
-    size: 120,
-    meta: {
-      filterType: "number",
-    },
-    cell: ({ row }) => <div className="text-center">{`${row.getValue("passRate")}%`}</div>,
-    enableSorting: false, // TODO: add and test after data is added
-  },
-  {
-    id: "salary",
-    header: "Śr. zarobki absolw.",
-    accessorKey: "department.id",
+    accessorKey: "passRate",
     size: 120,
     meta: {
       filterType: "number",
     },
     cell: ({ row }) => (
-      <div className="text-right">{`${Number(row.getValue("salary")) * 100} PLN`}</div>
+      <div>{row.getValue("passRate") ? `${row.getValue("passRate")} %` : "-"}</div>
     ),
-    enableSorting: false, // TODO: add and test after data is added
+    enableSorting: false,
+  },
+  {
+    id: "avgIncome",
+    header: "Śr. zarobki absolw.",
+    accessorKey: "avgIncome",
+    size: 120,
+    meta: {
+      filterType: "number",
+    },
+    cell: ({ row }) => (
+      <div>{row.getValue("avgIncome") ? `${Math.round(row.getValue("avgIncome"))} zł` : "-"}</div>
+    ),
+    enableSorting: false,
   },
   {
     id: "favourite",

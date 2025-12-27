@@ -27,7 +27,7 @@ export type FiltersFormValues = {
   university_name?: string;
 };
 
-export function FitlersForm<T>({
+export function FiltersForm<T>({
   table,
   filters,
 }: {
@@ -37,6 +37,8 @@ export function FitlersForm<T>({
   const {
     register,
     handleSubmit,
+    // TODO: fix this once error handling is added or remove it entirely
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
     control,
   } = useForm<FiltersFormValues>({
@@ -135,7 +137,7 @@ export function FitlersForm<T>({
           })}
       </Accordion>
       <div className="p-3 grid grid-cols-2 gap-2 border-t">
-        <Button type="submit">Zapisz</Button>
+        <Button type="submit">Zastosuj</Button>
         <Button variant="destructive">Resetuj</Button>
       </div>
     </form>
@@ -152,66 +154,62 @@ function DegreeComponent({
     <>
       <div className="flex items-center space-x-2">
         <Controller
-          name="degrees.bachelors"
+          name="degrees.bachelor"
           control={control}
           render={({ field }) => (
-            <Checkbox id="bachelors" checked={!!field.value} onCheckedChange={field.onChange} />
+            <Checkbox id="bachelor" checked={!!field.value} onCheckedChange={field.onChange} />
           )}
         />
         <label
-          htmlFor="bachelors"
+          htmlFor="bachelor"
           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
-          Bachelors
+          Licencjackie
         </label>
       </div>
       <div className="flex items-center space-x-2">
         <Controller
-          name="degrees.engineering"
+          name="degrees.engineer"
           control={control}
           render={({ field }) => (
-            <Checkbox id="engineering" checked={!!field.value} onCheckedChange={field.onChange} />
+            <Checkbox id="engineer" checked={!!field.value} onCheckedChange={field.onChange} />
           )}
         />
         <label
-          htmlFor="engineering"
+          htmlFor="engineer"
           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
-          Engineering
+          Inżynierskie
         </label>
       </div>
       <div className="flex items-center space-x-2">
         <Controller
-          name="degrees.masters"
+          name="degrees.master"
           control={control}
           render={({ field }) => (
-            <Checkbox id="masters" checked={!!field.value} onCheckedChange={field.onChange} />
+            <Checkbox id="master" checked={!!field.value} onCheckedChange={field.onChange} />
           )}
         />
         <label
-          htmlFor="masters"
+          htmlFor="master"
           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
-          Masters
+          Magisterskie
         </label>
       </div>
       <div className="flex items-center space-x-2">
         <Controller
-          name="degrees.engineeringMasters"
+          name="degrees.long_master"
           control={control}
           render={({ field }) => (
-            <Checkbox
-              id="engineering-masters"
-              checked={!!field.value}
-              onCheckedChange={field.onChange}
-            />
+            <Checkbox id="long-master" checked={!!field.value} onCheckedChange={field.onChange} />
           )}
         />
         <label
-          htmlFor="engineering-masters"
+          htmlFor="long-master"
           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
-          Engineering Masters
+          Jednolite Magisterskie
         </label>
       </div>
     </>

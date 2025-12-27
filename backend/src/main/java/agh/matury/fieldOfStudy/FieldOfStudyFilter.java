@@ -30,11 +30,14 @@ public class FieldOfStudyFilter {
   @Schema(description = "Miejscowość uczelni (LIKE)")
   private String city;
 
-  @Schema(description = "Lista poziomów (np. Bachelors, Engineering, Masters, Engineering Masters)")
+  @Schema(description = "Lista poziomów oddzielona przecinkami(np. bachelor,engineer,master,long_master)")
   private Set<String> degrees;
 
   private BigDecimal passRateFrom;
   private BigDecimal passRateTo;
   private BigDecimal avgSalaryFrom;
   private BigDecimal avgSalaryTo;
+
+  @Schema(description = "Lista ID kierunków (powtarzany parametr lub rozdzielone przecinkami), np. ids=1,2,3")
+  private Set<Long> ids;
 }

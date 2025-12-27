@@ -36,8 +36,13 @@ run_test() {
     exit 1
   fi
 
-  if ! awk -v a="$actual" -v e="$expected" -v tol="$TOLERANCE" \
-    'BEGIN { diff = a - e; if (diff < 0) diff = -diff; exit (diff > tol) }'; then
+  if python3 - "$expected" "$actual" "$TOLERANCE" <<'PY'; then
+import sys
+expected = float(sys.argv[1])
+actual = float(sys.argv[2])
+tol = float(sys.argv[3])
+sys.exit(0 if abs(actual - expected) <= tol else 1)
+PY
     printf "✔ %s passed (expected %.2f, got %.2f)\n\n" "$name" "$expected" "$actual"
   else
     printf "✖ %s failed (expected %.2f, got %.2f)\n" "$name" "$expected" "$actual" >&2
@@ -106,5 +111,107 @@ run_test "Politechnika Śląska – bilingual subject treated as extended" '{
     { "subjectCode": "english_bilingual", "level": "BILINGUAL", "score": 88 }
   ]
 }' 125.5
+
+run_test "Politechnika Białostocka – Automatyka i Robotyka (waga przedmiotu)" '{
+  "universityId": "politechnika-bialostocka",
+  "fieldOfStudyId": "wr-technical",
+  "examResults": [
+    { "subjectCode": "mathematics", "level": "BASIC", "score": 78 },
+    { "subjectCode": "mathematics", "level": "EXTENDED", "score": 82 },
+    { "subjectCode": "english_language", "level": "BASIC", "score": 70 },
+    { "subjectCode": "english_language", "level": "EXTENDED", "score": 68 },
+    { "subjectCode": "physics", "level": "EXTENDED", "score": 80 },
+    { "subjectCode": "chemistry", "level": "EXTENDED", "score": 90 }
+  ]
+}' 350.0
+
+run_test "Politechnika Białostocka – Biotechnologia (dwa przedmioty dodatkowe)" '{
+  "universityId": "politechnika-bialostocka",
+  "fieldOfStudyId": "2489",
+  "examResults": [
+    { "subjectCode": "mathematics", "level": "BASIC", "score": 82 },
+    { "subjectCode": "mathematics", "level": "EXTENDED", "score": 70 },
+    { "subjectCode": "english_language", "level": "BASIC", "score": 85 },
+    { "subjectCode": "german_language", "level": "EXTENDED", "score": 60 },
+    { "subjectCode": "physics", "level": "EXTENDED", "score": 78 },
+    { "subjectCode": "geography", "level": "EXTENDED", "score": 64 }
+  ]
+}' 443.25
+
+run_test "Politechnika Bydgoska – Architektura (egzamin artystyczny)" '{
+  "universityId": "politechnika-bydgoska",
+  "fieldOfStudyId": "architecture",
+  "examResults": [
+    { "subjectCode": "polish_language", "level": "EXTENDED", "score": 65 },
+    { "subjectCode": "english_language", "level": "EXTENDED", "score": 78 },
+    { "subjectCode": "mathematics", "level": "BASIC", "score": 72 },
+    { "subjectCode": "mathematics", "level": "EXTENDED", "score": 68 },
+    { "subjectCode": "physics", "level": "EXTENDED", "score": 75 },
+    { "subjectCode": "art_exam", "score": 310 }
+  ]
+}' 828.0
+
+run_test "Politechnika Bydgoska – Cyberbezpieczeństwo (matma rozszerzona wygrywa)" '{
+  "universityId": "politechnika-bydgoska",
+  "fieldOfStudyId": "ict",
+  "examResults": [
+    { "subjectCode": "english_language", "level": "BASIC", "score": 85 },
+    { "subjectCode": "mathematics", "level": "BASIC", "score": 90 },
+    { "subjectCode": "mathematics", "level": "EXTENDED", "score": 74 },
+    { "subjectCode": "physics", "level": "BASIC", "score": 80 },
+    { "subjectCode": "informatics", "level": "EXTENDED", "score": 88 }
+  ]
+}' 883.0
+
+run_test "Politechnika Lubelska – Mechatronika (pelne wyniki)" '{
+  "universityId": "politechnika-lubelska",
+  "fieldOfStudyId": "pollub-mechanical",
+  "examResults": [
+    { "subjectCode": "polish_language", "level": "BASIC", "score": 78 },
+    { "subjectCode": "polish_language", "level": "EXTENDED", "score": 64 },
+    { "subjectCode": "english_language", "level": "BASIC", "score": 82 },
+    { "subjectCode": "english_language", "level": "EXTENDED", "score": 74 },
+    { "subjectCode": "mathematics", "level": "BASIC", "score": 88 },
+    { "subjectCode": "mathematics", "level": "EXTENDED", "score": 72 },
+    { "subjectCode": "informatics", "level": "EXTENDED", "score": 90 },
+    { "subjectCode": "vocational_exam", "level": "VOCATIONAL_TECHNICIAN", "score": 92 }
+  ]
+}' 703.03
+
+run_test "Politechnika Lubelska – Zarzadzanie (brak matmy to 20 pkt)" '{
+  "universityId": "politechnika-lubelska",
+  "fieldOfStudyId": "pollub-business",
+  "examResults": [
+    { "subjectCode": "polish_language", "level": "BASIC", "score": 65 },
+    { "subjectCode": "english_language", "level": "BASIC", "score": 70 },
+    { "subjectCode": "geography", "level": "EXTENDED", "score": 60 },
+    { "subjectCode": "vocational_exam", "level": "VOCATIONAL_TECHNICIAN", "score": 80 }
+  ]
+}' 347.71
+
+run_test "Politechnika Czestochowska - Automatyka i Robotyka (pelne wyniki)" '{
+  "universityId": "politechnika-czestochowska",
+  "fieldOfStudyId": "automatyka i robotyka",
+  "examResults": [
+    { "subjectCode": "polish_language", "level": "BASIC", "score": 70 },
+    { "subjectCode": "polish_language", "level": "EXTENDED", "score": 60 },
+    { "subjectCode": "english_language", "level": "BASIC", "score": 85 },
+    { "subjectCode": "english_language", "level": "EXTENDED", "score": 75 },
+    { "subjectCode": "mathematics", "level": "BASIC", "score": 80 },
+    { "subjectCode": "mathematics", "level": "EXTENDED", "score": 70 },
+    { "subjectCode": "physics", "level": "BASIC", "score": 78 },
+    { "subjectCode": "physics", "level": "EXTENDED", "score": 66 },
+    { "subjectCode": "vocational_exam", "level": "VOCATIONAL_TECHNICIAN", "score": 90 }
+  ]
+}' 648.0
+
+run_test "Politechnika Czestochowska - Zarzadzanie (brak matmy i przedmiotu dodatkowego to 20 pkt)" '{
+  "universityId": "politechnika-czestochowska",
+  "fieldOfStudyId": "zarzadzanie",
+  "examResults": [
+    { "subjectCode": "polish_language", "level": "BASIC", "score": 60 },
+    { "subjectCode": "english_language", "level": "BASIC", "score": 70 }
+  ]
+}' 158.0
 
 echo "All recruitment calculator smoke tests passed."

@@ -1,6 +1,8 @@
 package agh.matury.fieldOfStudy;
 
 import agh.matury.fieldOfStudy.dto.FieldOfStudyDTO;
+import agh.matury.fieldOfStudy.dto.FieldOfStudyExtendedDTO;
+import agh.matury.fieldOfStudy.dto.GraduateDataDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -35,11 +37,12 @@ public class FieldOfStudyController {
       - semestersFrom / semestersTo (duration)
       - department / university / city (LIKE)
       - degrees (powtarzany parametr, np. degrees=Bachelors&degrees=Engineering)
+      - ids (powtarzany parametr lub lista oddzielona przecinkami, np. ids=1,2,3)
       Paginacja: page, size. Sortowanie: sort, direction=asc|desc.
       """)
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
   @GetMapping
-  public ResponseEntity<Page<FieldOfStudyDTO>> getAllFieldsOdStudy(
+  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getAllFieldsOdStudy(
       @ParameterObject FieldOfStudyFilter filter,
       @RequestParam(defaultValue = "0") int page,
       @RequestParam(defaultValue = "10") int size,
@@ -64,10 +67,22 @@ public class FieldOfStudyController {
     return ResponseEntity.ok(fieldOfStudyService.getFieldOfStudyById(id));
   }
 
+  @Operation(summary = "Get field of study graduate data.", description = "Returns field of study graduate data with provided id.")
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "200", description = "Successfully retrieved field of study data", content = @Content(schema = @Schema(implementation = FieldOfStudyDTO.class))),
+          @ApiResponse(responseCode = "404", description = "Field of study data not found", content = @Content)
+  })
+  @GetMapping("/{id}/graduate")
+  public ResponseEntity<GraduateDataDTO> getFieldOfStudyGraduateDAtaById(
+          @Parameter(description = "Field of study id", required = true, in = ParameterIn.PATH) @PathVariable Long id) {
+    return ResponseEntity.ok(fieldOfStudyService.getFieldOfStudyGraduateDataById(id));
+  }
+
+
   @Operation(summary = "Get all fields of study from university.", description = "Returns a paginated list of all fields of study from provided university id.")
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
   @GetMapping("/university/{id}")
-  public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByUniversityId(
+  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getFieldsOfStudyByUniversityId(
       @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
       @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
       @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,
@@ -84,7 +99,7 @@ public class FieldOfStudyController {
   @Operation(summary = "Get all fields of study from department.", description = "Returns a paginated list of all fields of study from provided department id.")
   @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
   @GetMapping("/department/{id}")
-  public ResponseEntity<Page<FieldOfStudyDTO>> getFieldsOfStudyByDepartmentId(
+  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getFieldsOfStudyByDepartmentId(
       @Parameter(description = "Page number (zero-based)") @RequestParam(defaultValue = "0") int page,
       @Parameter(description = "Number of items per page") @RequestParam(defaultValue = "10") int size,
       @Parameter(description = "Sort field") @RequestParam(defaultValue = "name") String sort,

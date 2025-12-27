@@ -1,6 +1,6 @@
 import { BACKEND_URL } from "../constants";
 import { fetchData } from "@/components/custom-table/fetchData";
-import { FieldOfStudy, FieldOfStudyData } from "@/components/custom-table/types";
+import { FieldOfStudy } from "@/components/custom-table/types";
 
 export type Threshold = {
   id: number;
@@ -26,12 +26,24 @@ type ThresholdData = {
   };
 };
 
+type GraduateData = {
+  fieldOfStudyId: number;
+  avgIncome: number;
+  incomeAfterYear1: number;
+  incomeAfterYear2: number;
+  incomeAfterYear3: number;
+  incomeAfterYear4: number;
+  incomeAfterYear5: number;
+  passRate: number;
+};
+
 export async function getFieldData(fieldId: string): Promise<{
   fieldData: FieldOfStudy;
-  departmentFields: FieldOfStudy[];
+  graduateData: GraduateData;
+  recoFields: FieldOfStudy[];
   thresholdData: ThresholdData;
 }> {
-  const [fieldResponse, thresholdResponse] = await Promise.all([
+  const [fieldResponse, thresholdResponse, graduateResponse] = await Promise.all([
     fetch(`${BACKEND_URL}/api/field_of_study/${fieldId}`),
     // It's safe to assume that no field of study will have more than a 1000 threshold entries
     fetchData({
@@ -39,16 +51,31 @@ export async function getFieldData(fieldId: string): Promise<{
       pageSize: "1000",
       pageIndex: "0",
     }),
+    fetch(`${BACKEND_URL}/api/field_of_study/${fieldId}/graduate`),
   ]);
   const [fieldData, thresholdData]: [FieldOfStudy, ThresholdData] = await Promise.all([
     fieldResponse.json(),
     thresholdResponse.json(),
   ]);
-  const departmentFieldsResponse = await fetchData({
-    baseUrl: `${BACKEND_URL}/api/field_of_study/department/${fieldData.department.id}`,
-    pageSize: "1000",
-    pageIndex: "0",
+  // default values if request fails (not found)
+  let graduateData: GraduateData = {
+    fieldOfStudyId: fieldData.id,
+    avgIncome: 0,
+    incomeAfterYear1: 0,
+    incomeAfterYear2: 0,
+    incomeAfterYear3: 0,
+    incomeAfterYear4: 0,
+    incomeAfterYear5: 0,
+    passRate: 0,
+  };
+  if (graduateResponse.ok) {
+    graduateData = await graduateResponse.json();
+  }
+  const recoResponse = await fetch(`${BACKEND_URL}/api/recommendation/field/${fieldId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ k: 16 }),
   });
-  const departmentFieldsData: FieldOfStudyData = await departmentFieldsResponse.json();
-  return { fieldData, departmentFields: departmentFieldsData.content, thresholdData };
+  const recoData: FieldOfStudy[] = await recoResponse.json();
+  return { fieldData, graduateData, recoFields: recoData, thresholdData };
 }

@@ -5,7 +5,7 @@ export default function Map({ query }: { query?: string }) {
   if (!GOOGLE_MAPS_API_KEY || !query) {
     return (
       <div className="w-full min-h-[100px] flex items-center justify-center bg-card text-gray-700 border border-gray-300 rounded">
-        Unable to load the map
+        Nie udało się załadować mapy
       </div>
     );
   } else {
