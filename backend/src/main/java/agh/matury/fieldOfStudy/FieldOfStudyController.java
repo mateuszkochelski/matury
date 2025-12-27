@@ -52,7 +52,11 @@ public class FieldOfStudyController {
     // Translate department-related sort fields to "department.name" for proper
     // sorting
     String actualSort = translateDepartmentSortField(sort);
-    Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, actualSort));
+    Sort sortOrder = Sort.by(sortDirection, actualSort);
+    if (!"id".equals(actualSort)) {
+      sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
+    }
+    Pageable pageable = PageRequest.of(page, size, sortOrder);
     return ResponseEntity.ok(fieldOfStudyService.search(filter, pageable));
   }
 
@@ -92,7 +96,11 @@ public class FieldOfStudyController {
     // Translate department-related sort fields to "department.name" for proper
     // sorting
     String actualSort = translateDepartmentSortField(sort);
-    Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, actualSort));
+    Sort sortOrder = Sort.by(sortDirection, actualSort);
+    if (!"id".equals(actualSort)) {
+      sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
+    }
+    Pageable pageable = PageRequest.of(page, size, sortOrder);
     return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByUniversityId(id, pageable));
   }
 
@@ -109,7 +117,11 @@ public class FieldOfStudyController {
     // Translate department-related sort fields to "department.name" for proper
     // sorting
     String actualSort = translateDepartmentSortField(sort);
-    Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, actualSort));
+    Sort sortOrder = Sort.by(sortDirection, actualSort);
+    if (!"id".equals(actualSort)) {
+      sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
+    }
+    Pageable pageable = PageRequest.of(page, size, sortOrder);
     return ResponseEntity.ok(fieldOfStudyService.getFieldsOfStudyByDepartmentId(id, pageable));
   }
 
