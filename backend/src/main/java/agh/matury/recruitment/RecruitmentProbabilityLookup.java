@@ -71,7 +71,7 @@ public class RecruitmentProbabilityLookup {
             return null;
         }
 
-        String resolvedFieldName = resolveLookupName(requestedFieldOfStudy);
+        String resolvedFieldName = resolveLookupName(universityConfig, requestedFieldOfStudy);
         String normalizedField = normalize(resolvedFieldName);
         if (normalizedField == null || normalizedField.isEmpty()) {
             return null;
@@ -104,14 +104,18 @@ public class RecruitmentProbabilityLookup {
             RecruitmentFormulaConfig.UniversityConfig universityConfig,
             String requestedFieldOfStudy
     ) {
-        if (universityConfig == null || !POZNAN_UNIVERSITY_ID.equalsIgnoreCase(universityConfig.id())) {
-            return requestedFieldOfStudy;
+        if (universityConfig == null) {
+            return resolveDatabaseName(requestedFieldOfStudy);
         }
 
-        return resolveLookupName(requestedFieldOfStudy);
+        if (POZNAN_UNIVERSITY_ID.equalsIgnoreCase(universityConfig.id())) {
+            return resolvePoznanLookupName(requestedFieldOfStudy);
+        }
+
+        return resolveDatabaseName(requestedFieldOfStudy);
     }
 
-    private String resolveLookupName(String requestedFieldOfStudy) {
+    private String resolvePoznanLookupName(String requestedFieldOfStudy) {
         if (requestedFieldOfStudy == null || fieldOfStudyRepository == null) {
             return requestedFieldOfStudy;
         }
@@ -146,6 +150,25 @@ public class RecruitmentProbabilityLookup {
         }
 
         return field.getName() == null ? requestedFieldOfStudy : field.getName();
+    }
+
+    private String resolveDatabaseName(String requestedFieldOfStudy) {
+        if (requestedFieldOfStudy == null || fieldOfStudyRepository == null) {
+            return requestedFieldOfStudy;
+        }
+
+        Long fieldId = parseFieldOfStudyId(requestedFieldOfStudy);
+        if (fieldId == null) {
+            return requestedFieldOfStudy;
+        }
+
+        Optional<FieldOfStudy> fieldOfStudy = fieldOfStudyRepository.findById(fieldId);
+        if (fieldOfStudy.isEmpty()) {
+            return requestedFieldOfStudy;
+        }
+
+        String name = fieldOfStudy.get().getName();
+        return name == null || name.isBlank() ? requestedFieldOfStudy : name;
     }
 
     private Long parseFieldOfStudyId(String fieldOfStudyId) {

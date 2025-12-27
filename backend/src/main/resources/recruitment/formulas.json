@@ -582,16 +582,16 @@
     {
       "id": "politechnika-bialostocka",
       "name": "Politechnika Bialostocka",
-      "aliases": ["politechnika bialostocka", "pb", "bialystok"],
+      "aliases": ["politechnika bialostocka", "25", "pb", "bialystok"],
       "fieldsOfStudy": [
         {
           "id": "drawing-required",
           "name": "Kierunki z egzaminem z rysunku",
           "aliases": [
-            "architektura",
-            "architektura krajobrazu",
-            "architektura wnetrz",
-            "grafika"
+            "Architektura",
+            "Architektura Krajobrazu",
+            "Architektura Wnętrz",
+            "Grafika"
           ],
           "formula": {
             "type": "LINEAR_SUM",
@@ -659,10 +659,10 @@
           "id": "wr-technical",
           "name": "Kierunki techniczne z waga przedmiotu dodatkowego",
           "aliases": [
-            "automatyka i robotyka",
-            "inzynieria biomedyczna",
-            "mechanika i budowa maszyn",
-            "mechatronika"
+            "Automatyka i Robotyka",
+            "Inżynieria Biomedyczna",
+            "Mechanika i Budowa Maszyn",
+            "Mechatronika"
           ],
           "formula": {
             "type": "LINEAR_SUM",
@@ -724,7 +724,7 @@
         {
           "id": "math-applied",
           "name": "Matematyka stosowana",
-          "aliases": ["matematyka stosowana"],
+          "aliases": ["Matematyka Stosowana"],
           "formula": {
             "type": "LINEAR_SUM",
             "terms": [
@@ -782,7 +782,7 @@
         {
           "id": "biotechnology",
           "name": "Biotechnologia",
-          "aliases": ["biotechnologia", "biotechnology", "2489"],
+          "aliases": ["Biotechnologia", "biotechnology", "2489"],
           "formula": {
             "type": "LINEAR_SUM",
             "terms": [
@@ -841,7 +841,7 @@
           "id": "environmental-engineering",
           "name": "Inzynieria srodowiska",
           "aliases": [
-            "inzynieria srodowiska",
+            "Inżynieria Środowiska",
             "environmental engineering",
             "2498"
           ],
@@ -904,25 +904,28 @@
           "name": "Pozostale kierunki",
           "aliases": [
             "agroekobiznes",
-            "budownictwo",
-            "cyfryzacja przemyslu",
+            "Budownictwo",
+            "Cyfryzacja Przemysłu",
             "data science",
-            "ekoenergetyka",
+            "Ekoenergetyka",
             "elektromobilnosc",
-            "elektronika i telekomunikacja",
-            "elektrotechnika",
+            "Elektronika i Telekomunikacja",
+            "Elektrotechnika",
             "elektrotechnika studia dualne",
-            "energetyka cieplna",
-            "gospodarka przestrzenna",
-            "informatyka",
-            "lesnictwo",
-            "logistyka",
+            "Energetyka Cieplna",
+            "Gospodarka Przestrzenna",
+            "Informatyka",
+            "Informatyka i Ekonometria",
+            "Inżynieria Rolno-Spożywcza",
+            "Leśnictwo",
+            "Logistyka",
             "mechanika i budowa maszyn dualne",
             "transport",
-            "turystyka i rekreacja",
-            "zarzadzanie",
-            "zarzadzanie finansami i rachunkowoscia",
-            "zarzadzanie i inzynieria produkcji",
+            "Turystyka i Rekreacja",
+            "Zarządzanie",
+            "Zarządzanie Finansami i Rachunkowość",
+            "Zarządzanie i Inżynieria Produkcji",
+            "Zarządzanie i Inżynieria Usług",
             "zarzadzanie projektami"
           ],
           "formula": {
@@ -986,6 +989,7 @@
       "name": "Politechnika Bydgoska im. Jana i Jedrzeja Sniadeckich",
       "aliases": [
         "pbs",
+        "72",
         "politechnika bydgoska",
         "politechnika bydgoska im. jana i jedrzeja sniadeckich",
         "bydgoszcz"
@@ -1978,7 +1982,7 @@
     {
       "id": "politechnika-lubelska",
       "name": "Politechnika Lubelska",
-      "aliases": ["politechnika lubelska", "pollub", "lublin"],
+      "aliases": ["30", "politechnika lubelska", "pollub", "lublin"],
       "fieldsOfStudy": [
         {
           "id": "pollub-biomedical",
@@ -2484,7 +2488,7 @@
     {
       "id": "politechnika-czestochowska",
       "name": "Politechnika Czestochowska",
-      "aliases": ["pcz", "politechnika czestochowska", "pczestochowska"],
+      "aliases": ["26", "pcz", "politechnika czestochowska", "pczestochowska"],
       "fieldsOfStudy": [
         {
           "id": "pcz-technical",
