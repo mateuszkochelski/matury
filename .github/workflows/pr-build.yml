@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
       - name: Build docker image
-        run: docker build --build-arg GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }} -t unsignedgodeveloper/matury-frontend ./frontend
+        run: docker build -t unsignedgodeveloper/matury-frontend ./frontend
   build-reverse-proxy:
     runs-on: ubuntu-latest
     steps:
