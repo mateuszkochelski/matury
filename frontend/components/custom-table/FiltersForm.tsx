@@ -8,6 +8,7 @@ import { FloatingLabelInput } from "../ui/floating-label-input";
 import { Switch } from "../ui/switch";
 import { FetchDataIdsProp } from "./fetchData";
 import { DegreesObject } from "./types";
+import { getFavourites } from "@/app/utils/getFavourites";
 import { Button } from "@/components/ui/button";
 import { type Table } from "@tanstack/react-table";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -15,7 +16,7 @@ import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
 export type FiltersFormValues = {
   degrees?: DegreesObject;
-  isFavouritesOnly?: string;
+  isFavouritesOnly?: boolean;
   department_name?: string;
   "duration-max"?: string;
   "duration-min"?: string;
@@ -53,7 +54,6 @@ export function FiltersForm<T>({
 
   const handleUrlUpdate: SubmitHandler<FiltersFormValues> = useCallback(
     (updateParams: FiltersFormValues) => {
-      console.log({ updateParams });
       const params = new URLSearchParams(searchParams.toString());
 
       const { degrees, isFavouritesOnly, ...otherParams } = updateParams;
@@ -65,13 +65,12 @@ export function FiltersForm<T>({
           params.append("degrees", key);
         });
 
-      const stored = localStorage.getItem("favourites");
       const favouritesParamName: keyof FetchDataIdsProp = "ids";
-      const storedFavourites: number[] = stored ? JSON.parse(stored) : [];
-      if (!isFavouritesOnly || storedFavourites.length === 0) {
+      const favourites = getFavourites();
+      if (!isFavouritesOnly || favourites.length === 0) {
         params.delete(favouritesParamName);
       } else {
-        params.set(favouritesParamName, storedFavourites.toString());
+        params.set(favouritesParamName, favourites.toString());
       }
 
       Object.entries(otherParams)
@@ -88,8 +87,6 @@ export function FiltersForm<T>({
     },
     [searchParams, pathname, replace],
   );
-
-  console.log("seba", table.getRowModel().rows);
 
   return (
     <form className="space-y-3" onSubmit={handleSubmit(handleUrlUpdate)}>

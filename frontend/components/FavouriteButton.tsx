@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getFavourites } from "@/app/utils/getFavourites";
 import { HeartIcon } from "lucide-react";
 
 export function FavouriteButton({ fieldId, size }: { fieldId: number; size: "small" | "large" }) {
@@ -8,8 +9,7 @@ export function FavouriteButton({ fieldId, size }: { fieldId: number; size: "sma
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("favourites");
-      const favourites: number[] = stored ? JSON.parse(stored) : [];
+      const favourites = getFavourites();
       setIsFavourite(favourites.includes(fieldId));
     } catch (err) {
       console.error("Failed to read favourites:", err);
@@ -18,15 +18,15 @@ export function FavouriteButton({ fieldId, size }: { fieldId: number; size: "sma
 
   const toggleFavourite = () => {
     try {
-      const stored = localStorage.getItem("favourites");
-      const favourites: number[] = stored ? JSON.parse(stored) : [];
+      const favourites = getFavourites();
 
       let updatedFavourites;
       if (favourites.includes(fieldId)) {
         updatedFavourites = favourites.filter((id) => id !== fieldId);
         setIsFavourite(false);
       } else {
-        updatedFavourites = [...favourites, fieldId];
+        favourites.push(fieldId);
+        updatedFavourites = favourites;
         setIsFavourite(true);
       }
 
@@ -41,7 +41,7 @@ export function FavouriteButton({ fieldId, size }: { fieldId: number; size: "sma
       <div className="cursor-pointer group" onClick={toggleFavourite}>
         <HeartIcon
           fill={isFavourite ? "#f008" : "background"}
-          className={`transition-[fill] duration-100 ${size === "large" ? "size-8" : ""} ${isFavourite ? "" : "group-hover:fill-[#f008]"}`}
+          className={`transition-[fill] duration-100 ${size === "large" ? "size-8" : ""} ${isFavourite ? "" : "group-hover:fill-[#f004]"}`}
         />
       </div>
     </div>

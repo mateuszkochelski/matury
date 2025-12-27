@@ -111,11 +111,7 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
     meta: {
       filterType: "favourite",
     },
-    accessorFn: (row) => {
-      const stored = localStorage.getItem("favourites");
-      const favourites: number[] = stored ? JSON.parse(stored) : [];
-
-      return favourites.includes(row.id);
-    },
+    // this needs to be here in order for filters to work
+    accessorFn: () => {},
   },
 ];
