@@ -1,5 +1,6 @@
 import { getFieldData } from "@/app/utils/getFieldData";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { FavouriteButton } from "@/components/FavouriteButton";
 import CalculatorForm from "@/components/calculator/CalculatorForm";
 import CustomLineChart, {
   IncomeGraphData,
@@ -101,8 +102,9 @@ export default async function Page({
 
       <section>
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-          <div className="flex-1">
-            <h1 className="text-foreground mb-4">{fieldData.name}</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-foreground">{fieldData.name}</h1>
+            <FavouriteButton fieldId={fieldData.id} size="large" />
           </div>
 
           <div className="lg:w-80">

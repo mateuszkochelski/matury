@@ -17,6 +17,7 @@ export function serializeFiltersFormValues(rest: TableSearchParams) {
             },
             {} as FiltersFormValues["degrees"],
           ),
+          isFavouritesOnly: !!rest.ids,
         }
       : undefined;
 
