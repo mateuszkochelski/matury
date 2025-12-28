@@ -2,7 +2,7 @@ name: Main build & Deploy
 
 on:
   push:
-    branches: [main, map_api_key_added]
+    branches: [main]
 
 jobs:
   build-backend:
