@@ -2,6 +2,7 @@
 
 import { RowActions } from "../RowActions";
 import { FieldOfStudyExtended } from "../types";
+import { HoverPrefetchLink } from "@/components/HoverPrefetchLink";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
@@ -32,12 +33,12 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
     },
     enableHiding: false,
     cell: ({ row }) => (
-      <Link
+      <HoverPrefetchLink
         href={`/${row.original.university.id}/${row.original.department.id}/${row.original.id}`}
         className="font-semibold underline"
       >
         {row.getValue("name")}
-      </Link>
+      </HoverPrefetchLink>
     ),
   },
   {
@@ -51,6 +52,7 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
       <Link
         href={`/${row.original.university.id}/${row.original.department.id}`}
         className="underline"
+        prefetch={false}
       >
         {row.getValue("department_name")}
       </Link>
@@ -64,7 +66,7 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
       filterType: "string",
     },
     cell: ({ row }) => (
-      <Link href={`/${row.original.university.id}`} className="underline">
+      <Link href={`/${row.original.university.id}`} className="underline" prefetch={false}>
         {row.getValue("university_name")}
       </Link>
     ),
