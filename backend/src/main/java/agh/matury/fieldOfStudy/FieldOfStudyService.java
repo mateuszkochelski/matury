@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.data.jpa.domain.Specification;
+import jakarta.persistence.criteria.JoinType;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -119,7 +120,7 @@ public class FieldOfStudyService {
         .map(this::toExtendedDTO);
   }
 
-  public Page<FieldOfStudyExtendedDTO> search(FieldOfStudyFilter filter, Pageable pageable) {
+  public SearchResult search(FieldOfStudyFilter filter, Pageable pageable) {
     if (filter.getDegrees() != null && !filter.getDegrees().isEmpty()) {
       filter.setDegrees(
           filter.getDegrees().stream()
@@ -133,35 +134,49 @@ public class FieldOfStudyService {
       String trimmedSearch = searchName.trim();
       FieldOfStudyFilter baseFilter = copyFilter(filter);
       baseFilter.setSearchName(null);
-      baseFilter.setName(null);
-      baseFilter.setDepartment(null);
-      baseFilter.setUniversity(null);
 
-      FieldOfStudyFilter nameFilter = copyFilter(baseFilter);
-      nameFilter.setName(trimmedSearch);
-      Page<FieldOfStudyExtendedDTO> nameResults = searchByFilter(nameFilter, pageable);
+      Page<FieldOfStudyExtendedDTO> nameResults =
+          searchByFilterWithSearchName(baseFilter, pageable, SearchNameTarget.FIELD, trimmedSearch);
       if (nameResults.getTotalElements() > 0) {
-        return nameResults;
+        return new SearchResult(nameResults, "field");
       }
 
-      FieldOfStudyFilter departmentFilter = copyFilter(baseFilter);
-      departmentFilter.setDepartment(trimmedSearch);
-      Page<FieldOfStudyExtendedDTO> departmentResults = searchByFilter(departmentFilter, pageable);
+      Page<FieldOfStudyExtendedDTO> departmentResults =
+          searchByFilterWithSearchName(baseFilter, pageable, SearchNameTarget.DEPARTMENT, trimmedSearch);
       if (departmentResults.getTotalElements() > 0) {
-        return departmentResults;
+        return new SearchResult(departmentResults, "department");
       }
 
-      FieldOfStudyFilter universityFilter = copyFilter(baseFilter);
-      universityFilter.setUniversity(trimmedSearch);
-      return searchByFilter(universityFilter, pageable);
+      Page<FieldOfStudyExtendedDTO> universityResults =
+          searchByFilterWithSearchName(baseFilter, pageable, SearchNameTarget.UNIVERSITY, trimmedSearch);
+      String matched = universityResults.getTotalElements() > 0 ? "university" : "none";
+      return new SearchResult(universityResults, matched);
     }
 
-    return searchByFilter(filter, pageable);
+    return new SearchResult(searchByFilter(filter, pageable), null);
   }
 
   private Page<FieldOfStudyExtendedDTO> searchByFilter(FieldOfStudyFilter filter, Pageable pageable) {
     Specification<FieldOfStudy> spec = FieldOfStudySpecifications.byFilter(filter);
+    return searchBySpec(filter, pageable, spec);
+  }
 
+  private Page<FieldOfStudyExtendedDTO> searchByFilterWithSearchName(
+      FieldOfStudyFilter filter,
+      Pageable pageable,
+      SearchNameTarget target,
+      String searchName
+  ) {
+    Specification<FieldOfStudy> baseSpec = FieldOfStudySpecifications.byFilter(filter);
+    Specification<FieldOfStudy> spec = baseSpec.and(buildSearchNameSpec(searchName, target));
+    return searchBySpec(filter, pageable, spec);
+  }
+
+  private Page<FieldOfStudyExtendedDTO> searchBySpec(
+      FieldOfStudyFilter filter,
+      Pageable pageable,
+      Specification<FieldOfStudy> spec
+  ) {
     // Check if sorting by department-related field and filter out null departments
     String sortField = getSortFieldFromPageable(pageable);
     if (isDepartmentSortField(sortField)) {
@@ -362,6 +377,20 @@ public class FieldOfStudyService {
     return comparator.thenComparing(idComparator);
   }
 
+  private Specification<FieldOfStudy> buildSearchNameSpec(String searchName, SearchNameTarget target) {
+    String likeValue = "%" + searchName.trim().toLowerCase() + "%";
+    return (root, query, cb) -> {
+      query.distinct(true);
+      return switch (target) {
+        case FIELD -> cb.like(cb.lower(root.get("name")), likeValue);
+        case DEPARTMENT -> cb.like(
+            cb.lower(root.join("department", JoinType.LEFT).get("name")), likeValue);
+        case UNIVERSITY -> cb.like(
+            cb.lower(root.join("university", JoinType.LEFT).get("name")), likeValue);
+      };
+    };
+  }
+
   private Page<FieldOfStudyExtendedDTO> paginate(List<FieldOfStudyExtendedDTO> items, Pageable pageable) {
     int totalElements = items.size();
     int start = Math.toIntExact(pageable.getOffset());
@@ -371,6 +400,14 @@ public class FieldOfStudyService {
     int end = Math.min(start + pageable.getPageSize(), totalElements);
     return new PageImpl<>(items.subList(start, end), pageable, totalElements);
   }
+
+  private enum SearchNameTarget {
+    FIELD,
+    DEPARTMENT,
+    UNIVERSITY
+  }
+
+  public record SearchResult(Page<FieldOfStudyExtendedDTO> page, String matched) {}
 
   private static float parseFloatOrZero(String value) {
     if (value == null || value.trim().isEmpty()) {

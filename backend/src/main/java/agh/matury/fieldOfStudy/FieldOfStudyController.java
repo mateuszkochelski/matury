@@ -2,6 +2,7 @@ package agh.matury.fieldOfStudy;
 
 import agh.matury.fieldOfStudy.dto.FieldOfStudyDTO;
 import agh.matury.fieldOfStudy.dto.FieldOfStudyExtendedDTO;
+import agh.matury.fieldOfStudy.dto.FieldOfStudySearchResponse;
 import agh.matury.fieldOfStudy.dto.GraduateDataDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -44,9 +45,9 @@ public class FieldOfStudyController {
       - ids (powtarzany parametr lub lista oddzielona przecinkami, np. ids=1,2,3)
       Paginacja: page, size. Sortowanie: sort, direction=asc|desc.
       """)
-  @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = Page.class)))
+  @ApiResponse(responseCode = "200", description = "Successfully retrieved fields of study", content = @Content(schema = @Schema(implementation = FieldOfStudySearchResponse.class)))
   @GetMapping
-  public ResponseEntity<Page<FieldOfStudyExtendedDTO>> getAllFieldsOdStudy(
+  public ResponseEntity<FieldOfStudySearchResponse> getAllFieldsOdStudy(
       @ParameterObject FieldOfStudyFilter filter,
       @RequestParam(defaultValue = "0") int page,
       @RequestParam(defaultValue = "10") int size,
@@ -61,7 +62,17 @@ public class FieldOfStudyController {
       sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
     }
     Pageable pageable = PageRequest.of(page, size, sortOrder);
-    return ResponseEntity.ok(fieldOfStudyService.search(filter, pageable));
+    FieldOfStudyService.SearchResult result = fieldOfStudyService.search(filter, pageable);
+    Page<FieldOfStudyExtendedDTO> pageResult = result.page();
+    FieldOfStudySearchResponse response = new FieldOfStudySearchResponse(
+        pageResult.getContent(),
+        new FieldOfStudySearchResponse.PageMetadata(
+            pageResult.getSize(),
+            pageResult.getNumber(),
+            pageResult.getTotalElements(),
+            pageResult.getTotalPages()),
+        result.matched());
+    return ResponseEntity.ok(response);
   }
 
   @Operation(summary = "Get field of study.", description = "Returns field of study with provided id.")
