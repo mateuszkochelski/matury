@@ -5,11 +5,9 @@ FROM base AS install
 
 ARG NEXT_PUBLIC_BACKEND_URL="http://backend:8080"
 ARG BACKEND_URL="http://backend:8080"
-ARG GOOGLE_MAPS_API_KEY
 
 ENV NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
 ENV BACKEND_URL=${BACKEND_URL}
-ENV GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
 
 COPY package.json bun.lock .
 
@@ -24,23 +22,18 @@ RUN chown -R bun:bun /app
 USER bun
 RUN bunx next build
 
-FROM base AS runner
+FROM node:18-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 
 ARG NEXT_PUBLIC_BACKEND_URL="http://backend:8080"
 ARG BACKEND_URL="http://backend:8080"
-ARG GOOGLE_MAPS_API_KEY
 ENV NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
 ENV BACKEND_URL=${BACKEND_URL}
-ENV GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
 
 COPY --from=install /app /app
 
-RUN chown -R bun:bun /app
-
-USER bun
 EXPOSE 3000
 
-CMD ["bunx", "next", "start"]
+CMD ["node", "node_modules/next/dist/bin/next", "start"]

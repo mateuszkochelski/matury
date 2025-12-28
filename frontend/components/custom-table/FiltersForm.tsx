@@ -23,6 +23,8 @@ export type FiltersFormValues = {
   name?: string;
   "passRate-max"?: string;
   "passRate-min"?: string;
+  "avgIncome-max"?: string;
+  "avgIncome-min"?: string;
   "salary-max"?: string;
   "salary-min"?: string;
   university_city?: string;
