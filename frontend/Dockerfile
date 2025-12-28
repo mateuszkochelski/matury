@@ -22,7 +22,7 @@ RUN chown -R bun:bun /app
 USER bun
 RUN bunx next build
 
-FROM base AS runner
+FROM node:18-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -34,9 +34,6 @@ ENV BACKEND_URL=${BACKEND_URL}
 
 COPY --from=install /app /app
 
-RUN chown -R bun:bun /app
-
-USER bun
 EXPOSE 3000
 
-CMD ["bunx", "next", "start"]
+CMD ["node", "node_modules/next/dist/bin/next", "start"]
