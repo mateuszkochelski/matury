@@ -48,7 +48,8 @@ public class RecruitmentCalculatorService {
         validateRequest(request);
 
         RecruitmentFormulaConfig.UniversityConfig universityConfig = findUniversityConfig(request.universityId());
-        RecruitmentFormulaConfig.FieldOfStudyConfig fieldOfStudyConfig = findFieldConfig(universityConfig, request.fieldOfStudyId());
+        String resolvedFieldOfStudy = probabilityLookup.resolveLookupName(universityConfig, request.fieldOfStudyId());
+        RecruitmentFormulaConfig.FieldOfStudyConfig fieldOfStudyConfig = findFieldConfig(universityConfig, resolvedFieldOfStudy);
         RecruitmentFormulaConfig.FormulaConfig formulaConfig = fieldOfStudyConfig.formula();
 
         List<TermBreakdownDTO> breakdown = new ArrayList<>();
@@ -118,7 +119,7 @@ public class RecruitmentCalculatorService {
 
         AcceptanceProbabilityDTO acceptanceProbability = probabilityLookup.findProbability(
                 universityConfig,
-                request.fieldOfStudyId(),
+                resolvedFieldOfStudy,
                 total
         );
 

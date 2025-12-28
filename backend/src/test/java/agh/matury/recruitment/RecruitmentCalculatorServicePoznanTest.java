@@ -28,7 +28,7 @@ class RecruitmentCalculatorServicePoznanTest {
     void engineeringXScenarioUsesVocationalResultWhenBestOption() {
         CalculateRecruitmentPointsRequest request = new CalculateRecruitmentPointsRequest(
                 "politechnika-poznanska",
-                "engineering-x",
+                "mechatronika",
                 List.of(
                         exam("polish_language", "BASIC", 80.0),
                         exam("english_language", "BASIC", 85.0),
@@ -51,7 +51,7 @@ class RecruitmentCalculatorServicePoznanTest {
     void scienceXGScenarioCombinesBasicAndExtendedScores() {
         CalculateRecruitmentPointsRequest request = new CalculateRecruitmentPointsRequest(
                 "politechnika-poznanska",
-                "science-xg",
+                "fizyka techniczna",
                 List.of(
                         exam("polish_language", "EXTENDED", 65.0),
                         exam("english_language", "EXTENDED", 70.0),
@@ -74,7 +74,7 @@ class RecruitmentCalculatorServicePoznanTest {
     void architectureScenarioRequiresArtExamAndNormalizesLanguage() {
         CalculateRecruitmentPointsRequest request = new CalculateRecruitmentPointsRequest(
                 "politechnika-poznanska",
-                "architecture",
+                "architektura",
                 List.of(
                         exam("polish_language", "EXTENDED", 62.0),
                         exam("english_language", "BILINGUAL", 35.0),

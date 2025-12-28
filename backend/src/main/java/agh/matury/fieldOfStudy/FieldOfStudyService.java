@@ -8,6 +8,7 @@ import agh.matury.university.dto.UniversityShortDTO;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -25,6 +30,7 @@ import java.util.stream.Collectors;
 public class FieldOfStudyService {
 
   private final FieldOfStudyRepository fieldOfStudyRepository;
+  private Map<Long, GraduateDataDTO> graduateDataMap;
 
   public FieldOfStudyService(FieldOfStudyRepository fieldOfStudyRepository) {
     this.fieldOfStudyRepository = fieldOfStudyRepository;
@@ -85,9 +91,28 @@ public class FieldOfStudyService {
       spec = spec.and((root, query, cb) -> cb.isNotNull(root.get("department")));
     }
 
-    return fieldOfStudyRepository
-        .findAll(spec, pageable)
-        .map(this::toDTO).map(this::toExtendedDTO);
+    if (!hasGraduateFilters(filter)) {
+      return fieldOfStudyRepository
+          .findAll(spec, pageable)
+          .map(this::toDTO)
+          .map(this::toExtendedDTO);
+    }
+
+    List<FieldOfStudyExtendedDTO> filtered = fieldOfStudyRepository
+        .findAll(spec, pageable.getSort())
+        .stream()
+        .map(this::toDTO)
+        .map(this::toExtendedDTO)
+        .filter(dto -> matchesGraduateFilters(dto, filter))
+        .collect(Collectors.toList());
+
+    int totalElements = filtered.size();
+    int start = Math.toIntExact(pageable.getOffset());
+    if (start >= totalElements) {
+      return new PageImpl<>(Collections.emptyList(), pageable, totalElements);
+    }
+    int end = Math.min(start + pageable.getPageSize(), totalElements);
+    return new PageImpl<>(filtered.subList(start, end), pageable, totalElements);
   }
 
   private String getSortFieldFromPageable(Pageable pageable) {
@@ -102,9 +127,26 @@ public class FieldOfStudyService {
   }
 
   private GraduateDataDTO loadGraduateDataFromCsv(FieldOfStudyDTO dto) {
+    GraduateDataDTO data = getGraduateDataMap().get(dto.id());
+    if (data != null) {
+      return data;
+    }
+    throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Field of study data not found");
+  }
+
+  private synchronized Map<Long, GraduateDataDTO> getGraduateDataMap() {
+    if (graduateDataMap == null) {
+      graduateDataMap = loadGraduateDataMapFromCsv();
+    }
+    return graduateDataMap;
+  }
+
+  private Map<Long, GraduateDataDTO> loadGraduateDataMapFromCsv() {
 
     ClassPathResource resource =
-            new ClassPathResource("graduate/graduate-real-data.csv");
+            new ClassPathResource("graduate/graduate-data.csv");
+
+    Map<Long, GraduateDataDTO> data = new HashMap<>();
 
     try (BufferedReader reader = new BufferedReader(
             new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8))) {
@@ -121,53 +163,68 @@ public class FieldOfStudyService {
 
         String[] columns = line.split(";");
 
-        String fieldName = columns[11].trim();
-        String universityName = columns[12].trim();
+        if (columns.length < 8) {
+          continue;
+        }
 
-        if (similar(fieldName, dto.name(), 3)
-                && similar(universityName, dto.university().name(), 3)
-                && levelMatch(dto.level(), columns[2])) {
+        String fieldId = columns[0].trim();
+        if (fieldId.isEmpty()) {
+          continue;
+        }
 
-            return new GraduateDataDTO(
-                  dto.id(),
+        try {
+          long parsedId = Long.parseLong(fieldId);
+          data.put(
+              parsedId,
+              new GraduateDataDTO(
+                  parsedId,
+                  parseFloatOrZero(columns[1]),
+                  parseFloatOrZero(columns[2]),
+                  parseFloatOrZero(columns[3]),
                   parseFloatOrZero(columns[4]),
                   parseFloatOrZero(columns[5]),
                   parseFloatOrZero(columns[6]),
-                  parseFloatOrZero(columns[7]),
-                  parseFloatOrZero(columns[8]),
-                  parseFloatOrZero(columns[9]),
-                  parseFloatOrZero(columns[10])
+                  parseFloatOrZero(columns[7])
+              )
           );
+        } catch (NumberFormatException ignored) {
         }
       }
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Field of study data not found");
+      return data;
     } catch (IOException e) {
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error reading graduate data");
     }
   }
 
-  private static boolean levelMatch(String levelName, String levelNumber) {
-    if (levelNumber == null || levelNumber.trim().isEmpty()) return false;
-    if (levelNumber.trim().equals("JM") && levelName.equals("jednolite_magisterskie")) return true;
-    int levelNumberInt;
-    try {
-      levelNumberInt = Integer.parseInt(levelNumber);
-    } catch (NumberFormatException e) {
-      return false;
-    }
-    if ((levelName.equals("inżynierskie") || levelName.equals("licencjackie")) && levelNumberInt == 2) return false;
-    if (levelName.equals("magisterskie") && levelNumberInt == 2) return false;
-    return true;
+  private boolean hasGraduateFilters(FieldOfStudyFilter filter) {
+    return filter.getPassRateFrom() != null
+        || filter.getPassRateTo() != null
+        || filter.getAvgSalaryFrom() != null
+        || filter.getAvgSalaryTo() != null;
   }
 
-  private static boolean similar(String a, String b, int maxDistance) {
-    if (a == null || b == null) return false;
+  private boolean matchesGraduateFilters(FieldOfStudyExtendedDTO dto, FieldOfStudyFilter filter) {
+    float passRate = dto.passRate() != null ? dto.passRate() : 0.0f;
+    float avgIncome = dto.avgIncome() != null ? dto.avgIncome() : 0.0f;
 
-    a = a.trim().toLowerCase();
-    b = b.trim().toLowerCase();
+    if (filter.getPassRateFrom() != null
+        && filter.getPassRateFrom().compareTo(java.math.BigDecimal.valueOf(passRate)) > 0) {
+      return false;
+    }
+    if (filter.getPassRateTo() != null
+        && filter.getPassRateTo().compareTo(java.math.BigDecimal.valueOf(passRate)) < 0) {
+      return false;
+    }
+    if (filter.getAvgSalaryFrom() != null
+        && filter.getAvgSalaryFrom().compareTo(java.math.BigDecimal.valueOf(avgIncome)) > 0) {
+      return false;
+    }
+    if (filter.getAvgSalaryTo() != null
+        && filter.getAvgSalaryTo().compareTo(java.math.BigDecimal.valueOf(avgIncome)) < 0) {
+      return false;
+    }
 
-    return LevenshteinDistance.getDefaultInstance()
-            .apply(a, b) <= maxDistance;
+    return true;
   }
 
   private static float parseFloatOrZero(String value) {

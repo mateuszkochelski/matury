@@ -5,7 +5,10 @@ import RangeInput from "../RangeInput";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { Checkbox } from "../ui/checkbox";
 import { FloatingLabelInput } from "../ui/floating-label-input";
+import { Switch } from "../ui/switch";
+import { FetchDataIdsProp } from "./fetchData";
 import { DegreesObject } from "./types";
+import { getFavourites } from "@/app/utils/getFavourites";
 import { Button } from "@/components/ui/button";
 import { type Table } from "@tanstack/react-table";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -13,6 +16,7 @@ import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
 export type FiltersFormValues = {
   degrees?: DegreesObject;
+  isFavouritesOnly?: boolean;
   department_name?: string;
   "duration-max"?: string;
   "duration-min"?: string;
@@ -52,7 +56,7 @@ export function FiltersForm<T>({
     (updateParams: FiltersFormValues) => {
       const params = new URLSearchParams(searchParams.toString());
 
-      const { degrees, ...otherParams } = updateParams;
+      const { degrees, isFavouritesOnly, ...otherParams } = updateParams;
 
       params.delete("degrees");
       Object.entries(degrees ?? {})
@@ -60,6 +64,14 @@ export function FiltersForm<T>({
         .forEach(([key]) => {
           params.append("degrees", key);
         });
+
+      const favouritesParamName: keyof FetchDataIdsProp = "ids";
+      const favourites = getFavourites();
+      if (!isFavouritesOnly || favourites.length === 0) {
+        params.delete(favouritesParamName);
+      } else {
+        params.set(favouritesParamName, favourites.toString());
+      }
 
       Object.entries(otherParams)
         .filter(([key, value]) => !!value || params.get(key) !== null)
@@ -109,8 +121,9 @@ export function FiltersForm<T>({
                   case "degree":
                     Input = <DegreeComponent control={control} />;
                     break;
-                  case "actions":
-                    break; // TODO: implement me
+                  case "favourite":
+                    Input = <ActionsComponent control={control} />;
+                    break;
                   default:
                     console.warn(
                       `Filter configuration missing for column "${column.id}". This column is marked as filterable, but no filter input is rendered. Please check both the column definition to ensure 'meta.filterType' is set correctly and the custom filter components.`,
@@ -206,5 +219,28 @@ function DegreeComponent({
         </label>
       </div>
     </>
+  );
+}
+
+function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) {
+  return (
+    <Controller
+      name="isFavouritesOnly"
+      control={control}
+      render={({ field }) => (
+        <div
+          className="flex items-center gap-2
+         pt-2 border-t border-primary/10"
+        >
+          <Switch id="favorites-toggle" checked={!!field.value} onCheckedChange={field.onChange} />
+          <label
+            htmlFor="favorites-toggle"
+            className="text-sm font-medium text-foreground cursor-pointer"
+          >
+            Pokaż tylko ulubione
+          </label>
+        </div>
+      )}
+    />
   );
 }

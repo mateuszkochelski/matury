@@ -46,7 +46,11 @@ public class DepartmentController {
             @RequestParam(defaultValue = "asc") String direction
     ) {
         Sort.Direction sortDirection = Sort.Direction.fromString(direction);
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
+        Sort sortOrder = Sort.by(sortDirection, sort);
+        if (!"id".equals(sort)) {
+            sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
+        }
+        Pageable pageable = PageRequest.of(page, size, sortOrder);
         return ResponseEntity.ok(departmentService.getAllDepartments(pageable));
     }
 
@@ -93,7 +97,11 @@ public class DepartmentController {
             @PathVariable Long id
     ) {
         Sort.Direction sortDirection = Sort.Direction.fromString(direction);
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
+        Sort sortOrder = Sort.by(sortDirection, sort);
+        if (!"id".equals(sort)) {
+            sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
+        }
+        Pageable pageable = PageRequest.of(page, size, sortOrder);
         return ResponseEntity.ok(departmentService.getDepartmentsByUniversityId(id, pageable));
     }
 
@@ -118,7 +126,11 @@ public class DepartmentController {
             @RequestParam(defaultValue = "") String name
     ) {
         Sort.Direction sortDirection = Sort.Direction.fromString(direction);
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
+        Sort sortOrder = Sort.by(sortDirection, sort);
+        if (!"id".equals(sort)) {
+            sortOrder = sortOrder.and(Sort.by(sortDirection, "id"));
+        }
+        Pageable pageable = PageRequest.of(page, size, sortOrder);
         return ResponseEntity.ok(departmentService.searchDepartments(name, pageable));
     }
 }

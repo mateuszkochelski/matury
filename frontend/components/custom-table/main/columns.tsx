@@ -1,7 +1,7 @@
 "use client";
 
-import { RowActions } from "../RowActions";
 import { FieldOfStudyExtended } from "../types";
+import { FavouriteButton } from "@/components/FavouriteButton";
 import { HoverPrefetchLink } from "@/components/HoverPrefetchLink";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
@@ -106,11 +106,14 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
     enableSorting: false,
   },
   {
-    id: "actions",
-    header: "Zapisz",
-    cell: ({ row }) => <RowActions row={row} />,
-    size: 60,
-    enableHiding: false,
-    enableColumnFilter: false, // TODO
+    id: "favourite",
+    header: "Ulubione",
+    cell: ({ row }) => <FavouriteButton fieldId={row.original.id} size="small" />,
+    size: 80,
+    meta: {
+      filterType: "favourite",
+    },
+    // this needs to be here in order for filters to work
+    accessorFn: () => {},
   },
 ];

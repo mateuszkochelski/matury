@@ -11,30 +11,55 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
+import agh.matury.fieldOfStudy.FieldOfStudy;
+import agh.matury.fieldOfStudy.FieldOfStudyRepository;
 import agh.matury.recruitment.config.RecruitmentFormulaConfig;
 import agh.matury.recruitment.dto.AcceptanceProbabilityDTO;
 @Component
 public class RecruitmentProbabilityLookup {
 
     private static final String RESOURCE_PATH = "recruitment/lookup_table.csv";
+    private static final String MAPPING_RESOURCE_PATH = "recruitment/mapping_table.csv";
     private static final String POZNAN_UNIVERSITY_ID = "politechnika-poznanska";
 
     private final Map<String, ProgramProbability> programsByCanonicalKey;
     private final Map<String, ProgramProbability> aliasIndex;
     private final int minSupportedPoints;
     private final int maxSupportedPoints;
+    private final Map<String, String> mappingByNameAndLanguage;
+    private final Map<String, String> mappingByName;
+    private final FieldOfStudyRepository fieldOfStudyRepository;
 
-    public RecruitmentProbabilityLookup() {
+    @Autowired
+    public RecruitmentProbabilityLookup(FieldOfStudyRepository fieldOfStudyRepository) {
+        this.fieldOfStudyRepository = fieldOfStudyRepository;
         ProbabilityIndex index = loadIndex();
+        MappingIndex mappingIndex = loadMappingIndex();
         this.programsByCanonicalKey = index.programsByCanonicalKey();
         this.aliasIndex = index.aliasIndex();
         this.minSupportedPoints = index.minPoints();
         this.maxSupportedPoints = index.maxPoints();
+        this.mappingByNameAndLanguage = mappingIndex.byNameAndLanguage();
+        this.mappingByName = mappingIndex.byName();
+    }
+
+    public RecruitmentProbabilityLookup() {
+        this.fieldOfStudyRepository = null;
+        ProbabilityIndex index = loadIndex();
+        MappingIndex mappingIndex = loadMappingIndex();
+        this.programsByCanonicalKey = index.programsByCanonicalKey();
+        this.aliasIndex = index.aliasIndex();
+        this.minSupportedPoints = index.minPoints();
+        this.maxSupportedPoints = index.maxPoints();
+        this.mappingByNameAndLanguage = mappingIndex.byNameAndLanguage();
+        this.mappingByName = mappingIndex.byName();
     }
 
     public AcceptanceProbabilityDTO findProbability(
@@ -46,7 +71,8 @@ public class RecruitmentProbabilityLookup {
             return null;
         }
 
-        String normalizedField = normalize(requestedFieldOfStudy);
+        String resolvedFieldName = resolveLookupName(universityConfig, requestedFieldOfStudy);
+        String normalizedField = normalize(resolvedFieldName);
         if (normalizedField == null || normalizedField.isEmpty()) {
             return null;
         }
@@ -72,6 +98,92 @@ public class RecruitmentProbabilityLookup {
                 row.pAcceptLow(),
                 row.pAcceptHigh()
         );
+    }
+
+    public String resolveLookupName(
+            RecruitmentFormulaConfig.UniversityConfig universityConfig,
+            String requestedFieldOfStudy
+    ) {
+        if (universityConfig == null) {
+            return resolveDatabaseName(requestedFieldOfStudy);
+        }
+
+        if (POZNAN_UNIVERSITY_ID.equalsIgnoreCase(universityConfig.id())) {
+            return resolvePoznanLookupName(requestedFieldOfStudy);
+        }
+
+        return resolveDatabaseName(requestedFieldOfStudy);
+    }
+
+    private String resolvePoznanLookupName(String requestedFieldOfStudy) {
+        if (requestedFieldOfStudy == null || fieldOfStudyRepository == null) {
+            return requestedFieldOfStudy;
+        }
+
+        Long fieldId = parseFieldOfStudyId(requestedFieldOfStudy);
+        if (fieldId == null) {
+            return requestedFieldOfStudy;
+        }
+
+        Optional<FieldOfStudy> fieldOfStudy = fieldOfStudyRepository.findById(fieldId);
+        if (fieldOfStudy.isEmpty()) {
+            return requestedFieldOfStudy;
+        }
+
+        FieldOfStudy field = fieldOfStudy.get();
+        String normalizedName = normalize(field.getName());
+        if (normalizedName == null || normalizedName.isEmpty()) {
+            return requestedFieldOfStudy;
+        }
+
+        String language = normalizeLanguage(field.getLanguage());
+        if (language != null) {
+            String mapped = mappingByNameAndLanguage.get(normalizedName + "|" + language);
+            if (mapped != null) {
+                return mapped;
+            }
+        }
+
+        String mapped = mappingByName.get(normalizedName);
+        if (mapped != null) {
+            return mapped;
+        }
+
+        return field.getName() == null ? requestedFieldOfStudy : field.getName();
+    }
+
+    private String resolveDatabaseName(String requestedFieldOfStudy) {
+        if (requestedFieldOfStudy == null || fieldOfStudyRepository == null) {
+            return requestedFieldOfStudy;
+        }
+
+        Long fieldId = parseFieldOfStudyId(requestedFieldOfStudy);
+        if (fieldId == null) {
+            return requestedFieldOfStudy;
+        }
+
+        Optional<FieldOfStudy> fieldOfStudy = fieldOfStudyRepository.findById(fieldId);
+        if (fieldOfStudy.isEmpty()) {
+            return requestedFieldOfStudy;
+        }
+
+        String name = fieldOfStudy.get().getName();
+        return name == null || name.isBlank() ? requestedFieldOfStudy : name;
+    }
+
+    private Long parseFieldOfStudyId(String fieldOfStudyId) {
+        if (fieldOfStudyId == null) {
+            return null;
+        }
+        String trimmed = fieldOfStudyId.trim();
+        if (trimmed.isEmpty()) {
+            return null;
+        }
+        try {
+            return Long.parseLong(trimmed);
+        } catch (NumberFormatException e) {
+            return null;
+        }
     }
 
     private ProbabilityIndex loadIndex() {
@@ -152,6 +264,82 @@ public class RecruitmentProbabilityLookup {
         );
     }
 
+    private MappingIndex loadMappingIndex() {
+        ClassPathResource resource = new ClassPathResource(MAPPING_RESOURCE_PATH);
+        Map<String, String> byNameAndLanguage = new HashMap<>();
+        Map<String, String> byName = new HashMap<>();
+        Set<String> nameConflicts = new HashSet<>();
+        Set<String> nameLanguageConflicts = new HashSet<>();
+
+        try (InputStream inputStream = resource.getInputStream();
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.isBlank()) {
+                    continue;
+                }
+
+                String[] columns = line.split(",");
+                if (columns.length < 2) {
+                    continue;
+                }
+
+                String lookupName = columns[0].trim();
+                String fieldName = columns[1].trim();
+                String language = columns.length > 2 ? columns[2].trim() : null;
+
+                String normalizedField = normalize(fieldName);
+                if (lookupName.isEmpty() || normalizedField == null || normalizedField.isEmpty()) {
+                    continue;
+                }
+
+                if (language != null && !language.isBlank()) {
+                    String normalizedLanguage = normalizeLanguage(language);
+                    if (normalizedLanguage != null) {
+                        registerMapping(normalizedField + "|" + normalizedLanguage, lookupName, byNameAndLanguage, nameLanguageConflicts);
+                    }
+                    continue;
+                }
+
+                registerMapping(normalizedField, lookupName, byName, nameConflicts);
+            }
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to load probability mapping from " + MAPPING_RESOURCE_PATH, e);
+        }
+
+        if (byNameAndLanguage.isEmpty() && byName.isEmpty()) {
+            throw new IllegalStateException("No data found in probability mapping: " + MAPPING_RESOURCE_PATH);
+        }
+
+        return new MappingIndex(
+                Map.copyOf(byNameAndLanguage),
+                Map.copyOf(byName)
+        );
+    }
+
+    private void registerMapping(
+            String key,
+            String lookupName,
+            Map<String, String> mappings,
+            Set<String> conflicts
+    ) {
+        if (key == null || key.isEmpty() || conflicts.contains(key)) {
+            return;
+        }
+
+        String existing = mappings.get(key);
+        if (existing == null) {
+            mappings.put(key, lookupName);
+            return;
+        }
+
+        if (!Objects.equals(existing, lookupName)) {
+            mappings.remove(key);
+            conflicts.add(key);
+        }
+    }
+
     private void registerAlias(
             String alias,
             ProgramProbability probability,
@@ -210,6 +398,19 @@ public class RecruitmentProbabilityLookup {
         return normalized.replaceAll("\\s+", " ");
     }
 
+    private String normalizeLanguage(String language) {
+        String normalized = normalize(language);
+        if (normalized == null || normalized.isEmpty()) {
+            return null;
+        }
+
+        return switch (normalized) {
+            case "pl", "polski", "polish" -> "pl";
+            case "en", "english", "angielski" -> "en";
+            default -> normalized;
+        };
+    }
+
     private record ProbabilityRow(double pAccept, double pAcceptLow, double pAcceptHigh) {
     }
 
@@ -221,6 +422,12 @@ public class RecruitmentProbabilityLookup {
             Map<String, ProgramProbability> aliasIndex,
             int minPoints,
             int maxPoints
+    ) {
+    }
+
+    private record MappingIndex(
+            Map<String, String> byNameAndLanguage,
+            Map<String, String> byName
     ) {
     }
 }

@@ -21,9 +21,9 @@ export type TableSearchParams = {
   hiddenColumns?: string;
   sortBy?: string;
   direction?: string;
-} & Omit<FiltersFormValues, "degrees"> & {
+} & Omit<FiltersFormValues, "degrees" | "isFavouritesOnly"> & {
     degrees?: string;
-  };
+  } & FetchDataIdsProp;
 
 type FetchDataProps = {
   baseUrl: string;
@@ -32,7 +32,10 @@ type FetchDataProps = {
   sortBy?: string;
   direction?: string;
   filters?: object;
+  ids?: string;
 };
+
+export type FetchDataIdsProp = Pick<FetchDataProps, "ids">;
 
 export async function fetchData({
   baseUrl,
@@ -41,6 +44,7 @@ export async function fetchData({
   sortBy,
   direction,
   filters,
+  ids,
 }: FetchDataProps): Promise<Response> {
   const url = new URL(baseUrl);
   if (pageSize) {
@@ -54,6 +58,9 @@ export async function fetchData({
   }
   if (direction) {
     url.searchParams.set("direction", direction);
+  }
+  if (ids) {
+    url.searchParams.set("ids", ids);
   }
   if (filters) {
     Object.entries(filters).forEach(([key, value]) => {
