@@ -128,6 +128,38 @@ public class FieldOfStudyService {
               .collect(Collectors.toSet()) // ✅ ZAMIANA NA SET
       );
     }
+    String searchName = filter.getSearchName();
+    if (searchName != null && !searchName.trim().isEmpty()) {
+      String trimmedSearch = searchName.trim();
+      FieldOfStudyFilter baseFilter = copyFilter(filter);
+      baseFilter.setSearchName(null);
+      baseFilter.setName(null);
+      baseFilter.setDepartment(null);
+      baseFilter.setUniversity(null);
+
+      FieldOfStudyFilter nameFilter = copyFilter(baseFilter);
+      nameFilter.setName(trimmedSearch);
+      Page<FieldOfStudyExtendedDTO> nameResults = searchByFilter(nameFilter, pageable);
+      if (nameResults.getTotalElements() > 0) {
+        return nameResults;
+      }
+
+      FieldOfStudyFilter departmentFilter = copyFilter(baseFilter);
+      departmentFilter.setDepartment(trimmedSearch);
+      Page<FieldOfStudyExtendedDTO> departmentResults = searchByFilter(departmentFilter, pageable);
+      if (departmentResults.getTotalElements() > 0) {
+        return departmentResults;
+      }
+
+      FieldOfStudyFilter universityFilter = copyFilter(baseFilter);
+      universityFilter.setUniversity(trimmedSearch);
+      return searchByFilter(universityFilter, pageable);
+    }
+
+    return searchByFilter(filter, pageable);
+  }
+
+  private Page<FieldOfStudyExtendedDTO> searchByFilter(FieldOfStudyFilter filter, Pageable pageable) {
     Specification<FieldOfStudy> spec = FieldOfStudySpecifications.byFilter(filter);
 
     // Check if sorting by department-related field and filter out null departments
@@ -163,6 +195,24 @@ public class FieldOfStudyService {
     }
 
     return paginate(results, pageable);
+  }
+
+  private FieldOfStudyFilter copyFilter(FieldOfStudyFilter source) {
+    FieldOfStudyFilter copy = new FieldOfStudyFilter();
+    copy.setSemestersFrom(source.getSemestersFrom());
+    copy.setSemestersTo(source.getSemestersTo());
+    copy.setName(source.getName());
+    copy.setDepartment(source.getDepartment());
+    copy.setUniversity(source.getUniversity());
+    copy.setCity(source.getCity());
+    copy.setSearchName(source.getSearchName());
+    copy.setDegrees(source.getDegrees());
+    copy.setPassRateFrom(source.getPassRateFrom());
+    copy.setPassRateTo(source.getPassRateTo());
+    copy.setAvgSalaryFrom(source.getAvgSalaryFrom());
+    copy.setAvgSalaryTo(source.getAvgSalaryTo());
+    copy.setIds(source.getIds());
+    return copy;
   }
 
   private String getSortFieldFromPageable(Pageable pageable) {

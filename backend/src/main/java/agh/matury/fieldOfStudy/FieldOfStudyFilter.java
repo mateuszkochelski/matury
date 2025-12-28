@@ -30,6 +30,9 @@ public class FieldOfStudyFilter {
   @Schema(description = "Miejscowość uczelni (LIKE)")
   private String city;
 
+  @Schema(description = "Wyszukiwanie z fallbackiem: kierunek -> wydział -> uczelnia (LIKE)")
+  private String searchName;
+
   @Schema(description = "Lista poziomów oddzielona przecinkami(np. bachelor,engineer,master,long_master)")
   private Set<String> degrees;
 
