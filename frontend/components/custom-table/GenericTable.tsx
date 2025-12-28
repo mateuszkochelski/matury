@@ -127,7 +127,7 @@ export function GenericTable<T>({
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { replace, prefetch } = useRouter();
 
   const handleUrlUpdate = useCallback(
     (updateParams: UrlUpdateParam[]) => {
@@ -146,8 +146,19 @@ export function GenericTable<T>({
       }
 
       replace(`${pathname}?${params.toString()}`);
+
+      // prefetching logic
+      const currentPage = params.get("pageIndex");
+      if (currentPage === null) return;
+
+      const nextPageIndex: number = Number(currentPage) + 1;
+
+      const prefetchParams = new URLSearchParams(params.toString());
+      prefetchParams.set("pageIndex", nextPageIndex.toString());
+
+      prefetch(`${pathname}?${prefetchParams.toString()}`);
     },
-    [searchParams, pathname, replace],
+    [searchParams, replace, pathname, prefetch],
   );
 
   useEffect(() => {
