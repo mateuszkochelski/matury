@@ -8,9 +8,10 @@ import { FloatingLabelInput } from "../ui/floating-label-input";
 import { Switch } from "../ui/switch";
 import { FetchDataIdsProp } from "./fetchData";
 import { DegreesObject } from "./types";
-import { getFavourites } from "@/app/utils/getFavourites";
 import { Button } from "@/components/ui/button";
+import { favouritesAtom } from "@/lib/atoms";
 import { type Table } from "@tanstack/react-table";
+import { getDefaultStore } from "jotai";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
@@ -38,6 +39,7 @@ export function FiltersForm<T>({
   table: Table<T>;
   filters?: FiltersFormValues;
 }) {
+  console.log("seba zawszze");
   const {
     register,
     handleSubmit,
@@ -68,7 +70,7 @@ export function FiltersForm<T>({
         });
 
       const favouritesParamName: keyof FetchDataIdsProp = "ids";
-      const favourites = getFavourites();
+      const favourites = getDefaultStore().get(favouritesAtom);
       if (!isFavouritesOnly || favourites.length === 0) {
         params.delete(favouritesParamName);
       } else {

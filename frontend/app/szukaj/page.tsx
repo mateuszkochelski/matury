@@ -19,7 +19,7 @@ export default async function Home({
     sortBy,
     direction,
     filters: rest,
-    ids: rest.ids,
+    ids: rest.ids, //!
   });
   const data: FieldOfStudyExtendedData = await response.json();
   const { content: fields, page: pageData } = data;

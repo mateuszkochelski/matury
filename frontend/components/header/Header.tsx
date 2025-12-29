@@ -1,12 +1,12 @@
+import { LinkToFavourites } from "./LinkToFavourites";
 import { buttonVariantsAndSizes } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Search, Heart } from "lucide-react";
+import { Search } from "lucide-react";
 import Link from "next/link";
 
-export function Header() {
-  // Przykładowe ID pobrane z localStorage/stanu
-  const favouriteIds = "1,2,3";
+export const SYNC_FAVOURITES_VALUE = "sync";
 
+export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-primary/10 bg-white backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -27,14 +27,7 @@ export function Header() {
             <span className="hidden md:inline ml-2">Szukaj</span>
           </Link>
 
-          <Link
-            href={`/szukaj?ids=${favouriteIds}`}
-            aria-label="Zobacz polubione"
-            className={cn(buttonVariantsAndSizes({ variant: "secondary", size: "sm" }))}
-          >
-            <Heart fill="#f008" className="w-5 h-5 md:w-4 md:h-4" />
-            <span className="hidden md:inline ml-2">Ulubione</span>
-          </Link>
+          <LinkToFavourites />
         </nav>
       </div>
     </header>
