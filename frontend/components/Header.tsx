@@ -1,34 +1,41 @@
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { buttonVariantsAndSizes } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Search, Heart } from "lucide-react";
 import Link from "next/link";
 
 export function Header() {
+  // Przykładowe ID pobrane z localStorage/stanu
+  const favouriteIds = "1,2,3";
+
   return (
-    <header className="border-b border-primary/20 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-primary/10 bg-white backdrop-blur-md">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+          <div className="w-9 h-9 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-sm">
             <span className="text-xl">🐧</span>
           </div>
-          <h1 className="text-xl font-bold text-foreground">matury.eu</h1>
+          <span className="text-xl font-bold tracking-tight text-foreground">matury.eu</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          {/* Nie wiem co jeszcze dodać do headera, póki co nie mamy czego, dodałem cokolwiek żeby nie było placeholderów */}
-          <Link href="/" className="text-foreground/70 hover:text-foreground transition-colors">
-            Strona główna
+
+        <nav className="flex items-center gap-2 sm:gap-4">
+          <Link
+            href="/szukaj"
+            aria-label="Wyszukiwarka"
+            className={cn(buttonVariantsAndSizes({ variant: "default", size: "sm" }))}
+          >
+            <Search className="w-5 h-5 md:w-4 md:h-4" />
+            <span className="hidden md:inline ml-2">Szukaj</span>
           </Link>
-          <Link href="/szukaj" className="">
-            <Button
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary/30 bg-transparent cursor-pointer"
-            >
-              Szukaj
-            </Button>
+
+          <Link
+            href={`/szukaj?ids=${favouriteIds}`}
+            aria-label="Zobacz polubione"
+            className={cn(buttonVariantsAndSizes({ variant: "secondary", size: "sm" }))}
+          >
+            <Heart fill="#f008" className="w-5 h-5 md:w-4 md:h-4" />
+            <span className="hidden md:inline ml-2">Ulubione</span>
           </Link>
         </nav>
-        <Button variant="ghost" size="sm" className="md:hidden">
-          <Menu className="w-5 h-5" />
-        </Button>
       </div>
     </header>
   );

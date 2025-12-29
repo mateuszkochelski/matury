@@ -234,9 +234,9 @@ function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) 
           className="flex items-center gap-2
          pt-2 border-t border-primary/10"
         >
-          <Switch id="favorites-toggle" checked={!!field.value} onCheckedChange={field.onChange} />
+          <Switch id="favourites-toggle" checked={!!field.value} onCheckedChange={field.onChange} />
           <label
-            htmlFor="favorites-toggle"
+            htmlFor="favourites-toggle"
             className="text-sm font-medium text-foreground cursor-pointer"
           >
             Pokaż tylko ulubione
