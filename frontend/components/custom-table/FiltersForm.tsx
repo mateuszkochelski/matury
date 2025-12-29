@@ -39,7 +39,6 @@ export function FiltersForm<T>({
   table: Table<T>;
   filters?: FiltersFormValues;
 }) {
-  console.log("seba zawszze");
   const {
     register,
     handleSubmit,

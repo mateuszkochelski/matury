@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
-        <div className="bg-background">
+        <div className="min-h-screen bg-background">
           <Header />
           <div className="container mx-auto px-4 pt-20 pb-6 flex flex-col gap-5">{children}</div>
         </div>

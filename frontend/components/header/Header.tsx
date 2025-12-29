@@ -4,8 +4,6 @@ import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 import Link from "next/link";
 
-export const SYNC_FAVOURITES_VALUE = "sync";
-
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-primary/10 bg-white backdrop-blur-md">
@@ -20,7 +18,7 @@ export function Header() {
         <nav className="flex items-center gap-2 sm:gap-4">
           <Link
             href="/szukaj"
-            aria-label="Wyszukiwarka"
+            aria-label="Szukaj"
             className={cn(buttonVariantsAndSizes({ variant: "default", size: "sm" }))}
           >
             <Search className="w-5 h-5 md:w-4 md:h-4" />
