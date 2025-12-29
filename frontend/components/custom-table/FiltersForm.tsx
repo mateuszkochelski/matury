@@ -8,9 +8,10 @@ import { FloatingLabelInput } from "../ui/floating-label-input";
 import { Switch } from "../ui/switch";
 import { FetchDataIdsProp } from "./fetchData";
 import { DegreesObject } from "./types";
-import { getFavourites } from "@/app/utils/getFavourites";
 import { Button } from "@/components/ui/button";
+import { favouritesAtom } from "@/lib/atoms";
 import { type Table } from "@tanstack/react-table";
+import { getDefaultStore } from "jotai";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useForm, Controller, SubmitHandler, Control } from "react-hook-form";
 
@@ -68,7 +69,7 @@ export function FiltersForm<T>({
         });
 
       const favouritesParamName: keyof FetchDataIdsProp = "ids";
-      const favourites = getFavourites();
+      const favourites = getDefaultStore().get(favouritesAtom);
       if (!isFavouritesOnly || favourites.length === 0) {
         params.delete(favouritesParamName);
       } else {
@@ -234,9 +235,9 @@ function ActionsComponent({ control }: { control: Control<FiltersFormValues> }) 
           className="flex items-center gap-2
          pt-2 border-t border-primary/10"
         >
-          <Switch id="favorites-toggle" checked={!!field.value} onCheckedChange={field.onChange} />
+          <Switch id="favourites-toggle" checked={!!field.value} onCheckedChange={field.onChange} />
           <label
-            htmlFor="favorites-toggle"
+            htmlFor="favourites-toggle"
             className="text-sm font-medium text-foreground cursor-pointer"
           >
             Pokaż tylko ulubione

@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/header/Header";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <div className="min-h-screen bg-background">
           <Header />
-          <div className="container mx-auto px-4 py-6 flex flex-col gap-5">{children}</div>
+          <div className="container mx-auto px-4 pt-20 pb-6 flex flex-col gap-5">{children}</div>
         </div>
       </body>
     </html>
