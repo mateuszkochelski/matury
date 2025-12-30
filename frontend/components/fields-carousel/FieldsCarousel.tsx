@@ -1,101 +1,112 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { FavouriteButton } from "../FavouriteButton";
 import { FieldOfStudy } from "../custom-table/types";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
-  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
 
   useEffect(() => {
-    const updateItems = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerPage(1);
-      } else if (window.innerWidth < 1024) {
-        setItemsPerPage(2);
-      } else {
-        setItemsPerPage(4);
-      }
-    };
-    updateItems();
-    window.addEventListener("resize", updateItems);
-    return () => window.removeEventListener("resize", updateItems);
-  }, []);
+    checkScroll();
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener("scroll", checkScroll);
+      window.addEventListener("resize", checkScroll);
+      return () => {
+        container.removeEventListener("scroll", checkScroll);
+        window.removeEventListener("resize", checkScroll);
+      };
+    }
+  }, [fields]);
 
-  const [currentPage, setCurrentPage] = useState(0);
-  const pagesCount = Math.ceil(fields.length / itemsPerPage);
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % pagesCount);
-  };
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + pagesCount) % pagesCount);
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      // sm breakpoint - page padding
+      const isSm = scrollContainerRef.current.clientWidth >= 600 - 32;
+      // Cards' width + gap
+      const scrollAmount = (isSm ? 320 : 216) + 16;
+
+      scrollContainerRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <Card className="border-primary/20">
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={prevPage}
-            className="border-primary/30 bg-transparent"
-            disabled={currentPage == 0}
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </Button>
+    <div className="relative group">
+      {/* Left Navigation Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => scroll("left")}
+        className={`${canScrollLeft ? "absolute" : "hidden"} left-0 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full shadow-md transition-all`}
+        aria-label="Scroll left"
+      >
+        <ChevronLeft className="w-6 h-6 text-foreground" />
+      </Button>
 
-          <div className="flex gap-2">
-            {[...Array(pagesCount).keys()].map((index) => (
-              <div
-                key={index}
-                className={`w-2 h-2 rounded-full ${
-                  index === currentPage ? "bg-primary" : "bg-primary/30"
-                }`}
-              />
-            ))}
-          </div>
+      {/* Scrollable Container */}
+      <div ref={scrollContainerRef} className="overflow-x-auto no-scrollbar scroll-smooth">
+        <div className="flex gap-4 pb-2">
+          {fields.map((field) => (
+            <div key={field.id} className="inline-block flex-shrink-0 w-54 sm:w-80">
+              <Card className="border-primary/10 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full relative">
+                <div className="absolute top-3 right-3 z-5">
+                  <FavouriteButton fieldId={field.id} size="small" />
+                </div>
 
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={nextPage}
-            className="border-primary/30 bg-transparent"
-            disabled={currentPage == pagesCount - 1}
-          >
-            <ChevronRight className="w-4 h-4" />
-          </Button>
-        </div>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {fields
-            .slice(currentPage * itemsPerPage, currentPage * itemsPerPage + itemsPerPage)
-            .map((field) => (
-              <Card
-                key={field.id}
-                className="border-primary/10 hover:shadow-md transition-shadow flex flex-col justify-between"
-              >
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base text-foreground">{field.name}</CardTitle>
-                  <CardDescription className="text-sm">{field.university.name}</CardDescription>
-                  <CardDescription className="text-sm">{field.department.name}</CardDescription>
+                <CardHeader className="py-3 flex-grow">
+                  <CardTitle className="text-base sm:text-lg font-semibold text-foreground line-clamp-2 mr-3">
+                    {field.name}
+                  </CardTitle>
+                  <CardDescription className="text-xs sm:text-sm text-foreground/70 mt-1">
+                    {field.university.name}
+                  </CardDescription>
+                  <CardDescription className="text-xs sm:text-sm text-foreground/60">
+                    {field.department.name}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0 space-y-3">
                   <a href={`/${field.university.id}/${field.department.id}/${field.id}`}>
                     <Button
                       size="sm"
-                      className="w-full bg-primary hover:bg-primary/90 text-foreground cursor-pointer"
+                      className="w-full bg-primary hover:bg-primary/90 text-foreground cursor-pointer transition-colors text-sm"
                     >
                       Sprawdź
                     </Button>
                   </a>
                 </CardContent>
               </Card>
-            ))}
+            </div>
+          ))}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+
+      {/* Right Navigation Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => scroll("right")}
+        className={`${canScrollRight ? "absolute" : "hidden"} right-0 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full shadow-md transition-all`}
+        aria-label="Scroll right"
+      >
+        <ChevronRight className="w-6 h-6 text-foreground" />
+      </Button>
+    </div>
   );
 }

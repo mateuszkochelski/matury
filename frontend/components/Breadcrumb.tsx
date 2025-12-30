@@ -40,7 +40,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               {item.name}
             </Link>
           ) : (
-            <span className="text-foreground">{item.name}</span>
+            <span className="text-foreground whitespace-nowrap">{item.name}</span>
           )}
         </Fragment>
       ))}
