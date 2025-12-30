@@ -48,10 +48,12 @@ export default function CustomLineChart<T extends BaseGraphData>({
     .map((phase) => phase.filter((record) => record[yDataKey] !== null))
     .filter((phase) => phase.length > 0);
 
+  const isThereData = filteredData.length > 0 && filteredData[selectedPhase]?.length > 0;
+
   return (
     <>
-      <div className="h-64">
-        {filteredData.length > 0 && filteredData[selectedPhase]?.length > 0 ? (
+      <div className={`${isThereData ? "h-64" : ""} lg:h-64`}>
+        {isThereData ? (
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={filteredData[selectedPhase]}>
               <CartesianGrid strokeDasharray="3 3" />
