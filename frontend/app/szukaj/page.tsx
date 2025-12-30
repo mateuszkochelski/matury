@@ -9,7 +9,7 @@ export default async function Home({
 }: {
   searchParams?: Promise<TableSearchParams>;
 }) {
-  const { pageSize, pageIndex, hiddenColumns, sortBy, direction, ...rest } =
+  const { pageSize, pageIndex, hiddenColumns, sortBy, direction, searchName, ...rest } =
     (await searchParams) ?? {};
 
   const response = await fetchData({
@@ -20,9 +20,11 @@ export default async function Home({
     direction,
     filters: rest,
     ids: rest.ids,
+    searchName,
   });
+
   const data: FieldOfStudyExtendedData = await response.json();
-  const { content: fields, page: pageData } = data;
+  const { content: fields, page: pageData, matched } = data;
   const { number: pageNumber, totalElements, size } = pageData;
 
   return (
@@ -36,6 +38,8 @@ export default async function Home({
         sortBy={sortBy}
         direction={direction}
         filters={serializeFiltersFormValues(rest)}
+        searchNameValue={searchName}
+        matched={matched}
       />
     </main>
   );
