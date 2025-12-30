@@ -18,10 +18,10 @@ export function FavouriteButton({ fieldId, size }: { fieldId: number; size: "sma
 
   return (
     <div className="flex justify-center w-fit">
-      <div className="cursor-pointer group" onClick={toggleFavourite}>
+      <div className="cursor-pointer" onClick={toggleFavourite}>
         <HeartIcon
           fill={isFavourite ? "#f008" : "transparent"}
-          className={`transition-[fill] duration-100 ${size === "large" ? "size-8" : ""} ${isFavourite ? "" : "group-hover:fill-[#f004]"}`}
+          className={`transition-[fill] duration-100 ${size === "large" ? "size-8" : ""} ${isFavourite ? "" : "hover:fill-[#f004]"}`}
         />
       </div>
     </div>
