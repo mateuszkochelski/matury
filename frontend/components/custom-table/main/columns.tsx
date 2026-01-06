@@ -113,5 +113,6 @@ export const columns: ColumnDef<FieldOfStudyExtended>[] = [
     },
     // this needs to be here in order for filters to work
     accessorFn: () => {},
+    enableSorting: false,
   },
 ];

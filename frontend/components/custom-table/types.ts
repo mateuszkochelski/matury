@@ -21,6 +21,8 @@ export type FieldOfStudyExtended = FieldOfStudy & {
   avgIncome: number;
 };
 
+export type MatchedType = "field" | "department" | "university" | "none";
+
 export type FieldOfStudyExtendedData = {
   content: FieldOfStudyExtended[];
   page: {
@@ -29,6 +31,7 @@ export type FieldOfStudyExtendedData = {
     totalElements: number;
     totalPages: number;
   };
+  matched: MatchedType;
 };
 
 export const possibleDegrees = ["bachelor", "engineer", "master", "long_master"] as const;

@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 import { FiltersFormValues, FiltersForm } from "./FiltersForm";
+import { SearchBar } from "./SearchBar";
 import { TableSearchParams } from "./fetchData";
+import { MatchedType } from "./types";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,7 +13,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Pagination, PaginationContent, PaginationItem } from "@/components/ui/pagination";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -50,10 +51,8 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
-  CircleXIcon,
   Columns3Icon,
   FilterIcon,
-  SearchIcon,
 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -69,6 +68,8 @@ type GenericTableProps<T> = {
   sortBy?: string;
   direction?: string;
   filters?: FiltersFormValues;
+  searchNameValue?: string;
+  matched?: MatchedType;
 };
 
 export type TableProps<T> = Omit<GenericTableProps<T>, "columns">;
@@ -83,6 +84,8 @@ export function GenericTable<T>({
   sortBy = "name",
   direction = "asc",
   filters,
+  searchNameValue,
+  matched,
 }: GenericTableProps<T>) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -93,7 +96,6 @@ export function GenericTable<T>({
     pageIndex: pageNumber,
     pageSize: pageSize,
   });
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const [sorting, setSorting] = useState<SortingState>([
     {
@@ -184,87 +186,57 @@ export function GenericTable<T>({
     <div className="space-y-4">
       {/* Filters */}
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          {/* Filter by name or email */}
-          <div className="relative">
-            <Input
-              id={`${id}-input`}
-              ref={inputRef}
-              className={cn(
-                "peer ps-9",
-                Boolean(table.getColumn("name")?.getFilterValue()) && "pe-9",
-                "bg-card",
-              )}
-              value={(table.getColumn("name")?.getFilterValue() ?? "") as string}
-              onChange={(e) => table.getColumn("name")?.setFilterValue(e.target.value)}
-              placeholder="Wyszukaj kierunek po nazwie"
-              type="text"
-              aria-label="Wyszukaj kierunek po nazwie"
-            />
-            <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50">
-              <SearchIcon size={16} aria-hidden="true" />
-            </div>
-            {Boolean(table.getColumn("name")?.getFilterValue()) && (
-              <button
-                className="text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md transition-[color,box-shadow] outline-none focus:z-10 focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
-                aria-label="Wyczyść filtry"
-                onClick={() => {
-                  table.getColumn("name")?.setFilterValue("");
-                  if (inputRef.current) {
-                    inputRef.current.focus();
-                  }
-                }}
-              >
-                <CircleXIcon size={16} aria-hidden="true" />
-              </button>
-            )}
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <SearchBar searchNameValue={searchNameValue} matched={matched} />
+
+          <div className="grid grid-cols-2 gap-2 w-full">
+            {/* Toggle columns visibility */}
+            <DropdownMenu onOpenChange={handleColumnVisibilityUpdate}>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline">
+                  <Columns3Icon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
+                  Widok
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-card">
+                <DropdownMenuLabel>Widoczność kolumn</DropdownMenuLabel>
+                {table
+                  .getAllColumns()
+                  .filter((column) => column.getCanHide())
+                  .map((column) => {
+                    return (
+                      <DropdownMenuCheckboxItem
+                        key={column.id}
+                        checked={column.getIsVisible()}
+                        // values such as 0 or "" should be default or not present
+                        onCheckedChange={(value) => column.toggleVisibility(!!value)}
+                        onSelect={(event) => event.preventDefault()}
+                      >
+                        {column.columnDef.header?.toString()}
+                      </DropdownMenuCheckboxItem>
+                    );
+                  })}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            {/* Filter by status */}
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline">
+                  <FilterIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
+                  Filtry
+                  {/* // TODO: this logic does not take degrees into account */}
+                  {Object.values(filters ?? {}).filter((v) => !!v).length > 0 && (
+                    <span className="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
+                      {Object.values(filters ?? {}).filter((v) => !!v).length}
+                    </span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-72 p-0 bg-card" align="start">
+                <FiltersForm table={table} filters={filters} />
+              </PopoverContent>
+            </Popover>
           </div>
-          {/* Toggle columns visibility */}
-          <DropdownMenu onOpenChange={handleColumnVisibilityUpdate}>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline">
-                <Columns3Icon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
-                Widok
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="bg-card">
-              <DropdownMenuLabel>Widoczność kolumn</DropdownMenuLabel>
-              {table
-                .getAllColumns()
-                .filter((column) => column.getCanHide())
-                .map((column) => {
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      checked={column.getIsVisible()}
-                      // values such as 0 or "" should be default or not present
-                      onCheckedChange={(value) => column.toggleVisibility(!!value)}
-                      onSelect={(event) => event.preventDefault()}
-                    >
-                      {column.columnDef.header?.toString()}
-                    </DropdownMenuCheckboxItem>
-                  );
-                })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          {/* Filter by status */}
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline">
-                <FilterIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
-                Filtry
-                {/* // TODO: this logic does not take degrees into account */}
-                {Object.values(filters ?? {}).filter((v) => !!v).length > 0 && (
-                  <span className="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
-                    {Object.values(filters ?? {}).filter((v) => !!v).length}
-                  </span>
-                )}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-72 p-0 bg-card" align="start">
-              <FiltersForm table={table} filters={filters} />
-            </PopoverContent>
-          </Popover>
         </div>
       </div>
 
