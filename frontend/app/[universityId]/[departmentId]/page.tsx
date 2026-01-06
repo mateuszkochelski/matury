@@ -18,7 +18,7 @@ export default async function Page({
     notFound();
   }
 
-  const { pageSize, pageIndex, hiddenColumns, ...rest } = (await searchParams) ?? {};
+  const { pageSize, pageIndex, hiddenColumns, searchName, ...rest } = (await searchParams) ?? {};
 
   const { departmentData, fieldOfStudyData } = await getDepartmentData(
     departmentId,
@@ -52,6 +52,7 @@ export default async function Page({
         totalElements={totalElements}
         hiddenColumns={hiddenColumns?.split(",")}
         filters={serializeFiltersFormValues(rest)}
+        searchNameValue={searchName}
       />
     </>
   );
