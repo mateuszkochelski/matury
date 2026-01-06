@@ -40,7 +40,7 @@ export async function getAdmissionProbability(
       examScoresCount: examScores.length,
       errorBody,
     });
-    return;
+    return {};
   }
 
   return await response.json();

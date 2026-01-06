@@ -94,8 +94,8 @@ export default function CalculatorForm() {
     // Convert to probability (0-100)
     const baseProbability = Math.min(100, (adjustedAverage / 100) * 110);
     setScoringResults({
-      probability: Math.round(Math.max(5, baseProbability)),
-      points: data.totalPoints ?? weightedScores,
+      probability: data.probability ?? Math.round(Math.max(5, baseProbability)),
+      points: data.totalPoints ?? totalWeighted,
     });
   };
 
