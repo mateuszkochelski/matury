@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { MatchedType } from "./types";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -14,7 +14,7 @@ import {
   University,
   Landmark,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 const matchedMapping = {
   field: {
@@ -40,9 +40,23 @@ export function SearchBar({
   searchNameValue?: string;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const inputRef = useRef<HTMLInputElement>(null);
   const isInitialMount = useRef(true);
   const [query, setQuery] = useState(searchNameValue ?? "");
+
+  const buildUrl = useCallback(() => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (query === "") {
+      params.delete("searchName");
+    } else {
+      params.set("searchName", query);
+    }
+
+    return `${pathname}?${params.toString()}`;
+  }, [pathname, query, searchParams]);
 
   useEffect(() => {
     if (isInitialMount.current) {
@@ -51,12 +65,12 @@ export function SearchBar({
     }
 
     const prefetchTimer = setTimeout(() => {
-      const url = `/szukaj?searchName=${encodeURIComponent(query)}`;
+      const url = buildUrl();
       router.prefetch(url);
     }, 250);
 
     const navigateTimer = setTimeout(() => {
-      const url = `/szukaj?searchName=${encodeURIComponent(query)}`;
+      const url = buildUrl();
       router.replace(url, { scroll: false });
     }, 600);
 
@@ -64,7 +78,7 @@ export function SearchBar({
       clearTimeout(prefetchTimer);
       clearTimeout(navigateTimer);
     };
-  }, [query, router]);
+  }, [query, router, buildUrl]);
 
   const handleClear = () => {
     setQuery("");
