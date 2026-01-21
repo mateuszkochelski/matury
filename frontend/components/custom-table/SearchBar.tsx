@@ -94,11 +94,11 @@ export function SearchBar({
   };
 
   return (
-    <div className="flex items-center gap-2">
-      <div className="relative">
+    <div className="flex grow items-center gap-2">
+      <div className="relative flex-grow">
         <Input
           ref={inputRef}
-          className={cn("peer ps-9", "w-62", query && "pe-9", "bg-card")}
+          className={cn("peer ps-9", "w-full sm:w-62", query && "pe-9", "bg-card")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Szukaj..."

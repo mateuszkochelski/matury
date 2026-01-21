@@ -186,7 +186,7 @@ export function GenericTable<T>({
     <div className="space-y-4">
       {/* Filters */}
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="w-full sm:w-auto grid sm:grid-cols-2 grow sm:grow-0 flex-col sm:flex-row items-center gap-4">
           <SearchBar searchNameValue={searchNameValue} matched={matched} />
 
           <div className="grid grid-cols-2 gap-2 w-full">
