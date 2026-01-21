@@ -1,62 +1,30 @@
-"use client";
-
-import React, { useMemo, useState, lazy, Suspense } from "react";
-import { SubjectAndLevel } from "@/app/utils/getSubjectsAndLevels";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Calculator, FileText, Search, TrendingUp } from "lucide-react";
-import { useRouter } from "next/navigation";
-
-const ExamSelectionModal = lazy(() => import("./calculator/ExamSelectionModal"));
 
 export function FunctionalitySection() {
-  const router = useRouter();
-  const [showModal, setShowModal] = useState(false);
-
-  const onAddExam = (exam: SubjectAndLevel, level: string, score: number) => {
-    let toSave = [];
-    const currentlyStored = localStorage.getItem("examScores");
-    if (currentlyStored) {
-      toSave = JSON.parse(currentlyStored);
-    }
-
-    toSave.push({
-      examCode: exam.code,
-      examLabel: exam.label,
-      level,
-      score,
-    });
-
-    localStorage.setItem("examScores", JSON.stringify(toSave));
-  };
-
-  const sections = useMemo(() => {
-    const commonClassName = "w-6 md:w-8 h-6 md:h-8";
-    return [
-      {
-        icon: <Search className={`${commonClassName} text-primary`} />,
-        title: "Wyszukiwarka",
-        description:
-          "Znajdź dokładnie te informacje które potrzebujesz dzięki rozbudowanym filtrom",
-        onClick: () => router.push("/szukaj"),
-      },
-      {
-        icon: <Calculator className={`${commonClassName} text-orange-400`} />,
-        title: "Kalkulator rekrutacyjny",
-        description: "Sprawdź jaką masz szansę dostać się na wymarzony kierunek studiów",
-        onClick: () => setShowModal(true),
-      },
-      {
-        icon: <FileText className={`${commonClassName} text-accent`} />,
-        title: "Dane historyczne",
-        description: "Zobacz jak w ostatnich latach wyglądała rekrutacja na dany kierunek studiów",
-      },
-      {
-        icon: <TrendingUp className={`${commonClassName} text-green-400`} />,
-        title: "Dalsza kariera",
-        description: "Sprawdź jak zarabiają absolwenci wybranych kierunków studiów",
-      },
-    ];
-  }, [router]);
+  const commonClassName = "w-6 md:w-8 h-6 md:h-8";
+  const sections = [
+    {
+      icon: <Search className={`${commonClassName} text-primary`} />,
+      title: "Wyszukiwarka",
+      description: "Znajdź dokładnie te informacje które potrzebujesz dzięki rozbudowanym filtrom",
+    },
+    {
+      icon: <Calculator className={`${commonClassName} text-orange-400`} />,
+      title: "Kalkulator rekrutacyjny",
+      description: "Sprawdź jaką masz szansę dostać się na wymarzony kierunek studiów",
+    },
+    {
+      icon: <FileText className={`${commonClassName} text-accent`} />,
+      title: "Dane historyczne",
+      description: "Zobacz jak w ostatnich latach wyglądała rekrutacja na dany kierunek studiów",
+    },
+    {
+      icon: <TrendingUp className={`${commonClassName} text-green-400`} />,
+      title: "Dalsza kariera",
+      description: "Sprawdź jak zarabiają absolwenci wybranych kierunków studiów",
+    },
+  ];
 
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -64,7 +32,6 @@ export function FunctionalitySection() {
         <Card
           key={index}
           className="text-center border-primary/20 hover:shadow-lg transition-shadow"
-          onClick={feature.onClick}
         >
           <CardHeader>
             <div className="mx-auto mb-4 p-3 bg-background rounded-full w-fit">{feature.icon}</div>
@@ -75,15 +42,6 @@ export function FunctionalitySection() {
           </CardContent>
         </Card>
       ))}
-
-      <Suspense fallback={null}>
-        <ExamSelectionModal
-          onAddExam={onAddExam}
-          showModal={showModal}
-          setShowModal={setShowModal}
-          shouldShowConfirmationPage
-        />
-      </Suspense>
     </div>
   );
 }

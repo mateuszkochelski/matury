@@ -47,6 +47,20 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
     }
   };
 
+  // smaller blur and hide mask at edges when fully scrolled
+  const blurStart = 6; // percent
+  const blurEnd = 94; // percent
+  let maskImage: string;
+  if (!canScrollLeft && !canScrollRight) {
+    maskImage = "none";
+  } else if (!canScrollLeft) {
+    maskImage = `linear-gradient(to right, black 0%, black ${blurEnd}%, transparent 100%)`;
+  } else if (!canScrollRight) {
+    maskImage = `linear-gradient(to right, transparent 0%, black ${blurStart}%, black 100%)`;
+  } else {
+    maskImage = `linear-gradient(to right, transparent 0%, black ${blurStart}%, black ${blurEnd}%, transparent 100%)`;
+  }
+
   return (
     <div className="relative group">
       {/* Left Navigation Button */}
@@ -61,7 +75,14 @@ export default function FieldsCarousel({ fields }: { fields: FieldOfStudy[] }) {
       </Button>
 
       {/* Scrollable Container */}
-      <div ref={scrollContainerRef} className="overflow-x-auto no-scrollbar scroll-smooth">
+      <div
+        ref={scrollContainerRef}
+        className="overflow-x-auto no-scrollbar scroll-smooth"
+        style={{
+          maskImage,
+          WebkitMaskImage: maskImage,
+        }}
+      >
         <div className="flex gap-4 pb-2">
           {fields.map((field) => (
             <div key={field.id} className="inline-block flex-shrink-0 w-54 sm:w-80">

@@ -1,4 +1,5 @@
 import { FunctionalitySection } from "@/components/FunctionalitySection";
+import { StandaloneCalculatorButton } from "@/components/calculator/StandaloneCalculatorButton";
 import HistoryRecommedations from "@/components/recommendation/HistoryRecommendations";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -66,15 +67,7 @@ export default async function Home() {
               Wpisz swoje wyniki maturalne i przekonaj się, czy dostaniesz się na wymarzony kierunek
             </p>
             <div className="flex justify-center">
-              {/* TODO: Make calculator page / Calculator popup */}
-              <Link href="/szukaj">
-                <Button
-                  size="lg"
-                  className="bg-white hover:bg-white/70 w-full sm:w-auto cursor-pointer"
-                >
-                  Wpisz wyniki matur
-                </Button>
-              </Link>
+              <StandaloneCalculatorButton />
             </div>
           </div>
         </div>
